@@ -1,0 +1,48 @@
+{
+ "capture": "single_scan_floor_only",
+ "n_submaps": 46,
+ "loop_candidates": 161,
+ "loops_accepted": 4,
+ "loops_after_prune": 2,
+ "loop_corr_mm_median": 81.4,
+ "pose_shift_mm_p50_p95_max": [
+  55.2,
+  87.5,
+  93.9
+ ],
+ "sec": 14.8,
+ "loops": [
+  {
+   "i": 0,
+   "j": 45,
+   "fitness": 0.38,
+   "rmse_mm": 13.3,
+   "corr_mm": 22.0,
+   "corr_deg": 2.06
+  },
+  {
+   "i": 4,
+   "j": 10,
+   "fitness": 0.46,
+   "rmse_mm": 13.2,
+   "corr_mm": 109.2,
+   "corr_deg": 2.07
+  },
+  {
+   "i": 13,
+   "j": 33,
+   "fitness": 0.553,
+   "rmse_mm": 14.5,
+   "corr_mm": 173.9,
+   "corr_deg": 3.2
+  },
+  {
+   "i": 26,
+   "j": 31,
+   "fitness": 0.381,
+   "rmse_mm": 13.7,
+   "corr_mm": 53.6,
+   "corr_deg": 0.32
+  }
+ ]
+}

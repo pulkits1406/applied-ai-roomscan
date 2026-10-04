@@ -1,0 +1,59 @@
+{
+ "single_scan_with_ceiling": {
+  "header": {
+   "n_rooms": 5,
+   "areas_m2": [
+    13.51,
+    5.16,
+    1.69,
+    4.04,
+    2.8
+   ]
+  },
+  "morph": {
+   "n_rooms": 6,
+   "areas_m2": [
+    3.06,
+    3.93,
+    3.48,
+    2.04,
+    2.16,
+    6.96
+   ]
+  }
+ },
+ "single_scan_floor_only": {
+  "header": {
+   "n_rooms": 2,
+   "areas_m2": [
+    21.28,
+    2.62
+   ]
+  },
+  "morph": {
+   "n_rooms": 5,
+   "areas_m2": [
+    3.54,
+    2.28,
+    1.69,
+    4.11,
+    8.98
+   ]
+  }
+ },
+ "single_room": {
+  "header": {
+   "n_rooms": 1,
+   "areas_m2": [
+    10.66
+   ]
+  },
+  "morph": {
+   "n_rooms": 2,
+   "areas_m2": [
+    3.84,
+    6.56
+   ]
+  }
+ }
+}

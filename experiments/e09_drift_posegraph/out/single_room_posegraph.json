@@ -1,0 +1,48 @@
+{
+ "capture": "single_room",
+ "n_submaps": 15,
+ "loop_candidates": 24,
+ "loops_accepted": 4,
+ "loops_after_prune": 3,
+ "loop_corr_mm_median": 86.65,
+ "pose_shift_mm_p50_p95_max": [
+  25.1,
+  93.3,
+  94.5
+ ],
+ "sec": 2.2,
+ "loops": [
+  {
+   "i": 5,
+   "j": 12,
+   "fitness": 0.431,
+   "rmse_mm": 14.1,
+   "corr_mm": 81.8,
+   "corr_deg": 0.88
+  },
+  {
+   "i": 5,
+   "j": 14,
+   "fitness": 0.386,
+   "rmse_mm": 13.8,
+   "corr_mm": 87.6,
+   "corr_deg": 0.98
+  },
+  {
+   "i": 6,
+   "j": 12,
+   "fitness": 0.363,
+   "rmse_mm": 13.3,
+   "corr_mm": 105.6,
+   "corr_deg": 0.82
+  },
+  {
+   "i": 6,
+   "j": 14,
+   "fitness": 0.417,
+   "rmse_mm": 13.0,
+   "corr_mm": 85.7,
+   "corr_deg": 1.78
+  }
+ ]
+}

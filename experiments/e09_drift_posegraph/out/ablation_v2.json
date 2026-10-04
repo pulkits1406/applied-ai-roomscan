@@ -1,0 +1,76 @@
+{
+ "single_room": {
+  "revisit_gap_gt30s": {
+   "off": {
+    "n": 0
+   },
+   "on": {
+    "n": 0
+   }
+  },
+  "wall_thickness_mm": {
+   "off": 15.16,
+   "on": 15.16
+  }
+ },
+ "single_scan_floor_only": {
+  "revisit_gap_gt30s": {
+   "off": {
+    "n": 109,
+    "median_mm": 9.3,
+    "p90_mm": 38.9
+   },
+   "on": {
+    "n": 69,
+    "median_mm": 218.1,
+    "p90_mm": 235.0
+   }
+  },
+  "wall_thickness_mm": {
+   "off": 15.98,
+   "on": 15.76
+  }
+ },
+ "single_scan_with_ceiling": {
+  "revisit_gap_gt30s": {
+   "off": {
+    "n": 266,
+    "median_mm": 27.7,
+    "p90_mm": 46.5
+   },
+   "on": {
+    "n": 266,
+    "median_mm": 24.0,
+    "p90_mm": 64.9
+   }
+  },
+  "wall_thickness_mm": {
+   "off": 19.73,
+   "on": 19.29
+  }
+ },
+ "cross_single_scan_floor_only__single_scan_with_ceiling": {
+  "off": {
+   "overlap": 0.855,
+   "median_mm": 21.4,
+   "p90_mm": 97.4
+  },
+  "on": {
+   "overlap": 0.966,
+   "median_mm": 17.0,
+   "p90_mm": 78.1
+  }
+ },
+ "cross_single_room__single_scan_with_ceiling": {
+  "off": {
+   "overlap": 0.991,
+   "median_mm": 13.3,
+   "p90_mm": 40.9
+  },
+  "on": {
+   "overlap": 0.991,
+   "median_mm": 13.8,
+   "p90_mm": 54.4
+  }
+ }
+}

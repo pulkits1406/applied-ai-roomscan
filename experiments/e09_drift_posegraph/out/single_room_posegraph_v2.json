@@ -1,0 +1,20 @@
+{
+ "capture": "single_room",
+ "n_submaps": 15,
+ "loop_candidates": 24,
+ "loops_accepted": 0,
+ "rejected": {
+  "fitness": 24,
+  "rmse": 0,
+  "big": 0,
+  "degenerate": 0
+ },
+ "loops_after_prune": 0,
+ "pose_shift_mm_p50_p95_max": [
+  0.0,
+  0.0,
+  0.0
+ ],
+ "sec": 2.4,
+ "loops": []
+}

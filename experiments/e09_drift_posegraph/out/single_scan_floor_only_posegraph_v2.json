@@ -1,0 +1,28 @@
+{
+ "capture": "single_scan_floor_only",
+ "n_submaps": 46,
+ "loop_candidates": 161,
+ "loops_accepted": 1,
+ "rejected": {
+  "fitness": 159,
+  "rmse": 0,
+  "big": 1,
+  "degenerate": 0
+ },
+ "loops_after_prune": 1,
+ "pose_shift_mm_p50_p95_max": [
+  162.5,
+  379.7,
+  440.7
+ ],
+ "sec": 15.1,
+ "loops": [
+  {
+   "i": 13,
+   "j": 33,
+   "fitness": 0.553,
+   "corr_mm": 173.9,
+   "eig_ratio": 1.0
+  }
+ ]
+}
