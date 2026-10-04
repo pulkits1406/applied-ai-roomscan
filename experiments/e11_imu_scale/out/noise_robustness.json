@@ -1,0 +1,104 @@
+{
+ "single_room": {
+  "noise0mm_sigma0.4": {
+   "geo_mean_err_pct_median": 1.97,
+   "spread_pct": 0.0
+  },
+  "noise0mm_sigma0.6": {
+   "geo_mean_err_pct_median": 3.58,
+   "spread_pct": 0.0
+  },
+  "noise5mm_sigma0.4": {
+   "geo_mean_err_pct_median": 1.47,
+   "spread_pct": 0.27
+  },
+  "noise5mm_sigma0.6": {
+   "geo_mean_err_pct_median": 3.62,
+   "spread_pct": 0.72
+  },
+  "noise10mm_sigma0.4": {
+   "geo_mean_err_pct_median": 1.29,
+   "spread_pct": 2.89
+  },
+  "noise10mm_sigma0.6": {
+   "geo_mean_err_pct_median": 2.44,
+   "spread_pct": 2.59
+  },
+  "noise20mm_sigma0.4": {
+   "geo_mean_err_pct_median": -3.18,
+   "spread_pct": 3.17
+  },
+  "noise20mm_sigma0.6": {
+   "geo_mean_err_pct_median": 2.38,
+   "spread_pct": 4.35
+  }
+ },
+ "single_scan_floor_only": {
+  "noise0mm_sigma0.4": {
+   "geo_mean_err_pct_median": -2.48,
+   "spread_pct": 0.0
+  },
+  "noise0mm_sigma0.6": {
+   "geo_mean_err_pct_median": -0.17,
+   "spread_pct": 0.0
+  },
+  "noise5mm_sigma0.4": {
+   "geo_mean_err_pct_median": -3.03,
+   "spread_pct": 0.43
+  },
+  "noise5mm_sigma0.6": {
+   "geo_mean_err_pct_median": -0.3,
+   "spread_pct": 0.24
+  },
+  "noise10mm_sigma0.4": {
+   "geo_mean_err_pct_median": -3.78,
+   "spread_pct": 0.79
+  },
+  "noise10mm_sigma0.6": {
+   "geo_mean_err_pct_median": -0.68,
+   "spread_pct": 0.58
+  },
+  "noise20mm_sigma0.4": {
+   "geo_mean_err_pct_median": -7.31,
+   "spread_pct": 2.59
+  },
+  "noise20mm_sigma0.6": {
+   "geo_mean_err_pct_median": -1.3,
+   "spread_pct": 1.21
+  }
+ },
+ "single_scan_with_ceiling": {
+  "noise0mm_sigma0.4": {
+   "geo_mean_err_pct_median": -0.36,
+   "spread_pct": 0.0
+  },
+  "noise0mm_sigma0.6": {
+   "geo_mean_err_pct_median": 1.26,
+   "spread_pct": 0.0
+  },
+  "noise5mm_sigma0.4": {
+   "geo_mean_err_pct_median": -0.67,
+   "spread_pct": 0.74
+  },
+  "noise5mm_sigma0.6": {
+   "geo_mean_err_pct_median": 1.22,
+   "spread_pct": 0.3
+  },
+  "noise10mm_sigma0.4": {
+   "geo_mean_err_pct_median": -2.08,
+   "spread_pct": 0.73
+  },
+  "noise10mm_sigma0.6": {
+   "geo_mean_err_pct_median": 0.91,
+   "spread_pct": 0.32
+  },
+  "noise20mm_sigma0.4": {
+   "geo_mean_err_pct_median": -6.82,
+   "spread_pct": 1.57
+  },
+  "noise20mm_sigma0.6": {
+   "geo_mean_err_pct_median": -0.01,
+   "spread_pct": 0.62
+  }
+ }
+}

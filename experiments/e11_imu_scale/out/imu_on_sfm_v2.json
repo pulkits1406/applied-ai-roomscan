@@ -1,0 +1,149 @@
+{
+ "single_room/model0": {
+  "n": 78,
+  "dur_s": 8.2,
+  "ate_mm": 17.0,
+  "gyro_resid": 0.061,
+  "s0.3_geo_err_pct": 10.6,
+  "s0.3_fwd_rev": [
+   3.4,
+   18.4
+  ],
+  "s0.4_geo_err_pct": 16.9,
+  "s0.4_fwd_rev": [
+   8.6,
+   25.8
+  ],
+  "s0.6_geo_err_pct": 19.3,
+  "s0.6_fwd_rev": [
+   13.1,
+   25.9
+  ]
+ },
+ "single_room/model1": {
+  "n": 61,
+  "dur_s": 6.3,
+  "ate_mm": 42.3,
+  "gyro_resid": 0.062,
+  "s0.3_geo_err_pct": -6.3,
+  "s0.3_fwd_rev": [
+   -17.5,
+   6.4
+  ],
+  "s0.4_geo_err_pct": -16.5,
+  "s0.4_fwd_rev": [
+   -37.2,
+   11.0
+  ],
+  "s0.6_geo_err_pct": -26.4,
+  "s0.6_fwd_rev": [
+   -30.6,
+   -22.0
+  ]
+ },
+ "single_scan_with_ceiling/model0": {
+  "n": 111,
+  "dur_s": 11.2,
+  "ate_mm": 56.8,
+  "gyro_resid": 0.064,
+  "s0.3_geo_err_pct": -7.8,
+  "s0.3_fwd_rev": [
+   -17.4,
+   2.9
+  ],
+  "s0.4_geo_err_pct": -14.2,
+  "s0.4_fwd_rev": [
+   -24.3,
+   -2.8
+  ],
+  "s0.6_geo_err_pct": -9.4,
+  "s0.6_fwd_rev": [
+   -23.3,
+   7.0
+  ]
+ },
+ "single_scan_with_ceiling/model1": {
+  "n": 116,
+  "dur_s": 12.4,
+  "ate_mm": 35.5,
+  "gyro_resid": 0.066,
+  "s0.3_geo_err_pct": 8.3,
+  "s0.3_fwd_rev": [
+   5.9,
+   10.8
+  ],
+  "s0.4_geo_err_pct": 10.5,
+  "s0.4_fwd_rev": [
+   8.3,
+   12.7
+  ],
+  "s0.6_geo_err_pct": 14.5,
+  "s0.6_fwd_rev": [
+   12.5,
+   16.4
+  ]
+ },
+ "single_scan_with_ceiling/model2": {
+  "n": 129,
+  "dur_s": 13.5,
+  "ate_mm": 50.3,
+  "gyro_resid": 0.059,
+  "s0.3_geo_err_pct": 4.4,
+  "s0.3_fwd_rev": [
+   -0.6,
+   9.7
+  ],
+  "s0.4_geo_err_pct": 4.7,
+  "s0.4_fwd_rev": [
+   1.2,
+   8.4
+  ],
+  "s0.6_geo_err_pct": 1.9,
+  "s0.6_fwd_rev": [
+   -0.4,
+   4.2
+  ]
+ },
+ "single_scan_with_ceiling/model3": {
+  "n": 88,
+  "dur_s": 9.7,
+  "ate_mm": 12.4,
+  "gyro_resid": 0.086,
+  "s0.3_geo_err_pct": 8.7,
+  "s0.3_fwd_rev": [
+   5.9,
+   11.6
+  ],
+  "s0.4_geo_err_pct": 11.8,
+  "s0.4_fwd_rev": [
+   7.8,
+   15.9
+  ],
+  "s0.6_geo_err_pct": 3.9,
+  "s0.6_fwd_rev": [
+   -0.5,
+   8.5
+  ]
+ },
+ "single_scan_with_ceiling/model4": {
+  "n": 54,
+  "dur_s": 5.8,
+  "ate_mm": 18.6,
+  "gyro_resid": 0.071,
+  "s0.3_geo_err_pct": 8.8,
+  "s0.3_fwd_rev": [
+   6.5,
+   11.0
+  ],
+  "s0.4_geo_err_pct": 12.0,
+  "s0.4_fwd_rev": [
+   8.7,
+   15.5
+  ],
+  "s0.6_geo_err_pct": 70.7,
+  "s0.6_fwd_rev": [
+   61.2,
+   80.6
+  ]
+ }
+}

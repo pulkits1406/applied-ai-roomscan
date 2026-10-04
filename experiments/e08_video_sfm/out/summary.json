@@ -1,0 +1,5034 @@
+{
+ "single_room": {
+  "chosen": "single_room_s1_p0.001_seqloop/incremental_fixed",
+  "sfm_runs": {
+   "s1_p0.001_seq": {
+    "database": {
+     "n_images": 342,
+     "peak_threshold": 0.001,
+     "matching": "sequential",
+     "sec_extract": 27.461527109146118,
+     "sec_match": 43.783915996551514,
+     "verified_pairs": 2567
+    },
+    "incremental_fixed": {
+     "n_total": 342,
+     "n_models": 7,
+     "registered_per_model": [
+      78,
+      60,
+      41,
+      41,
+      36,
+      34,
+      11
+     ],
+     "registered_any": 301,
+     "registered_largest": 78,
+     "sec_mapping": 13.481367111206055,
+     "models": [
+      {
+       "n": 78,
+       "scale_m_per_unit": 0.2435,
+       "ate_rmse_m": 0.0168,
+       "gt_extent_m": [
+        0.972,
+        0.095,
+        2.418
+       ],
+       "rpe_1s_rot_deg_median": 0.5708,
+       "rpe_1s_len_abs_err_median_pct": 3.0212,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 1.0775,
+       "t_span_s": [
+        12.618641584005672,
+        20.78656329200021
+       ]
+      },
+      {
+       "n": 60,
+       "scale_m_per_unit": 0.2022,
+       "ate_rmse_m": 0.0443,
+       "gt_extent_m": [
+        1.517,
+        0.127,
+        1.584
+       ],
+       "rpe_1s_rot_deg_median": 0.2771,
+       "rpe_1s_len_abs_err_median_pct": 6.7809,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.8235,
+       "t_span_s": [
+        6.084290458995383,
+        12.301926000000094
+       ]
+      },
+      {
+       "n": 41,
+       "scale_m_per_unit": 0.0834,
+       "ate_rmse_m": 0.0141,
+       "gt_extent_m": [
+        0.927,
+        0.224,
+        0.391
+       ],
+       "rpe_1s_rot_deg_median": 0.5165,
+       "rpe_1s_len_abs_err_median_pct": 0.7638,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.9213,
+       "t_span_s": [
+        25.3705933750025,
+        29.987957624995033
+       ]
+      },
+      {
+       "n": 41,
+       "scale_m_per_unit": 0.1168,
+       "ate_rmse_m": 0.0066,
+       "gt_extent_m": [
+        0.718,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 0.751,
+       "rpe_1s_len_abs_err_median_pct": 2.1276,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.6768,
+       "t_span_s": [
+        0.0,
+        4.400692958995933
+       ]
+      },
+      {
+       "n": 36,
+       "scale_m_per_unit": 0.1362,
+       "ate_rmse_m": 0.0765,
+       "gt_extent_m": [
+        1.336,
+        0.088,
+        0.991
+       ],
+       "rpe_1s_rot_deg_median": 18.8879,
+       "rpe_1s_len_abs_err_median_pct": 5.7157,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.9053,
+       "t_span_s": [
+        30.321341041999403,
+        34.15525020900532
+       ]
+      },
+      {
+       "n": 34,
+       "scale_m_per_unit": 0.1021,
+       "ate_rmse_m": 0.0104,
+       "gt_extent_m": [
+        1.056,
+        0.032,
+        0.577
+       ],
+       "rpe_1s_rot_deg_median": 0.334,
+       "rpe_1s_len_abs_err_median_pct": 1.4134,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.8013,
+       "t_span_s": [
+        20.88657862499531,
+        24.420449416997144
+       ]
+      },
+      {
+       "n": 11,
+       "scale_m_per_unit": 0.0138,
+       "ate_rmse_m": 0.0103,
+       "gt_extent_m": [
+        0.022,
+        0.035,
+        0.196
+       ],
+       "rpe_1s_rot_deg_median": 0.4951,
+       "rpe_1s_len_abs_err_median_pct": 1.4835,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.9969,
+       "t_span_s": [
+        35.80549720900308,
+        36.95566887500172
+       ]
+      }
+     ]
+    },
+    "incremental_refined": {
+     "n_total": 342,
+     "n_models": 6,
+     "registered_per_model": [
+      78,
+      66,
+      41,
+      41,
+      36,
+      34
+     ],
+     "registered_any": 296,
+     "registered_largest": 78,
+     "sec_mapping": 16.945399045944214,
+     "models": [
+      {
+       "n": 78,
+       "scale_m_per_unit": 0.2377,
+       "ate_rmse_m": 0.0136,
+       "gt_extent_m": [
+        0.972,
+        0.095,
+        2.418
+       ],
+       "rpe_1s_rot_deg_median": 0.4442,
+       "rpe_1s_len_abs_err_median_pct": 1.7663,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         798.768515848216,
+         477.71545000000003,
+         358.89645,
+         0.017452999052363343
+        ]
+       },
+       "mean_reproj_error_px": 1.0673,
+       "t_span_s": [
+        12.618641584005672,
+        20.78656329200021
+       ]
+      },
+      {
+       "n": 66,
+       "scale_m_per_unit": 0.2051,
+       "ate_rmse_m": 0.0234,
+       "gt_extent_m": [
+        1.553,
+        0.137,
+        1.715
+       ],
+       "rpe_1s_rot_deg_median": 0.3136,
+       "rpe_1s_len_abs_err_median_pct": 1.7546,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         787.5646941812736,
+         477.71545000000003,
+         358.89645,
+         0.030043850236000477
+        ]
+       },
+       "mean_reproj_error_px": 0.8369,
+       "t_span_s": [
+        5.550873458996648,
+        12.401941375006572
+       ]
+      },
+      {
+       "n": 41,
+       "scale_m_per_unit": 0.0833,
+       "ate_rmse_m": 0.0127,
+       "gt_extent_m": [
+        0.927,
+        0.224,
+        0.391
+       ],
+       "rpe_1s_rot_deg_median": 0.7542,
+       "rpe_1s_len_abs_err_median_pct": 0.9485,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         778.8554731118588,
+         477.71545000000003,
+         358.89645,
+         -0.002046279670369976
+        ]
+       },
+       "mean_reproj_error_px": 0.9188,
+       "t_span_s": [
+        25.3705933750025,
+        29.987957624995033
+       ]
+      },
+      {
+       "n": 41,
+       "scale_m_per_unit": 0.1166,
+       "ate_rmse_m": 0.0056,
+       "gt_extent_m": [
+        0.718,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 1.0426,
+       "rpe_1s_len_abs_err_median_pct": 1.3937,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         808.0639378799913,
+         477.71545000000003,
+         358.89645,
+         0.013291539258307405
+        ]
+       },
+       "mean_reproj_error_px": 0.6819,
+       "t_span_s": [
+        0.0,
+        4.400692958995933
+       ]
+      },
+      {
+       "n": 36,
+       "scale_m_per_unit": 0.1383,
+       "ate_rmse_m": 0.0744,
+       "gt_extent_m": [
+        1.336,
+        0.088,
+        0.991
+       ],
+       "rpe_1s_rot_deg_median": 17.1074,
+       "rpe_1s_len_abs_err_median_pct": 6.2863,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         975.0987319674205,
+         477.71545000000003,
+         358.89645,
+         0.20682885204957874
+        ]
+       },
+       "mean_reproj_error_px": 0.8929,
+       "t_span_s": [
+        30.321341041999403,
+        34.15525020900532
+       ]
+      },
+      {
+       "n": 34,
+       "scale_m_per_unit": 0.1021,
+       "ate_rmse_m": 0.0119,
+       "gt_extent_m": [
+        1.056,
+        0.032,
+        0.577
+       ],
+       "rpe_1s_rot_deg_median": 0.7769,
+       "rpe_1s_len_abs_err_median_pct": 1.9267,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         771.5683816624762,
+         477.71545000000003,
+         358.89645,
+         0.0013258783378186636
+        ]
+       },
+       "mean_reproj_error_px": 0.799,
+       "t_span_s": [
+        20.88657862499531,
+        24.420449416997144
+       ]
+      }
+     ]
+    },
+    "global_fixed": {
+     "n_total": 342,
+     "n_models": 7,
+     "registered_per_model": [
+      145,
+      48,
+      42,
+      39,
+      35,
+      13,
+      3
+     ],
+     "registered_any": 325,
+     "registered_largest": 145,
+     "sec_mapping": 14.660521984100342,
+     "models": [
+      {
+       "n": 145,
+       "scale_m_per_unit": 0.3673,
+       "ate_rmse_m": 0.1791,
+       "gt_extent_m": [
+        2.593,
+        0.146,
+        3.519
+       ],
+       "rpe_1s_rot_deg_median": 0.4054,
+       "rpe_1s_len_abs_err_median_pct": 18.3098,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.9131,
+       "t_span_s": [
+        5.550873458996648,
+        20.78656329200021
+       ]
+      },
+      {
+       "n": 48,
+       "scale_m_per_unit": 0.0024,
+       "ate_rmse_m": 0.4253,
+       "gt_extent_m": [
+        1.254,
+        0.233,
+        0.56
+       ],
+       "rpe_1s_rot_deg_median": 0.6122,
+       "rpe_1s_len_abs_err_median_pct": 99.908,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.9419,
+       "t_span_s": [
+        24.65381816700392,
+        30.104641750003793
+       ]
+      },
+      {
+       "n": 42,
+       "scale_m_per_unit": 0.0,
+       "ate_rmse_m": 0.439,
+       "gt_extent_m": [
+        0.756,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 0.7268,
+       "rpe_1s_len_abs_err_median_pct": 99.9578,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.721,
+       "t_span_s": [
+        0.0,
+        4.517377916999976
+       ]
+      },
+      {
+       "n": 39,
+       "scale_m_per_unit": 0.1542,
+       "ate_rmse_m": 0.0558,
+       "gt_extent_m": [
+        1.499,
+        0.088,
+        1.02
+       ],
+       "rpe_1s_rot_deg_median": 0.3163,
+       "rpe_1s_len_abs_err_median_pct": 3.1638,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.9072,
+       "t_span_s": [
+        30.321341041999403,
+        34.47196420900582
+       ]
+      },
+      {
+       "n": 35,
+       "scale_m_per_unit": 0.1063,
+       "ate_rmse_m": 0.0156,
+       "gt_extent_m": [
+        1.056,
+        0.042,
+        0.645
+       ],
+       "rpe_1s_rot_deg_median": 0.3904,
+       "rpe_1s_len_abs_err_median_pct": 1.043,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.8204,
+       "t_span_s": [
+        20.88657862499531,
+        24.53713387499738
+       ]
+      },
+      {
+       "n": 13,
+       "scale_m_per_unit": 0.0143,
+       "ate_rmse_m": 0.0744,
+       "gt_extent_m": [
+        0.028,
+        0.048,
+        0.292
+       ],
+       "rpe_1s_rot_deg_median": 1.3049,
+       "rpe_1s_len_abs_err_median_pct": 24.2257,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.9564,
+       "t_span_s": [
+        35.605467166999006,
+        36.95566887500172
+       ]
+      }
+     ]
+    },
+    "global_refined": {
+     "n_total": 342,
+     "n_models": 7,
+     "registered_per_model": [
+      145,
+      48,
+      42,
+      39,
+      35,
+      13,
+      3
+     ],
+     "registered_any": 325,
+     "registered_largest": 145,
+     "sec_mapping": 29.43309998512268,
+     "models": [
+      {
+       "n": 145,
+       "scale_m_per_unit": 0.3693,
+       "ate_rmse_m": 0.1283,
+       "gt_extent_m": [
+        2.593,
+        0.146,
+        3.519
+       ],
+       "rpe_1s_rot_deg_median": 0.2927,
+       "rpe_1s_len_abs_err_median_pct": 13.9448,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         786.6767147685779,
+         477.71545000000003,
+         358.89645,
+         0.020786872877261567
+        ]
+       },
+       "mean_reproj_error_px": 0.8901,
+       "t_span_s": [
+        5.550873458996648,
+        20.78656329200021
+       ]
+      },
+      {
+       "n": 48,
+       "scale_m_per_unit": 0.001,
+       "ate_rmse_m": 0.4139,
+       "gt_extent_m": [
+        1.254,
+        0.233,
+        0.56
+       ],
+       "rpe_1s_rot_deg_median": 0.8547,
+       "rpe_1s_len_abs_err_median_pct": 99.5358,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         777.9972053409132,
+         477.71545000000003,
+         358.89645,
+         -0.00011954693444576536
+        ]
+       },
+       "mean_reproj_error_px": 0.9295,
+       "t_span_s": [
+        24.65381816700392,
+        30.104641750003793
+       ]
+      },
+      {
+       "n": 42,
+       "scale_m_per_unit": 0.0,
+       "ate_rmse_m": 0.4391,
+       "gt_extent_m": [
+        0.756,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 0.8323,
+       "rpe_1s_len_abs_err_median_pct": 99.9581,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         794.1366019343687,
+         477.71545000000003,
+         358.89645,
+         -0.0018290882547309746
+        ]
+       },
+       "mean_reproj_error_px": 0.7334,
+       "t_span_s": [
+        0.0,
+        4.517377916999976
+       ]
+      },
+      {
+       "n": 39,
+       "scale_m_per_unit": 0.1453,
+       "ate_rmse_m": 0.125,
+       "gt_extent_m": [
+        1.499,
+        0.088,
+        1.02
+       ],
+       "rpe_1s_rot_deg_median": 0.33,
+       "rpe_1s_len_abs_err_median_pct": 7.5725,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         799.1430552085664,
+         477.71545000000003,
+         358.89645,
+         0.008871954390040224
+        ]
+       },
+       "mean_reproj_error_px": 0.9233,
+       "t_span_s": [
+        30.321341041999403,
+        34.47196420900582
+       ]
+      },
+      {
+       "n": 35,
+       "scale_m_per_unit": 0.106,
+       "ate_rmse_m": 0.0191,
+       "gt_extent_m": [
+        1.056,
+        0.042,
+        0.645
+       ],
+       "rpe_1s_rot_deg_median": 0.7826,
+       "rpe_1s_len_abs_err_median_pct": 1.4681,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         770.0750231847113,
+         477.71545000000003,
+         358.89645,
+         -0.0015157575849804482
+        ]
+       },
+       "mean_reproj_error_px": 0.798,
+       "t_span_s": [
+        20.88657862499531,
+        24.53713387499738
+       ]
+      },
+      {
+       "n": 13,
+       "scale_m_per_unit": 0.0214,
+       "ate_rmse_m": 0.0321,
+       "gt_extent_m": [
+        0.028,
+        0.048,
+        0.292
+       ],
+       "rpe_1s_rot_deg_median": 6.2083,
+       "rpe_1s_len_abs_err_median_pct": 9.3053,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         614.6231279808075,
+         477.71545000000003,
+         358.89645,
+         -0.10060544006392994
+        ]
+       },
+       "mean_reproj_error_px": 0.8846,
+       "t_span_s": [
+        35.605467166999006,
+        36.95566887500172
+       ]
+      }
+     ]
+    }
+   },
+   "s1_p0.001_seqloop": {
+    "database": {
+     "n_images": 342,
+     "peak_threshold": 0.001,
+     "matching": "seqloop",
+     "sec_extract": 28.3471736907959,
+     "sec_match": 112.27491617202759,
+     "verified_pairs": 6080
+    },
+    "incremental_fixed": {
+     "n_total": 342,
+     "n_models": 7,
+     "registered_per_model": [
+      78,
+      61,
+      41,
+      41,
+      36,
+      34,
+      11
+     ],
+     "registered_any": 302,
+     "registered_largest": 78,
+     "sec_mapping": 13.760290145874023,
+     "models": [
+      {
+       "n": 78,
+       "scale_m_per_unit": 0.2326,
+       "ate_rmse_m": 0.017,
+       "gt_extent_m": [
+        0.972,
+        0.095,
+        2.418
+       ],
+       "rpe_1s_rot_deg_median": 0.4386,
+       "rpe_1s_len_abs_err_median_pct": 2.6363,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 1.1137,
+       "t_span_s": [
+        12.618641584005672,
+        20.78656329200021
+       ]
+      },
+      {
+       "n": 61,
+       "scale_m_per_unit": 0.2029,
+       "ate_rmse_m": 0.0423,
+       "gt_extent_m": [
+        1.553,
+        0.137,
+        1.584
+       ],
+       "rpe_1s_rot_deg_median": 0.2738,
+       "rpe_1s_len_abs_err_median_pct": 6.0647,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.8896,
+       "t_span_s": [
+        6.084290458995383,
+        12.401941375006572
+       ]
+      },
+      {
+       "n": 41,
+       "scale_m_per_unit": 0.0834,
+       "ate_rmse_m": 0.0134,
+       "gt_extent_m": [
+        0.927,
+        0.224,
+        0.391
+       ],
+       "rpe_1s_rot_deg_median": 0.5379,
+       "rpe_1s_len_abs_err_median_pct": 0.9796,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.9638,
+       "t_span_s": [
+        25.3705933750025,
+        29.987957624995033
+       ]
+      },
+      {
+       "n": 41,
+       "scale_m_per_unit": 0.1167,
+       "ate_rmse_m": 0.0063,
+       "gt_extent_m": [
+        0.718,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 0.6431,
+       "rpe_1s_len_abs_err_median_pct": 2.1233,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.7052,
+       "t_span_s": [
+        0.0,
+        4.400692958995933
+       ]
+      },
+      {
+       "n": 36,
+       "scale_m_per_unit": 0.137,
+       "ate_rmse_m": 0.0876,
+       "gt_extent_m": [
+        1.336,
+        0.088,
+        0.991
+       ],
+       "rpe_1s_rot_deg_median": 19.3175,
+       "rpe_1s_len_abs_err_median_pct": 5.416,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.9886,
+       "t_span_s": [
+        30.321341041999403,
+        34.15525020900532
+       ]
+      },
+      {
+       "n": 34,
+       "scale_m_per_unit": 0.1016,
+       "ate_rmse_m": 0.0105,
+       "gt_extent_m": [
+        1.056,
+        0.032,
+        0.577
+       ],
+       "rpe_1s_rot_deg_median": 0.3325,
+       "rpe_1s_len_abs_err_median_pct": 1.4159,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.8221,
+       "t_span_s": [
+        20.88657862499531,
+        24.420449416997144
+       ]
+      },
+      {
+       "n": 11,
+       "scale_m_per_unit": 0.0139,
+       "ate_rmse_m": 0.0088,
+       "gt_extent_m": [
+        0.022,
+        0.035,
+        0.196
+       ],
+       "rpe_1s_rot_deg_median": 0.8545,
+       "rpe_1s_len_abs_err_median_pct": 1.7332,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.9876,
+       "t_span_s": [
+        35.80549720900308,
+        36.95566887500172
+       ]
+      }
+     ]
+    },
+    "incremental_refined": {
+     "n_total": 342,
+     "n_models": 7,
+     "registered_per_model": [
+      78,
+      66,
+      41,
+      41,
+      36,
+      34,
+      11
+     ],
+     "registered_any": 307,
+     "registered_largest": 78,
+     "sec_mapping": 18.482794046401978,
+     "models": [
+      {
+       "n": 78,
+       "scale_m_per_unit": 0.2311,
+       "ate_rmse_m": 0.0138,
+       "gt_extent_m": [
+        0.972,
+        0.095,
+        2.418
+       ],
+       "rpe_1s_rot_deg_median": 0.3125,
+       "rpe_1s_len_abs_err_median_pct": 1.9212,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         792.7270361180186,
+         477.71545000000003,
+         358.89645,
+         0.01208231203017465
+        ]
+       },
+       "mean_reproj_error_px": 1.1087,
+       "t_span_s": [
+        12.618641584005672,
+        20.78656329200021
+       ]
+      },
+      {
+       "n": 66,
+       "scale_m_per_unit": 0.2089,
+       "ate_rmse_m": 0.0184,
+       "gt_extent_m": [
+        1.553,
+        0.137,
+        1.715
+       ],
+       "rpe_1s_rot_deg_median": 0.3553,
+       "rpe_1s_len_abs_err_median_pct": 1.5684,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         786.1054771297676,
+         477.71545000000003,
+         358.89645,
+         0.02823493359251184
+        ]
+       },
+       "mean_reproj_error_px": 0.8942,
+       "t_span_s": [
+        5.550873458996648,
+        12.401941375006572
+       ]
+      },
+      {
+       "n": 41,
+       "scale_m_per_unit": 0.0835,
+       "ate_rmse_m": 0.0126,
+       "gt_extent_m": [
+        0.927,
+        0.224,
+        0.391
+       ],
+       "rpe_1s_rot_deg_median": 0.8549,
+       "rpe_1s_len_abs_err_median_pct": 1.0411,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         775.4596475007356,
+         477.71545000000003,
+         358.89645,
+         -0.004216868881430868
+        ]
+       },
+       "mean_reproj_error_px": 0.9616,
+       "t_span_s": [
+        25.3705933750025,
+        29.987957624995033
+       ]
+      },
+      {
+       "n": 41,
+       "scale_m_per_unit": 0.1164,
+       "ate_rmse_m": 0.0043,
+       "gt_extent_m": [
+        0.718,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 0.9816,
+       "rpe_1s_len_abs_err_median_pct": 0.8503,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         816.2839501608788,
+         477.71545000000003,
+         358.89645,
+         0.02090366446388683
+        ]
+       },
+       "mean_reproj_error_px": 0.7084,
+       "t_span_s": [
+        0.0,
+        4.400692958995933
+       ]
+      },
+      {
+       "n": 36,
+       "scale_m_per_unit": 0.1375,
+       "ate_rmse_m": 0.0657,
+       "gt_extent_m": [
+        1.336,
+        0.088,
+        0.991
+       ],
+       "rpe_1s_rot_deg_median": 17.7907,
+       "rpe_1s_len_abs_err_median_pct": 6.1527,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         995.8625741716556,
+         477.71545000000003,
+         358.89645,
+         0.22983635671698022
+        ]
+       },
+       "mean_reproj_error_px": 0.9652,
+       "t_span_s": [
+        30.321341041999403,
+        34.15525020900532
+       ]
+      },
+      {
+       "n": 34,
+       "scale_m_per_unit": 0.1015,
+       "ate_rmse_m": 0.0118,
+       "gt_extent_m": [
+        1.056,
+        0.032,
+        0.577
+       ],
+       "rpe_1s_rot_deg_median": 0.7855,
+       "rpe_1s_len_abs_err_median_pct": 2.0208,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         769.2555782630743,
+         477.71545000000003,
+         358.89645,
+         -0.002701511114169151
+        ]
+       },
+       "mean_reproj_error_px": 0.8134,
+       "t_span_s": [
+        20.88657862499531,
+        24.420449416997144
+       ]
+      },
+      {
+       "n": 11,
+       "scale_m_per_unit": 0.0139,
+       "ate_rmse_m": 0.0097,
+       "gt_extent_m": [
+        0.022,
+        0.035,
+        0.196
+       ],
+       "rpe_1s_rot_deg_median": 4.0892,
+       "rpe_1s_len_abs_err_median_pct": 3.0262,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         633.0606208682875,
+         477.71545000000003,
+         358.89645,
+         -0.10038618080314753
+        ]
+       },
+       "mean_reproj_error_px": 0.9612,
+       "t_span_s": [
+        35.80549720900308,
+        36.95566887500172
+       ]
+      }
+     ]
+    },
+    "global_fixed": {
+     "n_total": 342,
+     "n_models": 5,
+     "registered_per_model": [
+      148,
+      50,
+      48,
+      42,
+      39
+     ],
+     "registered_any": 327,
+     "registered_largest": 148,
+     "sec_mapping": 10.221938133239746,
+     "models": [
+      {
+       "n": 148,
+       "scale_m_per_unit": 0.3303,
+       "ate_rmse_m": 0.537,
+       "gt_extent_m": [
+        2.593,
+        0.146,
+        3.69
+       ],
+       "rpe_1s_rot_deg_median": 0.3572,
+       "rpe_1s_len_abs_err_median_pct": 34.1755,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 1.021,
+       "t_span_s": [
+        5.234157041995786,
+        20.78656329200021
+       ]
+      },
+      {
+       "n": 50,
+       "scale_m_per_unit": 0.2533,
+       "ate_rmse_m": 0.5445,
+       "gt_extent_m": [
+        2.577,
+        0.09,
+        1.624
+       ],
+       "rpe_1s_rot_deg_median": 0.7021,
+       "rpe_1s_len_abs_err_median_pct": 78.122,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.8395,
+       "t_span_s": [
+        20.88657862499531,
+        36.95566887500172
+       ]
+      },
+      {
+       "n": 48,
+       "scale_m_per_unit": 0.0,
+       "ate_rmse_m": 0.4254,
+       "gt_extent_m": [
+        1.254,
+        0.233,
+        0.56
+       ],
+       "rpe_1s_rot_deg_median": 0.5517,
+       "rpe_1s_len_abs_err_median_pct": 99.9994,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.9706,
+       "t_span_s": [
+        24.65381816700392,
+        30.104641750003793
+       ]
+      },
+      {
+       "n": 42,
+       "scale_m_per_unit": 0.1181,
+       "ate_rmse_m": 0.0254,
+       "gt_extent_m": [
+        0.756,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 0.5345,
+       "rpe_1s_len_abs_err_median_pct": 0.9772,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.6651,
+       "t_span_s": [
+        0.0,
+        4.517377916999976
+       ]
+      },
+      {
+       "n": 39,
+       "scale_m_per_unit": 0.159,
+       "ate_rmse_m": 0.0344,
+       "gt_extent_m": [
+        1.499,
+        0.088,
+        1.02
+       ],
+       "rpe_1s_rot_deg_median": 0.3552,
+       "rpe_1s_len_abs_err_median_pct": 1.8599,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.921,
+       "t_span_s": [
+        30.321341041999403,
+        34.47196420900582
+       ]
+      }
+     ]
+    },
+    "global_refined": {
+     "n_total": 342,
+     "n_models": 5,
+     "registered_per_model": [
+      148,
+      50,
+      48,
+      42,
+      39
+     ],
+     "registered_any": 327,
+     "registered_largest": 148,
+     "sec_mapping": 15.556030988693237,
+     "models": [
+      {
+       "n": 148,
+       "scale_m_per_unit": 0.0003,
+       "ate_rmse_m": 1.3397,
+       "gt_extent_m": [
+        2.593,
+        0.146,
+        3.69
+       ],
+       "rpe_1s_rot_deg_median": 0.2918,
+       "rpe_1s_len_abs_err_median_pct": 99.9514,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         787.2979128198574,
+         477.71545000000003,
+         358.89645,
+         0.021595013310677265
+        ]
+       },
+       "mean_reproj_error_px": 0.948,
+       "t_span_s": [
+        5.234157041995786,
+        20.78656329200021
+       ]
+      },
+      {
+       "n": 50,
+       "scale_m_per_unit": 0.2575,
+       "ate_rmse_m": 0.5159,
+       "gt_extent_m": [
+        2.577,
+        0.09,
+        1.624
+       ],
+       "rpe_1s_rot_deg_median": 0.7744,
+       "rpe_1s_len_abs_err_median_pct": 77.2214,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         773.176273005065,
+         477.71545000000003,
+         358.89645,
+         0.0011022138131894582
+        ]
+       },
+       "mean_reproj_error_px": 0.8569,
+       "t_span_s": [
+        20.88657862499531,
+        36.95566887500172
+       ]
+      },
+      {
+       "n": 48,
+       "scale_m_per_unit": 0.0,
+       "ate_rmse_m": 0.4253,
+       "gt_extent_m": [
+        1.254,
+        0.233,
+        0.56
+       ],
+       "rpe_1s_rot_deg_median": 0.9453,
+       "rpe_1s_len_abs_err_median_pct": 99.9988,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         773.9359568423997,
+         477.71545000000003,
+         358.89645,
+         -0.0042724204847596125
+        ]
+       },
+       "mean_reproj_error_px": 0.965,
+       "t_span_s": [
+        24.65381816700392,
+        30.104641750003793
+       ]
+      },
+      {
+       "n": 42,
+       "scale_m_per_unit": 0.1178,
+       "ate_rmse_m": 0.0268,
+       "gt_extent_m": [
+        0.756,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 0.3411,
+       "rpe_1s_len_abs_err_median_pct": 1.0218,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         801.6250645683727,
+         477.71545000000003,
+         358.89645,
+         0.006152403700990184
+        ]
+       },
+       "mean_reproj_error_px": 0.6591,
+       "t_span_s": [
+        0.0,
+        4.517377916999976
+       ]
+      },
+      {
+       "n": 39,
+       "scale_m_per_unit": 0.1591,
+       "ate_rmse_m": 0.0356,
+       "gt_extent_m": [
+        1.499,
+        0.088,
+        1.02
+       ],
+       "rpe_1s_rot_deg_median": 0.3479,
+       "rpe_1s_len_abs_err_median_pct": 1.2385,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         799.0813363108277,
+         477.71545000000003,
+         358.89645,
+         0.010639914555353222
+        ]
+       },
+       "mean_reproj_error_px": 0.9305,
+       "t_span_s": [
+        30.321341041999403,
+        34.47196420900582
+       ]
+      }
+     ]
+    }
+   },
+   "s1_p0.0066667_sequential": {
+    "database": {
+     "n_images": 342,
+     "peak_threshold": 0.0066667,
+     "matching": "sequential",
+     "sec_extract": 88.05387616157532,
+     "sec_match": 2.8851277828216553,
+     "verified_pairs": 2567
+    },
+    "incremental_fixed": {
+     "n_total": 342,
+     "n_models": 8,
+     "registered_per_model": [
+      75,
+      57,
+      41,
+      38,
+      33,
+      32,
+      24,
+      11
+     ],
+     "registered_any": 311,
+     "registered_largest": 75,
+     "sec_mapping": 28.2878520488739,
+     "models": [
+      {
+       "n": 75,
+       "scale_m_per_unit": 0.2378,
+       "ate_rmse_m": 0.015,
+       "gt_extent_m": [
+        0.905,
+        0.08,
+        2.418
+       ],
+       "rpe_1s_rot_deg_median": 0.4854,
+       "rpe_1s_len_abs_err_median_pct": 2.2232,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.8938,
+       "t_span_s": [
+        12.95202666700061,
+        20.78656329200021
+       ]
+      },
+      {
+       "n": 57,
+       "scale_m_per_unit": 0.1981,
+       "ate_rmse_m": 0.0431,
+       "gt_extent_m": [
+        1.41,
+        0.113,
+        1.584
+       ],
+       "rpe_1s_rot_deg_median": 0.3826,
+       "rpe_1s_len_abs_err_median_pct": 6.7843,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.5949,
+       "t_span_s": [
+        6.084290458995383,
+        12.001879500006908
+       ]
+      },
+      {
+       "n": 41,
+       "scale_m_per_unit": 0.1171,
+       "ate_rmse_m": 0.0076,
+       "gt_extent_m": [
+        0.718,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 0.5744,
+       "rpe_1s_len_abs_err_median_pct": 1.9646,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.5878,
+       "t_span_s": [
+        0.0,
+        4.400692958995933
+       ]
+      },
+      {
+       "n": 38,
+       "scale_m_per_unit": 0.0868,
+       "ate_rmse_m": 0.014,
+       "gt_extent_m": [
+        0.927,
+        0.224,
+        0.359
+       ],
+       "rpe_1s_rot_deg_median": 0.4965,
+       "rpe_1s_len_abs_err_median_pct": 0.9291,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.7949,
+       "t_span_s": [
+        25.3705933750025,
+        29.887942417000886
+       ]
+      },
+      {
+       "n": 33,
+       "scale_m_per_unit": 0.0824,
+       "ate_rmse_m": 0.2045,
+       "gt_extent_m": [
+        1.047,
+        0.024,
+        0.499
+       ],
+       "rpe_1s_rot_deg_median": 2.0325,
+       "rpe_1s_len_abs_err_median_pct": 11.7741,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.7965,
+       "t_span_s": [
+        20.88657862499531,
+        24.303765125005157
+       ]
+      },
+      {
+       "n": 32,
+       "scale_m_per_unit": 0.1226,
+       "ate_rmse_m": 0.0536,
+       "gt_extent_m": [
+        1.157,
+        0.088,
+        0.886
+       ],
+       "rpe_1s_rot_deg_median": 17.7551,
+       "rpe_1s_len_abs_err_median_pct": 8.2764,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.7501,
+       "t_span_s": [
+        30.421356167003978,
+        33.78852858400205
+       ]
+      },
+      {
+       "n": 24,
+       "scale_m_per_unit": 0.058,
+       "ate_rmse_m": 0.0129,
+       "gt_extent_m": [
+        0.623,
+        0.043,
+        0.352
+       ],
+       "rpe_1s_rot_deg_median": 3.0076,
+       "rpe_1s_len_abs_err_median_pct": 3.9071,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.5984,
+       "t_span_s": [
+        5.650889209005982,
+        8.084603334005806
+       ]
+      },
+      {
+       "n": 11,
+       "scale_m_per_unit": 0.0137,
+       "ate_rmse_m": 0.0101,
+       "gt_extent_m": [
+        0.022,
+        0.035,
+        0.196
+       ],
+       "rpe_1s_rot_deg_median": 0.7231,
+       "rpe_1s_len_abs_err_median_pct": 1.2003,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.8875,
+       "t_span_s": [
+        35.80549720900308,
+        36.95566887500172
+       ]
+      }
+     ]
+    },
+    "global_fixed": {
+     "n_total": 342,
+     "n_models": 8,
+     "registered_per_model": [
+      77,
+      64,
+      41,
+      36,
+      36,
+      33,
+      13,
+      3
+     ],
+     "registered_any": 303,
+     "registered_largest": 77,
+     "sec_mapping": 15.904545068740845,
+     "models": [
+      {
+       "n": 77,
+       "scale_m_per_unit": 0.2302,
+       "ate_rmse_m": 0.021,
+       "gt_extent_m": [
+        0.941,
+        0.093,
+        2.418
+       ],
+       "rpe_1s_rot_deg_median": 0.3111,
+       "rpe_1s_len_abs_err_median_pct": 2.2909,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.9138,
+       "t_span_s": [
+        12.735326459005591,
+        20.78656329200021
+       ]
+      },
+      {
+       "n": 64,
+       "scale_m_per_unit": 0.2006,
+       "ate_rmse_m": 0.044,
+       "gt_extent_m": [
+        1.481,
+        0.119,
+        1.715
+       ],
+       "rpe_1s_rot_deg_median": 0.4698,
+       "rpe_1s_len_abs_err_median_pct": 7.4609,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.6259,
+       "t_span_s": [
+        5.550873458996648,
+        12.201910458999919
+       ]
+      },
+      {
+       "n": 41,
+       "scale_m_per_unit": 0.1165,
+       "ate_rmse_m": 0.0108,
+       "gt_extent_m": [
+        0.718,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 0.4348,
+       "rpe_1s_len_abs_err_median_pct": 1.1037,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.5658,
+       "t_span_s": [
+        0.0,
+        4.400692958995933
+       ]
+      },
+      {
+       "n": 36,
+       "scale_m_per_unit": 0.0855,
+       "ate_rmse_m": 0.0292,
+       "gt_extent_m": [
+        0.927,
+        0.224,
+        0.253
+       ],
+       "rpe_1s_rot_deg_median": 0.5167,
+       "rpe_1s_len_abs_err_median_pct": 1.1099,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.7918,
+       "t_span_s": [
+        25.3705933750025,
+        29.3878672090068
+       ]
+      },
+      {
+       "n": 36,
+       "scale_m_per_unit": 0.0997,
+       "ate_rmse_m": 0.2728,
+       "gt_extent_m": [
+        1.336,
+        0.088,
+        0.991
+       ],
+       "rpe_1s_rot_deg_median": 0.4181,
+       "rpe_1s_len_abs_err_median_pct": 29.6568,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.7019,
+       "t_span_s": [
+        30.321341041999403,
+        34.15525020900532
+       ]
+      },
+      {
+       "n": 33,
+       "scale_m_per_unit": 0.0969,
+       "ate_rmse_m": 0.0106,
+       "gt_extent_m": [
+        1.047,
+        0.024,
+        0.499
+       ],
+       "rpe_1s_rot_deg_median": 0.6299,
+       "rpe_1s_len_abs_err_median_pct": 1.7275,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.6941,
+       "t_span_s": [
+        20.88657862499531,
+        24.303765125005157
+       ]
+      },
+      {
+       "n": 13,
+       "scale_m_per_unit": 0.0003,
+       "ate_rmse_m": 0.0793,
+       "gt_extent_m": [
+        0.028,
+        0.048,
+        0.292
+       ],
+       "rpe_1s_rot_deg_median": 1.3726,
+       "rpe_1s_len_abs_err_median_pct": 98.6315,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.71545000000003,
+         358.89645
+        ]
+       },
+       "mean_reproj_error_px": 0.7706,
+       "t_span_s": [
+        35.605467166999006,
+        36.95566887500172
+       ]
+      }
+     ]
+    }
+   },
+   "s2_p0.001_exh": {
+    "database": {
+     "n_images": 171,
+     "peak_threshold": 0.001,
+     "matching": "exhaustive",
+     "sec_extract": 28.10803985595703,
+     "sec_match": 475.50835514068604,
+     "verified_pairs": 14535
+    },
+    "incremental_fixed": {
+     "n_total": 171,
+     "n_models": 6,
+     "registered_per_model": [
+      38,
+      31,
+      21,
+      20,
+      17,
+      17
+     ],
+     "registered_any": 144,
+     "registered_largest": 38,
+     "sec_mapping": 15.163054704666138,
+     "models": [
+      {
+       "n": 38,
+       "scale_m_per_unit": 0.2359,
+       "ate_rmse_m": 0.0146,
+       "gt_extent_m": [
+        0.922,
+        0.084,
+        2.414
+       ],
+       "rpe_1s_rot_deg_median": 0.5613,
+       "rpe_1s_len_abs_err_median_pct": 2.5303,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.7155,
+         358.8975
+        ]
+       },
+       "mean_reproj_error_px": 1.0618,
+       "t_span_s": [
+        12.83534195899847,
+        20.686547999997856
+       ]
+      },
+      {
+       "n": 31,
+       "scale_m_per_unit": 0.1975,
+       "ate_rmse_m": 0.044,
+       "gt_extent_m": [
+        1.41,
+        0.113,
+        1.67
+       ],
+       "rpe_1s_rot_deg_median": 0.3257,
+       "rpe_1s_len_abs_err_median_pct": 7.1944,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.7155,
+         358.8975
+        ]
+       },
+       "mean_reproj_error_px": 0.7883,
+       "t_span_s": [
+        5.650889209005982,
+        12.001879500006908
+       ]
+      },
+      {
+       "n": 21,
+       "scale_m_per_unit": 0.116,
+       "ate_rmse_m": 0.0075,
+       "gt_extent_m": [
+        0.718,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 1.0993,
+       "rpe_1s_len_abs_err_median_pct": 2.2115,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.7155,
+         358.8975
+        ]
+       },
+       "mean_reproj_error_px": 0.6247,
+       "t_span_s": [
+        0.0,
+        4.400692958995933
+       ]
+      },
+      {
+       "n": 20,
+       "scale_m_per_unit": 0.0888,
+       "ate_rmse_m": 0.0127,
+       "gt_extent_m": [
+        0.891,
+        0.222,
+        0.319
+       ],
+       "rpe_1s_rot_deg_median": 0.64,
+       "rpe_1s_len_abs_err_median_pct": 1.6478,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.7155,
+         358.8975
+        ]
+       },
+       "mean_reproj_error_px": 0.9453,
+       "t_span_s": [
+        25.470608624993474,
+        29.887942417000886
+       ]
+      },
+      {
+       "n": 17,
+       "scale_m_per_unit": 0.1357,
+       "ate_rmse_m": 0.0556,
+       "gt_extent_m": [
+        1.273,
+        0.087,
+        0.892
+       ],
+       "rpe_1s_rot_deg_median": 19.1884,
+       "rpe_1s_len_abs_err_median_pct": 6.3351,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.7155,
+         358.8975
+        ]
+       },
+       "mean_reproj_error_px": 0.9656,
+       "t_span_s": [
+        30.52137099999527,
+        34.03856591699878
+       ]
+      },
+      {
+       "n": 17,
+       "scale_m_per_unit": 0.103,
+       "ate_rmse_m": 0.0108,
+       "gt_extent_m": [
+        1.047,
+        0.022,
+        0.499
+       ],
+       "rpe_1s_rot_deg_median": 0.3876,
+       "rpe_1s_len_abs_err_median_pct": 1.0795,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.7155,
+         358.8975
+        ]
+       },
+       "mean_reproj_error_px": 0.7695,
+       "t_span_s": [
+        20.88657862499531,
+        24.303765125005157
+       ]
+      }
+     ]
+    },
+    "incremental_refined": {
+     "n_total": 171,
+     "n_models": 6,
+     "registered_per_model": [
+      38,
+      31,
+      21,
+      20,
+      18,
+      17
+     ],
+     "registered_any": 145,
+     "registered_largest": 38,
+     "sec_mapping": 16.45483684539795,
+     "models": [
+      {
+       "n": 38,
+       "scale_m_per_unit": 0.2324,
+       "ate_rmse_m": 0.0131,
+       "gt_extent_m": [
+        0.922,
+        0.084,
+        2.414
+       ],
+       "rpe_1s_rot_deg_median": 0.4711,
+       "rpe_1s_len_abs_err_median_pct": 2.2098,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         791.2270127191557,
+         477.7155,
+         358.8975,
+         0.014666223299982045
+        ]
+       },
+       "mean_reproj_error_px": 1.0479,
+       "t_span_s": [
+        12.83534195899847,
+        20.686547999997856
+       ]
+      },
+      {
+       "n": 31,
+       "scale_m_per_unit": 0.2027,
+       "ate_rmse_m": 0.0299,
+       "gt_extent_m": [
+        1.41,
+        0.113,
+        1.67
+       ],
+       "rpe_1s_rot_deg_median": 0.3794,
+       "rpe_1s_len_abs_err_median_pct": 1.9571,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         792.5216059604271,
+         477.7155,
+         358.8975,
+         0.03865696552469178
+        ]
+       },
+       "mean_reproj_error_px": 0.7707,
+       "t_span_s": [
+        5.650889209005982,
+        12.001879500006908
+       ]
+      },
+      {
+       "n": 21,
+       "scale_m_per_unit": 0.116,
+       "ate_rmse_m": 0.005,
+       "gt_extent_m": [
+        0.718,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 0.6709,
+       "rpe_1s_len_abs_err_median_pct": 1.007,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         822.7152267802552,
+         477.7155,
+         358.8975,
+         0.0032878097099507592
+        ]
+       },
+       "mean_reproj_error_px": 0.6344,
+       "t_span_s": [
+        0.0,
+        4.400692958995933
+       ]
+      },
+      {
+       "n": 20,
+       "scale_m_per_unit": 0.089,
+       "ate_rmse_m": 0.0108,
+       "gt_extent_m": [
+        0.891,
+        0.222,
+        0.319
+       ],
+       "rpe_1s_rot_deg_median": 1.0219,
+       "rpe_1s_len_abs_err_median_pct": 0.8682,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         767.3150596007437,
+         477.7155,
+         358.8975,
+         -0.010385120822335892
+        ]
+       },
+       "mean_reproj_error_px": 0.9381,
+       "t_span_s": [
+        25.470608624993474,
+        29.887942417000886
+       ]
+      },
+      {
+       "n": 18,
+       "scale_m_per_unit": 0.1405,
+       "ate_rmse_m": 0.0572,
+       "gt_extent_m": [
+        1.273,
+        0.087,
+        0.963
+       ],
+       "rpe_1s_rot_deg_median": 17.1361,
+       "rpe_1s_len_abs_err_median_pct": 4.3149,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         857.5599134531553,
+         477.7155,
+         358.8975,
+         0.12172823053310027
+        ]
+       },
+       "mean_reproj_error_px": 0.9492,
+       "t_span_s": [
+        30.321341041999403,
+        34.03856591699878
+       ]
+      },
+      {
+       "n": 17,
+       "scale_m_per_unit": 0.1031,
+       "ate_rmse_m": 0.012,
+       "gt_extent_m": [
+        1.047,
+        0.022,
+        0.499
+       ],
+       "rpe_1s_rot_deg_median": 0.5672,
+       "rpe_1s_len_abs_err_median_pct": 1.733,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         778.191953941653,
+         477.7155,
+         358.8975,
+         0.003617910742492466
+        ]
+       },
+       "mean_reproj_error_px": 0.7616,
+       "t_span_s": [
+        20.88657862499531,
+        24.303765125005157
+       ]
+      }
+     ]
+    },
+    "global_fixed": {
+     "n_total": 171,
+     "n_models": 3,
+     "registered_per_model": [
+      115,
+      21,
+      20
+     ],
+     "registered_any": 156,
+     "registered_largest": 115,
+     "sec_mapping": 8.38124394416809,
+     "models": [
+      {
+       "n": 115,
+       "scale_m_per_unit": 0.2802,
+       "ate_rmse_m": 1.1353,
+       "gt_extent_m": [
+        3.545,
+        0.23,
+        4.071
+       ],
+       "rpe_1s_rot_deg_median": 0.5983,
+       "rpe_1s_len_abs_err_median_pct": 53.8071,
+       "window_scale_rel_min_max": [
+        0.4263131619213446,
+        1.2133529007342667
+       ],
+       "window_scale_rel_std_pct": 39.352,
+       "window_scale_rel_range_pct": 78.704,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.7155,
+         358.8975
+        ]
+       },
+       "mean_reproj_error_px": 0.908,
+       "t_span_s": [
+        5.650889209005982,
+        36.83898495900212
+       ]
+      },
+      {
+       "n": 21,
+       "scale_m_per_unit": 0.1108,
+       "ate_rmse_m": 0.0727,
+       "gt_extent_m": [
+        0.718,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 0.936,
+       "rpe_1s_len_abs_err_median_pct": 16.3815,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.7155,
+         358.8975
+        ]
+       },
+       "mean_reproj_error_px": 0.7332,
+       "t_span_s": [
+        0.0,
+        4.400692958995933
+       ]
+      },
+      {
+       "n": 20,
+       "scale_m_per_unit": 0.1565,
+       "ate_rmse_m": 0.0593,
+       "gt_extent_m": [
+        1.499,
+        0.087,
+        1.014
+       ],
+       "rpe_1s_rot_deg_median": 0.2651,
+       "rpe_1s_len_abs_err_median_pct": 3.844,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.7155,
+         358.8975
+        ]
+       },
+       "mean_reproj_error_px": 0.9056,
+       "t_span_s": [
+        30.321341041999403,
+        34.47196420900582
+       ]
+      }
+     ]
+    },
+    "global_refined": {
+     "n_total": 171,
+     "n_models": 3,
+     "registered_per_model": [
+      115,
+      21,
+      20
+     ],
+     "registered_any": 156,
+     "registered_largest": 115,
+     "sec_mapping": 8.618001699447632,
+     "models": [
+      {
+       "n": 115,
+       "scale_m_per_unit": 0.2882,
+       "ate_rmse_m": 1.1138,
+       "gt_extent_m": [
+        3.545,
+        0.23,
+        4.071
+       ],
+       "rpe_1s_rot_deg_median": 0.6362,
+       "rpe_1s_len_abs_err_median_pct": 27.7598,
+       "window_scale_rel_min_max": [
+        0.3878392072064422,
+        1.288676243813115
+       ],
+       "window_scale_rel_std_pct": 45.0419,
+       "window_scale_rel_range_pct": 90.0837,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         784.6914799359647,
+         477.7155,
+         358.8975,
+         0.01559945869799012
+        ]
+       },
+       "mean_reproj_error_px": 0.8735,
+       "t_span_s": [
+        5.650889209005982,
+        36.83898495900212
+       ]
+      },
+      {
+       "n": 21,
+       "scale_m_per_unit": 0.1107,
+       "ate_rmse_m": 0.0742,
+       "gt_extent_m": [
+        0.718,
+        0.095,
+        0.974
+       ],
+       "rpe_1s_rot_deg_median": 1.0198,
+       "rpe_1s_len_abs_err_median_pct": 17.1576,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         788.4309944461354,
+         477.7155,
+         358.8975,
+         -0.009146797927066843
+        ]
+       },
+       "mean_reproj_error_px": 0.656,
+       "t_span_s": [
+        0.0,
+        4.400692958995933
+       ]
+      },
+      {
+       "n": 20,
+       "scale_m_per_unit": 0.1564,
+       "ate_rmse_m": 0.063,
+       "gt_extent_m": [
+        1.499,
+        0.087,
+        1.014
+       ],
+       "rpe_1s_rot_deg_median": 0.3247,
+       "rpe_1s_len_abs_err_median_pct": 3.0215,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         786.9058925939445,
+         477.7155,
+         358.8975,
+         0.005228226583525659
+        ]
+       },
+       "mean_reproj_error_px": 0.8742,
+       "t_span_s": [
+        30.321341041999403,
+        34.47196420900582
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "scale": {
+   "cfg": "single_room_s1_p0.001_seqloop",
+   "variant": "incremental_fixed",
+   "models": [
+    {
+     "model": 0,
+     "n_registered": 78,
+     "n_frames_used": 78,
+     "s_true_m_per_unit": 0.23256745334389725,
+     "moge_over_lidar_per_frame_median": 0.9567473050139115,
+     "arkit_tri": {
+      "n_frames": 78,
+      "lidar_over_arkit_tri_median": 1.0318367316603685,
+      "arkit_tri_structure_scale_over_s_true_median": 0.9927913026829741
+     },
+     "moge": {
+      "pooled_err_pct": -1.648091625830006,
+      "per_frame_err_pct": -2.5348959844522234,
+      "single_frame_abs_err_median_pct": 2.853752808857535,
+      "single_frame_abs_err_p90_pct": 8.84065563950802
+     },
+     "lidar": {
+      "pooled_err_pct": 2.60731631864195,
+      "per_frame_err_pct": 2.554870958445843,
+      "single_frame_abs_err_median_pct": 2.5801271146597027,
+      "single_frame_abs_err_p90_pct": 3.7339740500148966
+     }
+    },
+    {
+     "model": 1,
+     "n_registered": 61,
+     "n_frames_used": 57,
+     "s_true_m_per_unit": 0.20288046618336286,
+     "moge_over_lidar_per_frame_median": 1.0304784741679052,
+     "arkit_tri": {
+      "n_frames": 57,
+      "lidar_over_arkit_tri_median": 1.0305592029464699,
+      "arkit_tri_structure_scale_over_s_true_median": 0.9486908755772151
+     },
+     "moge": {
+      "pooled_err_pct": 1.6262432248069336,
+      "per_frame_err_pct": 1.9718377927110398,
+      "single_frame_abs_err_median_pct": 2.403500257740099,
+      "single_frame_abs_err_p90_pct": 11.808468827124695
+     },
+     "lidar": {
+      "pooled_err_pct": -2.293892544283427,
+      "per_frame_err_pct": -2.3643182378771277,
+      "single_frame_abs_err_median_pct": 2.504224940940303,
+      "single_frame_abs_err_p90_pct": 15.819731092239783
+     }
+    },
+    {
+     "model": 2,
+     "n_registered": 41,
+     "n_frames_used": 40,
+     "s_true_m_per_unit": 0.0834106032188841,
+     "moge_over_lidar_per_frame_median": 0.9720989969588516,
+     "arkit_tri": {
+      "n_frames": 40,
+      "lidar_over_arkit_tri_median": 1.0381245349967498,
+      "arkit_tri_structure_scale_over_s_true_median": 0.9690083750933467
+     },
+     "moge": {
+      "pooled_err_pct": -2.039122178937536,
+      "per_frame_err_pct": -2.229086468164765,
+      "single_frame_abs_err_median_pct": 2.517300048904425,
+      "single_frame_abs_err_p90_pct": 7.973362341089457
+     },
+     "lidar": {
+      "pooled_err_pct": 0.32887945598047974,
+      "per_frame_err_pct": 0.3508647369804052,
+      "single_frame_abs_err_median_pct": 0.3561598263366883,
+      "single_frame_abs_err_p90_pct": 0.9468139718414065
+     }
+    },
+    {
+     "model": 3,
+     "n_registered": 41,
+     "n_frames_used": 41,
+     "s_true_m_per_unit": 0.11666778326737048,
+     "moge_over_lidar_per_frame_median": 0.9584939223450843,
+     "arkit_tri": {
+      "n_frames": 41,
+      "lidar_over_arkit_tri_median": 1.0094594406267017,
+      "arkit_tri_structure_scale_over_s_true_median": 1.0176938805531721
+     },
+     "moge": {
+      "pooled_err_pct": -1.3239847641259517,
+      "per_frame_err_pct": -1.7779052465455525,
+      "single_frame_abs_err_median_pct": 3.467384937058804,
+      "single_frame_abs_err_p90_pct": 6.673730467930083
+     },
+     "lidar": {
+      "pooled_err_pct": 2.4321442637504687,
+      "per_frame_err_pct": 2.526892241901857,
+      "single_frame_abs_err_median_pct": 2.526892241901857,
+      "single_frame_abs_err_p90_pct": 3.9864776936628488
+     }
+    },
+    {
+     "model": 4,
+     "n_registered": 36,
+     "n_frames_used": 34,
+     "s_true_m_per_unit": 0.1370006912356,
+     "moge_over_lidar_per_frame_median": 1.4480444820044422,
+     "arkit_tri": {
+      "n_frames": 34,
+      "lidar_over_arkit_tri_median": 1.0407897965043054,
+      "arkit_tri_structure_scale_over_s_true_median": 1.1505582326052801
+     },
+     "moge": {
+      "pooled_err_pct": 45.471822035840084,
+      "per_frame_err_pct": 45.5790547788794,
+      "single_frame_abs_err_median_pct": 45.57905477887939,
+      "single_frame_abs_err_p90_pct": 120.54566220915844
+     },
+     "lidar": {
+      "pooled_err_pct": 24.182959030845687,
+      "per_frame_err_pct": 19.08990659058505,
+      "single_frame_abs_err_median_pct": 24.544279920079052,
+      "single_frame_abs_err_p90_pct": 43.841863583115895
+     }
+    },
+    {
+     "model": 5,
+     "n_registered": 34,
+     "n_frames_used": 34,
+     "s_true_m_per_unit": 0.1015948645504567,
+     "moge_over_lidar_per_frame_median": 0.9901576577377662,
+     "arkit_tri": {
+      "n_frames": 34,
+      "lidar_over_arkit_tri_median": 1.0308505983183394,
+      "arkit_tri_structure_scale_over_s_true_median": 1.0384080576495043
+     },
+     "moge": {
+      "pooled_err_pct": 3.668211561406265,
+      "per_frame_err_pct": 3.532010976688982,
+      "single_frame_abs_err_median_pct": 5.48193550549978,
+      "single_frame_abs_err_p90_pct": 8.135955317967365
+     },
+     "lidar": {
+      "pooled_err_pct": 6.521598283966301,
+      "per_frame_err_pct": 6.991833744410436,
+      "single_frame_abs_err_median_pct": 6.991833744410436,
+      "single_frame_abs_err_p90_pct": 7.534430674093429
+     }
+    }
+   ],
+   "all_models_normalized": {
+    "n_frames": 284,
+    "moge": {
+     "pooled_err_pct": 1.2876730316539353,
+     "per_frame_err_pct": 0.03017273944461163,
+     "convergence": {
+      "5": {
+       "pooled": {
+        "median_abs_pct": 1.5365054799039712,
+        "p90_abs_pct": 4.503204786072007,
+        "mean_signed_pct": 1.7054674843926847
+       },
+       "per_frame": {
+        "median_abs_pct": 1.3546772182178868,
+        "p90_abs_pct": 4.352018260435203,
+        "mean_signed_pct": 1.3579731010783265
+       }
+      },
+      "10": {
+       "pooled": {
+        "median_abs_pct": 1.467897358811432,
+        "p90_abs_pct": 2.665451378949706,
+        "mean_signed_pct": 1.3774378769182016
+       },
+       "per_frame": {
+        "median_abs_pct": 1.1379416848455282,
+        "p90_abs_pct": 2.282075135987161,
+        "mean_signed_pct": 0.004122642405222643
+       }
+      },
+      "25": {
+       "pooled": {
+        "median_abs_pct": 1.2093732382046252,
+        "p90_abs_pct": 2.246341785217391,
+        "mean_signed_pct": 1.4575738317636844
+       },
+       "per_frame": {
+        "median_abs_pct": 0.7112787318978742,
+        "p90_abs_pct": 1.6032898067944765,
+        "mean_signed_pct": 0.14782077636451507
+       }
+      },
+      "50": {
+       "pooled": {
+        "median_abs_pct": 1.3603012679841986,
+        "p90_abs_pct": 1.8230808717363378,
+        "mean_signed_pct": 1.3020795139764851
+       },
+       "per_frame": {
+        "median_abs_pct": 0.5959582273374897,
+        "p90_abs_pct": 1.68320963086112,
+        "mean_signed_pct": 0.07511341836589691
+       }
+      },
+      "100": {
+       "pooled": {
+        "median_abs_pct": 1.3875326046192349,
+        "p90_abs_pct": 1.7978340884506696,
+        "mean_signed_pct": 1.346080137887421
+       },
+       "per_frame": {
+        "median_abs_pct": 0.3884207127648698,
+        "p90_abs_pct": 0.8943899956365355,
+        "mean_signed_pct": 0.2052499803461766
+       }
+      },
+      "200": {
+       "pooled": {
+        "median_abs_pct": 1.263697853205703,
+        "p90_abs_pct": 1.466306761219749,
+        "mean_signed_pct": 1.2495538250185645
+       },
+       "per_frame": {
+        "median_abs_pct": 0.04478852571729863,
+        "p90_abs_pct": 0.4644108679945225,
+        "mean_signed_pct": -0.06131265928172924
+       }
+      }
+     }
+    },
+    "lidar": {
+     "pooled_err_pct": 1.489401317111616,
+     "per_frame_err_pct": 2.317045459011613,
+     "convergence": {
+      "5": {
+       "pooled": {
+        "median_abs_pct": 2.3408917737083312,
+        "p90_abs_pct": 6.515216161330597,
+        "mean_signed_pct": 2.154468331547854
+       },
+       "per_frame": {
+        "median_abs_pct": 2.4176983453288337,
+        "p90_abs_pct": 3.919156245210727,
+        "mean_signed_pct": 2.0124411857604088
+       }
+      },
+      "10": {
+       "pooled": {
+        "median_abs_pct": 1.9452279355418045,
+        "p90_abs_pct": 3.381570310671019,
+        "mean_signed_pct": 1.0865042700237137
+       },
+       "per_frame": {
+        "median_abs_pct": 2.4913894210038645,
+        "p90_abs_pct": 3.233188532255058,
+        "mean_signed_pct": 2.3218966569912265
+       }
+      },
+      "25": {
+       "pooled": {
+        "median_abs_pct": 1.6602825813591071,
+        "p90_abs_pct": 2.539219534400985,
+        "mean_signed_pct": 1.2710686823201156
+       },
+       "per_frame": {
+        "median_abs_pct": 2.356172789110045,
+        "p90_abs_pct": 2.7996603136653775,
+        "mean_signed_pct": 2.0161606740133045
+       }
+      },
+      "50": {
+       "pooled": {
+        "median_abs_pct": 1.799651495339627,
+        "p90_abs_pct": 2.347316334937084,
+        "mean_signed_pct": 1.604685428750009
+       },
+       "per_frame": {
+        "median_abs_pct": 2.2965730938715123,
+        "p90_abs_pct": 2.525179984715793,
+        "mean_signed_pct": 2.21986893873243
+       }
+      },
+      "100": {
+       "pooled": {
+        "median_abs_pct": 1.5490186486663005,
+        "p90_abs_pct": 2.220228115121026,
+        "mean_signed_pct": 1.5905441492157901
+       },
+       "per_frame": {
+        "median_abs_pct": 2.3245886021222795,
+        "p90_abs_pct": 2.4846106362192133,
+        "mean_signed_pct": 2.2810394168007044
+       }
+      },
+      "200": {
+       "pooled": {
+        "median_abs_pct": 1.5813285543911926,
+        "p90_abs_pct": 1.9093971794338183,
+        "mean_signed_pct": 1.5285929420596123
+       },
+       "per_frame": {
+        "median_abs_pct": 2.3243103838087587,
+        "p90_abs_pct": 2.3937159159570065,
+        "mean_signed_pct": 2.309386519702259
+       }
+      }
+     }
+    }
+   },
+   "moge_timing": {
+    "n": 261,
+    "sec_per_frame_median": 1.8054308891296387
+   }
+  }
+ },
+ "single_scan_with_ceiling": {
+  "chosen": "single_scan_with_ceiling_s1_p0.001_seqloop/incremental_fixed",
+  "sfm_runs": {
+   "s1_p0.001_seqloop": {
+    "database": {
+     "n_images": 1948,
+     "peak_threshold": 0.001,
+     "matching": "seqloop",
+     "sec_extract": 306.5517897605896,
+     "sec_match": 1060.0723850727081,
+     "verified_pairs": 36491
+    },
+    "incremental_fixed": {
+     "n_total": 1948,
+     "n_models": 14,
+     "registered_per_model": [
+      798,
+      306,
+      252,
+      147,
+      54,
+      37,
+      35,
+      32,
+      23,
+      20,
+      20,
+      13,
+      13,
+      12
+     ],
+     "registered_any": 1762,
+     "registered_largest": 798,
+     "sec_mapping": 258.5200560092926,
+     "models": [
+      {
+       "n": 798,
+       "scale_m_per_unit": 0.6828,
+       "ate_rmse_m": 1.4704,
+       "gt_extent_m": [
+        8.003,
+        0.381,
+        8.934
+       ],
+       "rpe_1s_rot_deg_median": 0.4898,
+       "rpe_1s_len_abs_err_median_pct": 10.2812,
+       "window_scale_rel_min_max": [
+        0.7991722192604485,
+        1.143228155966229
+       ],
+       "window_scale_rel_std_pct": 10.8617,
+       "window_scale_rel_range_pct": 34.4056,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 0.9776,
+       "t_span_s": [
+        0.0,
+        207.72842270799447
+       ]
+      },
+      {
+       "n": 306,
+       "scale_m_per_unit": 0.4562,
+       "ate_rmse_m": 0.0938,
+       "gt_extent_m": [
+        2.951,
+        0.345,
+        5.361
+       ],
+       "rpe_1s_rot_deg_median": 0.5349,
+       "rpe_1s_len_abs_err_median_pct": 3.8661,
+       "window_scale_rel_min_max": [
+        0.9640530636550589,
+        1.0813068930304361
+       ],
+       "window_scale_rel_std_pct": 4.0864,
+       "window_scale_rel_range_pct": 11.7254,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 0.8824,
+       "t_span_s": [
+        25.603771791997133,
+        164.77275533300417
+       ]
+      },
+      {
+       "n": 252,
+       "scale_m_per_unit": 0.5137,
+       "ate_rmse_m": 0.1713,
+       "gt_extent_m": [
+        5.638,
+        0.285,
+        3.136
+       ],
+       "rpe_1s_rot_deg_median": 0.3796,
+       "rpe_1s_len_abs_err_median_pct": 2.5791,
+       "window_scale_rel_min_max": [
+        0.9859861685842919,
+        0.9974421428220063
+       ],
+       "window_scale_rel_std_pct": 0.4679,
+       "window_scale_rel_range_pct": 1.1456,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 1.0651,
+       "t_span_s": [
+        66.4761581250059,
+        183.74193116699462
+       ]
+      },
+      {
+       "n": 147,
+       "scale_m_per_unit": 0.3716,
+       "ate_rmse_m": 0.0201,
+       "gt_extent_m": [
+        3.016,
+        0.36,
+        2.996
+       ],
+       "rpe_1s_rot_deg_median": 0.2885,
+       "rpe_1s_len_abs_err_median_pct": 1.0872,
+       "window_scale_rel_min_max": [
+        0.9999111614193326,
+        0.9999111614193326
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 0.8571,
+       "t_span_s": [
+        31.871332624999923,
+        148.3205692920019
+       ]
+      },
+      {
+       "n": 54,
+       "scale_m_per_unit": 0.2037,
+       "ate_rmse_m": 0.0186,
+       "gt_extent_m": [
+        0.594,
+        0.134,
+        2.179
+       ],
+       "rpe_1s_rot_deg_median": 0.58,
+       "rpe_1s_len_abs_err_median_pct": 1.378,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 0.7857,
+       "t_span_s": [
+        42.90622108300158,
+        48.69036237499677
+       ]
+      },
+      {
+       "n": 37,
+       "scale_m_per_unit": 0.1333,
+       "ate_rmse_m": 1.0033,
+       "gt_extent_m": [
+        5.577,
+        0.136,
+        3.777
+       ],
+       "rpe_1s_rot_deg_median": 6.3271,
+       "rpe_1s_len_abs_err_median_pct": 18.0848,
+       "window_scale_rel_min_max": [
+        1.0685130895597152,
+        1.0685130895597152
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 1.0076,
+       "t_span_s": [
+        155.2214870829921,
+        209.47865241700492
+       ]
+      },
+      {
+       "n": 35,
+       "scale_m_per_unit": 0.1022,
+       "ate_rmse_m": 0.0211,
+       "gt_extent_m": [
+        1.065,
+        0.04,
+        0.551
+       ],
+       "rpe_1s_rot_deg_median": 1.3045,
+       "rpe_1s_len_abs_err_median_pct": 1.2795,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 1.153,
+       "t_span_s": [
+        197.56041900000127,
+        201.42759437499626
+       ]
+      },
+      {
+       "n": 32,
+       "scale_m_per_unit": 0.0954,
+       "ate_rmse_m": 0.0251,
+       "gt_extent_m": [
+        1.102,
+        0.27,
+        0.388
+       ],
+       "rpe_1s_rot_deg_median": 4.0785,
+       "rpe_1s_len_abs_err_median_pct": 4.2001,
+       "window_scale_rel_min_max": [
+        0.9849555366002074,
+        0.9849555366002074
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 0.9014,
+       "t_span_s": [
+        22.13660670799436,
+        133.2185515829915
+       ]
+      },
+      {
+       "n": 23,
+       "scale_m_per_unit": 0.0464,
+       "ate_rmse_m": 0.0619,
+       "gt_extent_m": [
+        0.39,
+        0.017,
+        0.461
+       ],
+       "rpe_1s_rot_deg_median": 7.2478,
+       "rpe_1s_len_abs_err_median_pct": 10.2096,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 0.7296,
+       "t_span_s": [
+        149.25402691699855,
+        151.77102829200157
+       ]
+      },
+      {
+       "n": 20,
+       "scale_m_per_unit": 0.0485,
+       "ate_rmse_m": 0.0288,
+       "gt_extent_m": [
+        0.412,
+        0.044,
+        0.384
+       ],
+       "rpe_1s_rot_deg_median": 14.3224,
+       "rpe_1s_len_abs_err_median_pct": 4.5666,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 1.1752,
+       "t_span_s": [
+        212.06232475000434,
+        214.2126067920035
+       ]
+      },
+      {
+       "n": 20,
+       "scale_m_per_unit": 0.0933,
+       "ate_rmse_m": 0.1051,
+       "gt_extent_m": [
+        0.588,
+        0.067,
+        1.015
+       ],
+       "rpe_1s_rot_deg_median": 36.0939,
+       "rpe_1s_len_abs_err_median_pct": 16.6004,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 1.1933,
+       "t_span_s": [
+        207.8451046669943,
+        210.0787311669992
+       ]
+      },
+      {
+       "n": 13,
+       "scale_m_per_unit": 0.0511,
+       "ate_rmse_m": 0.0137,
+       "gt_extent_m": [
+        0.432,
+        0.166,
+        0.44
+       ],
+       "rpe_1s_rot_deg_median": 0.7241,
+       "rpe_1s_len_abs_err_median_pct": 3.9067,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 0.9276,
+       "t_span_s": [
+        64.5758962079999,
+        66.00942704199406
+       ]
+      },
+      {
+       "n": 13,
+       "scale_m_per_unit": 0.0494,
+       "ate_rmse_m": 0.0181,
+       "gt_extent_m": [
+        0.184,
+        0.034,
+        0.575
+       ],
+       "rpe_1s_rot_deg_median": 17.9001,
+       "rpe_1s_len_abs_err_median_pct": 1.125,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 0.9964,
+       "t_span_s": [
+        140.0528001250059,
+        141.3863116249995
+       ]
+      },
+      {
+       "n": 12,
+       "scale_m_per_unit": 0.0498,
+       "ate_rmse_m": 0.1163,
+       "gt_extent_m": [
+        0.384,
+        0.041,
+        0.606
+       ],
+       "rpe_1s_rot_deg_median": 26.2919,
+       "rpe_1s_len_abs_err_median_pct": 21.7119,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 1.1452,
+       "t_span_s": [
+        208.77856062499632,
+        210.0787311669992
+       ]
+      }
+     ]
+    },
+    "global_fixed": {
+     "n_total": 1948,
+     "n_models": 7,
+     "registered_per_model": [
+      1779,
+      31,
+      25,
+      14,
+      12,
+      8,
+      6
+     ],
+     "registered_any": 1875,
+     "registered_largest": 1779,
+     "sec_mapping": 85.36760377883911,
+     "models": [
+      {
+       "n": 1779,
+       "scale_m_per_unit": 0.001,
+       "ate_rmse_m": 3.1716,
+       "gt_extent_m": [
+        8.295,
+        0.416,
+        9.08
+       ],
+       "rpe_1s_rot_deg_median": 0.5237,
+       "rpe_1s_len_abs_err_median_pct": 99.8352,
+       "window_scale_rel_min_max": [
+        0.0995686983915766,
+        1123.8732010780539
+       ],
+       "window_scale_rel_std_pct": 28646.7842,
+       "window_scale_rel_range_pct": 112377.3632,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 0.9546,
+       "t_span_s": [
+        0.0,
+        210.59546554199187
+       ]
+      },
+      {
+       "n": 31,
+       "scale_m_per_unit": 0.0535,
+       "ate_rmse_m": 0.1068,
+       "gt_extent_m": [
+        0.697,
+        0.049,
+        0.24
+       ],
+       "rpe_1s_rot_deg_median": 5.3118,
+       "rpe_1s_len_abs_err_median_pct": 18.1219,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 0.9328,
+       "t_span_s": [
+        166.17294091699296,
+        169.62339816699387
+       ]
+      },
+      {
+       "n": 25,
+       "scale_m_per_unit": 0.0409,
+       "ate_rmse_m": 0.1307,
+       "gt_extent_m": [
+        0.501,
+        0.048,
+        0.494
+       ],
+       "rpe_1s_rot_deg_median": 5.4195,
+       "rpe_1s_len_abs_err_median_pct": 29.0087,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 1.0317,
+       "t_span_s": [
+        211.79562299999816,
+        214.57932154199807
+       ]
+      },
+      {
+       "n": 14,
+       "scale_m_per_unit": 0.0604,
+       "ate_rmse_m": 0.0138,
+       "gt_extent_m": [
+        0.463,
+        0.166,
+        0.506
+       ],
+       "rpe_1s_rot_deg_median": 0.6018,
+       "rpe_1s_len_abs_err_median_pct": 3.0305,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 0.9809,
+       "t_span_s": [
+        64.5758962079999,
+        66.1427787499997
+       ]
+      },
+      {
+       "n": 12,
+       "scale_m_per_unit": 0.0222,
+       "ate_rmse_m": 0.0674,
+       "gt_extent_m": [
+        0.274,
+        0.009,
+        0.234
+       ],
+       "rpe_1s_rot_deg_median": 6.0006,
+       "rpe_1s_len_abs_err_median_pct": 42.709,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69965,
+         358.8512
+        ]
+       },
+       "mean_reproj_error_px": 0.9606,
+       "t_span_s": [
+        202.01100445799239,
+        203.2111622079974
+       ]
+      }
+     ]
+    }
+   },
+   "s3_p0.001_seqloop": {
+    "database": {
+     "n_images": 650,
+     "peak_threshold": 0.001,
+     "matching": "seqloop",
+     "sec_extract": 57.848504066467285,
+     "sec_match": 430.3475682735443,
+     "verified_pairs": 12784
+    },
+    "incremental_fixed": {
+     "n_total": 650,
+     "n_models": 15,
+     "registered_per_model": [
+      52,
+      52,
+      48,
+      48,
+      43,
+      33,
+      24,
+      23,
+      20,
+      18,
+      18,
+      18,
+      18,
+      17,
+      14
+     ],
+     "registered_any": 446,
+     "registered_largest": 52,
+     "sec_mapping": 53.84088706970215,
+     "models": [
+      {
+       "n": 52,
+       "scale_m_per_unit": 0.3556,
+       "ate_rmse_m": 0.0827,
+       "gt_extent_m": [
+        1.232,
+        0.192,
+        3.764
+       ],
+       "rpe_1s_rot_deg_median": 0.6093,
+       "rpe_1s_len_abs_err_median_pct": 3.1158,
+       "window_scale_rel_min_max": [
+        0.958712105295216,
+        0.9938971474273225
+       ],
+       "window_scale_rel_std_pct": 1.507,
+       "window_scale_rel_range_pct": 3.5185,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.802,
+       "t_span_s": [
+        0.0,
+        207.49505874999159
+       ]
+      },
+      {
+       "n": 52,
+       "scale_m_per_unit": 0.4084,
+       "ate_rmse_m": 0.1208,
+       "gt_extent_m": [
+        1.743,
+        0.168,
+        4.743
+       ],
+       "rpe_1s_rot_deg_median": 0.2647,
+       "rpe_1s_len_abs_err_median_pct": 1.8707,
+       "window_scale_rel_min_max": [
+        0.978317738480972,
+        0.9936794711784528
+       ],
+       "window_scale_rel_std_pct": 0.7681,
+       "window_scale_rel_range_pct": 1.5362,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.856,
+       "t_span_s": [
+        85.52876966699841,
+        196.26024795799458
+       ]
+      },
+      {
+       "n": 48,
+       "scale_m_per_unit": 0.3711,
+       "ate_rmse_m": 0.0234,
+       "gt_extent_m": [
+        2.897,
+        0.357,
+        2.996
+       ],
+       "rpe_1s_rot_deg_median": 0.3103,
+       "rpe_1s_len_abs_err_median_pct": 1.3564,
+       "window_scale_rel_min_max": [
+        0.9965986238073055,
+        0.9965986238073055
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.7588,
+       "t_span_s": [
+        32.18804424999689,
+        148.18721829200513
+       ]
+      },
+      {
+       "n": 48,
+       "scale_m_per_unit": 0.3475,
+       "ate_rmse_m": 0.069,
+       "gt_extent_m": [
+        2.851,
+        0.309,
+        2.556
+       ],
+       "rpe_1s_rot_deg_median": 0.7394,
+       "rpe_1s_len_abs_err_median_pct": 3.2917,
+       "window_scale_rel_min_max": [
+        1.001627597604797,
+        1.0164298825080575
+       ],
+       "window_scale_rel_std_pct": 0.7401,
+       "window_scale_rel_range_pct": 1.4802,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.889,
+       "t_span_s": [
+        30.271105082996655,
+        162.40577475000464
+       ]
+      },
+      {
+       "n": 43,
+       "scale_m_per_unit": 0.223,
+       "ate_rmse_m": 0.0641,
+       "gt_extent_m": [
+        2.32,
+        0.326,
+        1.896
+       ],
+       "rpe_1s_rot_deg_median": 0.634,
+       "rpe_1s_len_abs_err_median_pct": 3.0339,
+       "window_scale_rel_min_max": [
+        0.9985740743035514,
+        0.9985740743035514
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.8841,
+       "t_span_s": [
+        13.618700958002592,
+        130.0847979169921
+       ]
+      },
+      {
+       "n": 33,
+       "scale_m_per_unit": 0.2394,
+       "ate_rmse_m": 0.0257,
+       "gt_extent_m": [
+        0.94,
+        0.244,
+        2.685
+       ],
+       "rpe_1s_rot_deg_median": 0.3643,
+       "rpe_1s_len_abs_err_median_pct": 1.9128,
+       "window_scale_rel_min_max": [
+        0.9976821537307992,
+        0.9976821537307992
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.7723,
+       "t_span_s": [
+        25.82046945800539,
+        139.93611791699368
+       ]
+      },
+      {
+       "n": 24,
+       "scale_m_per_unit": 0.1962,
+       "ate_rmse_m": 0.0244,
+       "gt_extent_m": [
+        0.493,
+        0.268,
+        2.385
+       ],
+       "rpe_1s_rot_deg_median": 0.7376,
+       "rpe_1s_len_abs_err_median_pct": 1.5712,
+       "window_scale_rel_min_max": [
+        1.0011413851048903,
+        1.0011413851048903
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.9526,
+       "t_span_s": [
+        5.084100374995614,
+        120.20013508299598
+       ]
+      },
+      {
+       "n": 23,
+       "scale_m_per_unit": 0.3516,
+       "ate_rmse_m": 0.0125,
+       "gt_extent_m": [
+        3.735,
+        0.044,
+        1.78
+       ],
+       "rpe_1s_rot_deg_median": 0.4372,
+       "rpe_1s_len_abs_err_median_pct": 1.1719,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.9131,
+       "t_span_s": [
+        66.79286841700377,
+        73.76049250000506
+       ]
+      },
+      {
+       "n": 20,
+       "scale_m_per_unit": 0.1262,
+       "ate_rmse_m": 0.1163,
+       "gt_extent_m": [
+        0.494,
+        0.155,
+        1.487
+       ],
+       "rpe_1s_rot_deg_median": 14.5674,
+       "rpe_1s_len_abs_err_median_pct": 10.9633,
+       "window_scale_rel_min_max": [
+        0.9494746490111795,
+        0.9494746490111795
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 1.1869,
+       "t_span_s": [
+        10.451567124997382,
+        122.91716770800122
+       ]
+      },
+      {
+       "n": 18,
+       "scale_m_per_unit": 0.2946,
+       "ate_rmse_m": 0.0209,
+       "gt_extent_m": [
+        2.665,
+        0.045,
+        1.893
+       ],
+       "rpe_1s_rot_deg_median": 0.2085,
+       "rpe_1s_len_abs_err_median_pct": 0.9365,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.7827,
+       "t_span_s": [
+        170.32349075000093,
+        175.62419229200168
+       ]
+      },
+      {
+       "n": 18,
+       "scale_m_per_unit": 0.1453,
+       "ate_rmse_m": 0.1459,
+       "gt_extent_m": [
+        1.379,
+        0.174,
+        1.016
+       ],
+       "rpe_1s_rot_deg_median": 2.7059,
+       "rpe_1s_len_abs_err_median_pct": 9.1722,
+       "window_scale_rel_min_max": [
+        1.0697342212625467,
+        1.0697342212625467
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.7325,
+       "t_span_s": [
+        93.36317037499975,
+        197.56041900000127
+       ]
+      },
+      {
+       "n": 18,
+       "scale_m_per_unit": 0.1336,
+       "ate_rmse_m": 0.1158,
+       "gt_extent_m": [
+        0.404,
+        0.197,
+        1.478
+       ],
+       "rpe_1s_rot_deg_median": 0.6077,
+       "rpe_1s_len_abs_err_median_pct": 9.4332,
+       "window_scale_rel_min_max": [
+        0.9266120846043443,
+        0.9266120846043443
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.8924,
+       "t_span_s": [
+        81.8782707079954,
+        188.02582970799995
+       ]
+      },
+      {
+       "n": 18,
+       "scale_m_per_unit": 0.2724,
+       "ate_rmse_m": 0.2325,
+       "gt_extent_m": [
+        1.666,
+        0.043,
+        2.777
+       ],
+       "rpe_1s_rot_deg_median": 13.2782,
+       "rpe_1s_len_abs_err_median_pct": 27.7337,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 1.0848,
+       "t_span_s": [
+        177.59111904200108,
+        183.2418652500055
+       ]
+      },
+      {
+       "n": 17,
+       "scale_m_per_unit": 0.2628,
+       "ate_rmse_m": 0.0241,
+       "gt_extent_m": [
+        1.503,
+        0.024,
+        2.57
+       ],
+       "rpe_1s_rot_deg_median": 0.4297,
+       "rpe_1s_len_abs_err_median_pct": 3.0295,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 1.0059,
+       "t_span_s": [
+        73.76049250000506,
+        79.06121866700414
+       ]
+      },
+      {
+       "n": 14,
+       "scale_m_per_unit": 0.1723,
+       "ate_rmse_m": 0.0056,
+       "gt_extent_m": [
+        0.349,
+        0.069,
+        1.848
+       ],
+       "rpe_1s_rot_deg_median": 0.4766,
+       "rpe_1s_len_abs_err_median_pct": 0.6511,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.5882,
+       "t_span_s": [
+        44.15639600000577,
+        48.39032054199197
+       ]
+      }
+     ]
+    },
+    "incremental_refined": {
+     "n_total": 650,
+     "n_models": 15,
+     "registered_per_model": [
+      52,
+      52,
+      48,
+      48,
+      35,
+      33,
+      24,
+      23,
+      20,
+      18,
+      18,
+      18,
+      17,
+      16,
+      14
+     ],
+     "registered_any": 436,
+     "registered_largest": 52,
+     "sec_mapping": 26.032647848129272,
+     "models": [
+      {
+       "n": 52,
+       "scale_m_per_unit": 0.356,
+       "ate_rmse_m": 0.0827,
+       "gt_extent_m": [
+        1.232,
+        0.192,
+        3.764
+       ],
+       "rpe_1s_rot_deg_median": 0.6615,
+       "rpe_1s_len_abs_err_median_pct": 3.8658,
+       "window_scale_rel_min_max": [
+        0.9333855566101368,
+        0.9945076307928278
+       ],
+       "window_scale_rel_std_pct": 2.7218,
+       "window_scale_rel_range_pct": 6.1122,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         798.9444220737796,
+         477.69935,
+         358.8514,
+         0.011820083965723744
+        ]
+       },
+       "mean_reproj_error_px": 0.7958,
+       "t_span_s": [
+        0.0,
+        207.49505874999159
+       ]
+      },
+      {
+       "n": 52,
+       "scale_m_per_unit": 0.4084,
+       "ate_rmse_m": 0.1185,
+       "gt_extent_m": [
+        1.743,
+        0.168,
+        4.743
+       ],
+       "rpe_1s_rot_deg_median": 0.5584,
+       "rpe_1s_len_abs_err_median_pct": 1.9543,
+       "window_scale_rel_min_max": [
+        0.9769544021577503,
+        0.9957580354196316
+       ],
+       "window_scale_rel_std_pct": 0.9402,
+       "window_scale_rel_range_pct": 1.8804,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         822.5278558501927,
+         477.69935,
+         358.8514,
+         0.024331538019720954
+        ]
+       },
+       "mean_reproj_error_px": 0.8387,
+       "t_span_s": [
+        85.52876966699841,
+        196.26024795799458
+       ]
+      },
+      {
+       "n": 48,
+       "scale_m_per_unit": 0.3712,
+       "ate_rmse_m": 0.0213,
+       "gt_extent_m": [
+        2.897,
+        0.357,
+        2.996
+       ],
+       "rpe_1s_rot_deg_median": 0.3383,
+       "rpe_1s_len_abs_err_median_pct": 1.1815,
+       "window_scale_rel_min_max": [
+        0.9960279286737748,
+        0.9960279286737748
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         805.170963846424,
+         477.69935,
+         358.8514,
+         0.013866117213724083
+        ]
+       },
+       "mean_reproj_error_px": 0.7556,
+       "t_span_s": [
+        32.18804424999689,
+        148.18721829200513
+       ]
+      },
+      {
+       "n": 48,
+       "scale_m_per_unit": 0.3468,
+       "ate_rmse_m": 0.0607,
+       "gt_extent_m": [
+        2.851,
+        0.309,
+        2.556
+       ],
+       "rpe_1s_rot_deg_median": 0.6633,
+       "rpe_1s_len_abs_err_median_pct": 2.862,
+       "window_scale_rel_min_max": [
+        1.007176974228357,
+        1.0131221265520982
+       ],
+       "window_scale_rel_std_pct": 0.2973,
+       "window_scale_rel_range_pct": 0.5945,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         776.2618940368027,
+         477.69935,
+         358.8514,
+         0.007544714503208742
+        ]
+       },
+       "mean_reproj_error_px": 0.8615,
+       "t_span_s": [
+        30.271105082996655,
+        162.40577475000464
+       ]
+      },
+      {
+       "n": 35,
+       "scale_m_per_unit": 0.2375,
+       "ate_rmse_m": 0.031,
+       "gt_extent_m": [
+        2.32,
+        0.178,
+        1.896
+       ],
+       "rpe_1s_rot_deg_median": 0.5723,
+       "rpe_1s_len_abs_err_median_pct": 1.0479,
+       "window_scale_rel_min_max": [
+        0.9996328006178561,
+        0.9996328006178561
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         799.8312645248491,
+         477.69935,
+         358.8514,
+         0.019518431012685824
+        ]
+       },
+       "mean_reproj_error_px": 0.8475,
+       "t_span_s": [
+        13.618700958002592,
+        127.30109070800245
+       ]
+      },
+      {
+       "n": 33,
+       "scale_m_per_unit": 0.2418,
+       "ate_rmse_m": 0.0246,
+       "gt_extent_m": [
+        0.94,
+        0.244,
+        2.685
+       ],
+       "rpe_1s_rot_deg_median": 0.3451,
+       "rpe_1s_len_abs_err_median_pct": 1.6551,
+       "window_scale_rel_min_max": [
+        0.9997915065556868,
+        0.9997915065556868
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         801.5329097601191,
+         477.69935,
+         358.8514,
+         0.012988039512397282
+        ]
+       },
+       "mean_reproj_error_px": 0.7673,
+       "t_span_s": [
+        25.82046945800539,
+        139.93611791699368
+       ]
+      },
+      {
+       "n": 24,
+       "scale_m_per_unit": 0.1863,
+       "ate_rmse_m": 0.2006,
+       "gt_extent_m": [
+        0.493,
+        0.268,
+        2.385
+       ],
+       "rpe_1s_rot_deg_median": 1.1938,
+       "rpe_1s_len_abs_err_median_pct": 12.6712,
+       "window_scale_rel_min_max": [
+        1.1650231963457252,
+        1.1650231963457252
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         849.754426192694,
+         477.69935,
+         358.8514,
+         0.05030067552691387
+        ]
+       },
+       "mean_reproj_error_px": 0.933,
+       "t_span_s": [
+        5.084100374995614,
+        120.20013508299598
+       ]
+      },
+      {
+       "n": 23,
+       "scale_m_per_unit": 0.3511,
+       "ate_rmse_m": 0.0127,
+       "gt_extent_m": [
+        3.735,
+        0.044,
+        1.78
+       ],
+       "rpe_1s_rot_deg_median": 0.4316,
+       "rpe_1s_len_abs_err_median_pct": 0.8382,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         821.9175379638357,
+         477.69935,
+         358.8514,
+         0.04398826280246789
+        ]
+       },
+       "mean_reproj_error_px": 0.9095,
+       "t_span_s": [
+        66.79286841700377,
+        73.76049250000506
+       ]
+      },
+      {
+       "n": 20,
+       "scale_m_per_unit": 0.1201,
+       "ate_rmse_m": 0.1362,
+       "gt_extent_m": [
+        0.494,
+        0.155,
+        1.487
+       ],
+       "rpe_1s_rot_deg_median": 13.9477,
+       "rpe_1s_len_abs_err_median_pct": 13.6411,
+       "window_scale_rel_min_max": [
+        0.9179537182745711,
+        0.9179537182745711
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         988.0685130400004,
+         477.69935,
+         358.8514,
+         0.2586895784215576
+        ]
+       },
+       "mean_reproj_error_px": 1.1961,
+       "t_span_s": [
+        10.451567124997382,
+        122.91716770800122
+       ]
+      },
+      {
+       "n": 18,
+       "scale_m_per_unit": 0.2941,
+       "ate_rmse_m": 0.0186,
+       "gt_extent_m": [
+        2.665,
+        0.045,
+        1.893
+       ],
+       "rpe_1s_rot_deg_median": 0.4401,
+       "rpe_1s_len_abs_err_median_pct": 1.0423,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         751.384244701689,
+         477.69935,
+         358.8514,
+         -0.03256604611415676
+        ]
+       },
+       "mean_reproj_error_px": 0.7844,
+       "t_span_s": [
+        170.32349075000093,
+        175.62419229200168
+       ]
+      },
+      {
+       "n": 18,
+       "scale_m_per_unit": 0.1344,
+       "ate_rmse_m": 0.1176,
+       "gt_extent_m": [
+        0.404,
+        0.197,
+        1.478
+       ],
+       "rpe_1s_rot_deg_median": 0.7771,
+       "rpe_1s_len_abs_err_median_pct": 9.648,
+       "window_scale_rel_min_max": [
+        0.9253234429712477,
+        0.9253234429712477
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         782.1847639095776,
+         477.69935,
+         358.8514,
+         -0.009271605303152066
+        ]
+       },
+       "mean_reproj_error_px": 0.8878,
+       "t_span_s": [
+        81.8782707079954,
+        188.02582970799995
+       ]
+      },
+      {
+       "n": 18,
+       "scale_m_per_unit": 0.2632,
+       "ate_rmse_m": 0.3099,
+       "gt_extent_m": [
+        1.666,
+        0.043,
+        2.777
+       ],
+       "rpe_1s_rot_deg_median": 21.0066,
+       "rpe_1s_len_abs_err_median_pct": 8.838,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         653.9712181546028,
+         477.69935,
+         358.8514,
+         0.6331270532631986
+        ]
+       },
+       "mean_reproj_error_px": 1.1356,
+       "t_span_s": [
+        177.59111904200108,
+        183.2418652500055
+       ]
+      },
+      {
+       "n": 17,
+       "scale_m_per_unit": 0.2623,
+       "ate_rmse_m": 0.0213,
+       "gt_extent_m": [
+        1.503,
+        0.024,
+        2.57
+       ],
+       "rpe_1s_rot_deg_median": 0.5927,
+       "rpe_1s_len_abs_err_median_pct": 3.1942,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         749.024125310668,
+         477.69935,
+         358.8514,
+         -0.00612320657807333
+        ]
+       },
+       "mean_reproj_error_px": 1.0033,
+       "t_span_s": [
+        73.76049250000506,
+        79.06121866700414
+       ]
+      },
+      {
+       "n": 16,
+       "scale_m_per_unit": 0.1455,
+       "ate_rmse_m": 0.18,
+       "gt_extent_m": [
+        1.379,
+        0.174,
+        1.016
+       ],
+       "rpe_1s_rot_deg_median": 0.9768,
+       "rpe_1s_len_abs_err_median_pct": 10.0362,
+       "window_scale_rel_min_max": [
+        1.1078432050363862,
+        1.1078432050363862
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         809.6437444857306,
+         477.69935,
+         358.8514,
+         0.03767159308894358
+        ]
+       },
+       "mean_reproj_error_px": 0.6684,
+       "t_span_s": [
+        94.0132590419962,
+        197.56041900000127
+       ]
+      },
+      {
+       "n": 14,
+       "scale_m_per_unit": 0.1715,
+       "ate_rmse_m": 0.0064,
+       "gt_extent_m": [
+        0.349,
+        0.069,
+        1.848
+       ],
+       "rpe_1s_rot_deg_median": 1.4584,
+       "rpe_1s_len_abs_err_median_pct": 0.3949,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         708.8471399696512,
+         477.69935,
+         358.8514,
+         -0.021114151287900187
+        ]
+       },
+       "mean_reproj_error_px": 0.5596,
+       "t_span_s": [
+        44.15639600000577,
+        48.39032054199197
+       ]
+      }
+     ]
+    },
+    "global_fixed": {
+     "n_total": 650,
+     "n_models": 8,
+     "registered_per_model": [
+      519,
+      43,
+      8,
+      8,
+      6,
+      4,
+      3,
+      3
+     ],
+     "registered_any": 594,
+     "registered_largest": 519,
+     "sec_mapping": 16.042845964431763,
+     "models": [
+      {
+       "n": 519,
+       "scale_m_per_unit": 0.1451,
+       "ate_rmse_m": 3.087,
+       "gt_extent_m": [
+        8.284,
+        0.395,
+        8.971
+       ],
+       "rpe_1s_rot_deg_median": 0.7586,
+       "rpe_1s_len_abs_err_median_pct": 78.6725,
+       "window_scale_rel_min_max": [
+        0.2971553811686998,
+        6.346836019208968
+       ],
+       "window_scale_rel_std_pct": 190.3945,
+       "window_scale_rel_range_pct": 604.9681,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.8401,
+       "t_span_s": [
+        0.0,
+        207.49505874999159
+       ]
+      },
+      {
+       "n": 43,
+       "scale_m_per_unit": 0.5213,
+       "ate_rmse_m": 0.0779,
+       "gt_extent_m": [
+        5.592,
+        0.08,
+        2.946
+       ],
+       "rpe_1s_rot_deg_median": 0.2885,
+       "rpe_1s_len_abs_err_median_pct": 4.1181,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.PINHOLE",
+        "params": [
+         799.8478,
+         799.8478,
+         477.69935,
+         358.8514
+        ]
+       },
+       "mean_reproj_error_px": 0.8498,
+       "t_span_s": [
+        170.32349075000093,
+        183.6085802919988
+       ]
+      }
+     ]
+    },
+    "global_refined": {
+     "n_total": 650,
+     "n_models": 7,
+     "registered_per_model": [
+      519,
+      43,
+      8,
+      8,
+      6,
+      4,
+      3
+     ],
+     "registered_any": 591,
+     "registered_largest": 519,
+     "sec_mapping": 18.97385811805725,
+     "models": [
+      {
+       "n": 519,
+       "scale_m_per_unit": 0.0008,
+       "ate_rmse_m": 3.1655,
+       "gt_extent_m": [
+        8.284,
+        0.395,
+        8.971
+       ],
+       "rpe_1s_rot_deg_median": 0.7511,
+       "rpe_1s_len_abs_err_median_pct": 99.9119,
+       "window_scale_rel_min_max": [
+        0.2896024919416972,
+        34989.620592353254
+       ],
+       "window_scale_rel_std_pct": 775666.8823,
+       "window_scale_rel_range_pct": 3498933.099,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         799.4149659218913,
+         477.69935,
+         358.8514,
+         0.018738576272261907
+        ]
+       },
+       "mean_reproj_error_px": 0.8786,
+       "t_span_s": [
+        0.0,
+        207.49505874999159
+       ]
+      },
+      {
+       "n": 43,
+       "scale_m_per_unit": 0.5225,
+       "ate_rmse_m": 0.0935,
+       "gt_extent_m": [
+        5.592,
+        0.08,
+        2.946
+       ],
+       "rpe_1s_rot_deg_median": 0.5316,
+       "rpe_1s_len_abs_err_median_pct": 5.5446,
+       "window_scale_rel_min_max": [
+        1.0,
+        1.0
+       ],
+       "window_scale_rel_std_pct": 0.0,
+       "window_scale_rel_range_pct": 0.0,
+       "camera": {
+        "model": "CameraModelId.SIMPLE_RADIAL",
+        "params": [
+         765.314260350305,
+         477.69935,
+         358.8514,
+         -0.022713055413289593
+        ]
+       },
+       "mean_reproj_error_px": 0.8624,
+       "t_span_s": [
+        170.32349075000093,
+        183.6085802919988
+       ]
+      }
+     ]
+    }
+   }
+  }
+ }
+}

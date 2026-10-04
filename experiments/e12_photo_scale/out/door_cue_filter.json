@@ -1,0 +1,94 @@
+{
+ "oracle_lidar_height_1.95_2.25": {
+  "n": 25,
+  "rooms": [
+   "1",
+   "3",
+   "4",
+   "7"
+  ],
+  "lidar_height_p10_p50_p90": [
+   2.001,
+   2.177,
+   2.232
+  ],
+  "prior_2.03": {
+   "per_photo_median_abs_pct": 5.84,
+   "per_photo_within_8pct": 0.72,
+   "per_room_errs_pct": [
+    -2.3,
+    1.2,
+    -8.8,
+    -1.7
+   ]
+  },
+  "prior_2.1": {
+   "per_photo_median_abs_pct": 4.66,
+   "per_photo_within_8pct": 0.76,
+   "per_room_errs_pct": [
+    1.1,
+    4.7,
+    -5.6,
+    1.7
+   ]
+  },
+  "prior_2.177": {
+   "per_photo_median_abs_pct": 5.43,
+   "per_photo_within_8pct": 0.64,
+   "per_room_errs_pct": [
+    4.8,
+    8.5,
+    -2.2,
+    5.4
+   ]
+  }
+ },
+ "image_only": {
+  "n": 16,
+  "rooms": [
+   "1",
+   "3",
+   "4",
+   "6",
+   "7"
+  ],
+  "lidar_height_p10_p50_p90": [
+   1.39,
+   1.934,
+   2.21
+  ],
+  "prior_2.03": {
+   "per_photo_median_abs_pct": 12.76,
+   "per_photo_within_8pct": 0.125,
+   "per_room_errs_pct": [
+    53.9,
+    -8.8,
+    9.7,
+    39.0,
+    63.6
+   ]
+  },
+  "prior_2.1": {
+   "per_photo_median_abs_pct": 16.52,
+   "per_photo_within_8pct": 0.188,
+   "per_room_errs_pct": [
+    59.2,
+    -5.6,
+    13.5,
+    43.7,
+    69.3
+   ]
+  },
+  "prior_1.934": {
+   "per_photo_median_abs_pct": 15.87,
+   "per_photo_within_8pct": 0.312,
+   "per_room_errs_pct": [
+    46.6,
+    -13.1,
+    4.5,
+    32.4,
+    55.9
+   ]
+  }
+ }
+}

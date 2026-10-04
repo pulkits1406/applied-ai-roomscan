@@ -1,0 +1,32 @@
+{
+ "photos": 359,
+ "detections_kept": 125,
+ "measurable": 112,
+ "photos_with_door": 104,
+ "lidar_door_height_m": {
+  "median": 1.921,
+  "p10_p90": [
+   1.298,
+   2.556
+  ]
+ },
+ "moge_vs_lidar_height_err_pct_median_abs": 6.96,
+ "door_estimator_prior_2.030": {
+  "median_signed_pct": 7.7,
+  "median_abs_pct": 15.55,
+  "p90_abs_pct": 71.38,
+  "within_8pct": 0.25
+ },
+ "door_estimator_prior_2.100": {
+  "median_signed_pct": 11.41,
+  "median_abs_pct": 17.3,
+  "p90_abs_pct": 70.39,
+  "within_8pct": 0.286
+ },
+ "door_estimator_prior_1.921": {
+  "median_signed_pct": 1.89,
+  "median_abs_pct": 13.94,
+  "p90_abs_pct": 70.4,
+  "within_8pct": 0.232
+ }
+}

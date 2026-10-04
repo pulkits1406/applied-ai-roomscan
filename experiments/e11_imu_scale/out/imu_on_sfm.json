@@ -1,0 +1,138 @@
+{
+ "single_room_s1_p0.001_seq_sfm_poses.json": {
+  "frames": 145,
+  "fps": 9.52,
+  "duration_s": 15.2,
+  "sim3_ate_mm": 128.3,
+  "gyro_fit_resid": 0.0591,
+  "sigma0.4": {
+   "fwd_err_pct": -8.39,
+   "rev_err_pct": 49.62,
+   "geo_mean_err_pct": 17.07
+  },
+  "sigma0.6": {
+   "fwd_err_pct": -25.59,
+   "rev_err_pct": 101.05,
+   "geo_mean_err_pct": 22.31
+  }
+ },
+ "single_room_s1_p0.001_seqloop_sfm_poses.json": {
+  "frames": 148,
+  "fps": 9.52,
+  "duration_s": 15.6,
+  "sim3_ate_mm": 537.0,
+  "gyro_fit_resid": 0.0947,
+  "sigma0.4": {
+   "fwd_err_pct": -2.33,
+   "rev_err_pct": 431.73,
+   "geo_mean_err_pct": 127.89
+  },
+  "sigma0.6": {
+   "fwd_err_pct": -42.48,
+   "rev_err_pct": 1557.88,
+   "geo_mean_err_pct": 208.81
+  }
+ },
+ "single_room_s1_p0.0066667_sequential_sfm_poses.json": {
+  "frames": 77,
+  "fps": 9.56,
+  "duration_s": 8.1,
+  "sim3_ate_mm": 21.0,
+  "gyro_fit_resid": 0.0683,
+  "sigma0.4": {
+   "fwd_err_pct": 7.37,
+   "rev_err_pct": 26.63,
+   "geo_mean_err_pct": 16.6
+  },
+  "sigma0.6": {
+   "fwd_err_pct": 11.84,
+   "rev_err_pct": 31.51,
+   "geo_mean_err_pct": 21.27
+  }
+ },
+ "single_room_s2_p0.001_exh_sfm_poses.json": {
+  "frames": 115,
+  "fps": 3.69,
+  "duration_s": 31.2,
+  "sim3_ate_mm": 1113.8,
+  "gyro_fit_resid": 0.4898,
+  "sigma0.4": {
+   "fwd_err_pct": -102.77,
+   "rev_err_pct": -3924.66,
+   "geo_mean_err_pct": 2.93
+  },
+  "sigma0.6": {
+   "fwd_err_pct": -111.18,
+   "rev_err_pct": -2138.84,
+   "geo_mean_err_pct": 50.95
+  }
+ },
+ "single_room_sfm_poses.json": {
+  "frames": 78,
+  "fps": 9.55,
+  "duration_s": 8.2,
+  "sim3_ate_mm": 17.0,
+  "gyro_fit_resid": 0.0609,
+  "sigma0.4": {
+   "fwd_err_pct": 8.62,
+   "rev_err_pct": 25.81,
+   "geo_mean_err_pct": 16.9
+  },
+  "sigma0.6": {
+   "fwd_err_pct": 13.06,
+   "rev_err_pct": 25.88,
+   "geo_mean_err_pct": 19.3
+  }
+ },
+ "single_scan_with_ceiling_s1_p0.001_seqloop_sfm_poses.json": {
+  "frames": 1779,
+  "fps": 8.45,
+  "duration_s": 210.6,
+  "sim3_ate_mm": 3171.6,
+  "gyro_fit_resid": 0.179,
+  "sigma0.4": {
+   "fwd_err_pct": -105.51,
+   "rev_err_pct": -10541.47,
+   "geo_mean_err_pct": 139.8
+  },
+  "sigma0.6": {
+   "fwd_err_pct": -104.8,
+   "rev_err_pct": -63951.49,
+   "geo_mean_err_pct": 453.88
+  }
+ },
+ "single_scan_with_ceiling_s3_p0.001_seqloop_sfm_poses.json": {
+  "frames": 519,
+  "fps": 2.5,
+  "duration_s": 207.5,
+  "sim3_ate_mm": 3087.0,
+  "gyro_fit_resid": 0.285,
+  "sigma0.4": {
+   "fwd_err_pct": -98.2,
+   "rev_err_pct": 62025.63,
+   "geo_mean_err_pct": 234.58
+  },
+  "sigma0.6": {
+   "fwd_err_pct": -96.74,
+   "rev_err_pct": 173504.29,
+   "geo_mean_err_pct": 652.61
+  }
+ },
+ "single_scan_with_ceiling_sfm_poses.json": {
+  "frames": 798,
+  "fps": 3.84,
+  "duration_s": 207.7,
+  "sim3_ate_mm": 1470.4,
+  "gyro_fit_resid": 0.0764,
+  "sigma0.4": {
+   "fwd_err_pct": 0.03,
+   "rev_err_pct": 4581.03,
+   "geo_mean_err_pct": 584.29
+  },
+  "sigma0.6": {
+   "fwd_err_pct": 6.9,
+   "rev_err_pct": 6346.61,
+   "geo_mean_err_pct": 730.16
+  }
+ }
+}

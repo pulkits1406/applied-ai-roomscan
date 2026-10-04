@@ -1,0 +1,5 @@
+870 ['crop1.0: true 48.5 pred 69.9', 'crop0.75: true 37.3 pred 68.9', 'crop0.5: true 25.4 pred 65.7']
+2600 ['crop1.0: true 48.5 pred 69.0', 'crop0.75: true 37.3 pred 63.4', 'crop0.5: true 25.4 pred 48.7']
+5280 ['crop1.0: true 48.5 pred 71.0', 'crop0.75: true 37.3 pred 70.7', 'crop0.5: true 25.4 pred 69.0']
+6300 ['crop1.0: true 48.5 pred 65.6', 'crop0.75: true 37.3 pred 70.4', 'crop0.5: true 25.4 pred 69.5']
+7400 ['crop1.0: true 48.5 pred 71.4', 'crop0.75: true 37.3 pred 70.9', 'crop0.5: true 25.4 pred 68.2']

@@ -1,0 +1,30 @@
+{
+ "floor_found_frac": 1.0,
+ "h_pred_vs_true_err_pct": {
+  "median_signed": -11.65,
+  "median_abs": 21.36
+ },
+ "h_err_minus_mono_err_pct_median_abs": 18.21,
+ "camh_estimator_prior_1.45": {
+  "median_signed_pct": -2.74,
+  "median_abs_pct": 18.43,
+  "p90_abs_pct": 77.34,
+  "within_8pct": 0.309
+ },
+ "camh_estimator_prior_1.55_oracle_operator_mean": {
+  "median_signed_pct": 4.31,
+  "median_abs_pct": 20.34,
+  "p90_abs_pct": 90.2,
+  "within_8pct": 0.331
+ },
+ "K4_room_mono": {
+  "median_abs_pct": 6.27,
+  "p90_abs_pct": 14.48,
+  "within_8pct": 0.616
+ },
+ "K4_room_fused_mono_camh": {
+  "median_abs_pct": 7.21,
+  "p90_abs_pct": 17.43,
+  "within_8pct": 0.55
+ }
+}
