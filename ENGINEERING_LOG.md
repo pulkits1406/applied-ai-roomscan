@@ -262,3 +262,153 @@ Tentative unless marked final. Each one names the evidence it rests on.
   photo's scale is not good enough for ±8 % with calibrated intervals; multi-photo aggregation
   reduces the random part, not the ~4–9 % bias. Caveat: these are walk-through frames (many
   close-ups of walls/floor), not deliberate room photos — re-test on stills taken per protocol.
+
+---
+
+## Phase 2 (2026-10-05): evidence-driven prototyping
+
+Constraint from the user: no iPhone and no Apple Developer account for now. Everything below
+runs on the three supplied Stray captures. **Labels used:** [FACT] verified fact ·
+[MEASURED] number from an experiment on supplied data · [PSEUDO-GT] measured against our own
+LiDAR reconstruction, not a laser · [HYPOTHESIS] engineering hypothesis · [DECISION-PROV]
+provisional decision · [BLOCKED] needs physical capture.
+
+### e07 — shared keyframe cache
+Every 5th row of each capture, 960×720 JPEG + per-frame K, T_wc, upright rotation, pitch,
+LiDAR median depth, sharpness, angular speed (`cache/frames/`, regenerable, gitignored).
+
+### e11 — video-tier metric scale from the IMU
+- Model: s·p̈ − g + R b − R A(t) r = R f (scale s, gravity g, accel bias b, **camera–IMU lever
+  arm r**), same low-pass on both sides; camera–IMU rotation and time offset estimated from
+  gyro vs trajectory angular rate (residual 0.011–0.015 rad/s; offset 0 to −5 ms).
+- [MEASURED] Without lever arm, scale biased low 4–44 %; errors-in-variables attenuation
+  explains part (forward/reverse regressions bracket) but both stayed low → model error.
+- [MEASURED] With lever arm (estimated 4–10 cm, x ≈ 8 cm consistently), at 9 fps poses and a
+  0.4–0.6 s filter, forward/reverse bracket 1 within ±2 % on all three captures.
+- [MEASURED] At 3 fps keyframes (SfM-like) the geometric-mean error is −2.5 … +3.6 % with no
+  noise and 1–4 % with 5–10 mm jitter; shortest capture (37 s) worst.
+- [HYPOTHESIS] Video + IMU can reach ~1–2 % scale if SfM poses are dense (≥ 10 fps) and the
+  clip is ≥ 60 s. [BLOCKED] needs a real Sensor Logger recording (timestamp format, IMU rate).
+- [FACT] (research) Sensor Logger (free) records video + accelerometer + gyro on any iPhone on
+  one clock; native Camera video carries no IMU. Interpretation risk: video+IMU is
+  "visual-inertial", which may not count as "a handheld walkthrough clip".
+
+### e12 — photo-tier metric scale (MoGe-2, FOV given), 359 photo-like frames, 6 rooms [PSEUDO-GT]
+- Photo-like = |pitch| < 25°, median depth > 1.6 m, sharp, slow; grouped by segmented room.
+- [MEASURED] Per-photo size error: signed median −5.3 %, |err| median 5.8 %, p90 17 %.
+- [MEASURED] K photos per room (median of per-photo scales, 200 draws/room): |err| median
+  6.6 / 6.9 / 5.6 / 6.4 / 6.2 / 6.2 % for K = 1/2/3/4/6/8; within ±8 %: 57–65 % of rooms.
+  **More photos do not help**: per-room bias ranges −0.1 % … −15.7 % (small rooms worst).
+- [MEASURED] Leave-one-room-out bias correction (K=4): within ±8 % rises to 78 %, p90 11 %.
+- [MEASURED] Camera-height cue (lowest horizontal plane in the lower image): single-image
+  height error 21 % median; fusing it makes results worse (55 % within ±8 %). Operator's own
+  camera height varies ±9 cm (6 %). → **refuted** as a scale cue.
+- [MEASURED] Door-height cue (Grounding DINO "a door." + wall plane fitted around the box):
+  zero-shot boxes are mostly not full doors (LiDAR heights 0.86–3.12 m) → deployable version
+  fails (per-room errors up to 64 %). Oracle (true doors only): ~5 % per photo, per-room within
+  ±6 % (2.1 m prior). Doors here are 2.00–2.23 m → prior spread alone is ~±5 %.
+- [HYPOTHESIS] Without a reference object, single-model monocular scale lands at ~6 % median /
+  ~15 % p90 per room. The ±8 % gate with *calibrated* intervals then needs either (a) a second
+  independent scale source whose bias is uncorrelated (multi-model ensemble, MapAnything), or
+  (b) a protocol-level metric cue. Honest 90 % intervals would be roughly ±15 %.
+
+### e10 — room segmentation [MEASURED, visual check only]
+- v1 (height bands): corridor's low ceiling filled the "header" band; furniture removed free
+  space → wrong. v2: barrier = **vertical** surfaces (normals) above 1.9 m; door lintels close
+  doorways; interior bounded by the observed-floor footprint → 8 regions on `with_ceiling`,
+  clean rectangles for closed rooms, insensitive to the 1.6–2.05 m threshold.
+- [MEASURED] `floor_only` / `single_room`: vertical points above 1.7 m are < 1 % → 0 rooms.
+  → [DECISION-PROV] the protocol must include an upper-wall + ceiling sweep.
+
+### e09 — drift correction ON vs OFF (GT-free metrics)
+- v1: submap pose graph (2.5 s submaps, ICP loops, Open3D LM). [MEASURED] cross-capture median
+  21.4 → 16.4 mm (better) but revisit p90 46 → 72 mm and `floor_only` revisit median
+  9.3 → 21.3 mm (worse).
+- v2 (degenerate-loop rejection, consistent odometry information, yaw-only corrections):
+  fitness ≥ 0.5 rejected almost all loops; one accepted loop moved `floor_only` poses 44 cm.
+  [MEASURED] worse. → **negative result**: a generic pose graph on top of ARKit is not
+  reliably better than ARKit poses.
+- Per-room rigid test: after global alignment of `floor_only` onto `with_ceiling`, per-room ICP
+  brings median disagreement to 11–15 mm in 7/8 rooms (room shifts 2–16 cm, yaw ≤ 1.8°).
+  [MEASURED] drift ≈ rigid per room, accumulating between rooms.
+- [DECISION-PROV] Drift strategy: **room-local geometry** (each room measured within one
+  visit, so drift cancels out of wall-to-wall distances) + **plane-anchored stitching** (rooms
+  placed via shared walls/doorways and a common Manhattan yaw). Ablation for the gate: stitched
+  footprint with ARKit placement only vs with plane-anchored stitch. Not yet implemented.
+
+### Representation + benchmark harness
+- `src/roomscan/model.py` → `schema/plan.schema.json`. Every user-facing number is a
+  `Measurement` (value, unit, 90 % interval, status, method, error budget). Unobserved
+  quantities are `not_observed`, never guessed (e.g. `floor_only` ceiling). Damage regions,
+  concealed-damage flags and scope items reference `Surface.id`, so damage attaches to stable
+  geometry later. Cross-references are validated.
+- `src/roomscan/bench/` + `benchmark/README.md` + `benchmark/_template/site.yaml`: tape/laser
+  GT as per-room cyclic wall lists, openings (clear jamb-to-jamb width), ceilings (≥3 points),
+  topology, damage, capture manifest with `repeat_group`, incumbent numbers.
+  `uv run roomscan-bench benchmark/<site> --run runs/<id>` computes every gate, repeatability,
+  interval coverage, head-to-head; pseudo-GT sites get a PSEUDO-GT banner. 8 tests pass.
+
+### e14 — LiDAR pipeline v0 (`src/roomscan/lidar_pipeline.py`)
+- fuse → segment → per room: Manhattan yaw, wall lines (density peaks with support reaching
+  ≥ 2 m), arrangement-cell polygon grown across edges without structural support, floor and
+  ceiling levels from all visits, geometric doorways (lintel present, no mid-height wall).
+- [MEASURED] `with_ceiling`: 7 rooms, consistent yaw 26.8–28.8°, ceilings 2.28–3.08 m,
+  4 doorways (0.79, 0.88, 0.88, 0.51 m), ~50 s on M4. Schema-valid Plan.
+- [MEASURED] Within-capture repeatability proxy (room walls from visit 1 vs visit 2):
+  median |Δ| 16 mm, 50 % within max(1 cm, 0.5 %). Rigid drift cancels in these distances, so
+  this is **method noise** (furniture faces vs wall faces, partially observed walls).
+  [HYPOTHESIS] Averaging all visits after per-room rigid alignment + per-wall plane fitting
+  will reduce it. Fix-loop candidate.
+- Intervals are an explicit **uncalibrated** placeholder (`*_uncal_v0`) until laser GT exists.
+- [MEASURED] Second monocular model (Depth Anything V2 Metric-Indoor Small, no FOV input):
+  +44 % per-photo bias (unusable as-is), and per-room biases correlate with MoGe-2's at
+  r = 0.75 → biases are **scene-driven, not model-specific**; a multi-model ensemble does not
+  cancel them (K=4 ensemble 16 % within ±8 % vs MoGe alone 64 %). Negative result.
+- [MEASURED] IMU scale on **real COLMAP poses** (e08 output, `imu_on_sfm.py`): largest models
+  cover only 6–15 s of `single_room` (fragmented), Sim3 ATE 12 mm … 1.1 m; `with_ceiling` model
+  ATE 3.1 m (broken). Scale error 16–200 %. → the IMU method is sound on good poses (e11) but
+  the **bottleneck is RGB-only tracking** on this footage (white walls, blur, close-ups).
+  [HYPOTHESIS] video tier needs a robust learned tracker (MapAnything/VGGT-class poses) or a
+  protocol that yields trackable footage (slower, wider views); test before committing.
+
+### e13 — MapAnything (Apache ckpt `facebook/map-anything-apache`, repo v1.1.4) [PSEUDO-GT, room 1 only]
+- Run by a subagent in an isolated venv (`cache/e13/.venv`; mapanything pins
+  opencv-python-headless 4.10, conflicting with the project's 5.x). Stopped early under memory
+  pressure on the 16 GB M4 (swap thrash); 153 runs, room 1 only, K = 1…6 (K = 8: ≤ 2 runs).
+- [MEASURED] Raw metric scale: |err| median 28–35 %, always too small (LiDAR/pred ≈ 1.45–1.53);
+  0/76 multi-view runs within ±8 %. Passing intrinsics barely helps (median 1.9 pp).
+- [MEASURED] Cause: predicted FOV ≈ 70° vs true 48.5° (focal −33…−37 %), even on centre crops;
+  given intrinsics move the output focal only ~6 % (upstream issue #93 reports the same).
+- [MEASURED] Focal-corrected (depth × f_true / f_pred, f_true from EXIF in deployment):
+  |err| median 3.9 / 5.7 / 4.1 / 3.0 / 1.5 % and p90 15.7 / 11.7 / 8.2 / 7.2 / 4.6 % for
+  K = 1/2/3/4/6. Shape AbsRel 0.05–0.07. Runtime 1.2–10 s per run (K = 1–6) on MPS, ~40 s load.
+- Caveat: room 1 is MoGe-2's *easiest* room (bias −3 %), so this does not yet show MapAnything
+  beating MoGe where MoGe fails (rooms 6, 8: −11…−16 %). [HYPOTHESIS] multi-view consistency +
+  EXIF focal reduces per-room bias; must be re-run on rooms 3/4/6/7/8 before any decision.
+- Stitching probe (mixed-room subsets) not run.
+- Operational: on this 16 GB machine, MapAnything (4.9 GB weights) + other GPU jobs exhaust
+  memory → run one model at a time; affects walk-in hardware assumptions (see U7).
+
+### e08 — video tier: COLMAP (pycolmap 4.2.1, CPU, SIFT) on RGB only [PSEUDO-GT]
+- [MEASURED] Tracking fragments: `single_room` 7 models (largest 78 frames, ATE 17 mm);
+  `with_ceiling` 14 models, longest continuous run ≤ 13.5 s, largest model ATE 1.47 m with
+  per-20 s scale varying 0.80–1.14. Breaks where the phone turns > ~80°/s within 0.2–0.7 m of
+  a blank wall. Default SIFT gives ~429 keypoints/frame on these walls (threshold lowered → 5.8k).
+  Global mapper registers more frames but its positions are wrong (ATE 0.5–3.2 m).
+- [MEASURED] Inside unbroken runs: ~9 Hz poses, jitter median 1.4–5 mm (p90 ≤ ~10 mm).
+- [MEASURED] MoGe-2 scale per SfM piece (`single_room`): −2.5 / +1.9 / −2.2 / −1.8 / +3.5 %
+  (one failed piece +45.6 %). Pooled convergence 0.6 % median at 50 frames is optimistic
+  (pieces' errors cancel); a single reconstruction keeps its own ±2–4 %.
+- [MEASURED] Pseudo-GT self-consistency: LiDAR depth vs depth triangulated from ARKit poses +
+  true intrinsics differ by ~3 % (ratio 1.009–1.04, median 1.03). **Pseudo-GT cannot resolve
+  scale errors below ~3 %.** This also means ARKit LiDAR and ARKit trajectory scale may disagree
+  at the percent level → [BLOCKED] needs laser GT; directly relevant to LiDAR-tier 1 cm gates.
+- [MEASURED] IMU scale on corrected per-piece SfM poses (6–13 s pieces, `imu_on_sfm_v2.py`):
+  errors −26 … +19 %, best pieces 2–5 %. Consistent with e11: the IMU method needs long
+  continuous trajectories (≥ ~60 s); COLMAP does not deliver them on this footage.
+- [HYPOTHESIS] The video tier's binding constraint is **continuous RGB-only tracking**, not the
+  scale estimator. Candidates to test next: learned trackers (MapAnything/VGGT-class on
+  keyframe windows, MASt3R-SLAM-class), plus protocol (slower turns, ≥ 1 m from walls, wider
+  framing). With continuous tracking, both MoGe-over-many-frames (±2–4 %) and IMU (±1–2 %)
+  become viable scale sources.
+- Operational: pycolmap and torch conflict on OpenMP in one process → separate processes.
