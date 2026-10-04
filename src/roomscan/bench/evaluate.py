@@ -1,0 +1,203 @@
+"""Score predicted plans against a benchmark site; one command for the whole site.
+
+    uv run roomscan-bench benchmark/<site> --run runs/<run_id>
+
+expects runs/<run_id>/<capture_id>/plan.json for each capture in site.yaml and writes
+runs/<run_id>/eval/<site_id>.json and .md. Gate thresholds are those of the assessment.
+Results from a site with gt_kind == "pseudo_lidar" are labelled PSEUDO-GT everywhere.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+from itertools import combinations
+from pathlib import Path
+
+import numpy as np
+from shapely.geometry import Polygon
+
+from roomscan.bench.gt import Site, load_site
+from roomscan.bench.match import match_openings, match_rooms, match_walls
+from roomscan.model import Measurement, Plan
+
+GATES = {
+    "opening_abs_m": 0.02, "opening_hit_rate": 0.85,
+    "ceiling_abs_m": 0.015, "ceiling_repeat_spread_m": 0.01,
+    "repeat_abs_m": 0.01, "repeat_rel": 0.005,
+    "wall_rel": {"photo": 0.08, "video": 0.03, "lidar": None},
+    "footprint_rel_photo": 0.08,
+}
+
+
+def _cover(m: Measurement | None, truth: float) -> bool | None:
+    if m is None or m.interval is None:
+        return None
+    return bool(m.interval.lo <= truth <= m.interval.hi)
+
+
+def evaluate_capture(site: Site, cap, plan: Plan) -> dict:
+    rmap = match_rooms(plan, [site.room(r) for r in (cap.rooms or [g.id for g in site.rooms])], cap.room_map)
+    surf = {s.id: s for s in plan.surfaces}
+    walls, ceilings, opening_rows, areas, topology_mismatch = [], [], [], [], []
+    hits = misses = phantoms = 0
+    for pr in plan.rooms:
+        if pr.id not in rmap:
+            continue
+        g = site.room(rmap[pr.id])
+        wm = match_walls(plan, pr, g)
+        if len(pr.wall_ids) != len(g.walls):
+            topology_mismatch.append({"room": g.id, "gt_walls": len(g.walls), "pred_walls": len(pr.wall_ids)})
+        for gw in g.walls:
+            if gw.id not in wm:
+                walls.append({"room": g.id, "wall": gw.id, "gt": gw.length, "pred": None, "unmatched": True})
+                continue
+            m = surf[wm[gw.id]].length
+            walls.append({"room": g.id, "wall": gw.id, "gt": gw.length, "pred": m.value, "abs_err": m.value - gw.length,
+                          "rel_err": (m.value - gw.length) / gw.length, "covered": _cover(m, gw.length)})
+        if g.ceiling_height is not None:
+            m = pr.ceiling_height
+            ceilings.append({"room": g.id, "gt": g.ceiling_height, "pred": m.value, "status": m.status,
+                             "abs_err": None if m.value is None else m.value - g.ceiling_height, "covered": _cover(m, g.ceiling_height)})
+        if g.area is not None:
+            areas.append({"room": g.id, "gt": g.area, "pred": pr.floor_area.value, "rel_err": pr.floor_area.value / g.area - 1,
+                          "covered": _cover(pr.floor_area, g.area)})
+        pairs, mg, mp = match_openings(plan, pr, g, wm)
+        for go, po in pairs:
+            err = po.width.value - go.width
+            hit = abs(err) <= GATES["opening_abs_m"]
+            hits += hit
+            opening_rows.append({"room": g.id, "opening": go.id, "gt": go.width, "pred": po.width.value, "abs_err": err, "hit": hit,
+                                 "covered": _cover(po.width, go.width)})
+        misses += len(mg); phantoms += len(mp)
+        opening_rows += [{"room": g.id, "opening": x, "missed": True} for x in mg]
+        opening_rows += [{"room": g.id, "pred_opening": x, "phantom": True} for x in mp]
+    gt_open = sum(len(site.room(rmap[p.id]).openings) for p in plan.rooms if p.id in rmap)
+    # stitch: adjacency + overlaps
+    inv = rmap
+    pred_adj = {frozenset((inv.get(a.room_a), inv.get(a.room_b))) for a in plan.adjacency}
+    gt_adj = {frozenset((g.id, o.connects)) for g in site.rooms for o in g.openings if o.connects in {r.id for r in site.rooms}}
+    covered_rooms = set(rmap.values())
+    gt_adj = {e for e in gt_adj if e <= covered_rooms}
+    polys = [Polygon(r.polygon) for r in plan.rooms]
+    overlap = max([a.intersection(b).area for a, b in combinations(polys, 2)], default=0.0)
+    out = {"capture": cap.id, "tier": cap.tier, "rooms_matched": len(rmap), "rooms_expected": len(cap.rooms or site.rooms),
+           "walls": walls, "ceilings": ceilings, "areas": areas, "openings": opening_rows,
+           "opening_hit_rate": None if not any(r.openings for r in site.rooms) else (hits / max(gt_open + phantoms, 1) if (gt_open + phantoms) else None),
+           "topology_mismatch": topology_mismatch,
+           "opening_counts": {"gt": gt_open, "hits": hits, "missed": misses, "phantom": phantoms},
+           "adjacency": {"correct": pred_adj == gt_adj, "missing": [sorted(e) for e in gt_adj - pred_adj], "extra": [sorted(map(str, e)) for e in pred_adj - gt_adj]},
+           "max_room_overlap_m2": overlap}
+    if areas:
+        gt_fp = sum(a["gt"] for a in areas); pr_fp = sum(a["pred"] for a in areas)
+        out["footprint_rel_err"] = pr_fp / gt_fp - 1
+    return out
+
+
+def gates(site: Site, results: list[dict]) -> dict:
+    g = {}
+    for r in results:
+        t = r["tier"]; key = r["capture"]
+        werr = [abs(w["rel_err"]) for w in r["walls"] if w.get("pred") is not None]
+        n_unmatched = sum(1 for w in r["walls"] if w.get("pred") is None)
+        row = {"tier": t, "walls_matched": len(werr), "walls_unmatched": n_unmatched, "rooms_topology_mismatch": len(r.get("topology_mismatch", []))}
+        if GATES["wall_rel"][t] is not None and (werr or n_unmatched):
+            # unmatched GT walls count as failures
+            row["walls_within_gate_frac"] = float(np.sum([e <= GATES["wall_rel"][t] for e in werr]) / (len(werr) + n_unmatched))
+            row["walls_max_rel_err"] = float(max(werr)) if werr else None
+        if t == "lidar":
+            ce = [abs(c["abs_err"]) for c in r["ceilings"] if c["abs_err"] is not None]
+            if ce: row["ceiling_pass"] = bool(max(ce) <= GATES["ceiling_abs_m"]); row["ceiling_max_abs_err_m"] = float(max(ce))
+            row["opening_pass"] = "not_evaluated (no GT openings)" if r["opening_hit_rate"] is None else r["opening_hit_rate"] >= GATES["opening_hit_rate"]
+        if t == "photo":
+            row["stitch_pass"] = bool(r["adjacency"]["correct"] and r["max_room_overlap_m2"] < 0.05 and abs(r.get("footprint_rel_err", 1)) <= GATES["footprint_rel_photo"])
+        cov = [x["covered"] for k in ("walls", "ceilings", "areas", "openings") for x in r[k] if x.get("covered") is not None]
+        if cov: row["interval_coverage"] = float(np.mean(cov)); row["n_intervals"] = len(cov)
+        g[key] = row
+    # repeatability
+    groups = {}
+    for c in site.captures:
+        if c.repeat_group: groups.setdefault(c.repeat_group, []).append(c.id)
+    res = {r["capture"]: r for r in results}
+    rep = {}
+    for grp, ids in groups.items():
+        ids = [i for i in ids if i in res]
+        if len(ids) < 2: continue
+        rows = []
+        for a, b in combinations(ids, 2):
+            wa = {(w["room"], w["wall"]): w["pred"] for w in res[a]["walls"] if w.get("pred") is not None}
+            wb = {(w["room"], w["wall"]): w["pred"] for w in res[b]["walls"] if w.get("pred") is not None}
+            for k in wa.keys() & wb.keys():
+                d = abs(wa[k] - wb[k]); tol = max(GATES["repeat_abs_m"], GATES["repeat_rel"] * 0.5 * (wa[k] + wb[k]))
+                rows.append({"pair": [a, b], "room": k[0], "wall": k[1], "diff_m": d, "tol_m": tol, "pass": d <= tol})
+            ca = {c["room"]: c["pred"] for c in res[a]["ceilings"] if c["pred"] is not None}
+            cb = {c["room"]: c["pred"] for c in res[b]["ceilings"] if c["pred"] is not None}
+            for k in ca.keys() & cb.keys():
+                rows.append({"pair": [a, b], "room": k, "ceiling_spread_m": abs(ca[k] - cb[k]), "pass": abs(ca[k] - cb[k]) <= GATES["ceiling_repeat_spread_m"]})
+        rep[grp] = {"rows": rows, "pass_frac": float(np.mean([x["pass"] for x in rows])) if rows else None}
+    g["repeatability"] = rep
+    # head-to-head
+    h2h = []
+    for inc in site.incumbent:
+        for rid, ir in inc.rooms.items():
+            gt = site.room(rid)
+            ours = {}
+            for r in results:
+                if r["tier"] != "lidar": continue
+                for w in r["walls"]:
+                    if w["room"] == rid and w.get("pred") is not None: ours[("wall", w["wall"])] = abs(w["abs_err"])
+                for c in r["ceilings"]:
+                    if c["room"] == rid and c["abs_err"] is not None: ours[("ceiling", rid)] = abs(c["abs_err"])
+            for wid, v in ir.walls.items():
+                gw = next(w for w in gt.walls if w.id == wid)
+                if ("wall", wid) in ours: h2h.append({"app": inc.app, "room": rid, "dim": wid, "ours": ours[("wall", wid)], "theirs": abs(v - gw.length)})
+            if ir.ceiling_height is not None and gt.ceiling_height is not None and ("ceiling", rid) in ours:
+                h2h.append({"app": inc.app, "room": rid, "dim": "ceiling", "ours": ours[("ceiling", rid)], "theirs": abs(ir.ceiling_height - gt.ceiling_height)})
+    if h2h:
+        g["head_to_head"] = {"rows": h2h, "beat_or_tie_frac": float(np.mean([x["ours"] <= x["theirs"] + 1e-3 for x in h2h]))}
+    return g
+
+
+def render_md(site: Site, results: list[dict], gate: dict) -> str:
+    lines = []
+    if site.gt_kind == "pseudo_lidar":
+        lines += ["> **PSEUDO-GT.** Reference values come from our own LiDAR reconstruction, not a laser/tape.",
+                  "> These numbers measure consistency between tiers, not accuracy. They are not the benchmark.", ""]
+    lines += [f"# Evaluation: {site.site_id} (gt_kind={site.gt_kind})", "", "| capture | tier | gate results |", "|---|---|---|"]
+    for k, v in gate.items():
+        if k in ("repeatability", "head_to_head"): continue
+        lines.append(f"| {k} | {v['tier']} | " + ", ".join(f"{a}={b:.3f}" if isinstance(b, float) else f"{a}={b}" for a, b in v.items() if a != "tier") + " |")
+    for grp, v in gate.get("repeatability", {}).items():
+        lines.append(f"\nRepeatability `{grp}`: pass fraction {v['pass_frac']}")
+    if "head_to_head" in gate:
+        lines.append(f"\nHead-to-head beat-or-tie fraction: {gate['head_to_head']['beat_or_tie_frac']:.2f}")
+    return "\n".join(lines) + "\n"
+
+
+def run(site_dir: str, run_dir: str) -> dict:
+    site = load_site(site_dir); run = Path(run_dir)
+    results = []
+    for cap in site.captures:
+        p = run / cap.id / "plan.json"
+        if not p.exists():
+            results.append({"capture": cap.id, "tier": cap.tier, "missing_prediction": True, "walls": [], "ceilings": [], "areas": [], "openings": [],
+                            "opening_hit_rate": None, "adjacency": {"correct": False}, "max_room_overlap_m2": 0.0})
+            continue
+        results.append(evaluate_capture(site, cap, Plan.model_validate_json(p.read_text())))
+    gate = gates(site, results)
+    out = run / "eval"; out.mkdir(parents=True, exist_ok=True)
+    report = {"site": site.site_id, "gt_kind": site.gt_kind, "pseudo_gt": site.gt_kind == "pseudo_lidar", "gates": gate, "captures": results}
+    (out / f"{site.site_id}.json").write_text(json.dumps(report, indent=1, default=str))
+    (out / f"{site.site_id}.md").write_text(render_md(site, results, gate))
+    return report
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap.add_argument("site"); ap.add_argument("--run", required=True)
+    a = ap.parse_args()
+    rep = run(a.site, a.run)
+    print(render_md(load_site(a.site), rep["captures"], rep["gates"]))
+
+
+if __name__ == "__main__":
+    main()

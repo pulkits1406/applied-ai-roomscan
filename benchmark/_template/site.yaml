@@ -1,0 +1,37 @@
+site_id: flat_a
+gt_kind: laser                     # laser | tape | pseudo_lidar
+instrument: "Bosch GLM 40, ±1.5 mm"
+opening_width_definition: clear opening between finished jambs at mid-height
+rooms:
+  - id: kitchen
+    walls:                         # clockwise from above, start at the wall with the entry opening
+      - {id: W1, length_m: [3.412, 3.413, 3.411]}
+      - {id: W2, length_m: [2.950, 2.951, 2.950]}
+      - {id: W3, length_m: [3.409, 3.410, 3.410]}
+      - {id: W4, length_m: [2.948, 2.949, 2.949]}
+    ceiling_height_m: [2.701, 2.703, 2.699]
+    openings:
+      - {id: D1, kind: door, wall: W1, width_m: [0.812, 0.813], height_m: [2.031], connects: hall}
+      - {id: N1, kind: window, wall: W3, width_m: [1.201, 1.200], height_m: [1.199]}
+    damage:
+      - {id: X1, surface: W2, class: water_stain, extent_m: [0.40, 0.30]}
+  - id: hall
+    walls:
+      - {id: W1, length_m: [1.105]}
+      - {id: W2, length_m: [4.020]}
+      - {id: W3, length_m: [1.104]}
+      - {id: W4, length_m: [4.021]}
+    ceiling_height_m: [2.702, 2.700, 2.704]
+    openings:
+      - {id: D1, kind: door, wall: W2, width_m: [0.812], connects: kitchen}
+captures:
+  - {id: lidar_1, tier: lidar, path: captures/lidar_1, device: "iPhone 15 Pro", app: "Stray Scanner 1.4", rooms: [kitchen, hall], repeat_group: flat_lidar}
+  - {id: lidar_2, tier: lidar, path: captures/lidar_2, device: "iPhone 15 Pro", app: "Stray Scanner 1.4", rooms: [kitchen, hall], repeat_group: flat_lidar}
+  - {id: video_1, tier: video, path: captures/video_1, device: "iPhone 15", app: "Camera", rooms: [kitchen, hall]}
+  - {id: photo_1, tier: photo, path: captures/photo_1, device: "iPhone 15", app: "Camera", rooms: [kitchen, hall]}
+incumbent:
+  - app: magicplan
+    version: "2026.38.0"
+    export: incumbent/magicplan/flat_a.pdf
+    rooms:
+      kitchen: {walls: {W1: 3.40, W2: 2.96}, ceiling_height: 2.69, openings: {D1: 0.80}}
