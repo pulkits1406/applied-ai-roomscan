@@ -14,3 +14,11 @@ __pycache__/
 # Large experiment outputs (regenerable); small json/png evidence stays tracked
 *.ply
 *.npz
+
+# Derived caches (regenerable from raw captures)
+/cache/
+
+# Pipeline run outputs (regenerable) and OS files
+/runs/
+.DS_Store
+*.npy
