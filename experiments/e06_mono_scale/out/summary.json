@@ -1,0 +1,32 @@
+{
+ "fov_unknown": {
+  "n": 75,
+  "scale_median": 1.0866,
+  "scale_p10_p90": [
+   0.9776,
+   1.2318
+  ],
+  "abs_scale_err_median_pct": 9.81,
+  "abs_scale_err_p90_pct": 23.63,
+  "absrel_after_scale_median": 0.0136,
+  "sec_per_frame_median": 1.62,
+  "scale_median_single_room": 1.0695,
+  "scale_median_single_scan_floor_only": 1.0748,
+  "scale_median_single_scan_with_ceiling": 1.1461
+ },
+ "fov_given": {
+  "n": 75,
+  "scale_median": 1.045,
+  "scale_p10_p90": [
+   0.9566,
+   1.2089
+  ],
+  "abs_scale_err_median_pct": 6.39,
+  "abs_scale_err_p90_pct": 21.15,
+  "absrel_after_scale_median": 0.0126,
+  "sec_per_frame_median": 1.61,
+  "scale_median_single_room": 1.0298,
+  "scale_median_single_scan_floor_only": 1.027,
+  "scale_median_single_scan_with_ceiling": 1.0896
+ }
+}

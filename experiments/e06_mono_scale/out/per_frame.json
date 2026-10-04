@@ -1,0 +1,1277 @@
+[
+ {
+  "capture": "single_room",
+  "row": 5,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1372816562652588,
+   "absrel_after_scale": 0.0287881288677454,
+   "sec": 4.032433986663818
+  },
+  "pred_fov_x_deg": 51.23262023925781,
+  "true_fov_x_deg": 48.51215504431068,
+  "fov_given": {
+   "scale": 1.0810887813568115,
+   "absrel_after_scale": 0.03343768045306206,
+   "sec": 1.5327658653259277
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 76,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1340535879135132,
+   "absrel_after_scale": 0.014212140813469887,
+   "sec": 1.5230097770690918
+  },
+  "pred_fov_x_deg": 50.34820556640625,
+  "true_fov_x_deg": 48.52429615319591,
+  "fov_given": {
+   "scale": 1.0897475481033325,
+   "absrel_after_scale": 0.014037281274795532,
+   "sec": 1.5152130126953125
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 147,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0186975002288818,
+   "absrel_after_scale": 0.01842636615037918,
+   "sec": 1.5250780582427979
+  },
+  "pred_fov_x_deg": 46.70217514038086,
+  "true_fov_x_deg": 48.51215504431068,
+  "fov_given": {
+   "scale": 1.0582399368286133,
+   "absrel_after_scale": 0.011128777638077736,
+   "sec": 1.5169060230255127
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 218,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 0.5896422863006592,
+   "absrel_after_scale": 0.11160111427307129,
+   "sec": 1.5206568241119385
+  },
+  "pred_fov_x_deg": 39.55781173706055,
+  "true_fov_x_deg": 48.52429615319591,
+  "fov_given": {
+   "scale": 0.7129544615745544,
+   "absrel_after_scale": 0.1581069827079773,
+   "sec": 1.5152180194854736
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 289,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.145003080368042,
+   "absrel_after_scale": 0.018949756398797035,
+   "sec": 1.5227329730987549
+  },
+  "pred_fov_x_deg": 48.942222595214844,
+  "true_fov_x_deg": 48.34277704668401,
+  "fov_given": {
+   "scale": 1.1324102878570557,
+   "absrel_after_scale": 0.019590895622968674,
+   "sec": 1.5140280723571777
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 360,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 0.9835346341133118,
+   "absrel_after_scale": 0.013570800423622131,
+   "sec": 1.5227100849151611
+  },
+  "pred_fov_x_deg": 50.083168029785156,
+  "true_fov_x_deg": 48.56075645018794,
+  "fov_given": {
+   "scale": 0.9526620507240295,
+   "absrel_after_scale": 0.01062317006289959,
+   "sec": 1.5157549381256104
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 431,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 0.9541800022125244,
+   "absrel_after_scale": 0.003969647455960512,
+   "sec": 1.5148260593414307
+  },
+  "pred_fov_x_deg": 48.154842376708984,
+  "true_fov_x_deg": 48.57292042569238,
+  "fov_given": {
+   "scale": 0.9624673128128052,
+   "absrel_after_scale": 0.004304119851440191,
+   "sec": 1.5159368515014648
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 502,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0292202234268188,
+   "absrel_after_scale": 0.014811590313911438,
+   "sec": 1.5229439735412598
+  },
+  "pred_fov_x_deg": 52.919376373291016,
+  "true_fov_x_deg": 48.57292042569238,
+  "fov_given": {
+   "scale": 0.9382678270339966,
+   "absrel_after_scale": 0.01641993597149849,
+   "sec": 1.5151779651641846
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 573,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.119105339050293,
+   "absrel_after_scale": 0.022062422707676888,
+   "sec": 1.5240449905395508
+  },
+  "pred_fov_x_deg": 44.97636032104492,
+  "true_fov_x_deg": 48.65822878640011,
+  "fov_given": {
+   "scale": 1.2066339254379272,
+   "absrel_after_scale": 0.03654787689447403,
+   "sec": 1.5168399810791016
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 644,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1352300643920898,
+   "absrel_after_scale": 0.018778949975967407,
+   "sec": 1.5194792747497559
+  },
+  "pred_fov_x_deg": 51.940242767333984,
+  "true_fov_x_deg": 48.463647640734386,
+  "fov_given": {
+   "scale": 1.0650451183319092,
+   "absrel_after_scale": 0.009419884532690048,
+   "sec": 1.5204322338104248
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 715,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0945487022399902,
+   "absrel_after_scale": 0.010022306814789772,
+   "sec": 1.5446977615356445
+  },
+  "pred_fov_x_deg": 52.66994857788086,
+  "true_fov_x_deg": 48.463647640734386,
+  "fov_given": {
+   "scale": 1.0168819427490234,
+   "absrel_after_scale": 0.008362063206732273,
+   "sec": 1.5246150493621826
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 786,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.171850323677063,
+   "absrel_after_scale": 0.008477315306663513,
+   "sec": 1.5228948593139648
+  },
+  "pred_fov_x_deg": 54.98549270629883,
+  "true_fov_x_deg": 48.463647640734386,
+  "fov_given": {
+   "scale": 1.0188060998916626,
+   "absrel_after_scale": 0.01645444706082344,
+   "sec": 1.5168390274047852
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 857,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1441441774368286,
+   "absrel_after_scale": 0.04911933094263077,
+   "sec": 1.5339441299438477
+  },
+  "pred_fov_x_deg": 50.42380905151367,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 1.0997792482376099,
+   "absrel_after_scale": 0.03027171641588211,
+   "sec": 1.5281143188476562
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 928,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1215871572494507,
+   "absrel_after_scale": 0.01264648512005806,
+   "sec": 1.5386650562286377
+  },
+  "pred_fov_x_deg": 47.84806823730469,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 1.1374905109405518,
+   "absrel_after_scale": 0.014600832015275955,
+   "sec": 1.545424222946167
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 999,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0441631078720093,
+   "absrel_after_scale": 0.018397295847535133,
+   "sec": 1.5525996685028076
+  },
+  "pred_fov_x_deg": 48.50031661987305,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 1.043222188949585,
+   "absrel_after_scale": 0.018532291054725647,
+   "sec": 1.5541937351226807
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 1070,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0491325855255127,
+   "absrel_after_scale": 0.020368589088320732,
+   "sec": 1.568040132522583
+  },
+  "pred_fov_x_deg": 48.48716354370117,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 1.048452377319336,
+   "absrel_after_scale": 0.020323017612099648,
+   "sec": 1.565161943435669
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 1141,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0212528705596924,
+   "absrel_after_scale": 0.011098922230303288,
+   "sec": 1.5765140056610107
+  },
+  "pred_fov_x_deg": 49.26546859741211,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 1.003631591796875,
+   "absrel_after_scale": 0.01147918775677681,
+   "sec": 1.5815911293029785
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 1212,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.069466471672058,
+   "absrel_after_scale": 0.016009574756026268,
+   "sec": 1.5793981552124023
+  },
+  "pred_fov_x_deg": 50.089019775390625,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 1.0315706729888916,
+   "absrel_after_scale": 0.012729962356388569,
+   "sec": 1.5865569114685059
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 1283,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0701189041137695,
+   "absrel_after_scale": 0.011330202221870422,
+   "sec": 1.605459213256836
+  },
+  "pred_fov_x_deg": 51.06229019165039,
+  "true_fov_x_deg": 48.463647640734386,
+  "fov_given": {
+   "scale": 1.0103862285614014,
+   "absrel_after_scale": 0.011975852772593498,
+   "sec": 1.6029949188232422
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 1354,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0598289966583252,
+   "absrel_after_scale": 0.01026930846273899,
+   "sec": 1.6060848236083984
+  },
+  "pred_fov_x_deg": 53.02663803100586,
+  "true_fov_x_deg": 48.42732686675891,
+  "fov_given": {
+   "scale": 0.9669129848480225,
+   "absrel_after_scale": 0.005542755126953125,
+   "sec": 1.6082749366760254
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 1425,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.091052532196045,
+   "absrel_after_scale": 0.013603450730443,
+   "sec": 1.6337971687316895
+  },
+  "pred_fov_x_deg": 47.94685745239258,
+  "true_fov_x_deg": 47.98353808789441,
+  "fov_given": {
+   "scale": 1.09165620803833,
+   "absrel_after_scale": 0.01342918910086155,
+   "sec": 1.6266849040985107
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 1496,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 0.9937455058097839,
+   "absrel_after_scale": 0.007876758463680744,
+   "sec": 1.655393123626709
+  },
+  "pred_fov_x_deg": 49.2772331237793,
+  "true_fov_x_deg": 48.31867090333595,
+  "fov_given": {
+   "scale": 0.9777210354804993,
+   "absrel_after_scale": 0.010613111779093742,
+   "sec": 1.700652837753296
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 1567,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0988452434539795,
+   "absrel_after_scale": 0.011018628254532814,
+   "sec": 1.6345107555389404
+  },
+  "pred_fov_x_deg": 51.97015380859375,
+  "true_fov_x_deg": 48.56075645018794,
+  "fov_given": {
+   "scale": 1.029849648475647,
+   "absrel_after_scale": 0.009561263024806976,
+   "sec": 1.6627469062805176
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 1638,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 0.8570175170898438,
+   "absrel_after_scale": 0.13723480701446533,
+   "sec": 1.634166955947876
+  },
+  "pred_fov_x_deg": 45.04368591308594,
+  "true_fov_x_deg": 48.34277704668401,
+  "fov_given": {
+   "scale": 0.9144078493118286,
+   "absrel_after_scale": 0.15586484968662262,
+   "sec": 1.612199068069458
+  }
+ },
+ {
+  "capture": "single_room",
+  "row": 1710,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 0.999601423740387,
+   "absrel_after_scale": 0.00701828533783555,
+   "sec": 1.619014024734497
+  },
+  "pred_fov_x_deg": 48.984336853027344,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 0.9888557195663452,
+   "absrel_after_scale": 0.006607317831367254,
+   "sec": 1.6139602661132812
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 5,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0865775346755981,
+   "absrel_after_scale": 0.03972669318318367,
+   "sec": 1.6111869812011719
+  },
+  "pred_fov_x_deg": 48.63502883911133,
+  "true_fov_x_deg": 48.5485981966639,
+  "fov_given": {
+   "scale": 1.0850119590759277,
+   "absrel_after_scale": 0.0398440957069397,
+   "sec": 1.6108949184417725
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 223,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0044357776641846,
+   "absrel_after_scale": 0.006851565092802048,
+   "sec": 1.6189568042755127
+  },
+  "pred_fov_x_deg": 50.524349212646484,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 0.9646263122558594,
+   "absrel_after_scale": 0.006163227837532759,
+   "sec": 1.6170170307159424
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 441,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1498714685440063,
+   "absrel_after_scale": 0.058737896382808685,
+   "sec": 1.621946096420288
+  },
+  "pred_fov_x_deg": 51.77579116821289,
+  "true_fov_x_deg": 48.463647640734386,
+  "fov_given": {
+   "scale": 1.0954290628433228,
+   "absrel_after_scale": 0.027913592755794525,
+   "sec": 1.6107439994812012
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 660,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0826116800308228,
+   "absrel_after_scale": 0.010150996968150139,
+   "sec": 1.61492919921875
+  },
+  "pred_fov_x_deg": 50.67497253417969,
+  "true_fov_x_deg": 48.56075645018794,
+  "fov_given": {
+   "scale": 1.0392181873321533,
+   "absrel_after_scale": 0.00748924957588315,
+   "sec": 1.6192779541015625
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 878,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 0.8412505984306335,
+   "absrel_after_scale": 0.029408443719148636,
+   "sec": 1.6203289031982422
+  },
+  "pred_fov_x_deg": 38.618934631347656,
+  "true_fov_x_deg": 48.2705263545386,
+  "fov_given": {
+   "scale": 1.0713428258895874,
+   "absrel_after_scale": 0.009130128659307957,
+   "sec": 1.6099700927734375
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 1096,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.10512113571167,
+   "absrel_after_scale": 0.013477548956871033,
+   "sec": 1.6201517581939697
+  },
+  "pred_fov_x_deg": 51.441558837890625,
+  "true_fov_x_deg": 48.487889943626854,
+  "fov_given": {
+   "scale": 1.0402787923812866,
+   "absrel_after_scale": 0.007626004982739687,
+   "sec": 1.6117851734161377
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 1315,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0275802612304688,
+   "absrel_after_scale": 0.015106435865163803,
+   "sec": 1.6192660331726074
+  },
+  "pred_fov_x_deg": 50.09468460083008,
+  "true_fov_x_deg": 48.51215504431068,
+  "fov_given": {
+   "scale": 1.0000591278076172,
+   "absrel_after_scale": 0.016758816316723824,
+   "sec": 1.6121978759765625
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 1533,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0981310606002808,
+   "absrel_after_scale": 0.009236415848135948,
+   "sec": 1.620905876159668
+  },
+  "pred_fov_x_deg": 49.23497772216797,
+  "true_fov_x_deg": 48.52429615319591,
+  "fov_given": {
+   "scale": 1.0859628915786743,
+   "absrel_after_scale": 0.012631400488317013,
+   "sec": 1.6113219261169434
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 1752,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1922680139541626,
+   "absrel_after_scale": 0.01658240146934986,
+   "sec": 1.6141068935394287
+  },
+  "pred_fov_x_deg": 47.97123336791992,
+  "true_fov_x_deg": 48.51215504431068,
+  "fov_given": {
+   "scale": 1.2048394680023193,
+   "absrel_after_scale": 0.014396250247955322,
+   "sec": 1.6129472255706787
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 1970,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0714601278305054,
+   "absrel_after_scale": 0.014566441997885704,
+   "sec": 1.6162278652191162
+  },
+  "pred_fov_x_deg": 50.938568115234375,
+  "true_fov_x_deg": 48.53644297278089,
+  "fov_given": {
+   "scale": 1.0100983381271362,
+   "absrel_after_scale": 0.014980499632656574,
+   "sec": 1.6122019290924072
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 2188,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0297365188598633,
+   "absrel_after_scale": 0.004400287754833698,
+   "sec": 1.617009162902832
+  },
+  "pred_fov_x_deg": 48.836524963378906,
+  "true_fov_x_deg": 48.53644297278089,
+  "fov_given": {
+   "scale": 1.0234454870224,
+   "absrel_after_scale": 0.005332936532795429,
+   "sec": 1.6105217933654785
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 2407,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0059430599212646,
+   "absrel_after_scale": 0.006451714318245649,
+   "sec": 1.6190688610076904
+  },
+  "pred_fov_x_deg": 49.032493591308594,
+  "true_fov_x_deg": 48.53644297278089,
+  "fov_given": {
+   "scale": 0.9969679117202759,
+   "absrel_after_scale": 0.007067110855132341,
+   "sec": 1.6110239028930664
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 2625,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 0.9776958227157593,
+   "absrel_after_scale": 0.006260956637561321,
+   "sec": 1.6179981231689453
+  },
+  "pred_fov_x_deg": 49.09929275512695,
+  "true_fov_x_deg": 48.53644297278089,
+  "fov_given": {
+   "scale": 0.9686765670776367,
+   "absrel_after_scale": 0.006720181554555893,
+   "sec": 1.6117668151855469
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 2843,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0748357772827148,
+   "absrel_after_scale": 0.012276270426809788,
+   "sec": 1.6187667846679688
+  },
+  "pred_fov_x_deg": 50.41958236694336,
+  "true_fov_x_deg": 48.42732686675891,
+  "fov_given": {
+   "scale": 1.0270458459854126,
+   "absrel_after_scale": 0.012475349940359592,
+   "sec": 1.6122682094573975
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 3062,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0145635604858398,
+   "absrel_after_scale": 0.008953333832323551,
+   "sec": 1.618427038192749
+  },
+  "pred_fov_x_deg": 51.33106231689453,
+  "true_fov_x_deg": 48.60944672176317,
+  "fov_given": {
+   "scale": 0.9664023518562317,
+   "absrel_after_scale": 0.014736960642039776,
+   "sec": 1.6115801334381104
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 3280,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.3542187213897705,
+   "absrel_after_scale": 0.022141411900520325,
+   "sec": 1.6223170757293701
+  },
+  "pred_fov_x_deg": 52.554039001464844,
+  "true_fov_x_deg": 48.47576594432951,
+  "fov_given": {
+   "scale": 1.2517613172531128,
+   "absrel_after_scale": 0.01240473985671997,
+   "sec": 1.611997127532959
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 3499,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.035078525543213,
+   "absrel_after_scale": 0.0427716039121151,
+   "sec": 1.615844964981079
+  },
+  "pred_fov_x_deg": 52.137176513671875,
+  "true_fov_x_deg": 48.463647640734386,
+  "fov_given": {
+   "scale": 0.9790908098220825,
+   "absrel_after_scale": 0.044718001037836075,
+   "sec": 1.6161201000213623
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 3717,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1098730564117432,
+   "absrel_after_scale": 0.009492747485637665,
+   "sec": 1.6295499801635742
+  },
+  "pred_fov_x_deg": 49.43811798095703,
+  "true_fov_x_deg": 48.47576594432951,
+  "fov_given": {
+   "scale": 1.0906295776367188,
+   "absrel_after_scale": 0.016566701233386993,
+   "sec": 1.630789041519165
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 3935,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 0.9866985082626343,
+   "absrel_after_scale": 0.0065409112721681595,
+   "sec": 1.6325230598449707
+  },
+  "pred_fov_x_deg": 49.991737365722656,
+  "true_fov_x_deg": 48.47576594432951,
+  "fov_given": {
+   "scale": 0.9497860670089722,
+   "absrel_after_scale": 0.00931905210018158,
+   "sec": 1.628603219985962
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 4154,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0556919574737549,
+   "absrel_after_scale": 0.023143980652093887,
+   "sec": 1.6394798755645752
+  },
+  "pred_fov_x_deg": 48.289005279541016,
+  "true_fov_x_deg": 48.487889943626854,
+  "fov_given": {
+   "scale": 1.0606780052185059,
+   "absrel_after_scale": 0.022738687694072723,
+   "sec": 1.6933581829071045
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 4372,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.082878589630127,
+   "absrel_after_scale": 0.02444777637720108,
+   "sec": 1.7153301239013672
+  },
+  "pred_fov_x_deg": 52.77766036987305,
+  "true_fov_x_deg": 48.47576594432951,
+  "fov_given": {
+   "scale": 0.9998700022697449,
+   "absrel_after_scale": 0.026973307132720947,
+   "sec": 1.6352927684783936
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 4590,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0158835649490356,
+   "absrel_after_scale": 0.01534202042967081,
+   "sec": 1.6243209838867188
+  },
+  "pred_fov_x_deg": 48.91036605834961,
+  "true_fov_x_deg": 48.487889943626854,
+  "fov_given": {
+   "scale": 1.0059128999710083,
+   "absrel_after_scale": 0.01477742101997137,
+   "sec": 1.6241278648376465
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 4809,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.121133804321289,
+   "absrel_after_scale": 0.01233975775539875,
+   "sec": 1.631361961364746
+  },
+  "pred_fov_x_deg": 50.739959716796875,
+  "true_fov_x_deg": 48.47576594432951,
+  "fov_given": {
+   "scale": 1.0852022171020508,
+   "absrel_after_scale": 0.01249141525477171,
+   "sec": 1.6733338832855225
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 5027,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.2055273056030273,
+   "absrel_after_scale": 0.010950719937682152,
+   "sec": 1.7374968528747559
+  },
+  "pred_fov_x_deg": 52.72058868408203,
+  "true_fov_x_deg": 48.47576594432951,
+  "fov_given": {
+   "scale": 1.111553430557251,
+   "absrel_after_scale": 0.011817892082035542,
+   "sec": 1.612941026687622
+  }
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "row": 5246,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.108668327331543,
+   "absrel_after_scale": 0.0950360968708992,
+   "sec": 1.6170148849487305
+  },
+  "pred_fov_x_deg": 53.741668701171875,
+  "true_fov_x_deg": 48.47576594432951,
+  "fov_given": {
+   "scale": 1.022997498512268,
+   "absrel_after_scale": 0.0771770104765892,
+   "sec": 1.6130430698394775
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 5,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.2391330003738403,
+   "absrel_after_scale": 0.022709421813488007,
+   "sec": 1.6206369400024414
+  },
+  "pred_fov_x_deg": 50.43366622924805,
+  "true_fov_x_deg": 48.965214257789086,
+  "fov_given": {
+   "scale": 1.2024329900741577,
+   "absrel_after_scale": 0.024046674370765686,
+   "sec": 1.6220989227294922
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 410,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.17209792137146,
+   "absrel_after_scale": 0.004942038562148809,
+   "sec": 1.6270878314971924
+  },
+  "pred_fov_x_deg": 53.74843215942383,
+  "true_fov_x_deg": 48.50001964237129,
+  "fov_given": {
+   "scale": 1.0450201034545898,
+   "absrel_after_scale": 0.00932538416236639,
+   "sec": 1.614227056503296
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 816,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1393871307373047,
+   "absrel_after_scale": 0.01850098930299282,
+   "sec": 1.7047359943389893
+  },
+  "pred_fov_x_deg": 50.83155059814453,
+  "true_fov_x_deg": 48.47576594432951,
+  "fov_given": {
+   "scale": 1.085986852645874,
+   "absrel_after_scale": 0.023089928552508354,
+   "sec": 1.701742172241211
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 1221,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0072866678237915,
+   "absrel_after_scale": 0.015135644935071468,
+   "sec": 1.7064847946166992
+  },
+  "pred_fov_x_deg": 48.93183898925781,
+  "true_fov_x_deg": 48.47576594432951,
+  "fov_given": {
+   "scale": 0.998401403427124,
+   "absrel_after_scale": 0.017565671354532242,
+   "sec": 1.6989319324493408
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 1627,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.3982337713241577,
+   "absrel_after_scale": 0.02355143427848816,
+   "sec": 1.7778701782226562
+  },
+  "pred_fov_x_deg": 54.664939880371094,
+  "true_fov_x_deg": 48.47576594432951,
+  "fov_given": {
+   "scale": 1.242429494857788,
+   "absrel_after_scale": 0.04684276878833771,
+   "sec": 1.6831159591674805
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 2033,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1694865226745605,
+   "absrel_after_scale": 0.008873047307133675,
+   "sec": 1.6183781623840332
+  },
+  "pred_fov_x_deg": 52.07485580444336,
+  "true_fov_x_deg": 48.57292042569238,
+  "fov_given": {
+   "scale": 1.089583158493042,
+   "absrel_after_scale": 0.003841961268335581,
+   "sec": 1.6096792221069336
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 2438,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0806595087051392,
+   "absrel_after_scale": 0.0037864255718886852,
+   "sec": 1.6655118465423584
+  },
+  "pred_fov_x_deg": 50.5625,
+  "true_fov_x_deg": 48.463647640734386,
+  "fov_given": {
+   "scale": 1.0353562831878662,
+   "absrel_after_scale": 0.005185936577618122,
+   "sec": 1.6444587707519531
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 2844,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 0.9724441766738892,
+   "absrel_after_scale": 0.008227959275245667,
+   "sec": 1.664689302444458
+  },
+  "pred_fov_x_deg": 51.26507568359375,
+  "true_fov_x_deg": 48.463647640734386,
+  "fov_given": {
+   "scale": 0.9127303957939148,
+   "absrel_after_scale": 0.009211955592036247,
+   "sec": 1.6447532176971436
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 3250,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.231418251991272,
+   "absrel_after_scale": 0.006129242479801178,
+   "sec": 1.71927809715271
+  },
+  "pred_fov_x_deg": 49.502227783203125,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 1.2104755640029907,
+   "absrel_after_scale": 0.006204680074006319,
+   "sec": 1.7105889320373535
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 3655,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1817162036895752,
+   "absrel_after_scale": 0.021609872579574585,
+   "sec": 1.6237859725952148
+  },
+  "pred_fov_x_deg": 46.31626510620117,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 1.229248046875,
+   "absrel_after_scale": 0.020345961675047874,
+   "sec": 1.616325855255127
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 4061,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0869629383087158,
+   "absrel_after_scale": 0.006212049629539251,
+   "sec": 1.6256239414215088
+  },
+  "pred_fov_x_deg": 49.61306381225586,
+  "true_fov_x_deg": 48.47576594432951,
+  "fov_given": {
+   "scale": 1.0638662576675415,
+   "absrel_after_scale": 0.010478554293513298,
+   "sec": 1.6214179992675781
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 4466,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 0.9273512959480286,
+   "absrel_after_scale": 0.010827223770320415,
+   "sec": 1.6189658641815186
+  },
+  "pred_fov_x_deg": 48.16212844848633,
+  "true_fov_x_deg": 48.47576594432951,
+  "fov_given": {
+   "scale": 0.9323664307594299,
+   "absrel_after_scale": 0.010060574859380722,
+   "sec": 1.6215381622314453
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 4872,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1460684537887573,
+   "absrel_after_scale": 0.0054998332634568214,
+   "sec": 1.6165120601654053
+  },
+  "pred_fov_x_deg": 51.00059127807617,
+  "true_fov_x_deg": 48.62163362287944,
+  "fov_given": {
+   "scale": 1.1074079275131226,
+   "absrel_after_scale": 0.00861289631575346,
+   "sec": 1.6167669296264648
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 5278,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.4038989543914795,
+   "absrel_after_scale": 0.008320843800902367,
+   "sec": 1.6237850189208984
+  },
+  "pred_fov_x_deg": 46.4643669128418,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 1.4624152183532715,
+   "absrel_after_scale": 0.013149876147508621,
+   "sec": 1.6287741661071777
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 5683,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.2319748401641846,
+   "absrel_after_scale": 0.00997658260166645,
+   "sec": 1.6384191513061523
+  },
+  "pred_fov_x_deg": 50.63239288330078,
+  "true_fov_x_deg": 48.463647640734386,
+  "fov_given": {
+   "scale": 1.2012405395507812,
+   "absrel_after_scale": 0.00843433290719986,
+   "sec": 1.6240901947021484
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 6089,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1305787563323975,
+   "absrel_after_scale": 0.03643296658992767,
+   "sec": 1.619117021560669
+  },
+  "pred_fov_x_deg": 52.38053512573242,
+  "true_fov_x_deg": 48.50001964237129,
+  "fov_given": {
+   "scale": 1.0471363067626953,
+   "absrel_after_scale": 0.03566126897931099,
+   "sec": 1.6162528991699219
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 6495,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.2588775157928467,
+   "absrel_after_scale": 0.03194543346762657,
+   "sec": 1.61708402633667
+  },
+  "pred_fov_x_deg": 50.948036193847656,
+  "true_fov_x_deg": 48.47576594432951,
+  "fov_given": {
+   "scale": 1.212265133857727,
+   "absrel_after_scale": 0.043038949370384216,
+   "sec": 1.6196887493133545
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 6900,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.2476682662963867,
+   "absrel_after_scale": 0.006873946636915207,
+   "sec": 1.6176199913024902
+  },
+  "pred_fov_x_deg": 46.688846588134766,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 1.29746675491333,
+   "absrel_after_scale": 0.00795457698404789,
+   "sec": 1.6137709617614746
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 7306,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.122283697128296,
+   "absrel_after_scale": 0.021901952102780342,
+   "sec": 1.6134510040283203
+  },
+  "pred_fov_x_deg": 48.80685043334961,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 1.1137101650238037,
+   "absrel_after_scale": 0.02094976417720318,
+   "sec": 1.616818904876709
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 7711,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 0.8930661678314209,
+   "absrel_after_scale": 0.007923806086182594,
+   "sec": 1.6150429248809814
+  },
+  "pred_fov_x_deg": 47.793731689453125,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 0.9051141738891602,
+   "absrel_after_scale": 0.00749514065682888,
+   "sec": 1.6123719215393066
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 8117,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 0.9774848222732544,
+   "absrel_after_scale": 0.029985858127474785,
+   "sec": 1.6122958660125732
+  },
+  "pred_fov_x_deg": 48.007205963134766,
+  "true_fov_x_deg": 48.45153502909964,
+  "fov_given": {
+   "scale": 0.9863995313644409,
+   "absrel_after_scale": 0.028448307886719704,
+   "sec": 1.613826036453247
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 8523,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0097863674163818,
+   "absrel_after_scale": 0.008639372885227203,
+   "sec": 1.6052889823913574
+  },
+  "pred_fov_x_deg": 50.04813003540039,
+  "true_fov_x_deg": 48.76832530544159,
+  "fov_given": {
+   "scale": 0.9926531314849854,
+   "absrel_after_scale": 0.008969943970441818,
+   "sec": 1.6131179332733154
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 8928,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.0670150518417358,
+   "absrel_after_scale": 0.008518418297171593,
+   "sec": 1.605159044265747
+  },
+  "pred_fov_x_deg": 48.21797561645508,
+  "true_fov_x_deg": 48.42732686675891,
+  "fov_given": {
+   "scale": 1.072163462638855,
+   "absrel_after_scale": 0.008556179702281952,
+   "sec": 1.6130092144012451
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 9334,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.1932430267333984,
+   "absrel_after_scale": 0.019451703876256943,
+   "sec": 1.6034190654754639
+  },
+  "pred_fov_x_deg": 50.87904357910156,
+  "true_fov_x_deg": 48.42732686675891,
+  "fov_given": {
+   "scale": 1.1417256593704224,
+   "absrel_after_scale": 0.03255770355463028,
+   "sec": 1.6114439964294434
+  }
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "row": 9740,
+  "rot": "0",
+  "fov_unknown": {
+   "scale": 1.4749910831451416,
+   "absrel_after_scale": 0.01939389482140541,
+   "sec": 1.604355812072754
+  },
+  "pred_fov_x_deg": 52.34147644042969,
+  "true_fov_x_deg": 48.41523130858423,
+  "fov_given": {
+   "scale": 1.3680042028427124,
+   "absrel_after_scale": 0.00976656749844551,
+   "sec": 1.6303040981292725
+  }
+ }
+]

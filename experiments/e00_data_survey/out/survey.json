@@ -1,0 +1,278 @@
+[
+ {
+  "capture": "single_room",
+  "odo_rows": 1715,
+  "odo_duration_s": 37.17236916699039,
+  "odo_dt_median": 0.01666929198836442,
+  "odo_dt_hist": {
+   "0.0170": 1199,
+   "0.0330": 514,
+   "0.0500": 1
+  },
+  "frame_ids_contiguous": true,
+  "frame_first_last": [
+   0,
+   1714
+  ],
+  "quat_norm_range": [
+   0.9999998619738751,
+   1.0000001175907007
+  ],
+  "pos_min": [
+   -2.554,
+   -0.193,
+   -0.737
+  ],
+  "pos_max": [
+   1.063,
+   0.09,
+   4.042
+  ],
+  "path_length_m": 14.488426206103881,
+  "fx_range": [
+   1586.5905,
+   1617.7719
+  ],
+  "cx_range": [
+   955.2815,
+   955.8416
+  ],
+  "distortion_cols_all_nan": true,
+  "imu_rows": 3689,
+  "imu_dt_median": 0.010067999988677911,
+  "imu_acc_norm_median": 1.0026588456123766,
+  "imu_starts_after_odo_s": 0.09862050066294614,
+  "imu_ends_after_odo_s": 0.05574704200262204,
+  "n_depth": 1715,
+  "n_conf": 1715,
+  "depth_dtype_shape": [
+   "uint16",
+   [
+    192,
+    256
+   ]
+  ],
+  "depth_raw_min_max": [
+   275,
+   5477
+  ],
+  "depth_raw_pcts": [
+   332.0,
+   1479.0,
+   4461.0
+  ],
+  "depth_zero_frac": 0.0,
+  "conf_dtype_shape": [
+   "uint8",
+   [
+    192,
+    256
+   ]
+  ],
+  "conf_values": {
+   "0": 0.021,
+   "1": 0.045,
+   "2": 0.934
+  },
+  "depth_median_by_conf_mm": {
+   "0": 3743.0,
+   "1": 1986.0,
+   "2": 1463.0
+  },
+  "video_fps": 46.122814881219185,
+  "video_frames": 1715,
+  "video_wh": [
+   1920,
+   1440
+  ],
+  "decoded_first_frame_shape": [
+   1440,
+   1920,
+   3
+  ]
+ },
+ {
+  "capture": "single_scan_floor_only",
+  "odo_rows": 5251,
+  "odo_duration_s": 114.78321783400315,
+  "odo_dt_median": 0.016669125005137175,
+  "odo_dt_hist": {
+   "0.0170": 3615,
+   "0.0330": 1634,
+   "0.0500": 1
+  },
+  "frame_ids_contiguous": true,
+  "frame_first_last": [
+   0,
+   5250
+  ],
+  "quat_norm_range": [
+   0.9999998122020474,
+   1.0000001184947789
+  ],
+  "pos_min": [
+   -6.084,
+   -0.079,
+   -0.126
+  ],
+  "pos_max": [
+   2.425,
+   0.169,
+   8.543
+  ],
+  "path_length_m": 54.20553355399185,
+  "fx_range": [
+   1588.85,
+   1615.9642
+  ],
+  "cx_range": [
+   955.28064,
+   955.74805
+  ],
+  "distortion_cols_all_nan": true,
+  "imu_rows": 11397,
+  "imu_dt_median": 0.010068999996292405,
+  "imu_acc_norm_median": 1.0011050227937754,
+  "imu_starts_after_odo_s": 0.0882792506745318,
+  "imu_ends_after_odo_s": 0.054161750013008714,
+  "n_depth": 5251,
+  "n_conf": 5251,
+  "depth_dtype_shape": [
+   "uint16",
+   [
+    192,
+    256
+   ]
+  ],
+  "depth_raw_min_max": [
+   242,
+   7855
+  ],
+  "depth_raw_pcts": [
+   345.0,
+   1565.0,
+   6188.0
+  ],
+  "depth_zero_frac": 0.0,
+  "conf_dtype_shape": [
+   "uint8",
+   [
+    192,
+    256
+   ]
+  ],
+  "conf_values": {
+   "0": 0.101,
+   "1": 0.062,
+   "2": 0.836
+  },
+  "depth_median_by_conf_mm": {
+   "0": 2961.0,
+   "1": 2453.0,
+   "2": 1415.0
+  },
+  "video_fps": 45.74705967765355,
+  "video_frames": 5251,
+  "video_wh": [
+   1920,
+   1440
+  ],
+  "decoded_first_frame_shape": [
+   1440,
+   1920,
+   3
+  ]
+ },
+ {
+  "capture": "single_scan_with_ceiling",
+  "odo_rows": 9745,
+  "odo_duration_s": 214.92937012499897,
+  "odo_dt_median": 0.016669000004185364,
+  "odo_dt_hist": {
+   "0.0170": 6595,
+   "0.0330": 3148,
+   "0.0500": 1
+  },
+  "frame_ids_contiguous": true,
+  "frame_first_last": [
+   0,
+   9744
+  ],
+  "quat_norm_range": [
+   0.9999998391858734,
+   1.0000001708460307
+  ],
+  "pos_min": [
+   -2.187,
+   -0.165,
+   -0.239
+  ],
+  "pos_max": [
+   6.107,
+   0.255,
+   8.89
+  ],
+  "path_length_m": 99.76259757047013,
+  "fx_range": [
+   1581.1676,
+   1614.6085
+  ],
+  "cx_range": [
+   955.28064,
+   956.0423
+  ],
+  "distortion_cols_all_nan": true,
+  "imu_rows": 21339,
+  "imu_dt_median": 0.010070000003906898,
+  "imu_acc_norm_median": 1.0025215430450305,
+  "imu_starts_after_odo_s": 0.08309275000647176,
+  "imu_ends_after_odo_s": 0.03275987500092015,
+  "n_depth": 9745,
+  "n_conf": 9745,
+  "depth_dtype_shape": [
+   "uint16",
+   [
+    192,
+    256
+   ]
+  ],
+  "depth_raw_min_max": [
+   604,
+   7781
+  ],
+  "depth_raw_pcts": [
+   710.0,
+   1449.0,
+   6074.0
+  ],
+  "depth_zero_frac": 0.0,
+  "conf_dtype_shape": [
+   "uint8",
+   [
+    192,
+    256
+   ]
+  ],
+  "conf_values": {
+   "0": 0.037,
+   "1": 0.04,
+   "2": 0.923
+  },
+  "depth_median_by_conf_mm": {
+   "0": 4004.0,
+   "1": 2434.0,
+   "2": 1423.0
+  },
+  "video_fps": 45.33964019851117,
+  "video_frames": 9745,
+  "video_wh": [
+   1920,
+   1440
+  ],
+  "decoded_first_frame_shape": [
+   1440,
+   1920,
+   3
+  ]
+ }
+]

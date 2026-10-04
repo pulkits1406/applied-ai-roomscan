@@ -1,0 +1,143 @@
+{
+ "single_room": {
+  "arkit_c2w@+0": {
+   "median_resid_mm": 287.67,
+   "n_pairs": 45,
+   "mean_overlap": 0.61
+  },
+  "cv_c2w@-3": {
+   "median_resid_mm": 24.11,
+   "n_pairs": 36,
+   "mean_overlap": 0.44
+  },
+  "cv_c2w@-2": {
+   "median_resid_mm": 20.25,
+   "n_pairs": 36,
+   "mean_overlap": 0.44
+  },
+  "cv_c2w@-1": {
+   "median_resid_mm": 13.5,
+   "n_pairs": 36,
+   "mean_overlap": 0.44
+  },
+  "cv_c2w@+0": {
+   "median_resid_mm": 7.67,
+   "n_pairs": 36,
+   "mean_overlap": 0.44
+  },
+  "cv_c2w@+1": {
+   "median_resid_mm": 10.9,
+   "n_pairs": 36,
+   "mean_overlap": 0.44
+  },
+  "cv_c2w@+2": {
+   "median_resid_mm": 17.18,
+   "n_pairs": 36,
+   "mean_overlap": 0.44
+  },
+  "cv_c2w@+3": {
+   "median_resid_mm": 19.22,
+   "n_pairs": 36,
+   "mean_overlap": 0.44
+  },
+  "arkit_w2c@+0": {
+   "median_resid_mm": 329.72,
+   "n_pairs": 44,
+   "mean_overlap": 0.66
+  }
+ },
+ "single_scan_floor_only": {
+  "arkit_c2w@+0": {
+   "median_resid_mm": 422.38,
+   "n_pairs": 43,
+   "mean_overlap": 0.56
+  },
+  "cv_c2w@-3": {
+   "median_resid_mm": 18.5,
+   "n_pairs": 34,
+   "mean_overlap": 0.36
+  },
+  "cv_c2w@-2": {
+   "median_resid_mm": 16.71,
+   "n_pairs": 34,
+   "mean_overlap": 0.36
+  },
+  "cv_c2w@-1": {
+   "median_resid_mm": 9.96,
+   "n_pairs": 34,
+   "mean_overlap": 0.36
+  },
+  "cv_c2w@+0": {
+   "median_resid_mm": 8.32,
+   "n_pairs": 34,
+   "mean_overlap": 0.36
+  },
+  "cv_c2w@+1": {
+   "median_resid_mm": 8.37,
+   "n_pairs": 34,
+   "mean_overlap": 0.36
+  },
+  "cv_c2w@+2": {
+   "median_resid_mm": 12.11,
+   "n_pairs": 34,
+   "mean_overlap": 0.36
+  },
+  "cv_c2w@+3": {
+   "median_resid_mm": 12.78,
+   "n_pairs": 35,
+   "mean_overlap": 0.36
+  },
+  "arkit_w2c@+0": {
+   "median_resid_mm": 669.42,
+   "n_pairs": 34,
+   "mean_overlap": 0.51
+  }
+ },
+ "single_scan_with_ceiling": {
+  "arkit_c2w@+0": {
+   "median_resid_mm": 431.47,
+   "n_pairs": 39,
+   "mean_overlap": 0.55
+  },
+  "cv_c2w@-3": {
+   "median_resid_mm": 18.33,
+   "n_pairs": 37,
+   "mean_overlap": 0.38
+  },
+  "cv_c2w@-2": {
+   "median_resid_mm": 13.67,
+   "n_pairs": 36,
+   "mean_overlap": 0.38
+  },
+  "cv_c2w@-1": {
+   "median_resid_mm": 9.01,
+   "n_pairs": 35,
+   "mean_overlap": 0.38
+  },
+  "cv_c2w@+0": {
+   "median_resid_mm": 6.28,
+   "n_pairs": 35,
+   "mean_overlap": 0.38
+  },
+  "cv_c2w@+1": {
+   "median_resid_mm": 8.95,
+   "n_pairs": 35,
+   "mean_overlap": 0.38
+  },
+  "cv_c2w@+2": {
+   "median_resid_mm": 13.13,
+   "n_pairs": 35,
+   "mean_overlap": 0.38
+  },
+  "cv_c2w@+3": {
+   "median_resid_mm": 21.22,
+   "n_pairs": 35,
+   "mean_overlap": 0.38
+  },
+  "arkit_w2c@+0": {
+   "median_resid_mm": 641.7,
+   "n_pairs": 39,
+   "mean_overlap": 0.6
+  }
+ }
+}

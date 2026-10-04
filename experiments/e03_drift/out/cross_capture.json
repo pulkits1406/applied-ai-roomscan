@@ -1,0 +1,35 @@
+{
+ "single_room->single_scan_floor_only": {
+  "ransac_fitness": 0.872,
+  "icp_fitness_2cm": 0.485,
+  "icp_rmse_mm": 11.9,
+  "tilt_deg": 0.439,
+  "overlap_frac_15cm": 0.951,
+  "dist_in_overlap_mm": {
+   "median": 19.4,
+   "p90": 75.4
+  }
+ },
+ "single_room->single_scan_with_ceiling": {
+  "ransac_fitness": 0.977,
+  "icp_fitness_2cm": 0.685,
+  "icp_rmse_mm": 11.6,
+  "tilt_deg": 0.428,
+  "overlap_frac_15cm": 0.991,
+  "dist_in_overlap_mm": {
+   "median": 13.3,
+   "p90": 40.9
+  }
+ },
+ "single_scan_floor_only->single_scan_with_ceiling": {
+  "ransac_fitness": 0.739,
+  "icp_fitness_2cm": 0.438,
+  "icp_rmse_mm": 11.4,
+  "tilt_deg": 0.048,
+  "overlap_frac_15cm": 0.842,
+  "dist_in_overlap_mm": {
+   "median": 18.7,
+   "p90": 83.6
+  }
+ }
+}
