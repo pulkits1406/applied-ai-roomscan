@@ -1,0 +1,189 @@
+{
+ "label": "within-capture visit-to-visit proxy (not the repeatability gate)",
+ "rows": [
+  {
+   "room": "r1",
+   "dim": "extent_u",
+   "visit0_m": 4.2906,
+   "visit1_m": 4.3617,
+   "diff_mm": 71.2,
+   "tol_mm": 21.6,
+   "pass": false,
+   "n_walls": [
+    22,
+    20
+   ]
+  },
+  {
+   "room": "r1",
+   "dim": "extent_v",
+   "visit0_m": 8.5296,
+   "visit1_m": 8.5126,
+   "diff_mm": 17.0,
+   "tol_mm": 42.6,
+   "pass": true,
+   "n_walls": [
+    22,
+    20
+   ]
+  },
+  {
+   "room": "r2",
+   "dim": "extent_u",
+   "visit0_m": 1.7163,
+   "visit1_m": 1.7324,
+   "diff_mm": 16.1,
+   "tol_mm": 10.0,
+   "pass": false,
+   "n_walls": [
+    6,
+    8
+   ]
+  },
+  {
+   "room": "r2",
+   "dim": "extent_v",
+   "visit0_m": 2.3844,
+   "visit1_m": 2.3451,
+   "diff_mm": 39.2,
+   "tol_mm": 11.8,
+   "pass": false,
+   "n_walls": [
+    6,
+    8
+   ]
+  },
+  {
+   "room": "r3",
+   "dim": "extent_u",
+   "visit0_m": 3.15,
+   "visit1_m": 3.1485,
+   "diff_mm": 1.5,
+   "tol_mm": 15.7,
+   "pass": true,
+   "n_walls": [
+    8,
+    6
+   ]
+  },
+  {
+   "room": "r3",
+   "dim": "extent_v",
+   "visit0_m": 3.1675,
+   "visit1_m": 3.1189,
+   "diff_mm": 48.6,
+   "tol_mm": 15.7,
+   "pass": false,
+   "n_walls": [
+    8,
+    6
+   ]
+  },
+  {
+   "room": "r4",
+   "dim": "extent_u",
+   "visit0_m": 0.9688,
+   "visit1_m": 0.9637,
+   "diff_mm": 5.1,
+   "tol_mm": 10.0,
+   "pass": true,
+   "n_walls": [
+    4,
+    4
+   ]
+  },
+  {
+   "room": "r4",
+   "dim": "extent_v",
+   "visit0_m": 1.6783,
+   "visit1_m": 1.6695,
+   "diff_mm": 8.8,
+   "tol_mm": 10.0,
+   "pass": true,
+   "n_walls": [
+    4,
+    4
+   ]
+  },
+  {
+   "room": "r6",
+   "dim": "extent_u",
+   "visit0_m": 0.9773,
+   "visit1_m": 1.011,
+   "diff_mm": 33.7,
+   "tol_mm": 10.0,
+   "pass": false,
+   "n_walls": [
+    4,
+    4
+   ]
+  },
+  {
+   "room": "r6",
+   "dim": "extent_v",
+   "visit0_m": 1.5703,
+   "visit1_m": 1.554,
+   "diff_mm": 16.3,
+   "tol_mm": 10.0,
+   "pass": false,
+   "n_walls": [
+    4,
+    4
+   ]
+  },
+  {
+   "room": "r7",
+   "dim": "extent_u",
+   "visit0_m": 2.8637,
+   "visit1_m": 2.8762,
+   "diff_mm": 12.5,
+   "tol_mm": 14.3,
+   "pass": true,
+   "n_walls": [
+    20,
+    18
+   ]
+  },
+  {
+   "room": "r7",
+   "dim": "extent_v",
+   "visit0_m": 2.9283,
+   "visit1_m": 2.9306,
+   "diff_mm": 2.3,
+   "tol_mm": 14.6,
+   "pass": true,
+   "n_walls": [
+    20,
+    18
+   ]
+  },
+  {
+   "room": "r8",
+   "dim": "extent_u",
+   "visit0_m": 3.4552,
+   "visit1_m": 3.4455,
+   "diff_mm": 9.7,
+   "tol_mm": 17.3,
+   "pass": true,
+   "n_walls": [
+    4,
+    4
+   ]
+  },
+  {
+   "room": "r8",
+   "dim": "extent_v",
+   "visit0_m": 2.9206,
+   "visit1_m": 2.8736,
+   "diff_mm": 47.0,
+   "tol_mm": 14.5,
+   "pass": false,
+   "n_walls": [
+    4,
+    4
+   ]
+  }
+ ],
+ "pass_frac": 0.5,
+ "median_diff_mm": 16.200000000000003
+}
