@@ -688,3 +688,12 @@ rooms (reported 13 % area error; true −60…−100 %) → matches now carry `m
 whose label is not a scored room are no longer size-matched; (3) the photo-sweep r3 area match
 (1.2 %) was a coincidence of a wrong shape (5.73 × 1.58 vs 3.0 × 3.0 m) — wall-level scores are
 the honest view. Video window results are not numerically stable across uncached runs.
+
+### 2026-10-05 — Phase 4 close and handover update
+Phase-4 completion targets met: LiDAR v1.1 with an explained/fixed small-room failure (e22) and a
+segmentation border fix (synthetic); photo and video frontends emitting shared-schema plans; one
+evaluator path (`--execute`) for all tiers (e24); isolated envs and weights reproducible from
+recipes. Accuracy of the photo/video frontends on the supplied data is far from the gates
+(pseudo-GT) and the open questions behind that are capture-behaviour questions → the short
+`dev_` capture is now the highest-value next step (HANDOVER §12–13). Protocol hypotheses doc
+updated with the e23/e25 photo and video rules. `HANDOVER.md` rewritten for the new state.

@@ -30,6 +30,9 @@ be written only after the physical pre-check (docs/physical_benchmark_procedure.
 | More photos per room improve scale | **mostly refuted** (e12, e16: per-room bias dominates at every K) | MoGe-2: |error| median ~6 % at K = 1…8; per-room bias dominates (e12). |
 | Stand in a corner, phone level, wide view of opposite walls with floor and ceiling lines visible | hypothesis | Single-image shape error after scaling is 1.3 % (e06): geometry is good when walls are in view. |
 | One photo from each doorway looking into the adjacent room | **refuted as sufficient (e17)**: 0/36 joint reconstructions placed room B within 0.5 m / 15°; next hypothesis (untested): ≈ 3 overlapping photos of the same door frame per doorway (inside A, in the doorway, inside B looking back) | Needed for stitching: per-room folders share no poses. MapAnything mixed-room probe pending (e13). |
+| **Consecutive photos of a room overlap** (each shares ~half its view with the previous one) | **supported in simulation (e23)**: MapAnything's joint relative rotations 44–66° wrong with 6 view-diverse photos, 2–7° with overlapping sweeps (5 of 7 rooms); without overlap no room can be built | 2–8 portrait main-camera photos (48° HFOV) cannot both overlap and cover 360° |
+| **0.5× ultra-wide, landscape, 5–6 photos turning on the spot from near the room centre** | **hypothesis (needs device)** | Wider FOV makes overlap and full coverage compatible within 8 photos; not testable on the sample video (main camera only) |
+| Floor and the wall–ceiling edge visible in every photo | **supported (e23)**: rooms whose photos show no floor cannot be segmented (`no_floor`, r8) | — |
 | A reference object for scale (A4 sheet, card) | **not assumed allowed** | Would likely fix scale, but may violate "any picture in, results out"; question for the user. |
 | Door height as a scale cue | **not deployable yet** | Oracle (true doors only): ~5 % per photo; zero-shot detector boxes: fails (e12 door cue). |
 | Camera-height cue ("hold at chest height") | **refuted** | Single-image floor-plane height error 21 % median (e12 camh_v2); operator's own camera height varies ±9 cm. |
@@ -42,6 +45,7 @@ be written only after the physical pre-check (docs/physical_benchmark_procedure.
 | Walk at normal pace with natural hand motion | supported for IMU scale (diagnostic only; IMU is not part of the official video tier) | IMU scale needs acceleration excitation; samples had 0.4–0.55 m/s² rms and gave ~1–2 % (e11). |
 | Same room order and ceiling sweep as LiDAR | hypothesis | Lets one geometry back end serve all tiers. |
 | Keep under ~3–4 minutes | hypothesis | Processing time + drift; sample captures were 37–215 s. |
+| Turn on the spot slowly in each room (overlapping views, floor visible), then walk to the next | **hypothesis (e25)**: the v0 video frontend measures rooms from 12 s windows of overlapping frames; on the sample clip only 3/18 windows were coherent | Same window logic as the photo sweep (e23) |
 
 ## Potentially non-compliant ideas (flagged, not adopted)
 
