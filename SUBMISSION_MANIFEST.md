@@ -27,7 +27,7 @@ Verified engineering baseline: git tag `engineering-baseline-v1`.
 | Environment recipes | D3, K2 | `envs/`, `scripts/setup_envs.sh`, `scripts/fetch_weights.py`, `docs/reproduction.md` | isolated envs + pinned weights | `scripts/setup_envs.sh mapanything`; `uv run python scripts/fetch_weights.py` | PASS |
 | Tests | D4 | `tests/` | conventions, contract, smoke end-to-end, repeatability, quality, inputs, damage, dev site | `uv run pytest -q` (+ `ROOMSCAN_GPU_TESTS=1`) | PASS |
 | Experiments e00–e27 | process, evidence | `experiments/`, `experiments/DEPENDENCIES.md` | every design decision's evidence, incl. negative results | per experiment README | PASS (as evidence) |
-| Engineering log, handover | P1 | `ENGINEERING_LOG.md`, `HANDOVER.md` | reasoning and state | — | PASS |
+| Engineering log | P1 | `ENGINEERING_LOG.md` | reasoning record of every experiment and decision | — | PASS |
 | Development-capture plan | B0 (preparation) | `docs/development_capture_protocol.md`, `benchmark/_template_dev/` | 30-min device session with pre-registered readings | `uv run roomscan-bench benchmark/dev_<date> --run runs/dev_<date> --execute` | READY |
 
 ## BLOCKED BY PHYSICAL DEVICE

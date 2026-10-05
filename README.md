@@ -115,4 +115,4 @@ the fix loop on a real benchmark gate; the walk-in test. Prepared next step:
 | `reports/` | benchmark report, fix-loop bundle, technical report |
 | `docs/` | capture protocol, device matrix, compliance matrix, reproduction, development capture |
 | `experiments/e00…e27/` | every experiment with its README, including negative results |
-| `ENGINEERING_LOG.md`, `HANDOVER.md` | reasoning record; project state |
+| `ENGINEERING_LOG.md` | reasoning record: every experiment and decision, incl. negative results |

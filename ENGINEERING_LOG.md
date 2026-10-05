@@ -575,19 +575,6 @@ pressure; its saved outputs were complete for every run except MapAnything on `w
 
 ---
 
-### 2026-10-05 — Handover at session compaction
-`HANDOVER.md` created at the repository root as the authoritative state snapshot (commit
-`3b4dd57`, clean tree): implemented vs experiment-only subsystems, the full experiment table with
-negative results, measured numbers with evidence labels, current decisions, a reconciled
-assessment status (it corrects the compliance matrix where code had moved ahead: one command per
-capture, stitched LiDAR plan, openings are PARTIAL/EXPLORING; GT lives in `site.yaml`, not
-`benchmark/ground_truth/`), files that must not be lost, environment and regeneration order for
-ignored intermediates (e02 PLY → e10 labels → e12), the prioritised next-work queue, and a
-do-not-repeat list. Reproduction gaps recorded there: `cache/e20/.venv` has no setup recipe;
-MapAnything/LightGlue live in isolated venvs outside `uv.lock`; weights download on first use.
-
----
-
 ## Phase 4 (2026-10-05): from experiments to a three-tier product path
 
 User priorities for this phase: (1) LiDAR robustness incl. the two dropped rooms, (2) a real photo
@@ -689,14 +676,14 @@ whose label is not a scored room are no longer size-matched; (3) the photo-sweep
 (1.2 %) was a coincidence of a wrong shape (5.73 × 1.58 vs 3.0 × 3.0 m) — wall-level scores are
 the honest view. Video window results are not numerically stable across uncached runs.
 
-### 2026-10-05 — Phase 4 close and handover update
+### 2026-10-05 — Phase 4 close
 Phase-4 completion targets met: LiDAR v1.1 with an explained/fixed small-room failure (e22) and a
 segmentation border fix (synthetic); photo and video frontends emitting shared-schema plans; one
 evaluator path (`--execute`) for all tiers (e24); isolated envs and weights reproducible from
 recipes. Accuracy of the photo/video frontends on the supplied data is far from the gates
 (pseudo-GT) and the open questions behind that are capture-behaviour questions → the short
-`dev_` capture is now the highest-value next step (HANDOVER §12–13). Protocol hypotheses doc
-updated with the e23/e25 photo and video rules. `HANDOVER.md` rewritten for the new state.
+`dev_` capture is now the highest-value next step (`docs/development_capture_protocol.md`).
+Capture-protocol rules updated with the e23/e25 photo and video evidence.
 
 ---
 
@@ -789,8 +776,7 @@ keep physically blocked items explicitly blocked.
 ### 2026-10-06 — Publication: history rewrite
 Before the first push, commit-message co-author trailers were removed and the author/committer
 identity was set to `Pulkit Sharma <pulkitsharma14062002@gmail.com>` (GitHub: `pulkits1406`) on every commit (`git filter-branch`; dates, order, messages
-otherwise and all file trees unchanged; final tree byte-identical). Commit hashes changed: the
-old → new mapping is in `docs/commit_hash_mapping.md`, and hashes cited in tracked files were
-updated to their rewritten equivalents (same trees). The baseline tag was recreated on the
+otherwise and all file trees unchanged; final tree byte-identical). Commit hashes changed; hashes cited in
+tracked files were updated to their rewritten equivalents (same trees). The baseline tag was recreated on the
 rewritten baseline commit with its original date and message. A bundle of the pre-rewrite history
 is kept outside the repository.
