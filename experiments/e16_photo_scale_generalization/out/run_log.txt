@@ -1,0 +1,379 @@
+1 2 0 err -27.0% focal -30.5% fcorr +3.5% moge -0.1% base 0.582 2.4s [swap 698MB free_pages 88157]
+3 2 0 err -33.7% focal -35.2% fcorr +1.3% moge -0.7% base 0.917 2.2s [swap 748MB free_pages 475615]
+[mem] waiting: swap 748MB free_pages 4241
+[mem] waiting: swap 748MB free_pages 40306
+3 2 1 err -30.8% focal -35.0% fcorr +6.5% moge -2.3% base 0.535 2.6s [swap 748MB free_pages 432684]
+3 2 2 err -34.5% focal -35.5% fcorr +1.7% moge -5.1% base 0.740 2.1s [swap 870MB free_pages 132896]
+[mem] waiting: swap 870MB free_pages 33897
+3 2 3 err -26.5% focal -30.2% fcorr +1.5% moge -24.6% base 1.015 2.1s [swap 870MB free_pages 124212]
+[mem] waiting: swap 870MB free_pages 40568
+[mem] waiting: swap 870MB free_pages 25615
+[mem] waiting: swap 870MB free_pages 24735
+3 2 4 err -34.4% focal -35.6% fcorr +1.8% moge -0.9% base 1.843 2.3s [swap 862MB free_pages 334981]
+3 2 5 err -33.8% focal -36.0% fcorr +3.9% moge +1.8% base 2.184 2.1s [swap 862MB free_pages 91198]
+3 2 6 err -31.1% focal -35.8% fcorr +8.0% moge -0.7% base 1.067 2.1s [swap 862MB free_pages 65481]
+3 2 7 err -33.3% focal -35.5% fcorr +3.4% moge -0.7% base nan 2.3s [swap 862MB free_pages 59851]
+3 2 8 err -34.2% focal -34.6% fcorr +0.0% moge -0.7% base 1.001 2.2s [swap 862MB free_pages 56746]
+3 2 9 err -32.9% focal -34.1% fcorr +2.4% moge +2.2% base 1.714 2.2s [swap 862MB free_pages 95499]
+3 3 0 err -36.3% focal -37.0% fcorr -0.1% moge -28.8% base 0.903 3.2s [swap 862MB free_pages 53859]
+[mem] waiting: swap 862MB free_pages 4280
+3 3 1 err -34.1% focal -36.2% fcorr +1.8% moge -1.7% base 0.722 3.3s [swap 862MB free_pages 130423]
+[mem] waiting: swap 862MB free_pages 4397
+3 3 2 err -33.6% focal -35.2% fcorr +2.6% moge -0.6% base 1.220 3.3s [swap 862MB free_pages 122568]
+[mem] waiting: swap 862MB free_pages 4144
+3 3 3 err -33.9% focal -35.7% fcorr +4.2% moge -2.7% base 0.579 3.0s [swap 862MB free_pages 199801]
+3 3 4 err -34.9% focal -35.6% fcorr +1.2% moge -2.3% base 1.531 3.0s [swap 862MB free_pages 62744]
+3 3 5 err -33.8% focal -36.0% fcorr +4.2% moge -1.9% base 1.065 3.0s [swap 862MB free_pages 56689]
+3 3 6 err -33.3% focal -36.5% fcorr +5.5% moge -5.3% base 0.750 3.1s [swap 862MB free_pages 123123]
+[mem] waiting: swap 862MB free_pages 31255
+[mem] waiting: swap 862MB free_pages 32924
+[mem] waiting: swap 862MB free_pages 22236
+3 3 7 err -33.1% focal -35.7% fcorr +6.2% moge -1.2% base 0.580 3.1s [swap 862MB free_pages 51729]
+3 3 8 err -33.8% focal -36.4% fcorr +4.0% moge -1.6% base 0.929 3.2s [swap 862MB free_pages 70264]
+3 3 9 err -34.6% focal -35.7% fcorr +0.3% moge -2.1% base 0.826 3.1s [swap 862MB free_pages 266087]
+3 4 0 err -30.0% focal -34.6% fcorr +5.6% moge -6.1% base 0.669 4.2s [swap 862MB free_pages 132971]
+3 4 1 err -32.0% focal -34.5% fcorr +3.3% moge -1.9% base 0.874 4.2s [swap 862MB free_pages 62568]
+3 4 2 err -32.5% focal -36.7% fcorr +6.4% moge -2.9% base 0.722 4.2s [swap 862MB free_pages 63654]
+3 4 3 err -33.3% focal -36.2% fcorr +4.8% moge -3.8% base 0.679 4.2s [swap 862MB free_pages 62637]
+3 4 4 err -32.9% focal -36.9% fcorr +6.9% moge +0.4% base 0.839 4.4s [swap 862MB free_pages 90457]
+3 4 5 err -33.8% focal -35.5% fcorr +1.7% moge -4.2% base 0.809 4.3s [swap 862MB free_pages 133967]
+3 4 6 err -33.0% focal -35.7% fcorr +3.3% moge -1.1% base 0.974 4.6s [swap 862MB free_pages 70076]
+[mem] waiting: swap 862MB free_pages 4189
+3 4 7 err -32.9% focal -35.8% fcorr +4.5% moge -2.6% base 0.929 4.6s [swap 862MB free_pages 159085]
+[mem] waiting: swap 862MB free_pages 4293
+3 4 8 err -32.9% focal -35.8% fcorr +4.3% moge -3.1% base 1.011 4.5s [swap 862MB free_pages 134219]
+3 4 9 err -33.9% focal -35.2% fcorr +2.2% moge -0.6% base 0.868 4.5s [swap 862MB free_pages 136310]
+[mem] waiting: swap 862MB free_pages 4496
+3 6 0 err -34.3% focal -36.0% fcorr +1.6% moge -4.1% base 1.050 6.6s [swap 862MB free_pages 137729]
+[mem] waiting: swap 862MB free_pages 4721
+3 6 1 err -32.9% focal -35.5% fcorr +3.8% moge -2.2% base 0.829 7.0s [swap 862MB free_pages 189935]
+[mem] waiting: swap 862MB free_pages 3848
+3 6 2 err -32.5% focal -35.5% fcorr +4.5% moge -2.0% base 0.871 6.2s [swap 862MB free_pages 295186]
+3 6 3 err -32.5% focal -36.6% fcorr +5.6% moge -3.2% base 0.994 6.2s [swap 862MB free_pages 90846]
+3 6 4 err -34.4% focal -36.0% fcorr +2.3% moge -2.7% base 0.842 6.2s [swap 862MB free_pages 146453]
+3 6 5 err -32.9% focal -35.6% fcorr +4.1% moge -1.3% base 1.089 6.6s [swap 862MB free_pages 80020]
+3 6 6 err -33.2% focal -35.6% fcorr +3.6% moge -1.3% base 1.022 7.1s [swap 862MB free_pages 146519]
+[mem] waiting: swap 862MB free_pages 4508
+3 6 7 err -33.2% focal -35.9% fcorr +4.0% moge -1.7% base 0.802 7.0s [swap 862MB free_pages 173653]
+[mem] waiting: swap 862MB free_pages 2453
+3 6 8 err -33.3% focal -35.8% fcorr +4.1% moge -2.8% base 0.904 7.3s [swap 862MB free_pages 197913]
+[mem] waiting: swap 862MB free_pages 3989
+3 6 9 err -33.7% focal -35.7% fcorr +2.9% moge -2.1% base 0.885 7.2s [swap 862MB free_pages 196356]
+[mem] waiting: swap 862MB free_pages 4641
+3 8 0 err -33.0% focal -36.1% fcorr +4.7% moge -1.7% base 0.856 8.6s [swap 862MB free_pages 298339]
+[mem] waiting: swap 862MB free_pages 18347
+3 8 1 err -43.3% focal -33.8% fcorr -15.9% moge -4.0% base 1.529 8.5s [swap 862MB free_pages 298998]
+3 8 2 err -32.6% focal -35.9% fcorr +4.5% moge -1.7% base 0.868 8.7s [swap 862MB free_pages 193524]
+[mem] waiting: swap 862MB free_pages 9469
+3 8 3 err -32.2% focal -36.1% fcorr +6.2% moge -2.4% base 0.984 8.5s [swap 862MB free_pages 291008]
+[mem] waiting: swap 862MB free_pages 9442
+3 8 4 err -38.7% focal -34.4% fcorr -6.1% moge -3.1% base 0.846 8.5s [swap 862MB free_pages 288304]
+[mem] waiting: swap 862MB free_pages 7756
+3 8 5 err -38.2% focal -32.9% fcorr -9.4% moge -2.5% base 1.141 8.4s [swap 862MB free_pages 224238]
+[mem] waiting: swap 862MB free_pages 7657
+3 8 6 err -33.9% focal -36.9% fcorr +4.8% moge -3.7% base 0.841 8.6s [swap 862MB free_pages 217605]
+[mem] waiting: swap 1320MB free_pages 4664
+3 8 7 err -34.9% focal -34.2% fcorr -1.5% moge -3.8% base 0.802 9.0s [swap 1320MB free_pages 150095]
+3 8 8 err -33.1% focal -35.5% fcorr +3.7% moge -1.3% base 0.844 8.9s [swap 1320MB free_pages 215233]
+3 8 9 err -33.4% focal -36.8% fcorr +5.1% moge -2.4% base 0.772 9.6s [swap 1320MB free_pages 117549]
+4 2 0 err -39.0% focal -31.4% fcorr -6.7% moge -10.5% base 6.102 2.3s [swap 1320MB free_pages 212333]
+4 2 1 err -35.5% focal -32.1% fcorr -8.0% moge -7.2% base 3.555 2.1s [swap 1320MB free_pages 188481]
+4 2 2 err -29.8% focal -33.8% fcorr +5.8% moge -5.6% base 0.710 2.4s [swap 1320MB free_pages 182926]
+4 2 3 err -28.4% focal -29.0% fcorr -4.4% moge -3.3% base 0.694 2.2s [swap 1320MB free_pages 174919]
+4 2 4 err -29.0% focal -34.8% fcorr +8.6% moge -2.9% base nan 2.3s [swap 1320MB free_pages 176512]
+4 2 5 err -30.1% focal -34.7% fcorr +6.3% moge -7.5% base 0.758 2.4s [swap 1320MB free_pages 176467]
+4 2 6 err -33.0% focal -31.6% fcorr -2.1% moge -8.5% base 2.328 2.3s [swap 1320MB free_pages 161341]
+4 2 7 err -29.5% focal -19.5% fcorr -23.2% moge -7.5% base 3.768 2.3s [swap 1320MB free_pages 166652]
+4 2 8 err -39.4% focal -30.5% fcorr -9.8% moge -10.8% base nan 2.2s [swap 1320MB free_pages 166877]
+4 2 9 err -31.5% focal -34.5% fcorr +5.1% moge -8.2% base 4.109 2.2s [swap 1320MB free_pages 179888]
+4 3 0 err -37.1% focal -34.7% fcorr -8.6% moge -12.5% base 1.891 3.2s [swap 1320MB free_pages 175639]
+4 3 1 err -30.5% focal -31.4% fcorr +4.5% moge -7.1% base 1.106 3.2s [swap 1320MB free_pages 157272]
+4 3 2 err -27.8% focal -32.5% fcorr +6.8% moge -8.6% base 1.549 3.1s [swap 1320MB free_pages 170425]
+4 3 3 err -30.0% focal -34.2% fcorr +0.8% moge -7.5% base 3.358 3.1s [swap 1320MB free_pages 315245]
+4 3 4 err -40.1% focal -35.2% fcorr -9.9% moge -10.3% base 2.196 3.1s [swap 1320MB free_pages 248911]
+4 3 5 err -34.1% focal -35.3% fcorr -5.6% moge -7.6% base 1.310 3.1s [swap 1320MB free_pages 247058]
+4 3 6 err -33.7% focal -33.8% fcorr -2.8% moge -9.5% base 0.674 3.1s [swap 1320MB free_pages 242949]
+4 3 7 err -28.3% focal -35.5% fcorr -3.0% moge -6.7% base 1.390 3.2s [swap 1320MB free_pages 235069]
+4 3 8 err -29.3% focal -31.3% fcorr +6.5% moge -7.3% base 2.380 3.3s [swap 1320MB free_pages 169604]
+4 3 9 err -35.2% focal -34.5% fcorr -8.1% moge -10.6% base 3.734 3.3s [swap 1320MB free_pages 109314]
+4 4 0 err -31.6% focal -34.8% fcorr -0.1% moge -6.9% base 0.697 4.7s [swap 1320MB free_pages 86527]
+[mem] waiting: swap 1320MB free_pages 12338
+4 4 1 err -31.0% focal -34.1% fcorr +5.0% moge -9.0% base 1.234 4.5s [swap 1320MB free_pages 183751]
+[mem] waiting: swap 1320MB free_pages 46408
+4 4 2 err -33.2% focal -33.1% fcorr -4.8% moge -6.0% base 4.646 4.0s [swap 1320MB free_pages 195496]
+4 4 3 err -33.5% focal -34.9% fcorr +1.0% moge -8.4% base 1.595 4.0s [swap 1320MB free_pages 163186]
+4 4 4 err -36.5% focal -34.7% fcorr -7.4% moge -14.1% base 0.835 4.0s [swap 1320MB free_pages 163941]
+4 4 5 err -26.1% focal -34.4% fcorr +10.7% moge -8.4% base 1.199 4.1s [swap 1320MB free_pages 163974]
+4 4 6 err -33.5% focal -34.2% fcorr -0.2% moge -5.4% base 2.960 4.1s [swap 1320MB free_pages 163700]
+4 4 7 err -32.4% focal -33.6% fcorr -2.1% moge -7.6% base 2.513 4.1s [swap 1320MB free_pages 162800]
+4 4 8 err -34.8% focal -34.8% fcorr -2.7% moge -8.5% base 2.408 4.1s [swap 1320MB free_pages 162813]
+4 4 9 err -30.0% focal -32.9% fcorr +2.5% moge -6.5% base 1.627 4.1s [swap 1320MB free_pages 161611]
+4 6 0 err -32.0% focal -35.0% fcorr -0.2% moge -7.6% base 1.025 6.7s [swap 1320MB free_pages 149085]
+[mem] waiting: swap 1320MB free_pages 4303
+4 6 1 err -32.1% focal -34.8% fcorr +1.6% moge -7.8% base 0.935 7.0s [swap 1320MB free_pages 218571]
+[mem] waiting: swap 1320MB free_pages 5110
+4 6 2 err -34.1% focal -33.8% fcorr -7.7% moge -7.0% base 0.699 7.1s [swap 1320MB free_pages 200833]
+[mem] waiting: swap 1320MB free_pages 4774
+4 6 3 err -31.3% focal -34.6% fcorr -2.0% moge -7.4% base 0.870 7.4s [swap 1320MB free_pages 209097]
+4 6 4 err -29.0% focal -33.0% fcorr -0.5% moge -7.1% base 2.654 6.8s [swap 1320MB free_pages 209297]
+[mem] waiting: swap 1320MB free_pages 5316
+4 6 5 err -32.7% focal -34.5% fcorr +0.3% moge -6.4% base 1.328 6.8s [swap 1312MB free_pages 255283]
+4 6 6 err -32.0% focal -34.5% fcorr +3.0% moge -8.1% base 0.831 7.1s [swap 1312MB free_pages 69676]
+[mem] waiting: swap 1312MB free_pages 5358
+4 6 7 err -29.3% focal -33.6% fcorr +6.2% moge -7.6% base 1.897 6.8s [swap 1312MB free_pages 256510]
+4 6 8 err -34.2% focal -34.3% fcorr -5.1% moge -8.5% base 0.730 6.8s [swap 1312MB free_pages 66464]
+4 6 9 err -30.6% focal -33.5% fcorr +3.3% moge -7.3% base 1.544 6.2s [swap 1312MB free_pages 115015]
+4 8 0 err -32.2% focal -34.6% fcorr +1.0% moge -7.9% base 1.292 8.6s [swap 1312MB free_pages 114634]
+[mem] waiting: swap 1312MB free_pages 40122
+4 8 1 err -30.5% focal -34.5% fcorr +1.9% moge -7.2% base 0.876 8.5s [swap 1312MB free_pages 254651]
+[mem] waiting: swap 1312MB free_pages 34405
+4 8 2 err -29.1% focal -32.7% fcorr +3.0% moge -7.8% base 0.855 8.5s [swap 1312MB free_pages 307057]
+[mem] waiting: swap 1312MB free_pages 28678
+4 8 3 err -33.1% focal -32.6% fcorr -4.4% moge -5.3% base 2.390 8.5s [swap 1312MB free_pages 305636]
+[mem] waiting: swap 1312MB free_pages 23175
+4 8 4 err -32.7% focal -33.5% fcorr -1.2% moge -5.6% base 0.926 8.4s [swap 1312MB free_pages 304428]
+[mem] waiting: swap 1312MB free_pages 20800
+4 8 5 err -32.0% focal -32.4% fcorr -3.0% moge -7.5% base 0.935 8.4s [swap 1312MB free_pages 297659]
+4 8 6 err -31.7% focal -33.1% fcorr -1.7% moge -6.0% base 0.845 8.3s [swap 1312MB free_pages 247577]
+[mem] waiting: swap 1312MB free_pages 22865
+4 8 7 err -32.1% focal -34.2% fcorr +2.6% moge -5.9% base 0.945 8.3s [swap 1312MB free_pages 304058]
+4 8 8 err -33.2% focal -34.0% fcorr -5.9% moge -7.2% base 1.660 8.3s [swap 1312MB free_pages 204567]
+[mem] waiting: swap 1312MB free_pages 22214
+4 8 9 err -31.9% focal -34.4% fcorr +2.5% moge -7.9% base 1.035 8.3s [swap 1312MB free_pages 304549]
+[mem] waiting: swap 1312MB free_pages 20654
+6 2 0 err -36.4% focal -37.2% fcorr +1.0% moge -20.3% base 0.736 2.0s [swap 1312MB free_pages 304870]
+6 2 1 err -27.2% focal -32.2% fcorr +8.4% moge -0.6% base 1.284 2.0s [swap 1312MB free_pages 235939]
+6 2 2 err -41.2% focal -36.8% fcorr -6.8% moge -15.4% base 0.690 2.0s [swap 1312MB free_pages 227253]
+6 2 3 err -26.0% focal -32.2% fcorr +6.4% moge -19.6% base 6.455 2.0s [swap 1312MB free_pages 229341]
+6 2 4 err -34.6% focal -37.4% fcorr +4.7% moge -13.6% base 1.149 2.0s [swap 1312MB free_pages 227392]
+6 2 5 err -35.0% focal -36.5% fcorr +1.3% moge -17.2% base 5.094 2.0s [swap 1312MB free_pages 227276]
+6 2 6 err -35.9% focal -35.4% fcorr +0.0% moge -11.2% base 0.681 2.0s [swap 1312MB free_pages 226933]
+6 2 7 err -27.2% focal -33.4% fcorr +10.9% moge -6.8% base 5.267 2.0s [swap 1312MB free_pages 226795]
+6 2 8 err -27.3% focal -32.1% fcorr +8.5% moge -21.4% base 5.076 2.0s [swap 1312MB free_pages 226629]
+6 2 9 err -29.5% focal -34.9% fcorr +7.5% moge -7.2% base 0.606 2.0s [swap 1312MB free_pages 224205]
+6 3 0 err -39.1% focal -36.0% fcorr -3.9% moge -14.4% base 4.601 3.0s [swap 1312MB free_pages 222629]
+6 3 1 err -34.5% focal -36.7% fcorr +1.1% moge -16.2% base 4.090 3.0s [swap 1312MB free_pages 223213]
+6 3 2 err -36.1% focal -37.5% fcorr +1.5% moge -11.1% base 2.779 3.0s [swap 1312MB free_pages 224813]
+6 3 3 err -42.6% focal -37.8% fcorr -7.8% moge -12.4% base 2.644 3.0s [swap 1312MB free_pages 222505]
+6 3 4 err -36.5% focal -34.9% fcorr +0.2% moge -13.5% base 2.891 3.0s [swap 1312MB free_pages 224546]
+6 3 5 err -29.3% focal -36.1% fcorr +2.9% moge -4.0% base 2.744 3.0s [swap 1312MB free_pages 222953]
+6 3 6 err -40.9% focal -37.7% fcorr -6.0% moge -16.4% base 0.553 3.0s [swap 1312MB free_pages 222362]
+6 3 7 err -25.7% focal -36.6% fcorr +7.6% moge -7.9% base 1.480 3.0s [swap 1312MB free_pages 225679]
+6 3 8 err -29.4% focal -35.7% fcorr +7.9% moge -19.6% base 3.646 3.0s [swap 1312MB free_pages 221366]
+6 3 9 err -42.4% focal -37.6% fcorr -7.7% moge -13.2% base 2.725 3.0s [swap 1312MB free_pages 224967]
+6 4 0 err -29.8% focal -36.5% fcorr +8.9% moge -9.0% base 4.599 4.1s [swap 1312MB free_pages 224141]
+6 4 1 err -36.2% focal -36.1% fcorr +0.6% moge -17.6% base 1.912 4.1s [swap 1312MB free_pages 155984]
+6 4 2 err -31.7% focal -36.4% fcorr +3.3% moge -7.0% base 3.680 4.1s [swap 1312MB free_pages 156609]
+6 4 3 err -37.2% focal -35.8% fcorr -2.5% moge -18.6% base 3.519 4.1s [swap 1312MB free_pages 155986]
+6 4 4 err -36.6% focal -36.4% fcorr -1.7% moge -16.3% base 1.123 4.1s [swap 1312MB free_pages 155523]
+6 4 5 err -31.6% focal -36.6% fcorr +4.3% moge -18.7% base 3.246 4.1s [swap 1312MB free_pages 140566]
+6 4 6 err -40.3% focal -35.6% fcorr -7.3% moge -11.6% base 2.227 4.1s [swap 1312MB free_pages 202739]
+6 4 7 err -37.3% focal -37.7% fcorr -0.0% moge -18.2% base 3.697 4.1s [swap 1312MB free_pages 137633]
+6 4 8 err -35.4% focal -36.1% fcorr +2.5% moge -17.5% base 2.859 4.1s [swap 1312MB free_pages 137613]
+6 4 9 err -37.8% focal -37.0% fcorr -3.0% moge -20.1% base 3.219 4.1s [swap 1312MB free_pages 123675]
+6 6 0 err -29.8% focal -36.9% fcorr +8.5% moge -18.2% base 3.705 6.3s [swap 1312MB free_pages 109203]
+[mem] waiting: swap 1312MB free_pages 33810
+6 6 1 err -37.6% focal -36.7% fcorr -3.4% moge -14.1% base 4.540 6.1s [swap 1312MB free_pages 242681]
+[mem] waiting: swap 1312MB free_pages 38979
+6 6 2 err -34.6% focal -36.8% fcorr +1.1% moge -16.8% base 2.165 6.1s [swap 1312MB free_pages 246974]
+[mem] waiting: swap 1312MB free_pages 40557
+6 6 3 err -35.9% focal -36.9% fcorr +0.1% moge -18.4% base 3.270 6.1s [swap 1296MB free_pages 231884]
+6 6 4 err -35.4% focal -35.3% fcorr -1.9% moge -14.6% base 2.106 6.1s [swap 1296MB free_pages 115160]
+[mem] waiting: swap 1296MB free_pages 29510
+6 6 5 err -33.0% focal -36.7% fcorr +5.7% moge -18.2% base 4.657 6.1s [swap 1288MB free_pages 236287]
+[mem] waiting: swap 1288MB free_pages 24648
+6 6 6 err -32.2% focal -36.4% fcorr +4.1% moge -14.1% base 2.078 6.1s [swap 1288MB free_pages 234549]
+[mem] waiting: swap 1288MB free_pages 28467
+6 6 7 err -30.2% focal -36.4% fcorr +5.2% moge -16.0% base 4.067 6.1s [swap 1288MB free_pages 229550]
+[mem] waiting: swap 1288MB free_pages 23566
+6 6 8 err -36.5% focal -35.8% fcorr -1.5% moge -20.8% base 3.322 6.1s [swap 1288MB free_pages 221508]
+[mem] waiting: swap 1288MB free_pages 15377
+6 6 9 err -31.3% focal -35.7% fcorr +3.5% moge -18.1% base 1.762 6.1s [swap 1288MB free_pages 213434]
+[mem] waiting: swap 1288MB free_pages 9597
+6 8 0 err -31.2% focal -36.8% fcorr +8.6% moge -15.7% base 3.965 8.3s [swap 1280MB free_pages 200400]
+[mem] waiting: swap 1280MB free_pages 4657
+6 8 1 err -38.5% focal -34.8% fcorr -6.2% moge -15.7% base 2.161 8.3s [swap 1280MB free_pages 216444]
+[mem] waiting: swap 1280MB free_pages 4513
+6 8 2 err -32.1% focal -35.7% fcorr +6.9% moge -16.2% base 3.077 8.3s [swap 1280MB free_pages 216450]
+6 8 3 err -34.2% focal -36.4% fcorr +2.4% moge -18.5% base 1.863 8.3s [swap 1280MB free_pages 71404]
+[mem] waiting: swap 1280MB free_pages 4656
+6 8 4 err -32.3% focal -36.1% fcorr +3.7% moge -17.8% base 2.578 8.3s [swap 1280MB free_pages 222795]
+[mem] waiting: swap 1280MB free_pages 8925
+6 8 5 err -33.1% focal -36.4% fcorr +5.3% moge -15.3% base 3.419 8.3s [swap 1280MB free_pages 222804]
+[mem] waiting: swap 1280MB free_pages 8739
+6 8 6 err -35.8% focal -35.5% fcorr +1.8% moge -16.7% base 2.043 8.3s [swap 1280MB free_pages 221998]
+6 8 7 err -35.0% focal -36.4% fcorr +1.2% moge -12.7% base 1.634 8.3s [swap 1280MB free_pages 218022]
+[mem] waiting: swap 1280MB free_pages 4508
+6 8 8 err -40.1% focal -35.6% fcorr -6.9% moge -17.2% base 2.467 8.3s [swap 1280MB free_pages 221954]
+6 8 9 err -31.0% focal -36.5% fcorr +8.0% moge -15.7% base 4.227 8.3s [swap 1280MB free_pages 218178]
+[mem] waiting: swap 1280MB free_pages 5300
+7 2 0 err -4.1% focal -34.9% fcorr +47.3% moge +4.5% base 1.025 2.0s [swap 1280MB free_pages 214627]
+7 2 1 err -24.4% focal -36.4% fcorr +18.6% moge -3.9% base 2.188 2.0s [swap 1280MB free_pages 207825]
+7 2 2 err -3.8% focal -35.3% fcorr +48.6% moge -2.1% base nan 2.0s [swap 1280MB free_pages 195950]
+7 2 3 err -21.3% focal -35.2% fcorr +20.1% moge -5.8% base 3.238 2.0s [swap 1280MB free_pages 196189]
+7 2 4 err -9.2% focal -35.2% fcorr +40.0% moge +0.5% base 1.035 2.0s [swap 1280MB free_pages 197333]
+7 2 5 err -1.0% focal -34.7% fcorr +51.6% moge -2.2% base nan 2.0s [swap 1280MB free_pages 197911]
+7 2 6 err +3.5% focal -34.3% fcorr +57.8% moge +0.9% base 1.116 2.0s [swap 1280MB free_pages 199596]
+7 2 7 err +2.7% focal -34.3% fcorr +56.4% moge -2.2% base nan 2.0s [swap 1280MB free_pages 198913]
+7 2 8 err -25.3% focal -36.0% fcorr +18.2% moge -6.9% base nan 2.0s [swap 1280MB free_pages 198185]
+7 2 9 err -25.5% focal -34.9% fcorr +14.3% moge -3.3% base nan 2.0s [swap 1280MB free_pages 198869]
+7 3 0 err -21.8% focal -36.8% fcorr +23.4% moge +1.3% base 0.772 3.0s [swap 1280MB free_pages 199656]
+7 3 1 err -16.3% focal -35.5% fcorr +29.0% moge -3.5% base 0.919 3.0s [swap 1280MB free_pages 199046]
+7 3 2 err +2.2% focal -34.5% fcorr +53.7% moge -0.8% base 1.245 3.0s [swap 1280MB free_pages 202369]
+7 3 3 err -12.4% focal -35.3% fcorr +35.1% moge -2.2% base nan 3.0s [swap 1280MB free_pages 198483]
+7 3 4 err -10.5% focal -33.9% fcorr +35.1% moge -2.2% base 1.093 3.0s [swap 1280MB free_pages 196139]
+7 3 5 err -2.7% focal -34.9% fcorr +49.7% moge +7.5% base nan 3.0s [swap 1280MB free_pages 196902]
+7 3 6 err -18.2% focal -36.7% fcorr +28.4% moge -2.7% base 0.652 3.0s [swap 1280MB free_pages 196999]
+7 3 7 err -14.9% focal -36.1% fcorr +33.2% moge +1.5% base 2.655 3.0s [swap 1280MB free_pages 195849]
+7 3 8 err -12.7% focal -36.4% fcorr +37.0% moge -5.0% base 4.746 3.0s [swap 1280MB free_pages 196999]
+7 3 9 err -17.0% focal -36.5% fcorr +29.7% moge -3.0% base 1.741 3.0s [swap 1280MB free_pages 200812]
+7 4 0 err -15.5% focal -36.1% fcorr +32.2% moge -4.1% base 1.168 4.1s [swap 1280MB free_pages 200893]
+7 4 1 err -1.1% focal -34.1% fcorr +49.7% moge +1.1% base 1.069 4.1s [swap 1280MB free_pages 133481]
+7 4 2 err -15.5% focal -36.0% fcorr +32.1% moge -1.7% base 1.863 4.1s [swap 1280MB free_pages 132716]
+7 4 3 err -17.2% focal -36.5% fcorr +30.0% moge +1.3% base 1.916 4.1s [swap 1280MB free_pages 133188]
+7 4 4 err -4.7% focal -35.0% fcorr +46.3% moge +2.8% base 1.035 4.1s [swap 1280MB free_pages 136407]
+7 4 5 err -18.2% focal -36.2% fcorr +28.5% moge +0.1% base 2.326 4.1s [swap 1280MB free_pages 135307]
+7 4 6 err -17.0% focal -36.6% fcorr +30.8% moge -2.5% base 0.948 4.1s [swap 1280MB free_pages 129439]
+7 4 7 err -17.3% focal -36.2% fcorr +30.1% moge +1.3% base 2.058 4.2s [swap 1280MB free_pages 128024]
+7 4 8 err -3.4% focal -34.7% fcorr +47.7% moge -1.5% base 1.075 4.1s [swap 1280MB free_pages 128977]
+7 4 9 err -12.9% focal -36.4% fcorr +37.0% moge -0.6% base 3.265 4.1s [swap 1280MB free_pages 130106]
+7 6 0 err -14.1% focal -36.0% fcorr +34.5% moge -1.6% base 0.939 6.3s [swap 1280MB free_pages 199254]
+7 6 1 err -16.8% focal -36.3% fcorr +30.0% moge -2.7% base 2.592 6.3s [swap 1280MB free_pages 57679]
+7 6 2 err -16.6% focal -36.9% fcorr +31.5% moge -1.4% base 2.541 6.3s [swap 1280MB free_pages 59649]
+7 6 3 err -16.3% focal -36.5% fcorr +31.4% moge -2.1% base 3.137 6.3s [swap 1280MB free_pages 60330]
+7 6 4 err -17.6% focal -36.5% fcorr +29.9% moge -3.2% base 3.361 6.3s [swap 1280MB free_pages 162439]
+7 6 5 err -13.7% focal -36.0% fcorr +34.9% moge -2.5% base 0.983 6.3s [swap 1280MB free_pages 61866]
+7 6 6 err -20.3% focal -36.4% fcorr +25.7% moge -0.8% base 2.436 6.3s [swap 1280MB free_pages 61422]
+7 6 7 err -18.6% focal -36.4% fcorr +28.2% moge -3.3% base 0.944 6.3s [swap 1280MB free_pages 61802]
+7 6 8 err -16.3% focal -36.2% fcorr +31.3% moge +4.7% base 0.933 6.3s [swap 1280MB free_pages 60578]
+7 6 9 err -15.2% focal -36.2% fcorr +32.4% moge +2.0% base 0.970 6.3s [swap 1280MB free_pages 61010]
+7 8 0 err -16.6% focal -36.5% fcorr +30.7% moge +0.1% base 2.680 8.6s [swap 1280MB free_pages 61383]
+[mem] waiting: swap 1280MB free_pages 4819
+7 8 1 err -11.8% focal -35.9% fcorr +37.5% moge -1.3% base 0.976 8.3s [swap 1280MB free_pages 223966]
+7 8 2 err -16.5% focal -36.3% fcorr +30.8% moge +1.2% base 1.894 8.4s [swap 1280MB free_pages 189567]
+[mem] waiting: swap 1280MB free_pages 6465
+7 8 3 err -15.2% focal -36.3% fcorr +33.2% moge -3.1% base 2.234 8.3s [swap 1280MB free_pages 284952]
+[mem] waiting: swap 1280MB free_pages 5370
+7 8 4 err -13.3% focal -35.8% fcorr +34.9% moge +1.8% base 0.968 8.3s [swap 1280MB free_pages 224795]
+[mem] waiting: swap 1280MB free_pages 10534
+7 8 5 err -16.6% focal -36.4% fcorr +31.5% moge -2.9% base 2.782 8.3s [swap 1280MB free_pages 288925]
+[mem] waiting: swap 1280MB free_pages 9436
+7 8 6 err -11.2% focal -35.5% fcorr +37.8% moge -1.1% base 0.983 8.3s [swap 1280MB free_pages 223831]
+7 8 7 err -16.7% focal -36.3% fcorr +30.8% moge -0.4% base 2.845 8.3s [swap 1280MB free_pages 53092]
+[mem] waiting: swap 1280MB free_pages 5873
+7 8 8 err -15.7% focal -36.2% fcorr +32.1% moge -3.0% base 1.020 8.3s [swap 1280MB free_pages 225855]
+7 8 9 err -13.3% focal -35.9% fcorr +35.5% moge +0.9% base 0.948 8.3s [swap 1280MB free_pages 191823]
+[mem] waiting: swap 1280MB free_pages 4414
+8 2 0 err -35.8% focal -31.4% fcorr -6.4% moge -15.6% base 1.138 2.0s [swap 1280MB free_pages 278498]
+8 2 1 err -26.0% focal -35.5% fcorr +14.7% moge -12.2% base 0.545 2.0s [swap 1280MB free_pages 211814]
+8 2 2 err -35.3% focal -37.2% fcorr +2.9% moge -10.5% base 0.463 2.0s [swap 1280MB free_pages 207331]
+8 2 3 err -32.1% focal -36.9% fcorr +7.4% moge -13.1% base 0.513 2.0s [swap 1280MB free_pages 276786]
+8 2 4 err -13.2% focal -30.4% fcorr +32.4% moge -10.7% base 1.347 2.0s [swap 1280MB free_pages 208169]
+8 2 5 err -27.4% focal -35.5% fcorr +12.5% moge -11.0% base 0.750 2.0s [swap 1280MB free_pages 211296]
+8 2 6 err -13.5% focal -37.2% fcorr +36.8% moge -12.4% base 0.683 2.0s [swap 1280MB free_pages 208678]
+8 2 7 err -28.7% focal -36.6% fcorr +12.3% moge -13.0% base 0.426 2.0s [swap 1280MB free_pages 208152]
+8 2 8 err -29.3% focal -36.5% fcorr +11.5% moge -10.9% base 0.600 2.0s [swap 1280MB free_pages 206657]
+8 2 9 err -6.5% focal -28.3% fcorr +32.3% moge -18.5% base 1.309 2.0s [swap 1280MB free_pages 207341]
+8 3 0 err -29.0% focal -36.3% fcorr +11.8% moge -20.5% base 0.877 3.0s [swap 1280MB free_pages 206375]
+8 3 1 err -23.8% focal -35.7% fcorr +17.7% moge -11.7% base 1.080 3.0s [swap 1280MB free_pages 206655]
+8 3 2 err -27.5% focal -36.7% fcorr +15.0% moge -14.0% base 0.606 3.0s [swap 1280MB free_pages 208999]
+8 3 3 err -36.6% focal -35.3% fcorr -2.9% moge -13.3% base 0.594 3.0s [swap 1280MB free_pages 205532]
+8 3 4 err -31.4% focal -37.0% fcorr +9.3% moge -10.7% base 0.559 3.0s [swap 1280MB free_pages 208289]
+8 3 5 err -31.8% focal -36.3% fcorr +7.7% moge -16.2% base 0.542 3.0s [swap 1280MB free_pages 207734]
+8 3 6 err -39.2% focal -35.4% fcorr -6.1% moge -11.0% base 0.704 3.0s [swap 1280MB free_pages 205192]
+8 3 7 err -30.5% focal -36.6% fcorr +9.1% moge -16.1% base 0.475 3.0s [swap 1280MB free_pages 207934]
+8 3 8 err -20.6% focal -36.2% fcorr +22.6% moge -5.3% base 1.219 3.0s [swap 1280MB free_pages 204872]
+8 3 9 err -28.8% focal -36.8% fcorr +12.5% moge -10.6% base 0.737 3.0s [swap 1280MB free_pages 207200]
+8 4 0 err -30.1% focal -35.7% fcorr +8.4% moge -12.4% base 0.649 4.0s [swap 1280MB free_pages 208502]
+8 4 1 err -24.9% focal -37.5% fcorr +18.3% moge -11.2% base 1.496 4.0s [swap 1280MB free_pages 140799]
+8 4 2 err -31.1% focal -37.0% fcorr +9.2% moge -11.2% base 0.520 4.0s [swap 1280MB free_pages 139236]
+8 4 3 err -31.7% focal -35.9% fcorr +6.5% moge -11.1% base 0.645 4.0s [swap 1280MB free_pages 142008]
+8 4 4 err -25.4% focal -36.4% fcorr +17.1% moge -15.0% base 1.312 4.0s [swap 1280MB free_pages 141849]
+8 4 5 err -33.0% focal -36.4% fcorr +5.7% moge -9.7% base 0.848 4.1s [swap 1280MB free_pages 141126]
+8 4 6 err -32.1% focal -36.1% fcorr +6.6% moge -10.1% base 0.621 4.0s [swap 1280MB free_pages 139207]
+8 4 7 err -26.0% focal -36.8% fcorr +16.3% moge -8.0% base 0.828 4.0s [swap 1280MB free_pages 138635]
+8 4 8 err -24.7% focal -36.1% fcorr +16.9% moge -12.8% base 0.882 4.0s [swap 1280MB free_pages 138654]
+8 4 9 err -30.5% focal -37.2% fcorr +10.6% moge -8.5% base 0.660 4.0s [swap 1280MB free_pages 141158]
+8 6 0 err -29.0% focal -37.0% fcorr +12.8% moge -11.2% base 0.796 6.2s [swap 1280MB free_pages 141233]
+8 6 1 err -29.5% focal -37.8% fcorr +12.6% moge -10.6% base 0.535 6.2s [swap 1280MB free_pages 172466]
+8 6 2 err -27.8% focal -36.3% fcorr +13.1% moge -11.4% base 0.782 6.2s [swap 1280MB free_pages 172720]
+8 6 3 err -28.6% focal -36.0% fcorr +11.3% moge -14.8% base 0.795 6.2s [swap 1280MB free_pages 202271]
+8 6 4 err -29.0% focal -35.3% fcorr +9.4% moge -12.0% base 0.767 6.2s [swap 1280MB free_pages 70665]
+8 6 5 err -29.6% focal -37.0% fcorr +11.3% moge -11.4% base 0.783 6.2s [swap 1280MB free_pages 70552]
+8 6 6 err -30.5% focal -36.9% fcorr +10.5% moge -10.2% base 0.536 6.2s [swap 1280MB free_pages 69339]
+8 6 7 err -29.3% focal -36.9% fcorr +12.2% moge -10.4% base 0.748 6.2s [swap 1280MB free_pages 66493]
+8 6 8 err -29.0% focal -36.6% fcorr +12.5% moge -14.7% base 0.580 6.2s [swap 1280MB free_pages 64143]
+8 6 9 err -29.8% focal -36.5% fcorr +10.8% moge -10.5% base 0.562 6.2s [swap 1280MB free_pages 68190]
+8 8 0 err -28.9% focal -35.8% fcorr +10.1% moge -10.6% base 0.787 8.5s [swap 1280MB free_pages 67682]
+[mem] waiting: swap 1280MB free_pages 4405
+8 8 1 err -28.6% focal -36.7% fcorr +12.6% moge -10.0% base 0.773 8.3s [swap 1280MB free_pages 283522]
+[mem] waiting: swap 1280MB free_pages 6019
+8 8 2 err -30.0% focal -35.9% fcorr +9.3% moge -10.8% base 0.802 8.4s [swap 1280MB free_pages 277195]
+[mem] waiting: swap 1280MB free_pages 4505
+8 8 3 err -28.3% focal -36.9% fcorr +13.6% moge -11.6% base 0.689 8.3s [swap 1280MB free_pages 290616]
+[mem] waiting: swap 1280MB free_pages 10336
+8 8 4 err -30.0% focal -36.6% fcorr +10.0% moge -14.8% base 0.741 8.3s [swap 1280MB free_pages 289651]
+[mem] waiting: swap 1280MB free_pages 9077
+8 8 5 err -29.3% focal -36.6% fcorr +11.1% moge -9.4% base 0.740 8.3s [swap 1280MB free_pages 288937]
+[mem] waiting: swap 1280MB free_pages 8724
+8 8 6 err -30.3% focal -36.9% fcorr +10.7% moge -10.8% base 0.762 8.3s [swap 1280MB free_pages 287323]
+8 8 7 err -28.0% focal -36.9% fcorr +13.4% moge -13.0% base 0.757 8.3s [swap 1280MB free_pages 188321]
+[mem] waiting: swap 1280MB free_pages 6304
+8 8 8 err -27.9% focal -37.1% fcorr +14.1% moge -12.0% base 0.657 8.3s [swap 1280MB free_pages 287506]
+[mem] waiting: swap 1280MB free_pages 7734
+8 8 9 err -30.2% focal -37.1% fcorr +10.2% moge -12.1% base 0.542 8.3s [swap 1280MB free_pages 287505]
+[mem] waiting: swap 1280MB free_pages 7546
+1 2 1 err -27.7% focal -33.5% fcorr +9.2% moge -1.4% base 0.583 2.0s [swap 1280MB free_pages 286767]
+1 2 2 err -17.9% focal -30.4% fcorr +17.0% moge -5.0% base 0.358 2.0s [swap 1280MB free_pages 216586]
+1 2 3 err -29.0% focal -31.5% fcorr +1.8% moge +0.7% base 0.575 2.0s [swap 1280MB free_pages 209367]
+1 2 4 err -28.9% focal -33.6% fcorr +7.1% moge -2.2% base 0.585 2.0s [swap 1280MB free_pages 276987]
+1 2 5 err -27.5% focal -30.1% fcorr +3.5% moge -9.3% base 0.763 2.0s [swap 1280MB free_pages 208598]
+1 2 6 err -35.1% focal -33.2% fcorr -3.5% moge -11.6% base 0.552 2.0s [swap 1280MB free_pages 208984]
+1 2 7 err -20.1% focal -28.0% fcorr +9.3% moge -2.1% base 1.039 2.0s [swap 1280MB free_pages 208205]
+1 2 8 err -32.8% focal -35.4% fcorr +6.0% moge -1.4% base 0.509 2.0s [swap 1280MB free_pages 207683]
+1 2 9 err -25.4% focal -35.4% fcorr +13.5% moge -1.3% base 0.644 2.0s [swap 1280MB free_pages 206126]
+1 3 0 err -37.7% focal -36.5% fcorr -2.4% moge -9.8% base 1.000 3.0s [swap 1280MB free_pages 205799]
+1 3 1 err -36.3% focal -36.0% fcorr -0.7% moge -9.0% base 0.745 3.0s [swap 1280MB free_pages 208988]
+1 3 2 err -35.3% focal -35.1% fcorr -2.3% moge -2.2% base 0.518 3.0s [swap 1280MB free_pages 205625]
+1 3 3 err -32.5% focal -35.8% fcorr +3.9% moge -5.6% base 0.703 3.0s [swap 1280MB free_pages 208237]
+1 3 4 err -29.7% focal -34.8% fcorr +7.2% moge -6.2% base 0.772 3.0s [swap 1280MB free_pages 207346]
+1 3 5 err -31.0% focal -33.0% fcorr +1.9% moge -10.9% base 0.296 3.0s [swap 1280MB free_pages 205009]
+1 3 6 err -27.2% focal -35.0% fcorr +2.0% moge -1.3% base 2.131 3.0s [swap 1280MB free_pages 208040]
+1 3 7 err -32.6% focal -35.8% fcorr +5.9% moge -4.2% base 0.686 3.0s [swap 1280MB free_pages 204904]
+1 3 8 err -33.3% focal -34.0% fcorr -1.1% moge -8.0% base 0.661 3.0s [swap 1280MB free_pages 207516]
+1 3 9 err -37.9% focal -35.4% fcorr -4.1% moge -4.3% base 0.698 3.0s [swap 1280MB free_pages 207011]
+1 4 0 err -29.3% focal -31.6% fcorr +3.3% moge -11.0% base 0.735 4.0s [swap 1280MB free_pages 204737]
+1 4 1 err -35.8% focal -35.3% fcorr -1.0% moge -3.9% base 0.775 4.0s [swap 1280MB free_pages 209736]
+1 4 2 err -31.5% focal -34.6% fcorr +4.8% moge -1.6% base 0.648 4.0s [swap 1280MB free_pages 141694]
+1 4 3 err -36.2% focal -35.4% fcorr -0.9% moge -3.2% base 0.717 4.0s [swap 1280MB free_pages 140737]
+1 4 4 err -31.3% focal -33.1% fcorr +2.8% moge -0.8% base 0.590 4.0s [swap 1280MB free_pages 139469]
+1 4 5 err -40.0% focal -35.3% fcorr -7.2% moge -13.7% base 0.668 4.0s [swap 1280MB free_pages 138017]
+1 4 6 err -34.4% focal -32.1% fcorr -3.0% moge -6.2% base 0.594 4.0s [swap 1280MB free_pages 138887]
+1 4 7 err -29.1% focal -30.8% fcorr +0.4% moge +0.2% base 1.149 4.0s [swap 1280MB free_pages 142195]
+1 4 8 err -30.2% focal -34.8% fcorr +7.0% moge -2.5% base 0.620 4.0s [swap 1280MB free_pages 141313]
+1 4 9 err -35.2% focal -29.7% fcorr -6.0% moge -4.5% base 0.765 4.0s [swap 1280MB free_pages 140614]
+1 6 0 err -33.3% focal -33.3% fcorr -1.5% moge -6.0% base 0.649 6.2s [swap 1280MB free_pages 137440]
+1 6 1 err -33.5% focal -35.1% fcorr +0.1% moge -3.2% base 0.713 6.2s [swap 1280MB free_pages 67965]
+1 6 2 err -31.5% focal -33.8% fcorr -1.0% moge -5.1% base 0.743 6.2s [swap 1280MB free_pages 68473]
+1 6 3 err -33.5% focal -34.4% fcorr -0.9% moge -5.5% base 0.705 6.2s [swap 1280MB free_pages 69485]
+1 6 4 err -30.2% focal -34.5% fcorr +6.6% moge -10.0% base 0.797 6.2s [swap 1280MB free_pages 69302]
+1 6 5 err -31.5% focal -35.5% fcorr +4.2% moge -11.5% base 0.780 6.2s [swap 1280MB free_pages 68574]
+1 6 6 err -33.0% focal -34.6% fcorr +2.5% moge -10.7% base 0.748 6.2s [swap 1280MB free_pages 68937]
+1 6 7 err -31.5% focal -34.7% fcorr -1.1% moge -3.1% base 0.588 6.2s [swap 1280MB free_pages 68761]
+1 6 8 err -29.5% focal -35.0% fcorr +4.9% moge -5.5% base 0.714 6.2s [swap 1280MB free_pages 68365]
+1 6 9 err -27.2% focal -33.1% fcorr +1.1% moge -9.8% base 0.761 6.2s [swap 1280MB free_pages 68376]
+1 8 0 err -30.7% focal -33.8% fcorr +2.4% moge -4.1% base 0.718 8.5s [swap 1280MB free_pages 68126]
+[mem] waiting: swap 1280MB free_pages 4763
+1 8 1 err -28.9% focal -32.8% fcorr +1.7% moge -4.3% base 1.043 8.3s [swap 1280MB free_pages 284240]
+1 8 2 err -36.8% focal -35.4% fcorr -4.2% moge -5.6% base 0.721 8.3s [swap 1280MB free_pages 159155]
+[mem] waiting: swap 1280MB free_pages 4264
+1 8 3 err -32.7% focal -33.8% fcorr +1.1% moge -11.6% base 0.749 8.3s [swap 1280MB free_pages 284117]
+[mem] waiting: swap 1280MB free_pages 4556
+1 8 4 err -35.1% focal -34.3% fcorr -3.1% moge -2.7% base 0.709 8.3s [swap 1280MB free_pages 283579]
+1 8 5 err -30.9% focal -31.0% fcorr -2.1% moge -3.4% base 0.662 8.3s [swap 1280MB free_pages 280806]
+[mem] waiting: swap 1280MB free_pages 8069
+1 8 6 err -32.1% focal -34.9% fcorr +2.2% moge -3.2% base 0.707 8.3s [swap 1280MB free_pages 291872]
+1 8 7 err -32.0% focal -34.8% fcorr -1.9% moge -6.9% base 0.694 8.3s [swap 1280MB free_pages 61033]
+[mem] waiting: swap 1280MB free_pages 9230
+1 8 8 err -33.6% focal -35.2% fcorr +1.0% moge -9.4% base 0.723 8.3s [swap 1280MB free_pages 284120]
+1 8 9 err -32.0% focal -35.3% fcorr +1.4% moge -3.7% base 0.603 8.3s [swap 1280MB free_pages 118515]

@@ -1,0 +1,121 @@
+{
+ "footprint_after_load": "python [34902]: 64-bit    Footprint: 4161 MB (16384 bytes per page)",
+ "runs": [
+  {
+   "name": "r1_K2_s0",
+   "scale_err_pct": [
+    -26.993,
+    -26.873
+   ],
+   "focal_err_pct": [
+    -30.468,
+    -30.458
+   ],
+   "scale_err_pct_focalcorr": [
+    3.484,
+    3.533
+   ],
+   "baseline_ratio_pred_over_gt": [
+    0.582,
+    0.582
+   ],
+   "absrel_aligned": [
+    0.065,
+    0.065
+   ]
+  },
+  {
+   "name": "r3_K2_s0",
+   "scale_err_pct": [
+    -33.731,
+    -33.639
+   ],
+   "focal_err_pct": [
+    -35.245,
+    -35.214
+   ],
+   "scale_err_pct_focalcorr": [
+    1.267,
+    1.326
+   ],
+   "baseline_ratio_pred_over_gt": [
+    0.917,
+    0.918
+   ],
+   "absrel_aligned": [
+    0.051,
+    0.05
+   ]
+  },
+  {
+   "name": "r3_K2_s1",
+   "scale_err_pct": [
+    -30.831,
+    -30.743
+   ],
+   "focal_err_pct": [
+    -35.005,
+    -35.002
+   ],
+   "scale_err_pct_focalcorr": [
+    6.479,
+    6.601
+   ],
+   "baseline_ratio_pred_over_gt": [
+    0.535,
+    0.536
+   ],
+   "absrel_aligned": [
+    0.089,
+    0.089
+   ]
+  },
+  {
+   "name": "r3_K2_s2",
+   "scale_err_pct": [
+    -34.522,
+    -34.469
+   ],
+   "focal_err_pct": [
+    -35.51,
+    -35.474
+   ],
+   "scale_err_pct_focalcorr": [
+    1.665,
+    1.699
+   ],
+   "baseline_ratio_pred_over_gt": [
+    0.74,
+    0.74
+   ],
+   "absrel_aligned": [
+    0.044,
+    0.044
+   ]
+  },
+  {
+   "name": "r3_K2_s3",
+   "scale_err_pct": [
+    -26.471,
+    -26.438
+   ],
+   "focal_err_pct": [
+    -30.168,
+    -30.171
+   ],
+   "scale_err_pct_focalcorr": [
+    1.486,
+    1.52
+   ],
+   "baseline_ratio_pred_over_gt": [
+    1.015,
+    1.014
+   ],
+   "absrel_aligned": [
+    0.091,
+    0.091
+   ]
+  }
+ ],
+ "footprint_after_runs": "python [34902]: 64-bit    Footprint: 4645 MB (16384 bytes per page)"
+}

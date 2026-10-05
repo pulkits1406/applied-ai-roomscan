@@ -1,0 +1,66 @@
+{
+ "capture": "single_scan_with_ceiling",
+ "labels_identical_to_e10_v2b": true,
+ "doorways": [
+  {
+   "rooms": [
+    1,
+    4
+   ],
+   "center_xz": [
+    -0.298,
+    4.223
+   ],
+   "width_m_coarse": 0.79,
+   "axis_xz": [
+    -0.843,
+    -0.538
+   ]
+  },
+  {
+   "rooms": [
+    3,
+    4
+   ],
+   "center_xz": [
+    0.503,
+    2.64
+   ],
+   "width_m_coarse": 0.88,
+   "axis_xz": [
+    -0.879,
+    -0.478
+   ]
+  },
+  {
+   "rooms": [
+    6,
+    8
+   ],
+   "center_xz": [
+    3.766,
+    5.552
+   ],
+   "width_m_coarse": 0.88,
+   "axis_xz": [
+    -0.877,
+    -0.48
+   ]
+  },
+  {
+   "rooms": [
+    6,
+    7
+   ],
+   "center_xz": [
+    3.679,
+    6.971
+   ],
+   "width_m_coarse": 0.51,
+   "axis_xz": [
+    -0.531,
+    0.848
+   ]
+  }
+ ]
+}
