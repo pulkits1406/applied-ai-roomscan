@@ -111,3 +111,20 @@ def test_topology_mismatch_is_a_failure_not_a_fake_error(tmp_path):
     assert a["topology_mismatch"] == [{"room": "kitchen", "gt_walls": 4, "pred_walls": 5}]
     assert all(w.get("pred") is None for w in a["walls"])
     assert rep["gates"]["a"]["walls_within_gate_frac"] == 0.0
+
+
+def test_calibrated_interval_requires_reference():
+    from roomscan.model import Interval
+    with pytest.raises(ValidationError):
+        Interval(lo=0, hi=1, calibrated=True)
+    assert Interval(lo=0, hi=1).calibrated is False
+
+
+def test_residual_rows_are_tagged_with_gt_kind(tmp_path):
+    site = write_site(tmp_path / "site", [{"id": "a", "tier": "lidar", "path": "x", "rooms": ["kitchen"], "room_map": {"r1": "kitchen"}}])
+    runs = tmp_path / "run"
+    write_plan(runs, "a", [rect_plan("r1", None, 3.01, 4.0, 2.5)])
+    rep = run(str(site), str(runs))
+    rows = rep["calibration_residuals"]
+    assert rows and all(r["gt_kind"] == "laser" for r in rows)
+    assert {r["quantity"] for r in rows} >= {"wall_length", "ceiling_height", "floor_area"}

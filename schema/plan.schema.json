@@ -199,6 +199,25 @@
      "exclusiveMinimum": 0,
      "title": "Level",
      "type": "number"
+    },
+    "calibrated": {
+     "default": false,
+     "description": "True only when the width comes from an empirical calibration against laser/tape GT",
+     "title": "Calibrated",
+     "type": "boolean"
+    },
+    "calibration_ref": {
+     "anyOf": [
+      {
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "description": "id of the calibration run the width came from; required when calibrated",
+     "title": "Calibration Ref"
     }
    },
    "required": [
@@ -260,7 +279,7 @@
      "additionalProperties": {
       "type": "number"
      },
-     "description": "1-sigma contributions by source, same unit",
+     "description": "1-sigma contributions by source, same unit. Keys prefixed 'shared:' are fully correlated across all measurements of the same room (e.g. 'shared:scale' at the photo tier) and must not be combined as independent.",
      "title": "Error Budget",
      "type": "object"
     }
@@ -665,6 +684,14 @@
    "default": null,
    "description": "method applied to poses before stitching",
    "title": "Drift Correction"
+  },
+  "quality_flags": {
+   "description": "capture-quality problems that limit the result, each 'code: explanation' (e.g. upper walls not observed, room without a polygon); an empty or partial plan must say why",
+   "items": {
+    "type": "string"
+   },
+   "title": "Quality Flags",
+   "type": "array"
   }
  },
  "required": [

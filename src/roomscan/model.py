@@ -19,11 +19,15 @@ class Interval(BaseModel):
     lo: float
     hi: float
     level: float = Field(0.9, gt=0, lt=1, description="nominal coverage probability")
+    calibrated: bool = Field(False, description="True only when the width comes from an empirical calibration against laser/tape GT")
+    calibration_ref: Optional[str] = Field(None, description="id of the calibration run the width came from; required when calibrated")
 
     @model_validator(mode="after")
     def _ordered(self):
         if self.lo > self.hi:
             raise ValueError("interval lo > hi")
+        if self.calibrated and not self.calibration_ref:
+            raise ValueError("a calibrated interval must name its calibration run")
         return self
 
 
@@ -33,7 +37,9 @@ class Measurement(BaseModel):
     interval: Optional[Interval]
     status: Literal["measured", "inferred", "not_observed"] = "measured"
     method: str = Field(..., description="how the value was produced, e.g. 'plane_fit_lidar'")
-    error_budget: dict[str, float] = Field(default_factory=dict, description="1-sigma contributions by source, same unit")
+    error_budget: dict[str, float] = Field(default_factory=dict, description=(
+        "1-sigma contributions by source, same unit. Keys prefixed 'shared:' are fully correlated across all "
+        "measurements of the same room (e.g. 'shared:scale' at the photo tier) and must not be combined as independent."))
 
     @model_validator(mode="after")
     def _interval_required(self):
@@ -136,6 +142,9 @@ class Plan(BaseModel):
     concealed_damage_flags: list[ConcealedDamageFlag] = Field(default_factory=list)
     scope: list[ScopeItem] = Field(default_factory=list)
     drift_correction: Optional[str] = Field(None, description="method applied to poses before stitching")
+    quality_flags: list[str] = Field(default_factory=list, description=(
+        "capture-quality problems that limit the result, each 'code: explanation' (e.g. upper walls not "
+        "observed, room without a polygon); an empty or partial plan must say why"))
 
     @model_validator(mode="after")
     def _references_resolve(self):

@@ -157,6 +157,20 @@ def gates(site: Site, results: list[dict]) -> dict:
     return g
 
 
+def calibration_residuals(site: Site, results: list[dict]) -> list[dict]:
+    """Flat (tier, quantity, gt, pred, residual, covered) rows: the input an empirical interval
+    calibration needs. Rows from pseudo-GT sites are tagged so they are never used to calibrate."""
+    rows = []
+    for r in results:
+        for kind, key in (("wall_length", "walls"), ("ceiling_height", "ceilings"), ("floor_area", "areas"), ("opening_width", "openings")):
+            for x in r.get(key, []):
+                if x.get("pred") is None or x.get("gt") is None:
+                    continue
+                rows.append({"gt_kind": site.gt_kind, "capture": r["capture"], "tier": r["tier"], "quantity": kind, "room": x.get("room"),
+                             "gt": x["gt"], "pred": x["pred"], "residual": x["pred"] - x["gt"], "covered": x.get("covered")})
+    return rows
+
+
 def render_md(site: Site, results: list[dict], gate: dict) -> str:
     lines = []
     if site.gt_kind == "pseudo_lidar":
@@ -184,8 +198,10 @@ def run(site_dir: str, run_dir: str) -> dict:
             continue
         results.append(evaluate_capture(site, cap, Plan.model_validate_json(p.read_text())))
     gate = gates(site, results)
+    residuals = calibration_residuals(site, results)
     out = run / "eval"; out.mkdir(parents=True, exist_ok=True)
-    report = {"site": site.site_id, "gt_kind": site.gt_kind, "pseudo_gt": site.gt_kind == "pseudo_lidar", "gates": gate, "captures": results}
+    report = {"site": site.site_id, "gt_kind": site.gt_kind, "pseudo_gt": site.gt_kind == "pseudo_lidar", "gates": gate, "captures": results,
+              "calibration_residuals": residuals}
     (out / f"{site.site_id}.json").write_text(json.dumps(report, indent=1, default=str))
     (out / f"{site.site_id}.md").write_text(render_md(site, results, gate))
     return report
