@@ -634,3 +634,57 @@ relative scale σ, ceiling ± σ, openings); intervals of lengths, areas and per
 finite-difference Jacobian w.r.t. face offsets plus the scale term (reported as `shared:scale`).
 Schema change (additive, justified by the photo tier): `Room.placed` (False = polygon in the room's
 own frame, position carries no information).
+
+### Synthetic capture + smoke test; segmentation border bug [FACT/MEASURED]
+`src/roomscan/synthetic.py` renders an exact two-room Stray export (4.0×3.0 and 2.5×3.0 m,
+0.8 m doorway with lintel, 2.5 m ceiling). **It exposed a real bug:** `geometry.segment_rooms`
+closes the floor domain with a 0.6 m `binary_closing`, and scipy treats outside the grid as
+empty, so rooms near the scan border were eroded (0.27 m at the low edges, 0.53 m at the high
+edges; v0 pads 0.3 m / 0 m). With the 0.5 m room crop that removed the north walls of both
+synthetic rooms (z-extent 2.5/2.0 m instead of 3.0, walls "inferred"). Fix: padding parameters
+(v0 defaults kept; v0 plan values verified identical) and v1 pads 1 m. Synthetic result after the
+fix [MEASURED]: walls −2.0…−2.2 mm, ceiling −1.2 mm, areas −0.1 %, doorway +1 cm (1 cm-bin
+quantisation: a fix-loop candidate). On `with_ceiling` the fix is a no-op (≤ 1 mm). The smoke test
+(`tests/test_smoke_pipeline.py`) runs synthetic capture → `roomscan-bench --execute` →
+`roomscan.lidar.cli` subprocess → scored plan, without the unshipped sample data.
+
+### e23 — photo frontend [PSEUDO-GT] (`experiments/e23_photo_frontend/README.md`)
+Production `src/roomscan/photo/` consumes only per-room folders of stills with EXIF (integer
+35 mm-equivalent focal). [MEASURED] MapAnything's joint poses decide everything: with
+view-diverse low-overlap photos (6 at ~60°) the relative rotation error is 44–66° median in 3 of 6
+rooms (flips of ~175° elsewhere) and the fused room is incoherent (camera heights 1.4–2.6 m);
+with overlapping sweeps (consecutive ≥ 22°, ~50 % overlap) it is 2–7° in 5 of 7 rooms and the
+clouds are coherent — but e24's wall-level scoring shows r3's matching area (8.86 vs 8.93 m²) is a
+coincidence (walls 5.73 × 1.58 vs 3.0 × 3.0 m). Single photos cannot measure a room (26/36 give
+no region). r8's photos show no floor → `no_floor`. [HYPOTHESIS, needs a device] protocol for the
+photo tier: 0.5× ultra-wide landscape, 5–6 overlapping photos turning on the spot, floor and
+ceiling edge in each — 2–8 portrait main-camera photos cannot both cover 360° and overlap.
+[DECISION-PROV] photo frontend = MoGe-2 geometry placed by MapAnything poses + e21 ensemble scale
++ shared room step; rooms unplaced; σ scale 8.7 % (shared), faces 3 cm / inferred 15 cm.
+
+### e25 — video frontend [PSEUDO-GT] (`experiments/e25_video_rooms/README.md`)
+[MEASURED, negative] Measuring rooms inside e20/e08 tracked pieces fails even with the true
+intrinsics: PnP-on-MoGe pieces drift ~25 cm per 20 s and smear walls (r3 81 m² vs 8.9 m²);
+COLMAP-SIFT pieces mix frames from across the walk; their GT-free scale is off −12…−30 %.
+[DECISION-PROV] video frontend v0 = the clip as a sequence of 12 s windows of 8 frames, each
+measured like an overlapping photo set, accepted only when GT-free coherent (camera heights above
+the reconstructed floor agree within 15 cm), unplaced, consecutive same-size windows merged.
+FOV is estimated from the frames (MoGe median: 777.5 px vs true ≈ 795 px, −2.5 %).
+[MEASURED] `with_ceiling` clip: 18 windows → 3 coherent rooms (9 incoherent, 3 no floor, 3 no
+region/polygon), 543 s on M4. Fragmentation is explicit in `quality_flags`.
+
+### e24 — one evaluator path for all three tiers [PSEUDO-GT] (`experiments/e24_three_tier_eval/README.md`)
+`roomscan-bench --execute` runs raw captures through each tier's production CLI (subprocess per
+capture) and scores them against `benchmark/pseudo_gt_lidar_v11` (our LiDAR v1.1 plan; never
+scored against itself). [FACT] All 5 captures (2 independent LiDAR, 2 photo sets, 1 video)
+execute and produce schema-valid flagged plans. [PSEUDO-GT] Walls within tier gates: photo 0 %
+(±8 %), video 0 % (±3 %); photo median wall error 272–680 %; video rooms by true identity −60 to
+−100 % area; independent LiDAR captures without an upper-wall sweep: 1 merged room each, 18 %
+wall / 23–35 % area error, as predicted (e10/e18), and flagged. Interval coverage 0–67 % vs 90 %
+nominal: sigmas describe measurement noise, not topology/registration failure.
+**Evaluation-integrity corrections:** (1) size-only room matching paired video rooms with the wrong
+rooms (reported 13 % area error; true −60…−100 %) → matches now carry `method`
+(map/label/perimeter) and size-only matches are flagged identity-unverified; (2) labelled rooms
+whose label is not a scored room are no longer size-matched; (3) the photo-sweep r3 area match
+(1.2 %) was a coincidence of a wrong shape (5.73 × 1.58 vs 3.0 × 3.0 m) — wall-level scores are
+the honest view. Video window results are not numerically stable across uncached runs.

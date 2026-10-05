@@ -120,10 +120,11 @@ def build(video: str | Path, cache: str | Path, rotate="auto", fps: float = 2.0)
         ch = g.ceil_h
         rid = f"v{k}"
         rooms.append(RoomInput(
-            id=rid, label=f"{rid}_t{c['t0']:.0f}-{c['t1']:.0f}s", polygon=poly,
+            id=rid, label=None, polygon=poly,
             face_sigma=[FACE_SIGMA if o else FACE_SIGMA_INFERRED for o in observed], face_status=["measured" if o else "inferred" for o in observed],
             scale_sigma_rel=scale_rel, ceiling_h=ch,
             ceiling_sigma=0.0 if ch is None else float(np.hypot(np.sqrt(2) * LEVEL_SIGMA, scale_rel * ch)), method=METHOD, placed=False))
+        flags.append(f"{rid}_time_span: measured from {c['t0']:.1f}-{c['t1']:.1f} s of the clip (windows {c['merged']})")
         if not all(observed):
             flags.append(f"{rid}_walls_inferred: {observed.count(False)} wall(s) not seen at structural height in that window")
     n_ok = sum(1 for w in debug["windows"] if w["result"] == "ok")

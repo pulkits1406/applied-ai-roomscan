@@ -27,8 +27,10 @@ rebuilt isolated env via `roomscan.envs` (load 19 s, 6 views 6.6 s on M4).
 With low-overlap photos the joint reconstruction is wrong (camera heights in one room 1.4–2.6 m;
 the floor smears; segmentation fails or merges neighbouring rooms: diverse-set areas r4 54 m² vs
 0.9 m², r6 17 m² vs 1.5 m²). With overlapping sweeps the clouds are coherent (camera heights
-1.3–1.7 m) in r1/r3/r4/r6; **r3: 8.86 m² vs LiDAR 8.93 m²** (4 walls, 2 inferred). r2 and the
-mirror bathroom r7 still fail registration.
+1.3–1.7 m) in r1/r3/r4/r6. r3's area matched (8.86 vs 8.93 m²) **but by coincidence**: its
+walls are 5.73 × 1.58 m vs 3.0 × 3.0 m (e24 wall-level scoring). r2 and the mirror bathroom r7
+still fail registration. Coherent cloud ≠ correct room: wall placement inside the sweep's partial
+view is still wrong.
 
 **Single photos cannot measure a room** (`per_photo.py`): 26/36 photos give no region; a portrait
 main-camera photo (48° HFOV) rarely shows two opposite walls or both ends of a wall.

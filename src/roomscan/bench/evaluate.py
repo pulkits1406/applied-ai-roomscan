@@ -42,6 +42,9 @@ def _cover(m: Measurement | None, truth: float) -> bool | None:
 
 def evaluate_capture(site: Site, cap, plan: Plan) -> dict:
     rmap = match_rooms(plan, [site.room(r) for r in (cap.rooms or [g.id for g in site.rooms])], cap.room_map)
+    labels = {r.id: r.label for r in plan.rooms}
+    # identity is known from an explicit map or a matching label; perimeter matching only pairs similar sizes
+    match_method = {pid: ("map" if pid in cap.room_map else "label" if labels.get(pid) == gid else "perimeter") for pid, gid in rmap.items()}
     surf = {s.id: s for s in plan.surfaces}
     walls, ceilings, opening_rows, areas, topology_mismatch = [], [], [], [], []
     hits = misses = phantoms = 0
@@ -87,6 +90,7 @@ def evaluate_capture(site: Site, cap, plan: Plan) -> dict:
     polys = [Polygon(r.polygon) for r in placed]
     overlap = max([a.intersection(b).area for a, b in combinations(polys, 2)], default=0.0)
     out = {"capture": cap.id, "tier": cap.tier, "rooms_matched": len(rmap), "rooms_expected": len(cap.rooms or site.rooms),
+           "room_match": [{"pred": p, "gt": g, "method": match_method[p]} for p, g in rmap.items()],
            "walls": walls, "ceilings": ceilings, "areas": areas, "openings": opening_rows,
            "opening_hit_rate": None if not any(r.openings for r in site.rooms) else (hits / max(gt_open + phantoms, 1) if (gt_open + phantoms) else None),
            "topology_mismatch": topology_mismatch,
@@ -107,6 +111,9 @@ def gates(site: Site, results: list[dict]) -> dict:
         n_unmatched = sum(1 for w in r["walls"] if w.get("pred") is None)
         row = {"tier": t, "rooms_matched": f"{r.get('rooms_matched', 0)}/{r.get('rooms_expected', '?')}", "walls_matched": len(werr),
                "walls_unmatched": n_unmatched, "rooms_topology_mismatch": len(r.get("topology_mismatch", []))}
+        n_perim = sum(1 for m in r.get("room_match", []) if m["method"] == "perimeter")
+        if n_perim:
+            row["rooms_matched_by_size_only"] = f"{n_perim} (identity unverified: errors may be optimistic)"
         if werr:
             row["wall_rel_err_median"] = float(np.median(werr))
         aerr = [abs(a["rel_err"]) for a in r.get("areas", []) if a.get("pred") is not None]

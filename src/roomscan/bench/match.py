@@ -9,14 +9,16 @@ from roomscan.model import Plan, Room
 
 
 def match_rooms(plan: Plan, gt_rooms: list[GtRoom], room_map: dict[str, str]) -> dict[str, str]:
-    """Predicted room id -> GT room id. Explicit map and matching labels win; the rest are
-    assigned by Hungarian matching on perimeter and wall count."""
+    """Predicted room id -> GT room id. Explicit map and matching labels win; only UNLABELLED rooms
+    are then assigned by Hungarian matching on perimeter and wall count (size similarity, not
+    identity: the caller reports such matches as unverified). A labelled room whose label is not a
+    GT room (e.g. a photo folder of a room the site does not score) is never matched."""
     out = {p: g for p, g in room_map.items()}
     gt_ids = {g.id for g in gt_rooms}
     for r in plan.rooms:
         if r.id not in out and r.label in gt_ids and r.label not in out.values():
             out[r.id] = r.label
-    pr = [r for r in plan.rooms if r.id not in out]
+    pr = [r for r in plan.rooms if r.id not in out and r.label is None]
     gr = [g for g in gt_rooms if g.id not in out.values()]
     if pr and gr:
         C = np.zeros((len(pr), len(gr)))

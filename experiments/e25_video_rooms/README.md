@@ -16,4 +16,20 @@ Upper bound: e20/e08 caches use the TRUE intrinsics and true-FOV MoGe depth.
 coherent enough to measure a room over a tracked piece.
 
 ## 2. Overlapping windows measured like photo sets (production v0)
-See section "Results" (filled from `runs/e25/video_with_ceiling/debug.json` and the e24 evaluation).
+`uv run roomscan-video single_scan_with_ceiling/rgb.mp4 runs/e25/video_with_ceiling` (rotation
+inferred for Stray exports; no intrinsics/poses/IMU read). Clip → 427 keyframes at 2 fps → FOV
+from MoGe on 16 frames (777.5 px; true ≈ 795 px, −2.5 %) → 18 windows of 12 s × 8 frames →
+MoGe-2 + MapAnything (one batched worker) → GT-free coherence check → shared room step.
+
+[MEASURED] 3 of 18 windows coherent (9 incoherent: camera heights spread > 15 cm; 3 no floor in
+view; 3 no region/polygon) → 3 unplaced rooms; 543 s first run, 38 s from cache.
+[PSEUDO-GT, by identity] the three rooms come from r1, r8, r1 and are −99.8 %, −60 %, −63 % in
+area; the evaluator's size-only matching had reported 13 % (fixed: such matches are now marked
+identity-unverified). Two uncached runs differed (window 1: 10.4 vs 0.07 m²): marginal clouds
+flip discrete topology decisions.
+
+## Conclusion
+The video frontend is a working product path (plain clip → plan JSON with explicit
+fragmentation), not an accurate one on this footage. The binding constraint is unchanged from
+e20: the walkthrough was not recorded per protocol (fast turns close to walls). What a
+protocol-following clip does is the device question.
