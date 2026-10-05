@@ -1,0 +1,19 @@
+# Fix-loop before/after on the exact synthetic two-room capture (src/roomscan/synthetic.py).
+# SYNTHETIC ground truth: rendered geometry, not a laser benchmark (see reports/fix_loop/DECLARATION.md).
+site_id: fix_loop_synthetic
+gt_kind: synthetic
+purpose: synthetic
+instrument: exact geometry of the rendered capture
+rooms:
+  - id: A
+    walls: [{id: W1, length_m: 4.0}, {id: W2, length_m: 3.0}, {id: W3, length_m: 4.0}, {id: W4, length_m: 3.0}]
+    ceiling_height_m: [2.5]
+    floor_area_m2: 12.0
+    openings: [{id: D1, kind: doorway, wall: W2, width_m: 0.8, connects: B}]
+  - id: B
+    walls: [{id: W1, length_m: 2.5}, {id: W2, length_m: 3.0}, {id: W3, length_m: 2.5}, {id: W4, length_m: 3.0}]
+    ceiling_height_m: [2.5]
+    floor_area_m2: 7.5
+captures:
+  - {id: before_fix, tier: lidar, path: runs/fix_loop/synthetic_capture, args: ["--seg-pad", "0.3", "0.0"], question: fix_loop, variant: before}
+  - {id: after_fix, tier: lidar, path: runs/fix_loop/synthetic_capture, question: fix_loop, variant: after}
