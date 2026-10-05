@@ -1,0 +1,575 @@
+{
+ "label": "GT-free within-capture split consistency (not the repeatability gate)",
+ "capture": "single_scan_with_ceiling",
+ "sec": 55.0,
+ "summary": {
+  "V0": {
+   "rooms_compared": 0,
+   "rooms_failed": 7,
+   "topology_equal": "0/0",
+   "extent_diff_mm_median": null,
+   "extent_diff_mm_p90": null,
+   "extent_pass_frac": null,
+   "wall_diff_mm_median": null,
+   "wall_diff_mm_p90": null,
+   "wall_pass_frac_matched": null,
+   "n_walls_matched": 0,
+   "ceiling_diff_mm_median": null,
+   "ceiling_diff_mm_max": null
+  },
+  "V1": {
+   "rooms_compared": 0,
+   "rooms_failed": 7,
+   "topology_equal": "0/0",
+   "extent_diff_mm_median": null,
+   "extent_diff_mm_p90": null,
+   "extent_pass_frac": null,
+   "wall_diff_mm_median": null,
+   "wall_diff_mm_p90": null,
+   "wall_pass_frac_matched": null,
+   "n_walls_matched": 0,
+   "ceiling_diff_mm_median": null,
+   "ceiling_diff_mm_max": null
+  },
+  "V2": {
+   "rooms_compared": 0,
+   "rooms_failed": 7,
+   "topology_equal": "0/0",
+   "extent_diff_mm_median": null,
+   "extent_diff_mm_p90": null,
+   "extent_pass_frac": null,
+   "wall_diff_mm_median": null,
+   "wall_diff_mm_p90": null,
+   "wall_pass_frac_matched": null,
+   "n_walls_matched": 0,
+   "ceiling_diff_mm_median": null,
+   "ceiling_diff_mm_max": null
+  },
+  "V3": {
+   "rooms_compared": 0,
+   "rooms_failed": 7,
+   "topology_equal": "0/0",
+   "extent_diff_mm_median": null,
+   "extent_diff_mm_p90": null,
+   "extent_pass_frac": null,
+   "wall_diff_mm_median": null,
+   "wall_diff_mm_p90": null,
+   "wall_pass_frac_matched": null,
+   "n_walls_matched": 0,
+   "ceiling_diff_mm_median": null,
+   "ceiling_diff_mm_max": null
+  }
+ },
+ "rooms": {
+  "1": {
+   "split": "visit_split",
+   "n_visits": 5,
+   "dur_A_s": 50.1,
+   "dur_B_s": 28.0,
+   "V0": {
+    "failed": [
+     null,
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "V1": {
+    "failed": [
+     null,
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "V2": {
+    "failed": [
+     null,
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "V3": {
+    "failed": [
+     null,
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     }
+    ]
+   }
+  },
+  "2": {
+   "split": "visit_split",
+   "n_visits": 2,
+   "dur_A_s": 7.9,
+   "dur_B_s": 6.7,
+   "V0": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "V1": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "V2": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     }
+    ]
+   },
+   "V3": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     }
+    ]
+   }
+  },
+  "3": {
+   "split": "visit_split",
+   "n_visits": 3,
+   "dur_A_s": 16.4,
+   "dur_B_s": 14.4,
+   "V0": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     }
+    ]
+   },
+   "V1": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     }
+    ]
+   },
+   "V2": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     }
+    ]
+   },
+   "V3": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     }
+    ]
+   }
+  },
+  "4": {
+   "split": "visit_split",
+   "n_visits": 6,
+   "dur_A_s": 9.4,
+   "dur_B_s": 9.0,
+   "V0": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       0
+      ]
+     }
+    ]
+   },
+   "V1": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       0
+      ]
+     }
+    ]
+   },
+   "V2": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       0
+      ]
+     }
+    ]
+   },
+   "V3": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       0
+      ]
+     }
+    ]
+   }
+  },
+  "6": {
+   "split": "visit_split",
+   "n_visits": 6,
+   "dur_A_s": 7.7,
+   "dur_B_s": 8.3,
+   "V0": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     }
+    ]
+   },
+   "V1": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     }
+    ]
+   },
+   "V2": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     }
+    ]
+   },
+   "V3": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     }
+    ]
+   }
+  },
+  "7": {
+   "split": "visit_split",
+   "n_visits": 2,
+   "dur_A_s": 11.1,
+   "dur_B_s": 9.8,
+   "V0": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       2
+      ]
+     }
+    ]
+   },
+   "V1": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       2
+      ]
+     }
+    ]
+   },
+   "V2": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       2
+      ]
+     }
+    ]
+   },
+   "V3": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       2
+      ]
+     }
+    ]
+   }
+  },
+  "8": {
+   "split": "visit_split",
+   "n_visits": 2,
+   "dur_A_s": 18.4,
+   "dur_B_s": 14.8,
+   "V0": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     null
+    ]
+   },
+   "V1": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     null
+    ]
+   },
+   "V2": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       2
+      ]
+     }
+    ]
+   },
+   "V3": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       1
+      ]
+     }
+    ]
+   }
+  }
+ }
+}

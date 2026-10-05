@@ -1,0 +1,787 @@
+{
+ "label": "GT-free within-capture split consistency (not the repeatability gate)",
+ "capture": "single_scan_with_ceiling",
+ "sec": 70.2,
+ "summary": {
+  "V0": {
+   "rooms_compared": 3,
+   "rooms_failed": 4,
+   "topology_equal": "1/3",
+   "extent_diff_mm_median": 46.900000000000006,
+   "extent_diff_mm_p90": 599.0,
+   "extent_pass_frac": 0.3333333333333333,
+   "wall_diff_mm_median": 30.150000000000002,
+   "wall_diff_mm_p90": 54.7,
+   "wall_pass_frac_matched": 0.5,
+   "n_walls_matched": 4,
+   "ceiling_diff_mm_median": 16.2,
+   "ceiling_diff_mm_max": 112.0
+  },
+  "V1": {
+   "rooms_compared": 3,
+   "rooms_failed": 4,
+   "topology_equal": "1/3",
+   "extent_diff_mm_median": 59.45,
+   "extent_diff_mm_p90": 674.75,
+   "extent_pass_frac": 0.16666666666666666,
+   "wall_diff_mm_median": 11.7,
+   "wall_diff_mm_p90": 16.4,
+   "wall_pass_frac_matched": 0.5,
+   "n_walls_matched": 4,
+   "ceiling_diff_mm_median": 114.4,
+   "ceiling_diff_mm_max": 151.4
+  },
+  "V2": {
+   "rooms_compared": 2,
+   "rooms_failed": 5,
+   "topology_equal": "1/2",
+   "extent_diff_mm_median": 39.55,
+   "extent_diff_mm_p90": 226.15000000000003,
+   "extent_pass_frac": 0.25,
+   "wall_diff_mm_median": 19.55,
+   "wall_diff_mm_p90": 22.8,
+   "wall_pass_frac_matched": 0.0,
+   "n_walls_matched": 4,
+   "ceiling_diff_mm_median": 9.3,
+   "ceiling_diff_mm_max": 10.7
+  },
+  "V3": {
+   "rooms_compared": 2,
+   "rooms_failed": 5,
+   "topology_equal": "1/2",
+   "extent_diff_mm_median": 39.0,
+   "extent_diff_mm_p90": 234.45000000000005,
+   "extent_pass_frac": 0.5,
+   "wall_diff_mm_median": 38.6,
+   "wall_diff_mm_p90": 72.4,
+   "wall_pass_frac_matched": 0.5,
+   "n_walls_matched": 4,
+   "ceiling_diff_mm_median": 9.25,
+   "ceiling_diff_mm_max": 10.6
+  }
+ },
+ "rooms": {
+  "1": {
+   "split": "chunk_split_2.0s",
+   "n_visits": 5,
+   "dur_A_s": 38.4,
+   "dur_B_s": 38.7,
+   "V0": {
+    "n_walls": [
+     16,
+     10
+    ],
+    "topology_equal": false,
+    "extent_u_diff_mm": 33.6,
+    "extent_u_pass": false,
+    "extent_v_diff_mm": 39.1,
+    "extent_v_pass": true,
+    "ceiling_diff_mm": 16.2,
+    "align_A": [],
+    "align_B": []
+   },
+   "V1": {
+    "n_walls": [
+     24,
+     12
+    ],
+    "topology_equal": false,
+    "extent_u_diff_mm": 59.2,
+    "extent_u_pass": false,
+    "extent_v_diff_mm": 59.7,
+    "extent_v_pass": false,
+    "ceiling_diff_mm": 3.9,
+    "align_A": [
+     {
+      "fitness": 0.245,
+      "shift_mm": 245.5,
+      "aligned": true
+     },
+     {
+      "fitness": 0.0,
+      "shift_mm": 10613.4,
+      "aligned": false
+     },
+     {
+      "fitness": 0.0,
+      "shift_mm": 0.0,
+      "aligned": false
+     },
+     {
+      "fitness": 0.432,
+      "shift_mm": 1003.8,
+      "aligned": false
+     }
+    ],
+    "align_B": [
+     {
+      "fitness": 0.208,
+      "shift_mm": 300.8,
+      "aligned": false
+     },
+     {
+      "fitness": 0.052,
+      "shift_mm": 220.9,
+      "aligned": false
+     },
+     {
+      "fitness": 0.056,
+      "shift_mm": 67.3,
+      "aligned": false
+     },
+     {
+      "fitness": 0.14,
+      "shift_mm": 104.6,
+      "aligned": false
+     }
+    ]
+   },
+   "V2": {
+    "n_walls": [
+     8,
+     10
+    ],
+    "topology_equal": false,
+    "extent_u_diff_mm": 33.9,
+    "extent_u_pass": false,
+    "extent_v_diff_mm": 303.7,
+    "extent_v_pass": false,
+    "ceiling_diff_mm": 7.9,
+    "align_A": [
+     {
+      "fitness": 0.168,
+      "shift_mm": 423.2,
+      "aligned": false
+     },
+     {
+      "fitness": 0.0,
+      "shift_mm": 12427.6,
+      "aligned": false
+     },
+     {
+      "fitness": 0.0,
+      "shift_mm": 0.0,
+      "aligned": false
+     },
+     {
+      "fitness": 0.42,
+      "shift_mm": 960.9,
+      "aligned": false
+     }
+    ],
+    "align_B": [
+     {
+      "fitness": 0.154,
+      "shift_mm": 386.0,
+      "aligned": false
+     },
+     {
+      "fitness": 0.052,
+      "shift_mm": 215.7,
+      "aligned": false
+     },
+     {
+      "fitness": 0.055,
+      "shift_mm": 65.2,
+      "aligned": false
+     },
+     {
+      "fitness": 0.132,
+      "shift_mm": 73.8,
+      "aligned": false
+     }
+    ]
+   },
+   "V3": {
+    "n_walls": [
+     8,
+     10
+    ],
+    "topology_equal": false,
+    "extent_u_diff_mm": 5.6,
+    "extent_u_pass": true,
+    "extent_v_diff_mm": 303.9,
+    "extent_v_pass": false,
+    "ceiling_diff_mm": 7.9,
+    "align_A": [
+     {
+      "fitness": 0.168,
+      "shift_mm": 423.2,
+      "aligned": false
+     },
+     {
+      "fitness": 0.0,
+      "shift_mm": 12427.6,
+      "aligned": false
+     },
+     {
+      "fitness": 0.0,
+      "shift_mm": 0.0,
+      "aligned": false
+     },
+     {
+      "fitness": 0.42,
+      "shift_mm": 960.9,
+      "aligned": false
+     }
+    ],
+    "align_B": [
+     {
+      "fitness": 0.154,
+      "shift_mm": 386.0,
+      "aligned": false
+     },
+     {
+      "fitness": 0.052,
+      "shift_mm": 215.7,
+      "aligned": false
+     },
+     {
+      "fitness": 0.055,
+      "shift_mm": 65.2,
+      "aligned": false
+     },
+     {
+      "fitness": 0.132,
+      "shift_mm": 73.8,
+      "aligned": false
+     }
+    ]
+   }
+  },
+  "2": {
+   "split": "chunk_split_2.0s",
+   "n_visits": 2,
+   "dur_A_s": 7.9,
+   "dur_B_s": 6.6,
+   "V0": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       3,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       0
+      ]
+     }
+    ]
+   },
+   "V1": {
+    "failed": [
+     null,
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       0
+      ]
+     }
+    ]
+   },
+   "V2": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       3,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       0
+      ]
+     }
+    ]
+   },
+   "V3": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       3,
+       0
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       0
+      ]
+     }
+    ]
+   }
+  },
+  "3": {
+   "split": "chunk_split_2.0s",
+   "n_visits": 3,
+   "dur_A_s": 14.7,
+   "dur_B_s": 15.8,
+   "V0": {
+    "n_walls": [
+     4,
+     4
+    ],
+    "topology_equal": true,
+    "extent_u_diff_mm": 5.6,
+    "extent_u_pass": true,
+    "extent_v_diff_mm": 54.7,
+    "extent_v_pass": false,
+    "ceiling_diff_mm": 112.0,
+    "wall_diffs_mm": [
+     5.6,
+     54.7,
+     5.6,
+     54.7
+    ],
+    "wall_pass": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "align_A": [],
+    "align_B": []
+   },
+   "V1": {
+    "n_walls": [
+     4,
+     4
+    ],
+    "topology_equal": true,
+    "extent_u_diff_mm": 7.0,
+    "extent_u_pass": true,
+    "extent_v_diff_mm": 16.4,
+    "extent_v_pass": false,
+    "ceiling_diff_mm": 114.4,
+    "wall_diffs_mm": [
+     7.0,
+     16.4,
+     7.0,
+     16.4
+    ],
+    "wall_pass": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "align_A": [
+     {
+      "fitness": 0.233,
+      "shift_mm": 25.7,
+      "aligned": true
+     },
+     {
+      "fitness": 0.062,
+      "shift_mm": 107.4,
+      "aligned": false
+     }
+    ],
+    "align_B": [
+     {
+      "fitness": 0.323,
+      "shift_mm": 250.6,
+      "aligned": true
+     },
+     {
+      "fitness": 0.12,
+      "shift_mm": 169.3,
+      "aligned": false
+     }
+    ]
+   },
+   "V2": {
+    "n_walls": [
+     4,
+     4
+    ],
+    "topology_equal": true,
+    "extent_u_diff_mm": 6.1,
+    "extent_u_pass": true,
+    "extent_v_diff_mm": 45.2,
+    "extent_v_pass": false,
+    "ceiling_diff_mm": 10.7,
+    "wall_diffs_mm": [
+     16.3,
+     22.8,
+     16.3,
+     22.8
+    ],
+    "wall_pass": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "align_A": [
+     {
+      "fitness": 0.237,
+      "shift_mm": 31.1,
+      "aligned": true
+     },
+     {
+      "fitness": 0.041,
+      "shift_mm": 127.6,
+      "aligned": false
+     }
+    ],
+    "align_B": [
+     {
+      "fitness": 0.387,
+      "shift_mm": 450.7,
+      "aligned": false
+     },
+     {
+      "fitness": 0.103,
+      "shift_mm": 178.4,
+      "aligned": false
+     }
+    ]
+   },
+   "V3": {
+    "n_walls": [
+     4,
+     4
+    ],
+    "topology_equal": true,
+    "extent_u_diff_mm": 4.8,
+    "extent_u_pass": true,
+    "extent_v_diff_mm": 72.4,
+    "extent_v_pass": false,
+    "ceiling_diff_mm": 10.6,
+    "wall_diffs_mm": [
+     4.8,
+     72.4,
+     4.8,
+     72.4
+    ],
+    "wall_pass": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "align_A": [
+     {
+      "fitness": 0.237,
+      "shift_mm": 31.1,
+      "aligned": true
+     },
+     {
+      "fitness": 0.041,
+      "shift_mm": 127.6,
+      "aligned": false
+     }
+    ],
+    "align_B": [
+     {
+      "fitness": 0.387,
+      "shift_mm": 450.7,
+      "aligned": false
+     },
+     {
+      "fitness": 0.103,
+      "shift_mm": 178.4,
+      "aligned": false
+     }
+    ]
+   }
+  },
+  "4": {
+   "split": "chunk_split_2.0s",
+   "n_visits": 6,
+   "dur_A_s": 9.5,
+   "dur_B_s": 8.8,
+   "V0": {
+    "failed": [
+     null,
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       0
+      ]
+     }
+    ]
+   },
+   "V1": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       3,
+       1
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       0
+      ]
+     }
+    ]
+   },
+   "V2": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       0
+      ]
+     }
+    ]
+   },
+   "V3": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       0
+      ]
+     }
+    ]
+   }
+  },
+  "6": {
+   "split": "chunk_split_2.0s",
+   "n_visits": 6,
+   "dur_A_s": 7.5,
+   "dur_B_s": 8.4,
+   "V0": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       1
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       0
+      ]
+     }
+    ]
+   },
+   "V1": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       1
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       0
+      ]
+     }
+    ]
+   },
+   "V2": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       1
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       0
+      ]
+     }
+    ]
+   },
+   "V3": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       0,
+       1
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       1,
+       0
+      ]
+     }
+    ]
+   }
+  },
+  "7": {
+   "split": "chunk_split_2.0s",
+   "n_visits": 2,
+   "dur_A_s": 11.7,
+   "dur_B_s": 9.0,
+   "V0": {
+    "n_walls": [
+     8,
+     4
+    ],
+    "topology_equal": false,
+    "extent_u_diff_mm": 263.6,
+    "extent_u_pass": false,
+    "extent_v_diff_mm": 934.4,
+    "extent_v_pass": false,
+    "ceiling_diff_mm": 0.8,
+    "align_A": [],
+    "align_B": []
+   },
+   "V1": {
+    "n_walls": [
+     10,
+     4
+    ],
+    "topology_equal": false,
+    "extent_u_diff_mm": 258.6,
+    "extent_u_pass": false,
+    "extent_v_diff_mm": 1090.9,
+    "extent_v_pass": false,
+    "ceiling_diff_mm": 151.4,
+    "align_A": [
+     {
+      "fitness": 0.156,
+      "shift_mm": 251.9,
+      "aligned": true
+     }
+    ],
+    "align_B": [
+     {
+      "fitness": 0.108,
+      "shift_mm": 393.0,
+      "aligned": false
+     }
+    ]
+   },
+   "V2": {
+    "failed": [
+     null,
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       1
+      ]
+     }
+    ]
+   },
+   "V3": {
+    "failed": [
+     null,
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       1
+      ]
+     }
+    ]
+   }
+  },
+  "8": {
+   "split": "chunk_split_2.0s",
+   "n_visits": 2,
+   "dur_A_s": 17.8,
+   "dur_B_s": 15.1,
+   "V0": {
+    "failed": [
+     null,
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       1
+      ]
+     }
+    ]
+   },
+   "V1": {
+    "failed": [
+     null,
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       0
+      ]
+     }
+    ]
+   },
+   "V2": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       4,
+       2
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       0
+      ]
+     }
+    ]
+   },
+   "V3": {
+    "failed": [
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       4,
+       1
+      ]
+     },
+     {
+      "reason": "no_polygon",
+      "n_lines": [
+       2,
+       0
+      ]
+     }
+    ]
+   }
+  }
+ }
+}

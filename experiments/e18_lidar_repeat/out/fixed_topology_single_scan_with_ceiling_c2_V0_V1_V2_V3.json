@@ -1,0 +1,871 @@
+{
+ "label": "GT-free: wall-position repeatability given topology (chunk halves, per-room ICP to full)",
+ "capture": "single_scan_with_ceiling",
+ "chunk_s": 2.0,
+ "sec": 208.1,
+ "summary": {
+  "V0": {
+   "rooms": 4,
+   "rooms_full_failed": 3,
+   "n_walls_total": 30,
+   "walls_per_room": [
+    12,
+    4,
+    10,
+    4
+   ],
+   "wall_diff_mm_median": 10.2,
+   "wall_diff_mm_p90": 36.7,
+   "wall_pass_frac": 0.567,
+   "ceiling_diff_mm_median": 11.4,
+   "ceiling_diff_mm_max": 110.3,
+   "ceiling_pass_frac_1cm": 0.5
+  },
+  "V1": {
+   "rooms": 5,
+   "rooms_full_failed": 2,
+   "n_walls_total": 46,
+   "walls_per_room": [
+    22,
+    6,
+    4,
+    10,
+    4
+   ],
+   "wall_diff_mm_median": 11.2,
+   "wall_diff_mm_p90": 49.8,
+   "wall_pass_frac": 0.435,
+   "ceiling_diff_mm_median": 84.9,
+   "ceiling_diff_mm_max": 122.9,
+   "ceiling_pass_frac_1cm": 0.25
+  },
+  "V2": {
+   "rooms": 5,
+   "rooms_full_failed": 2,
+   "n_walls_total": 26,
+   "walls_per_room": [
+    6,
+    4,
+    4,
+    8,
+    4
+   ],
+   "wall_diff_mm_median": 11.0,
+   "wall_diff_mm_p90": 27.6,
+   "wall_pass_frac": 0.654,
+   "ceiling_diff_mm_median": 8.7,
+   "ceiling_diff_mm_max": 21.3,
+   "ceiling_pass_frac_1cm": 0.75
+  },
+  "V3": {
+   "rooms": 5,
+   "rooms_full_failed": 2,
+   "n_walls_total": 26,
+   "walls_per_room": [
+    6,
+    4,
+    4,
+    8,
+    4
+   ],
+   "wall_diff_mm_median": 11.5,
+   "wall_diff_mm_p90": 44.2,
+   "wall_pass_frac": 0.615,
+   "ceiling_diff_mm_median": 8.6,
+   "ceiling_diff_mm_max": 21.4,
+   "ceiling_pass_frac_1cm": 0.75
+  }
+ },
+ "rooms": {
+  "1": {
+   "n_visits": 5,
+   "V0": {
+    "n_walls": 12,
+    "full_lengths_m": [
+     1.3692,
+     3.1698,
+     2.8359,
+     4.0063,
+     2.1593,
+     4.1319,
+     0.2146,
+     0.372,
+     0.9297,
+     0.372,
+     0.9015,
+     4.9684
+    ],
+    "full_ceiling_m": 2.4275633077248737,
+    "wall_diffs_mm": [
+     7.1,
+     23.4,
+     18.5,
+     27.9,
+     12.1,
+     3.4,
+     3.6,
+     11.0,
+     8.2,
+     7.7,
+     1.7,
+     4.4
+    ],
+    "wall_pass": [
+     true,
+     false,
+     false,
+     false,
+     false,
+     true,
+     true,
+     false,
+     true,
+     true,
+     true,
+     true
+    ],
+    "low_support_walls": 2,
+    "icp_fitness": [
+     0.991,
+     0.987
+    ],
+    "ceiling_diff_mm": 15.5
+   },
+   "V1": {
+    "n_walls": 22,
+    "full_lengths_m": [
+     0.0732,
+     1.2773,
+     0.9087,
+     0.1297,
+     0.4532,
+     3.0795,
+     2.8669,
+     4.0382,
+     1.7001,
+     0.0715,
+     1.7001,
+     4.2519,
+     2.2407,
+     0.1615,
+     0.3892,
+     0.1615,
+     0.6902,
+     0.1615,
+     0.0795,
+     0.1615,
+     0.9024,
+     4.1345
+    ],
+    "full_ceiling_m": 2.4073532977364582,
+    "wall_diffs_mm": [
+     10.2,
+     41.5,
+     2.6,
+     36.5,
+     4.7,
+     35.0,
+     23.8,
+     43.4,
+     19.1,
+     9.3,
+     0.0,
+     5.9,
+     60.2,
+     46.7,
+     60.2,
+     56.0,
+     18.4,
+     9.3,
+     63.7,
+     11.2,
+     52.8,
+     11.2
+    ],
+    "wall_pass": [
+     false,
+     false,
+     true,
+     false,
+     true,
+     false,
+     false,
+     false,
+     false,
+     true,
+     true,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     true,
+     false,
+     false,
+     false,
+     true
+    ],
+    "low_support_walls": 17,
+    "icp_fitness": [
+     0.713,
+     0.851
+    ],
+    "ceiling_diff_mm": 55.7
+   },
+   "V2": {
+    "n_walls": 6,
+    "full_lengths_m": [
+     1.4086,
+     3.2465,
+     2.873,
+     8.6892,
+     4.2816,
+     5.4427
+    ],
+    "full_ceiling_m": 2.575085035850747,
+    "wall_diffs_mm": [
+     18.0,
+     0.2,
+     18.6,
+     3.0,
+     36.6,
+     2.8
+    ],
+    "wall_pass": [
+     false,
+     true,
+     false,
+     true,
+     false,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.744,
+     0.806
+    ],
+    "ceiling_diff_mm": 7.8
+   },
+   "V3": {
+    "n_walls": 6,
+    "full_lengths_m": [
+     1.3368,
+     3.2471,
+     2.873,
+     8.6572,
+     4.2098,
+     5.4101
+    ],
+    "full_ceiling_m": 2.575192211571208,
+    "wall_diffs_mm": [
+     22.6,
+     0.4,
+     18.6,
+     12.2,
+     4.0,
+     12.6
+    ],
+    "wall_pass": [
+     false,
+     true,
+     false,
+     true,
+     true,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.744,
+     0.806
+    ],
+    "ceiling_diff_mm": 7.9
+   }
+  },
+  "2": {
+   "n_visits": 2,
+   "V0": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      3,
+      0
+     ]
+    }
+   },
+   "V1": {
+    "n_walls": 6,
+    "full_lengths_m": [
+     1.7229,
+     2.3329,
+     1.2986,
+     0.6866,
+     0.4243,
+     1.6463
+    ],
+    "full_ceiling_m": 2.2272542720732105,
+    "wall_diffs_mm": [
+     1.0,
+     16.3,
+     11.2,
+     10.8,
+     10.2,
+     5.5
+    ],
+    "wall_pass": [
+     true,
+     false,
+     false,
+     false,
+     false,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.987,
+     0.67
+    ],
+    "ceiling_diff_mm": null
+   },
+   "V2": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      3,
+      0
+     ]
+    }
+   },
+   "V3": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      3,
+      0
+     ]
+    }
+   }
+  },
+  "3": {
+   "n_visits": 3,
+   "V0": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     2.9755,
+     2.968,
+     2.9755,
+     2.968
+    ],
+    "full_ceiling_m": 3.066712252140971,
+    "wall_diffs_mm": [
+     4.3,
+     13.6,
+     4.3,
+     13.6
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.988,
+     0.993
+    ],
+    "ceiling_diff_mm": 110.3
+   },
+   "V1": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     2.989,
+     2.9713,
+     2.989,
+     2.9713
+    ],
+    "full_ceiling_m": 2.956663196717342,
+    "wall_diffs_mm": [
+     7.6,
+     16.9,
+     7.6,
+     16.9
+    ],
+    "wall_pass": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.911,
+     0.944
+    ],
+    "ceiling_diff_mm": 114.1
+   },
+   "V2": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     3.0013,
+     2.9794,
+     3.0013,
+     2.9794
+    ],
+    "full_ceiling_m": 2.96044565345385,
+    "wall_diffs_mm": [
+     11.7,
+     0.0,
+     11.7,
+     0.0
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.81,
+     0.926
+    ],
+    "ceiling_diff_mm": 9.5
+   },
+   "V3": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     3.0006,
+     3.0949,
+     3.0006,
+     3.0949
+    ],
+    "full_ceiling_m": 2.960378404896168,
+    "wall_diffs_mm": [
+     12.3,
+     44.2,
+     12.3,
+     44.2
+    ],
+    "wall_pass": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.81,
+     0.926
+    ],
+    "ceiling_diff_mm": 9.2
+   }
+  },
+  "4": {
+   "n_visits": 6,
+   "V0": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      3,
+      1
+     ]
+    }
+   },
+   "V1": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      2,
+      1
+     ]
+    }
+   },
+   "V2": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     0.9686,
+     0.9423,
+     0.9686,
+     0.9423
+    ],
+    "full_ceiling_m": null,
+    "wall_diffs_mm": [
+     7.2,
+     10.3,
+     7.2,
+     10.3
+    ],
+    "wall_pass": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "low_support_walls": 3,
+    "icp_fitness": [
+     0.914,
+     0.984
+    ],
+    "ceiling_diff_mm": null
+   },
+   "V3": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     0.9686,
+     0.9423,
+     0.9686,
+     0.9423
+    ],
+    "full_ceiling_m": null,
+    "wall_diffs_mm": [
+     7.2,
+     10.3,
+     7.2,
+     10.3
+    ],
+    "wall_pass": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "low_support_walls": 3,
+    "icp_fitness": [
+     0.914,
+     0.984
+    ],
+    "ceiling_diff_mm": null
+   }
+  },
+  "6": {
+   "n_visits": 6,
+   "V0": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      3,
+      1
+     ]
+    }
+   },
+   "V1": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      1,
+      2
+     ]
+    }
+   },
+   "V2": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      1,
+      1
+     ]
+    }
+   },
+   "V3": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      1,
+      1
+     ]
+    }
+   }
+  },
+  "7": {
+   "n_visits": 2,
+   "V0": {
+    "n_walls": 10,
+    "full_lengths_m": [
+     0.2602,
+     1.1534,
+     2.2695,
+     0.8649,
+     0.155,
+     0.4609,
+     0.155,
+     0.7863,
+     2.5297,
+     0.9587
+    ],
+    "full_ceiling_m": 2.3422547533687776,
+    "wall_diffs_mm": [
+     16.1,
+     49.7,
+     2.5,
+     13.8,
+     40.0,
+     0.4,
+     1.5,
+     0.0,
+     60.1,
+     36.3
+    ],
+    "wall_pass": [
+     false,
+     false,
+     true,
+     false,
+     false,
+     true,
+     true,
+     true,
+     false,
+     false
+    ],
+    "low_support_walls": 4,
+    "icp_fitness": [
+     0.999,
+     0.976
+    ],
+    "ceiling_diff_mm": 1.3
+   },
+   "V1": {
+    "n_walls": 10,
+    "full_lengths_m": [
+     0.2592,
+     0.7996,
+     2.2665,
+     0.7996,
+     0.1603,
+     0.54,
+     0.1603,
+     0.9385,
+     2.5257,
+     1.4785
+    ],
+    "full_ceiling_m": 2.232076115661396,
+    "wall_diffs_mm": [
+     6.6,
+     5.7,
+     1.0,
+     1.9,
+     6.1,
+     5.9,
+     28.7,
+     14.7,
+     30.1,
+     4.9
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     false,
+     false,
+     false,
+     true
+    ],
+    "low_support_walls": 3,
+    "icp_fitness": [
+     0.877,
+     0.663
+    ],
+    "ceiling_diff_mm": 122.9
+   },
+   "V2": {
+    "n_walls": 8,
+    "full_lengths_m": [
+     2.5591,
+     0.7909,
+     0.1296,
+     0.5499,
+     0.1514,
+     0.9368,
+     2.5372,
+     2.2776
+    ],
+    "full_ceiling_m": 2.2301886961875432,
+    "wall_diffs_mm": [
+     14.7,
+     12.8,
+     0.4,
+     0.6,
+     43.4,
+     6.3,
+     57.7,
+     5.9
+    ],
+    "wall_pass": [
+     false,
+     false,
+     true,
+     true,
+     false,
+     true,
+     false,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.674,
+     0.683
+    ],
+    "ceiling_diff_mm": 21.3
+   },
+   "V3": {
+    "n_walls": 8,
+    "full_lengths_m": [
+     2.5591,
+     0.7952,
+     0.2428,
+     0.544,
+     0.2647,
+     0.9384,
+     2.5372,
+     2.2776
+    ],
+    "full_ceiling_m": 2.2302329607772746,
+    "wall_diffs_mm": [
+     14.8,
+     13.4,
+     5.6,
+     1.5,
+     48.5,
+     6.0,
+     57.7,
+     5.9
+    ],
+    "wall_pass": [
+     false,
+     false,
+     true,
+     true,
+     false,
+     true,
+     false,
+     true
+    ],
+    "low_support_walls": 2,
+    "icp_fitness": [
+     0.674,
+     0.683
+    ],
+    "ceiling_diff_mm": 21.4
+   }
+  },
+  "8": {
+   "n_visits": 2,
+   "V0": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     3.4558,
+     3.0314,
+     3.4558,
+     3.0314
+    ],
+    "full_ceiling_m": 3.0820146971884883,
+    "wall_diffs_mm": [
+     9.4,
+     15.2,
+     9.4,
+     15.2
+    ],
+    "wall_pass": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.995,
+     0.991
+    ],
+    "ceiling_diff_mm": 7.3
+   },
+   "V1": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     3.446,
+     2.8833,
+     3.446,
+     2.8833
+    ],
+    "full_ceiling_m": 3.0805546891593893,
+    "wall_diffs_mm": [
+     8.5,
+     38.1,
+     8.5,
+     38.1
+    ],
+    "wall_pass": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.992,
+     0.986
+    ],
+    "ceiling_diff_mm": 8.2
+   },
+   "V2": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     3.4547,
+     3.1495,
+     3.4547,
+     3.1495
+    ],
+    "full_ceiling_m": 3.0794714288749327,
+    "wall_diffs_mm": [
+     11.7,
+     15.0,
+     11.7,
+     15.0
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.993,
+     0.988
+    ],
+    "ceiling_diff_mm": 7.5
+   },
+   "V3": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     3.4543,
+     3.1178,
+     3.4543,
+     3.1178
+    ],
+    "full_ceiling_m": 3.0794963075802055,
+    "wall_diffs_mm": [
+     11.5,
+     4.6,
+     11.5,
+     4.6
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.993,
+     0.988
+    ],
+    "ceiling_diff_mm": 7.4
+   }
+  }
+ }
+}

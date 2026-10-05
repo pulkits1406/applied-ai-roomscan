@@ -1,0 +1,419 @@
+{
+ "label": "GT-free: wall-position repeatability given topology (chunk halves, per-room ICP to full)",
+ "capture": "single_scan_with_ceiling",
+ "chunk_s": 2.0,
+ "sec": 130.2,
+ "summary": {
+  "V2": {
+   "rooms": 5,
+   "rooms_full_failed": 2,
+   "n_walls_total": 26,
+   "walls_per_room": [
+    6,
+    4,
+    4,
+    8,
+    4
+   ],
+   "wall_diff_mm_median": 11.0,
+   "wall_diff_mm_p90": 27.6,
+   "wall_pass_frac": 0.654,
+   "ceiling_diff_mm_median": 8.7,
+   "ceiling_diff_mm_max": 21.3,
+   "ceiling_pass_frac_1cm": 0.75
+  },
+  "V4": {
+   "rooms": 5,
+   "rooms_full_failed": 2,
+   "n_walls_total": 26,
+   "walls_per_room": [
+    6,
+    4,
+    4,
+    8,
+    4
+   ],
+   "wall_diff_mm_median": 19.5,
+   "wall_diff_mm_p90": 71.0,
+   "wall_pass_frac": 0.308,
+   "ceiling_diff_mm_median": 8.4,
+   "ceiling_diff_mm_max": 21.3,
+   "ceiling_pass_frac_1cm": 0.75
+  }
+ },
+ "rooms": {
+  "1": {
+   "n_visits": 5,
+   "V2": {
+    "n_walls": 6,
+    "full_lengths_m": [
+     1.4086,
+     3.2465,
+     2.873,
+     8.6892,
+     4.2816,
+     5.4427
+    ],
+    "full_ceiling_m": 2.57508503585075,
+    "wall_diffs_mm": [
+     18.0,
+     0.2,
+     18.6,
+     3.0,
+     36.6,
+     2.8
+    ],
+    "wall_pass": [
+     false,
+     true,
+     false,
+     true,
+     false,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.744,
+     0.806
+    ],
+    "ceiling_diff_mm": 7.8
+   },
+   "V4": {
+    "n_walls": 6,
+    "full_lengths_m": [
+     1.4103,
+     3.2401,
+     2.8981,
+     8.7503,
+     4.3084,
+     5.5102
+    ],
+    "full_ceiling_m": 2.5750850358507473,
+    "wall_diffs_mm": [
+     53.9,
+     17.3,
+     46.1,
+     5.6,
+     100.0,
+     22.9
+    ],
+    "wall_pass": [
+     false,
+     false,
+     false,
+     true,
+     false,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.744,
+     0.806
+    ],
+    "ceiling_diff_mm": 7.8
+   }
+  },
+  "2": {
+   "n_visits": 2,
+   "V2": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      3,
+      0
+     ]
+    }
+   },
+   "V4": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      3,
+      0
+     ]
+    }
+   }
+  },
+  "3": {
+   "n_visits": 3,
+   "V2": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     3.0013,
+     2.9794,
+     3.0013,
+     2.9794
+    ],
+    "full_ceiling_m": 2.96044565345385,
+    "wall_diffs_mm": [
+     11.7,
+     0.0,
+     11.7,
+     0.0
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.81,
+     0.926
+    ],
+    "ceiling_diff_mm": 9.5
+   },
+   "V4": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     3.0079,
+     3.101,
+     3.0079,
+     3.101
+    ],
+    "full_ceiling_m": 2.96044565345385,
+    "wall_diffs_mm": [
+     23.3,
+     81.5,
+     23.3,
+     81.5
+    ],
+    "wall_pass": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.81,
+     0.926
+    ],
+    "ceiling_diff_mm": 9.1
+   }
+  },
+  "4": {
+   "n_visits": 6,
+   "V2": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     0.9686,
+     0.9423,
+     0.9686,
+     0.9423
+    ],
+    "full_ceiling_m": null,
+    "wall_diffs_mm": [
+     7.2,
+     10.3,
+     7.2,
+     10.3
+    ],
+    "wall_pass": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "low_support_walls": 3,
+    "icp_fitness": [
+     0.914,
+     0.984
+    ],
+    "ceiling_diff_mm": null
+   },
+   "V4": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     0.9671,
+     0.9445,
+     0.9671,
+     0.9445
+    ],
+    "full_ceiling_m": null,
+    "wall_diffs_mm": [
+     6.0,
+     11.6,
+     6.0,
+     11.6
+    ],
+    "wall_pass": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "low_support_walls": 3,
+    "icp_fitness": [
+     0.914,
+     0.984
+    ],
+    "ceiling_diff_mm": null
+   }
+  },
+  "6": {
+   "n_visits": 6,
+   "V2": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      1,
+      1
+     ]
+    }
+   },
+   "V4": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      1,
+      1
+     ]
+    }
+   }
+  },
+  "7": {
+   "n_visits": 2,
+   "V2": {
+    "n_walls": 8,
+    "full_lengths_m": [
+     2.5591,
+     0.7909,
+     0.1296,
+     0.5499,
+     0.1514,
+     0.9368,
+     2.5372,
+     2.2776
+    ],
+    "full_ceiling_m": 2.230188696187547,
+    "wall_diffs_mm": [
+     14.7,
+     12.8,
+     0.4,
+     0.6,
+     43.4,
+     6.3,
+     57.7,
+     5.9
+    ],
+    "wall_pass": [
+     false,
+     false,
+     true,
+     true,
+     false,
+     true,
+     false,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.674,
+     0.683
+    ],
+    "ceiling_diff_mm": 21.3
+   },
+   "V4": {
+    "n_walls": 8,
+    "full_lengths_m": [
+     2.5622,
+     0.7955,
+     0.1305,
+     0.5513,
+     0.145,
+     0.9327,
+     2.5476,
+     2.2795
+    ],
+    "full_ceiling_m": 2.2301886961875423,
+    "wall_diffs_mm": [
+     21.6,
+     13.7,
+     7.8,
+     2.1,
+     46.6,
+     7.4,
+     60.4,
+     4.2
+    ],
+    "wall_pass": [
+     false,
+     false,
+     true,
+     true,
+     false,
+     true,
+     false,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.674,
+     0.683
+    ],
+    "ceiling_diff_mm": 21.3
+   }
+  },
+  "8": {
+   "n_visits": 2,
+   "V2": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     3.4547,
+     3.1495,
+     3.4547,
+     3.1495
+    ],
+    "full_ceiling_m": 3.0794714288749327,
+    "wall_diffs_mm": [
+     11.7,
+     15.0,
+     11.7,
+     15.0
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.993,
+     0.988
+    ],
+    "ceiling_diff_mm": 7.5
+   },
+   "V4": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     3.4484,
+     3.1567,
+     3.4484,
+     3.1567
+    ],
+    "full_ceiling_m": 3.0794714288749327,
+    "wall_diffs_mm": [
+     24.4,
+     16.8,
+     24.4,
+     16.8
+    ],
+    "wall_pass": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.993,
+     0.988
+    ],
+    "ceiling_diff_mm": 7.5
+   }
+  }
+ }
+}

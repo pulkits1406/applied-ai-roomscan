@@ -1,0 +1,185 @@
+{
+ "label": "GT-free: wall-position repeatability given topology (chunk halves, per-room ICP to full)",
+ "capture": "single_scan_with_ceiling",
+ "chunk_s": 2.0,
+ "sec": 36.5,
+ "summary": {
+  "V5": {
+   "rooms": 3,
+   "rooms_full_failed": 4,
+   "n_walls_total": 18,
+   "walls_per_room": [
+    8,
+    4,
+    6
+   ],
+   "wall_diff_mm_median": 7.5,
+   "wall_diff_mm_p90": 25.7,
+   "wall_pass_frac": 0.611,
+   "ceiling_diff_mm_median": 108.8,
+   "ceiling_diff_mm_max": 124.5,
+   "ceiling_pass_frac_1cm": 0.0
+  }
+ },
+ "rooms": {
+  "1": {
+   "n_visits": 5,
+   "V5": {
+    "n_walls": 8,
+    "full_lengths_m": [
+     1.3047,
+     3.477,
+     2.8642,
+     4.3289,
+     2.1465,
+     0.4341,
+     2.0224,
+     1.286
+    ],
+    "full_ceiling_m": 3.089152037513209,
+    "wall_diffs_mm": [
+     16.6,
+     19.8,
+     13.8,
+     25.4,
+     3.8,
+     39.6,
+     26.5,
+     5.6
+    ],
+    "wall_pass": [
+     false,
+     false,
+     true,
+     false,
+     true,
+     false,
+     false,
+     true
+    ],
+    "low_support_walls": 0,
+    "icp_fitness": [
+     0.987,
+     0.987
+    ],
+    "ceiling_diff_mm": 10.3
+   }
+  },
+  "2": {
+   "n_visits": 2,
+   "V5": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      3,
+      0
+     ]
+    }
+   }
+  },
+  "3": {
+   "n_visits": 3,
+   "V5": {
+    "n_walls": 4,
+    "full_lengths_m": [
+     2.9999,
+     2.8602,
+     2.9999,
+     2.8602
+    ],
+    "full_ceiling_m": 3.061776656189656,
+    "wall_diffs_mm": [
+     7.0,
+     2.4,
+     7.0,
+     2.4
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "low_support_walls": 2,
+    "icp_fitness": [
+     0.875,
+     0.733
+    ],
+    "ceiling_diff_mm": 124.5
+   }
+  },
+  "4": {
+   "n_visits": 6,
+   "V5": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      4,
+      1
+     ]
+    }
+   }
+  },
+  "6": {
+   "n_visits": 6,
+   "V5": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      0,
+      1
+     ]
+    }
+   }
+  },
+  "7": {
+   "n_visits": 2,
+   "V5": {
+    "n_walls": 6,
+    "full_lengths_m": [
+     0.2739,
+     0.7973,
+     2.2762,
+     2.2793,
+     2.5502,
+     1.482
+    ],
+    "full_ceiling_m": 2.214888806721641,
+    "wall_diffs_mm": [
+     5.3,
+     6.7,
+     13.0,
+     7.9,
+     18.2,
+     1.2
+    ],
+    "wall_pass": [
+     true,
+     true,
+     false,
+     true,
+     false,
+     true
+    ],
+    "low_support_walls": 3,
+    "icp_fitness": [
+     0.999,
+     0.705
+    ],
+    "ceiling_diff_mm": 108.8
+   }
+  },
+  "8": {
+   "n_visits": 2,
+   "V5": {
+    "full_topology_failed": {
+     "reason": "no_polygon",
+     "n_lines": [
+      3,
+      2
+     ]
+    }
+   }
+  }
+ }
+}
