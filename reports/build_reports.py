@@ -21,7 +21,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "reports/data"
-RUN = ROOT / "runs/report"
+RUN = Path("runs/report")            # repo-relative: paths end up in tracked outputs (site.yaml, eval JSON)
 CAP = "single_scan_with_ceiling"
 
 
@@ -32,7 +32,7 @@ def sh(*cmd):
 
 def regenerate():
     DATA.mkdir(parents=True, exist_ok=True)
-    RUN.mkdir(parents=True, exist_ok=True)
+    (ROOT / RUN).mkdir(parents=True, exist_ok=True)
     uv = ["uv", "run"]
     sh(*uv, "roomscan-lidar", CAP, RUN / "lidar_with_ceiling")
     sh(*uv, "roomscan-lidar", CAP, RUN / "lidar_with_ceiling_arkit", "--placement", "arkit")
@@ -43,15 +43,15 @@ def regenerate():
     sh(*uv, "python", "experiments/e24_three_tier_eval/video_identity.py", RUN / "three_tier", CAP, RUN / "lidar_with_ceiling/plan.json")
     sh(*uv, "python", "experiments/e22_lidar_small_rooms/repeat.py", CAP, "v1_0,ladder")
     sh("reports/fix_loop/run.sh")
-    shutil.copy(RUN / "three_tier/eval/pseudo_gt_lidar_v11.json", DATA / "pseudo_gt_eval.json")
-    shutil.copy(RUN / "three_tier/eval/pseudo_gt_lidar_v11_walls.png", DATA / "pseudo_gt_walls.png")
+    shutil.copy(ROOT / RUN / "three_tier/eval/pseudo_gt_lidar_v11.json", DATA / "pseudo_gt_eval.json")
+    shutil.copy(ROOT / RUN / "three_tier/eval/pseudo_gt_lidar_v11_walls.png", DATA / "pseudo_gt_walls.png")
     shutil.copy(ROOT / "experiments/e24_three_tier_eval/out/video_identity.json", DATA / "video_identity.json")
     shutil.copy(ROOT / f"experiments/e22_lidar_small_rooms/out/repeat_{CAP}_v1_0_ladder.json", DATA / "repeatability.json")
     shutil.copy(ROOT / f"experiments/e19_drift_stitch/out/ablation_v2_{CAP}_V2.json", DATA / "drift_e19.json")
     for c in ("lidar_floor_only", "lidar_single_room", "photo_sweep_k8", "photo_diverse_k6", "video_with_ceiling"):
-        shutil.copy(RUN / "three_tier" / c / "plan.png", DATA / f"plan_{c}.png")
-    shutil.copy(RUN / "lidar_with_ceiling/plan.png", DATA / "plan_lidar_with_ceiling.png")
-    placement(RUN / "lidar_with_ceiling/plan.json", RUN / "lidar_with_ceiling_arkit/plan.json")
+        shutil.copy(ROOT / RUN / "three_tier" / c / "plan.png", DATA / f"plan_{c}.png")
+    shutil.copy(ROOT / RUN / "lidar_with_ceiling/plan.png", DATA / "plan_lidar_with_ceiling.png")
+    placement(ROOT / RUN / "lidar_with_ceiling/plan.json", ROOT / RUN / "lidar_with_ceiling_arkit/plan.json")
     timing()
 
 
@@ -87,7 +87,7 @@ def timing():
     ev = json.loads((DATA / "pseudo_gt_eval.json").read_text())
     t = {k: v.get("seconds") for k, v in (ev.get("execution") or {}).items()}
     for name in ("lidar_with_ceiling", "lidar_with_ceiling_arkit"):
-        d = RUN / name / "debug.json"
+        d = ROOT / RUN / name / "debug.json"
         if d.exists():
             t[name] = json.loads(d.read_text()).get("seconds")
     (DATA / "timing.json").write_text(json.dumps(t, indent=1))

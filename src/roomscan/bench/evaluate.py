@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 import time
@@ -290,11 +291,13 @@ def execute(site: Site, run: Path, force: bool = False) -> dict:
             log[cap.id] = {"status": "reused"}; continue
         if not src.exists():
             log[cap.id] = {"status": "input_missing", "path": str(src)}; continue
-        cmd = [sys.executable, "-m", f"roomscan.{cap.tier}.cli", str(src), str(out), *cap.args]
+        # repo-relative paths: they are recorded in plans and reports, which must not carry machine paths
+        rel = lambda x: os.path.relpath(Path(x).resolve(), REPO) if Path(x).resolve().is_relative_to(REPO) else str(x)  # noqa: E731
+        cmd = [sys.executable, "-m", f"roomscan.{cap.tier}.cli", rel(src), rel(out), *cap.args]
         t0 = time.time()
-        r = subprocess.run(cmd, capture_output=True, text=True)
+        r = subprocess.run(cmd, capture_output=True, text=True, cwd=REPO)
         log[cap.id] = {"status": "ok" if r.returncode == 0 else "failed", "returncode": r.returncode, "seconds": round(time.time() - t0, 1),
-                       "command": " ".join(cmd[1:]), **({"stderr_tail": r.stderr[-1500:]} if r.returncode else {})}
+                       "command": "python " + " ".join(cmd[1:]), **({"stderr_tail": r.stderr[-1500:]} if r.returncode else {})}
         print(f"[execute] {cap.id}: {log[cap.id]['status']} ({log[cap.id]['seconds']} s)", flush=True)
     return log
 
