@@ -1,0 +1,178 @@
+{
+ "variant": "V2",
+ "capture": "single_scan_with_ceiling",
+ "label": "GT-free drift ablation (visit-split placements, shared shapes)",
+ "rooms_full": [
+  1,
+  3,
+  4,
+  7,
+  8
+ ],
+ "A": {
+  "placement_icp": {
+   "1": {
+    "icp_fitness": 0.751,
+    "shift_mm": 62.4
+   },
+   "3": {
+    "icp_fitness": 0.853,
+    "shift_mm": 0.7
+   },
+   "4": {
+    "icp_fitness": 1.0,
+    "shift_mm": 0.8
+   },
+   "7": {
+    "icp_fitness": 1.0,
+    "shift_mm": 1.5
+   },
+   "8": {
+    "icp_fitness": 1.0,
+    "shift_mm": 0.8
+   }
+  },
+  "stitch": {
+   "common_yaw_deg": 28.01,
+   "yaw_turns_deg": {
+    "1": -0.46,
+    "3": -0.34,
+    "4": -0.73,
+    "7": 0.77,
+    "8": 0.76
+   },
+   "n_shared_walls": 4,
+   "n_doorway_constraints": 0,
+   "tau_m": 0.16,
+   "translations_mm": {
+    "1": [
+     -0.0,
+     0.0
+    ],
+    "3": [
+     23.8,
+     -0.0
+    ],
+    "4": [
+     192.3,
+     -84.9
+    ],
+    "7": [
+     0.0,
+     -0.0
+    ],
+    "8": [
+     131.2,
+     0.0
+    ]
+   }
+  },
+  "raw_metrics": {
+   "n_shared_walls": 4,
+   "gap_mm_median": 129.5,
+   "gap_mm_std": 124.8,
+   "overlap_m2": 0.0
+  },
+  "anchored_metrics": {
+   "n_shared_walls": 4,
+   "gap_mm_median": 160.0,
+   "gap_mm_std": 0.3,
+   "overlap_m2": 0.0
+  },
+  "raw_room_yaw_spread_deg": 1.5
+ },
+ "B": {
+  "placement_icp": {
+   "1": {
+    "icp_fitness": 1.0,
+    "shift_mm": 0.8
+   },
+   "3": {
+    "icp_fitness": 1.0,
+    "shift_mm": 0.1
+   },
+   "4": {
+    "icp_fitness": 0.955,
+    "shift_mm": 29.8
+   },
+   "7": {
+    "icp_fitness": 1.0,
+    "shift_mm": 203.0
+   },
+   "8": {
+    "icp_fitness": 1.0,
+    "shift_mm": 0.8
+   }
+  },
+  "stitch": {
+   "common_yaw_deg": 27.82,
+   "yaw_turns_deg": {
+    "1": 0.06,
+    "3": -0.42,
+    "4": -0.42,
+    "7": 0.21,
+    "8": 0.56
+   },
+   "n_shared_walls": 4,
+   "n_doorway_constraints": 0,
+   "tau_m": 0.145,
+   "translations_mm": {
+    "1": [
+     -0.0,
+     0.0
+    ],
+    "3": [
+     7.1,
+     -0.0
+    ],
+    "4": [
+     189.4,
+     -128.3
+    ],
+    "7": [
+     -0.0,
+     0.0
+    ],
+    "8": [
+     68.1,
+     0.0
+    ]
+   }
+  },
+  "raw_metrics": {
+   "n_shared_walls": 4,
+   "gap_mm_median": 114.0,
+   "gap_mm_std": 119.7,
+   "overlap_m2": 0.0
+  },
+  "anchored_metrics": {
+   "n_shared_walls": 4,
+   "gap_mm_median": 144.5,
+   "gap_mm_std": 0.3,
+   "overlap_m2": 0.0
+  },
+  "raw_room_yaw_spread_deg": 0.98
+ },
+ "halves_disagreement_raw": {
+  "per_room_mm": {
+   "1": 46.8,
+   "3": 19.6,
+   "4": 24.9,
+   "7": 88.9,
+   "8": 62.3
+  },
+  "median_mm": 46.8,
+  "max_mm": 88.9
+ },
+ "halves_disagreement_anchored": {
+  "per_room_mm": {
+   "1": 34.9,
+   "3": 21.4,
+   "4": 18.9,
+   "7": 106.6,
+   "8": 75.9
+  },
+  "median_mm": 34.9,
+  "max_mm": 106.6
+ }
+}
