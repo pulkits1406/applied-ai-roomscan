@@ -2,8 +2,8 @@
 
 Authoritative project state at submission. Navigation for an assessor: `SUBMISSION_MANIFEST.md`.
 Requirement status: `docs/compliance_matrix.md`. Reasoning record: `ENGINEERING_LOG.md` (all
-phases). Earlier, more detailed handovers are in git history (`git show 4435f2a:HANDOVER.md` —
-phase 5, `2b53124` — phase 4, `8328541` — phase 3).
+phases). Earlier, more detailed handovers are in git history (`git show 279abb6:HANDOVER.md` —
+phase 5, `c0b00f6` — phase 4, `0420873` — phase 3).
 
 > **No iPhone was available.** There is no laser/tape benchmark, no real-device capture, no
 > head-to-head and no walk-in test. Every accuracy number is PSEUDO-GT (our own LiDAR reconstruction

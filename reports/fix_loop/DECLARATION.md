@@ -7,7 +7,7 @@ the worst results are the photo and video wall gates (0 % within ±8 % / ±3 % o
 follows is the strongest complete diagnose → fix → regenerable before/after cycle we shipped: a
 LiDAR room-geometry failure measured against **exact synthetic ground truth**. It is not benchmark
 evidence, and this declaration was written **after** the fix was shipped (2026-10-05, commit
-`8570bb4`); the prediction below is the one recorded in the engineering log at that time, not a
+`bc9af03`); the prediction below is the one recorded in the engineering log at that time, not a
 blind pre-registration.
 
 ## 1. Failing measurement and number
@@ -60,8 +60,8 @@ narrow for a border-erosion failure (that motivated the later stability term, `s
 - `reports/fix_loop/run.sh` renders the synthetic capture, runs **before** (`roomscan-lidar --seg-pad
   0.3 0.0`, the exact pre-fix segmentation) and **after** with the same code through
   `roomscan-bench --execute`, copies the results, and repeats the comparison on the supplied capture.
-- `fix.diff` = `git diff 5b25c37 8570bb4 -- src/roomscan/geometry.py src/roomscan/lidar/rooms.py`
-  (the shipped fix). The pre-fix code itself is also regenerable from tag history (`git checkout 5b25c37`).
+- `fix.diff` = `git diff e8aa951 bc9af03 -- src/roomscan/geometry.py src/roomscan/lidar/rooms.py`
+  (the shipped fix). The pre-fix code itself is also regenerable from tag history (`git checkout e8aa951`).
 
 ## What this bundle does not show
 

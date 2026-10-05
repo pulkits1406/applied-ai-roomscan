@@ -1,8 +1,8 @@
 # Reproduction audit (clean clone, 2026-10-06)
 
 Command: `scripts/clean_clone_audit.sh <empty dir> --weights-from <existing MapAnything HF cache>`,
-run on the development Mac (Apple M4, 16 GB, macOS) against commit `fa0a864` (code identical to
-`da88a97`, which produced `reports/data/`). The clone contains only committed files: no `.venv`,
+run on the development Mac (Apple M4, 16 GB, macOS) against commit `ecb6e41` (code identical to
+`94d2762`, which produced `reports/data/`). The clone contains only committed files: no `.venv`,
 `.envs`, `cache/`, `runs/` or intermediates from the development tree.
 
 | Step | Result | Time |

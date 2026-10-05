@@ -22,5 +22,5 @@ if [ -d single_scan_with_ceiling ]; then
 else
   echo "single_scan_with_ceiling not present: real-data no-regression check skipped" | tee reports/fix_loop/results/real_capture_before_vs_after.json
 fi
-git diff 5b25c37 8570bb4 -- src/roomscan/geometry.py src/roomscan/lidar/rooms.py > reports/fix_loop/fix.diff || true
+git diff e8aa951 bc9af03 -- src/roomscan/geometry.py src/roomscan/lidar/rooms.py > reports/fix_loop/fix.diff || true
 echo "done: reports/fix_loop/results/"

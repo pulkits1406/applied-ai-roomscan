@@ -577,7 +577,7 @@ pressure; its saved outputs were complete for every run except MapAnything on `w
 
 ### 2026-10-05 — Handover at session compaction
 `HANDOVER.md` created at the repository root as the authoritative state snapshot (commit
-`1b1e53e`, clean tree): implemented vs experiment-only subsystems, the full experiment table with
+`3b4dd57`, clean tree): implemented vs experiment-only subsystems, the full experiment table with
 negative results, measured numbers with evidence labels, current decisions, a reconciled
 assessment status (it corrects the compliance matrix where code had moved ahead: one command per
 capture, stitched LiDAR plan, openings are PARTIAL/EXPLORING; GT lives in `site.yaml`, not
@@ -594,7 +594,7 @@ User priorities for this phase: (1) LiDAR robustness incl. the two dropped rooms
 frontend, (3) a real video frontend, (4) one shared representation/evaluator/render, (5)
 reproducibility fixed as part of the implementation. Still no iPhone / developer account.
 
-### Reproducibility recipes (subagent, commit 244f7e5) [FACT]
+### Reproducibility recipes (subagent, commit 63470ba) [FACT]
 `envs/{mapanything,video}/requirements.txt` (pinned freezes of the e13/e20 venvs) and
 `scripts/setup_envs.sh` rebuild both isolated envs under `.envs/`; verified from scratch (39 s /
 1.5 GB, 33 s / 845 MB with a warm uv cache; smoke imports pass, MPS available). `envs/weights.yaml`
@@ -761,7 +761,7 @@ Ultra-wide stays an A/B test, not a protocol requirement.
 User direction: no new research; make the work submission-ready, reproducible, auditable and honest;
 keep physically blocked items explicitly blocked.
 
-- **Baseline frozen:** tag `engineering-baseline-v1` on `4435f2a` after verification (38 tests incl.
+- **Baseline frozen:** tag `engineering-baseline-v1` on `279abb6` after verification (38 tests incl.
   the opt-in GPU test; all three tiers and `roomscan-bench --execute` uncached from raw sample inputs,
   metrics identical to e24/e26; every plan validates against `schema/plan.schema.json`).
 - **Hygiene:** no secrets, keys or weights tracked; machine-specific absolute paths removed from
@@ -785,3 +785,12 @@ keep physically blocked items explicitly blocked.
   `reports/technical_report.md` (~1.8 k words), `SUBMISSION_MANIFEST.md`, `reports/repro_audit.md`.
 - **Correction carried into docs:** e25's "two uncached runs differed" is annotated with the e26
   finding (different code, not nondeterminism).
+
+### 2026-10-06 — Publication: history rewrite
+Before the first push, commit-message co-author trailers were removed and the author/committer
+identity was set to `Pulkit Sharma <pulkitsharma14062002@gmail.com>` (GitHub: `pulkits1406`) on every commit (`git filter-branch`; dates, order, messages
+otherwise and all file trees unchanged; final tree byte-identical). Commit hashes changed: the
+old → new mapping is in `docs/commit_hash_mapping.md`, and hashes cited in tracked files were
+updated to their rewritten equivalents (same trees). The baseline tag was recreated on the
+rewritten baseline commit with its original date and message. A bundle of the pre-rewrite history
+is kept outside the repository.
