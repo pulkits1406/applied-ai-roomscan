@@ -16,7 +16,7 @@ import cv2
 import numpy as np
 from scipy.spatial.transform import Rotation
 
-W, H = 256, 192
+W, H = 256, 192                 # depth map size of the supplied exports (write(..., depth_wh) overrides)
 RGB_K = np.array([[1580.0, 0, 959.5], [0, 1580.0, 719.5], [0, 0, 1]])
 FPS = 30.0
 CEILING = 2.5
@@ -62,10 +62,11 @@ def trajectory(fps: float = FPS):
     return T
 
 
-def depth(T):
-    Kd = RGB_K.copy(); Kd[0] *= W / 1920; Kd[1] *= H / 1440
-    v, u = np.mgrid[0:H, 0:W]
-    dc = np.stack([(u + 0.5 - Kd[0, 2]) / Kd[0, 0], (v + 0.5 - Kd[1, 2]) / Kd[1, 1], np.ones((H, W))], -1).reshape(-1, 3)
+def depth(T, wh=(W, H)):
+    w, h = wh
+    Kd = RGB_K.copy(); Kd[0] *= w / 1920; Kd[1] *= h / 1440
+    v, u = np.mgrid[0:h, 0:w]
+    dc = np.stack([(u + 0.5 - Kd[0, 2]) / Kd[0, 0], (v + 0.5 - Kd[1, 2]) / Kd[1, 1], np.ones((h, w))], -1).reshape(-1, 3)
     dw = dc @ T[:3, :3].T
     o = T[:3, 3]
     best = np.full(len(dw), np.inf)
@@ -75,15 +76,15 @@ def depth(T):
         tmin, tmax = np.minimum(lo, hi).max(1), np.maximum(lo, hi).min(1)
         hit = (tmax >= tmin) & (tmax > 0) & (tmin > 0)
         best = np.where(hit & (tmin < best), tmin, best)
-    return best.reshape(H, W)                          # dc has z = 1, so t is the depth
+    return best.reshape(h, w)                          # dc has z = 1, so t is the depth
 
 
-def write(out: str | Path, fps: float = FPS) -> Path:
+def write(out: str | Path, fps: float = FPS, depth_wh: tuple[int, int] = (W, H)) -> Path:
     out = Path(out)
     (out / "depth").mkdir(parents=True, exist_ok=True); (out / "confidence").mkdir(exist_ok=True)
     rows = []
     for i, T in enumerate(trajectory(fps)):
-        d = depth(T)
+        d = depth(T, depth_wh)
         cv2.imwrite(str(out / "depth" / f"{i:06d}.png"), np.clip(np.nan_to_num(d * 1000, posinf=0), 0, 65535).astype(np.uint16))
         cv2.imwrite(str(out / "confidence" / f"{i:06d}.png"), np.where(np.isfinite(d) & (d < 6), 2, 0).astype(np.uint8))
         q = Rotation.from_matrix(T[:3, :3]).as_quat()

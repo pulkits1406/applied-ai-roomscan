@@ -22,7 +22,8 @@ import numpy as np
 import pandas as pd
 from scipy.spatial.transform import Rotation
 
-RGB_WH = (1920, 1440)
+RGB_WH = (1920, 1440)          # the supplied recordings; real exports are measured per capture (rgb_wh)
+STANDARD_RGB_WH = [(1920, 1440), (1440, 1080), (1280, 960), (960, 720), (640, 480), (3840, 2880), (4032, 3024)]
 VIDEO_ROW_OFFSET = 1  # decoded video frame j is odometry/depth row j + 1
 # ARKit camera axes (x right, y up, z back) -> OpenCV camera axes (x right, y down, z forward).
 # Not applied to Stray poses, which are already OpenCV-convention; kept for ARKit-native inputs.
@@ -66,10 +67,36 @@ class StrayCapture:
         r = self.odometry.iloc[i]
         return np.array([[r.fx, 0, r.cx], [0, r.fy, r.cy], [0, 0, 1.0]])
 
-    def K_depth(self, i: int, depth_wh: tuple[int, int] = (256, 192)) -> np.ndarray:
+    @property
+    def depth_wh(self) -> tuple[int, int]:
+        """Size of the depth maps as stored (256x192 in the supplied exports; read, not assumed)."""
+        if not hasattr(self, "_depth_wh"):
+            d = cv2.imread(str(self.root / "depth" / f"{0:06d}.png"), cv2.IMREAD_UNCHANGED)
+            self._depth_wh = (d.shape[1], d.shape[0])
+        return self._depth_wh
+
+    @property
+    def rgb_wh(self) -> tuple[int, int]:
+        """Resolution the odometry intrinsics refer to: the RGB video's frame size when the video
+        is present, else the standard size nearest to (2 cx, 2 cy)."""
+        if not hasattr(self, "_rgb_wh"):
+            wh = None
+            if (self.root / "rgb.mp4").exists():
+                cap = cv2.VideoCapture(str(self.root / "rgb.mp4"))
+                w, h = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                cap.release()
+                wh = (w, h) if w > 0 and h > 0 else None
+            if wh is None:
+                c = 2 * self.odometry[["cx", "cy"]].median().to_numpy()
+                wh = min(STANDARD_RGB_WH, key=lambda s: np.hypot(s[0] - c[0], s[1] - c[1]))
+            self._rgb_wh = wh
+        return self._rgb_wh
+
+    def K_depth(self, i: int, depth_wh: tuple[int, int] | None = None) -> np.ndarray:
+        depth_wh = depth_wh or self.depth_wh
         K = self.K_rgb(i).copy()
-        K[0] *= depth_wh[0] / RGB_WH[0]
-        K[1] *= depth_wh[1] / RGB_WH[1]
+        K[0] *= depth_wh[0] / self.rgb_wh[0]
+        K[1] *= depth_wh[1] / self.rgb_wh[1]
         return K
 
     def iter_rgb(self, rows: set[int] | None = None):
