@@ -52,7 +52,7 @@ def main(plan_path="runs/e24/lidar_v11/plan.json"):
         if ops:
             g["openings"] = ops
         rooms.append(g)
-    site = {"site_id": "pseudo_gt_lidar_v11", "gt_kind": "pseudo_lidar",
+    site = {"site_id": "pseudo_gt_lidar_v11", "gt_kind": "pseudo_lidar", "purpose": "pseudo",
             "instrument": f"NONE - references are our LiDAR v1.1 plan ({plan_path}) of single_scan_with_ceiling; excluded rooms with inferred walls: {excluded}",
             "rooms": rooms, "captures": [{k: v for k, v in c.items() if k != "note"} for c in CAPTURES]}
     SITE.mkdir(parents=True, exist_ok=True)

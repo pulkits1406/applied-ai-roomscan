@@ -33,7 +33,7 @@ def rect_plan(room_id, label, w, d, h, x0=0.0, openings=(), wall_shift=0):
 
 
 def write_site(tmp_path, captures):
-    site = {"site_id": "synthetic", "gt_kind": "laser", "rooms": [
+    site = {"site_id": "synthetic", "gt_kind": "laser", "purpose": "synthetic", "rooms": [
         {"id": "kitchen", "walls": [{"id": "W1", "length_m": [3.0, 3.001, 2.999]}, {"id": "W2", "length_m": 4.0}, {"id": "W3", "length_m": 3.0}, {"id": "W4", "length_m": 4.0}],
          "ceiling_height_m": [2.5, 2.502, 2.498], "openings": [{"id": "D1", "kind": "door", "wall": "W1", "width_m": 0.8, "connects": "hall"}]},
         {"id": "hall", "walls": [{"id": "W1", "length_m": 1.0}, {"id": "W2", "length_m": 4.0}, {"id": "W3", "length_m": 1.0}, {"id": "W4", "length_m": 4.0}],

@@ -21,6 +21,7 @@ from pathlib import Path
 import numpy as np
 from shapely.geometry import Polygon
 
+from roomscan.bench import diagnostics
 from roomscan.bench.gt import Site, load_site
 from roomscan.bench.match import match_openings, match_rooms, match_walls
 from roomscan.model import Measurement, Plan
@@ -46,22 +47,35 @@ def evaluate_capture(site: Site, cap, plan: Plan) -> dict:
     # identity is known from an explicit map or a matching label; perimeter matching only pairs similar sizes
     match_method = {pid: ("map" if pid in cap.room_map else "label" if labels.get(pid) == gid else "perimeter") for pid, gid in rmap.items()}
     surf = {s.id: s for s in plan.surfaces}
-    walls, ceilings, opening_rows, areas, topology_mismatch = [], [], [], [], []
+    walls, ceilings, opening_rows, areas, topology_mismatch, rooms_detail = [], [], [], [], [], []
     hits = misses = phantoms = 0
     for pr in plan.rooms:
         if pr.id not in rmap:
             continue
         g = site.room(rmap[pr.id])
-        wm = match_walls(plan, pr, g)
+        wdet = {}
+        wm = match_walls(plan, pr, g, wdet)
         if len(pr.wall_ids) != len(g.walls):
             topology_mismatch.append({"room": g.id, "gt_walls": len(g.walls), "pred_walls": len(pr.wall_ids)})
+        ratios = []
         for gw in g.walls:
+            if gw.length is None:
+                continue                      # not measured (partial tape GT)
             if gw.id not in wm:
                 walls.append({"room": g.id, "wall": gw.id, "gt": gw.length, "pred": None, "unmatched": True})
                 continue
             m = surf[wm[gw.id]].length
             walls.append({"room": g.id, "wall": gw.id, "gt": gw.length, "pred": m.value, "abs_err": m.value - gw.length,
-                          "rel_err": (m.value - gw.length) / gw.length, "covered": _cover(m, gw.length)})
+                          "rel_err": (m.value - gw.length) / gw.length, "covered": _cover(m, gw.length), "status": m.status,
+                          "half_width": None if m.interval is None else m.interval.hi - m.value})
+            ratios.append(m.value / gw.length)
+        det = {"room": g.id, "pred": pr.id, "match": match_method[pr.id], "pred_walls": len(pr.wall_ids), "gt_walls": len(g.walls),
+               "wall_match": wdet, "placed": pr.placed}
+        if len(ratios) >= 2:
+            sc = float(np.median(ratios))
+            # scale vs shape: a common factor (scale) and what remains after removing it (shape)
+            det.update({"scale_ratio": sc, "shape_err_median": float(np.median(np.abs(np.array(ratios) / sc - 1)))})
+        rooms_detail.append(det)
         if g.ceiling_height is not None:
             m = pr.ceiling_height
             ceilings.append({"room": g.id, "gt": g.ceiling_height, "pred": m.value, "status": m.status,
@@ -91,6 +105,7 @@ def evaluate_capture(site: Site, cap, plan: Plan) -> dict:
     overlap = max([a.intersection(b).area for a, b in combinations(polys, 2)], default=0.0)
     out = {"capture": cap.id, "tier": cap.tier, "rooms_matched": len(rmap), "rooms_expected": len(cap.rooms or site.rooms),
            "room_match": [{"pred": p, "gt": g, "method": match_method[p]} for p, g in rmap.items()],
+           "rooms_detail": rooms_detail, "phantom_rooms": [r.id for r in plan.rooms if r.id not in rmap],
            "walls": walls, "ceilings": ceilings, "areas": areas, "openings": opening_rows,
            "opening_hit_rate": None if not any(r.openings for r in site.rooms) else (hits / max(gt_open + phantoms, 1) if (gt_open + phantoms) else None),
            "topology_mismatch": topology_mismatch,
@@ -193,13 +208,49 @@ def calibration_residuals(site: Site, results: list[dict]) -> list[dict]:
             for x in r.get(key, []):
                 if x.get("pred") is None or x.get("gt") is None:
                     continue
-                rows.append({"gt_kind": site.gt_kind, "capture": r["capture"], "tier": r["tier"], "quantity": kind, "room": x.get("room"),
+                rows.append({"gt_kind": site.gt_kind, "purpose": site.purpose, "capture": r["capture"], "tier": r["tier"], "quantity": kind, "room": x.get("room"),
                              "gt": x["gt"], "pred": x["pred"], "residual": x["pred"] - x["gt"], "covered": x.get("covered")})
     return rows
 
 
-def render_md(site: Site, results: list[dict], gate: dict) -> str:
+BANNER = {
+    "dev": "> **DEVELOPMENT DATA.** Answers protocol/model questions. Not benchmark evidence; not used for calibration unless named explicitly (bench/leakage.py).",
+    "fail": "> **FAILURE-MODE DATA.** Deliberately poor captures: checks that failures are flagged, not accuracy.",
+}
+
+
+def _question_tables(results: list[dict]) -> list[str]:
+    qs = sorted({r.get("question") for r in results if r.get("question")})
     lines = []
+    for q in qs:
+        lines += ["", f"## Question {q}", "",
+                  "| capture | variant | rooms matched | phantom rooms | walls (measured, in interval) | median abs wall err | scale ratio | shape err | doorway err | diagnostics |",
+                  "|---|---|---|---|---|---|---|---|---|---|"]
+        for r in [x for x in results if x.get("question") == q]:
+            w = [x for x in r["walls"] if x.get("pred") is not None]
+            err = f"{1000 * float(np.median([abs(x['abs_err']) for x in w])):.0f} mm" if w else "—"
+            cov = f"{len(w)}, {sum(1 for x in w if x.get('covered'))}"
+            rd = [d for d in r.get("rooms_detail", []) if "scale_ratio" in d]
+            sc = ", ".join(f"{d['room']} {d['scale_ratio']:.3f}" for d in rd) or "—"
+            sh = ", ".join(f"{d['room']} {100 * d['shape_err_median']:.1f} %" for d in rd) or "—"
+            dw = [x for x in r["openings"] if "abs_err" in x]
+            dws = ", ".join(f"{1000 * x['abs_err']:+.0f} mm" for x in dw) or ("missed" if any(x.get("missed") for x in r["openings"]) else "—")
+            dg = r.get("diagnostics") or {}
+            dgs = (f"windows {dg['windows_coherent']}/{dg['windows']}, longest run {dg['longest_coherent_run_windows']}" if "windows" in dg else
+                   f"upper walls {dg.get('upper_walls_observed')}" if "upper_walls_observed" in dg else
+                   "; ".join(f"{k}: h-spread {v.get('camera_height_spread_m')}" for k, v in dg.get("rooms", {}).items()) if dg else "—")
+            lines.append(f"| {r['capture']} | {r.get('variant') or ''} | {r.get('rooms_matched')}/{r.get('rooms_expected')} | "
+                         f"{len(r.get('phantom_rooms', []))} | {cov} | {err} | {sc} | {sh} | {dws} | {dgs} |")
+    return lines
+
+
+def render_md(site: Site, results: list[dict], gate: dict, report: dict | None = None) -> str:
+    lines = []
+    if site.purpose in BANNER:
+        lines += [BANNER[site.purpose], ""]
+    if report and (report.get("mixed_code_versions") or report.get("dirty_code")):
+        lines += [f"> **CODE VERSION WARNING.** Plans come from {report.get('code_versions')} (dirty tree: {report.get('dirty_code')}); "
+                  "results are only comparable when produced by the same committed code.", ""]
     if site.gt_kind == "pseudo_lidar":
         lines += ["> **PSEUDO-GT.** Reference values come from our own LiDAR reconstruction, not a laser/tape.",
                   "> These numbers measure consistency between tiers, not accuracy. They are not the benchmark.", ""]
@@ -213,6 +264,8 @@ def render_md(site: Site, results: list[dict], gate: dict) -> str:
         lines.append(f"\nRepeatability `{grp}`: pass fraction {v['pass_frac']}")
     if "head_to_head" in gate:
         lines.append(f"\nHead-to-head beat-or-tie fraction: {gate['head_to_head']['beat_or_tie_frac']:.2f}")
+    lines += _question_tables(results)
+    lines += ["", f"Figure: `{site.site_id}_walls.png` (predicted vs reference wall lengths with 90 % intervals); plans: `<run>/<capture>/plan.png`."]
     return "\n".join(lines) + "\n"
 
 
@@ -237,7 +290,7 @@ def execute(site: Site, run: Path, force: bool = False) -> dict:
             log[cap.id] = {"status": "reused"}; continue
         if not src.exists():
             log[cap.id] = {"status": "input_missing", "path": str(src)}; continue
-        cmd = [sys.executable, "-m", f"roomscan.{cap.tier}.cli", str(src), str(out)]
+        cmd = [sys.executable, "-m", f"roomscan.{cap.tier}.cli", str(src), str(out), *cap.args]
         t0 = time.time()
         r = subprocess.run(cmd, capture_output=True, text=True)
         log[cap.id] = {"status": "ok" if r.returncode == 0 else "failed", "returncode": r.returncode, "seconds": round(time.time() - t0, 1),
@@ -257,14 +310,26 @@ def run(site_dir: str, run_dir: str, do_execute: bool = False, force: bool = Fal
                             "opening_hit_rate": None, "adjacency": {"correct": False}, "max_room_overlap_m2": 0.0, "rooms_matched": 0,
                             "rooms_expected": len(cap.rooms or site.rooms)})
             continue
-        results.append(evaluate_capture(site, cap, Plan.model_validate_json(p.read_text())))
+        plan = Plan.model_validate_json(p.read_text())
+        res = evaluate_capture(site, cap, plan)
+        res.update({"question": cap.question, "variant": cap.variant, "diagnostics": diagnostics.summarise(cap.tier, run / cap.id / "debug.json"),
+                    "provenance": plan.provenance})
+        results.append(res)
     gate = gates(site, results)
     residuals = calibration_residuals(site, results)
     out = run / "eval"; out.mkdir(parents=True, exist_ok=True)
-    report = {"site": site.site_id, "gt_kind": site.gt_kind, "pseudo_gt": site.gt_kind == "pseudo_lidar", "gates": gate, "captures": results,
-              "calibration_residuals": residuals, "execution": execution}
+    commits = {(r.get("provenance") or {}).get("code_commit") for r in results if not r.get("missing_prediction")}
+    dirty = any((r.get("provenance") or {}).get("code_dirty") for r in results)
+    report = {"site": site.site_id, "gt_kind": site.gt_kind, "purpose": site.purpose, "pseudo_gt": site.gt_kind == "pseudo_lidar",
+              "code_versions": sorted(c for c in commits if c) or None, "mixed_code_versions": len(commits) > 1, "dirty_code": dirty,
+              "gates": gate, "captures": results, "calibration_residuals": residuals, "execution": execution}
     (out / f"{site.site_id}.json").write_text(json.dumps(report, indent=1, default=str))
-    (out / f"{site.site_id}.md").write_text(render_md(site, results, gate))
+    (out / f"{site.site_id}.md").write_text(render_md(site, results, gate, report))
+    try:
+        from roomscan.bench.figures import wall_figure
+        wall_figure(site, results, out / f"{site.site_id}_walls.png")
+    except Exception as e:            # the numbers are the record; a plotting failure must not lose them
+        report["figure_error"] = repr(e)
     return report
 
 
@@ -275,7 +340,7 @@ def main():
     ap.add_argument("--force", action="store_true", help="with --execute: re-run captures whose plan.json exists")
     a = ap.parse_args()
     rep = run(a.site, a.run, a.execute, a.force)
-    print(render_md(load_site(a.site), rep["captures"], rep["gates"]))
+    print(render_md(load_site(a.site), rep["captures"], rep["gates"], rep))
 
 
 if __name__ == "__main__":

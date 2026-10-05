@@ -25,7 +25,7 @@ for r in g.rooms:
                   **({"ceiling_height_m": [round(r.ceiling_height.value, 4)]} if r.ceiling_height.value else {}),
                   "floor_area_m2": round(r.floor_area.value, 3)})
 ident = {r["id"]: r["id"] for r in rooms}
-site = {"site_id": "pseudo_gt_stray_apartment", "gt_kind": "pseudo_lidar",
+site = {"site_id": "pseudo_gt_stray_apartment", "gt_kind": "pseudo_lidar", "purpose": "pseudo",
         "instrument": "NONE - references are our own LiDAR v0 reconstruction (visit0) of single_scan_with_ceiling",
         "rooms": rooms,
         "captures": [{"id": k, "tier": "lidar", "path": "single_scan_with_ceiling", "rooms": list(ident), "repeat_group": "with_ceiling_visits", "room_map": ident} for k in plans]}

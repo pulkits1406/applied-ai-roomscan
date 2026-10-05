@@ -18,7 +18,7 @@ def test_lidar_capture_to_scored_plan(tmp_path):
               "ceiling_height_m": [T[rid]["ceiling"]], "floor_area_m2": T[rid]["area"]} for rid in ("A", "B")]
     rooms[0]["openings"] = [{"id": "d1", "kind": "doorway", "wall": "W2", "width_m": T["doorway_width"], "connects": "B"}]
     (site / "site.yaml").write_text(yaml.safe_dump({
-        "site_id": "synthetic_two_rooms", "gt_kind": "synthetic", "rooms": rooms,
+        "site_id": "synthetic_two_rooms", "gt_kind": "synthetic", "purpose": "synthetic", "rooms": rooms,
         "captures": [{"id": "lidar", "tier": "lidar", "path": str(cap)}]}))
     rep = run(str(site), str(tmp_path / "run"), do_execute=True)
     assert rep["execution"]["lidar"]["status"] == "ok", rep["execution"]

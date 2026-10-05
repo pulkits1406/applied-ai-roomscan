@@ -11,9 +11,17 @@ from statistics import median
 from typing import Literal, Optional
 
 import yaml
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 GtKind = Literal["laser", "tape", "pseudo_lidar", "synthetic"]
+# What a site's data may be used for (benchmark/README.md, docs/development_capture_protocol.md):
+#   dev       development captures: answer protocol/model questions; may be inspected and tuned on
+#   bm, rep, inc, walk   benchmark, repeatability, incumbent, walk-in proxy: never tuned on
+#   fail      deliberate failure-mode captures
+#   pseudo, synthetic    our own reconstructions / rendered geometry: consistency and code tests only
+Purpose = Literal["dev", "bm", "rep", "inc", "walk", "fail", "pseudo", "synthetic"]
+BENCHMARK_PURPOSES = {"bm", "rep", "inc", "walk"}
+PREFIXED_PURPOSES = {"dev", "bm", "rep", "inc", "walk", "fail"}
 
 
 def _med(v: float | list[float]) -> float:
@@ -21,12 +29,15 @@ def _med(v: float | list[float]) -> float:
 
 
 class GtWall(BaseModel):
+    """A wall in the room's cyclic order. length_m None = not measured (partial tape GT): the
+    wall still counts for topology and order, but contributes no length error."""
     id: str
-    length_m: float | list[float]
+    length_m: Optional[float | list[float]] = None
+    note: Optional[str] = None
 
     @property
-    def length(self) -> float:
-        return _med(self.length_m)
+    def length(self) -> Optional[float]:
+        return None if self.length_m is None else _med(self.length_m)
 
 
 class GtOpening(BaseModel):
@@ -66,8 +77,8 @@ class GtRoom(BaseModel):
         """Explicit area, else the rectangle area when there are exactly four walls."""
         if self.floor_area_m2 is not None:
             return self.floor_area_m2
-        if len(self.walls) == 4:
-            w = [x.length for x in self.walls]
+        w = [x.length for x in self.walls]
+        if len(w) == 4 and None not in w:
             return 0.5 * (w[0] + w[2]) * 0.5 * (w[1] + w[3])
         return None
 
@@ -81,6 +92,9 @@ class CaptureSpec(BaseModel):
     rooms: list[str] = Field(default_factory=list)
     repeat_group: Optional[str] = None
     room_map: dict[str, str] = Field(default_factory=dict, description="predicted room id -> GT room id override")
+    question: Optional[str] = Field(None, description="development question the capture answers (e.g. A, B, C)")
+    variant: Optional[str] = Field(None, description="protocol variant within the question (e.g. protocol, natural, main_spread, uw_overlap)")
+    args: list[str] = Field(default_factory=list, description="extra CLI arguments for --execute (e.g. ['--rotate', '90'])")
 
 
 class IncumbentRoom(BaseModel):
@@ -99,6 +113,7 @@ class Incumbent(BaseModel):
 class Site(BaseModel):
     site_id: str
     gt_kind: GtKind
+    purpose: Purpose
     instrument: Optional[str] = None
     opening_width_definition: str = "clear opening between finished jambs"
     rooms: list[GtRoom]
@@ -113,6 +128,18 @@ class Site(BaseModel):
         if len(ids) != len(set(ids)):
             raise ValueError("duplicate room ids")
         return v
+
+    @model_validator(mode="after")
+    def _purpose_rules(self):
+        if self.purpose in PREFIXED_PURPOSES:
+            bad = [c.id for c in self.captures if not c.id.startswith(f"{self.purpose}_")]
+            if bad:
+                raise ValueError(f"site purpose '{self.purpose}' requires capture ids prefixed '{self.purpose}_': {bad}")
+        if self.purpose in BENCHMARK_PURPOSES and any(c.id.startswith("dev_") for c in self.captures):
+            raise ValueError("development captures cannot be part of a benchmark site")
+        if self.purpose in BENCHMARK_PURPOSES | {"dev", "fail"} and self.gt_kind not in ("laser", "tape"):
+            raise ValueError(f"a '{self.purpose}' site needs laser/tape ground truth, not {self.gt_kind}")
+        return self
 
     def room(self, rid: str) -> GtRoom:
         return next(r for r in self.rooms if r.id == rid)

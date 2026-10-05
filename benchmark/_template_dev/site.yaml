@@ -1,0 +1,38 @@
+# DEVELOPMENT site template for the first borrowed-iPhone session (docs/development_capture_protocol.md).
+# Copy to benchmark/dev_<YYYYMMDD>/site.yaml, put the captures under benchmark/dev_<YYYYMMDD>/captures/,
+# replace every 0.0 with the tape readings (repeat readings as a list; median is used), then:
+#   uv run roomscan-bench benchmark/dev_<YYYYMMDD> --run runs/dev_<YYYYMMDD> --execute
+# purpose: dev  -> never part of the benchmark, never used for calibration unless named explicitly.
+site_id: dev_YYYYMMDD
+gt_kind: tape
+purpose: dev
+instrument: "tape, 5 m (or laser meter if available)"
+opening_width_definition: clear opening between finished jambs at mid-height (1.0 m)
+rooms:
+  - id: A                            # the test room
+    walls:                           # ALL walls in order, clockwise from above, W1 = the wall with the doorway to B.
+      - {id: W1, length_m: [0.0, 0.0], note: "doorway wall"}           # measured
+      - {id: W2, length_m: [0.0, 0.0], note: "next wall clockwise"}    # measured
+      - {id: W3, length_m: [0.0, 0.0], note: "opposite the doorway"}   # measured
+      - {id: W4}                                                         # not measured: keep the entry, leave length out
+    ceiling_height_m: [0.0]          # optional: one tape reading at the room centre
+    openings:
+      - {id: D1, kind: doorway, wall: W1, width_m: [0.0, 0.0], connects: B}
+  - id: B                            # the connected space; walls optional (list them without lengths if not measured)
+    walls:
+      - {id: W1}
+      - {id: W2}
+      - {id: W3}
+      - {id: W4}
+captures:
+  # Question A - LiDAR (Stray Scanner exports, unzipped)
+  - {id: dev_A_lidar_protocol_1, tier: lidar, path: captures/A_lidar_protocol_1, question: A, variant: protocol, repeat_group: A_protocol, rooms: [A, B]}
+  - {id: dev_A_lidar_protocol_2, tier: lidar, path: captures/A_lidar_protocol_2, question: A, variant: protocol, repeat_group: A_protocol, rooms: [A, B]}
+  - {id: dev_A_lidar_natural, tier: lidar, path: captures/A_lidar_natural, question: A, variant: natural, rooms: [A, B]}
+  # Question B - video (stock Camera .MOV files)
+  - {id: dev_B_video_slow, tier: video, path: captures/B_video_slow.MOV, question: B, variant: slow_turn_protocol, rooms: [A, B]}
+  - {id: dev_B_video_natural, tier: video, path: captures/B_video_natural.MOV, question: B, variant: natural, rooms: [A, B]}
+  # Question C - photo (folder per capture with one sub-folder per room named A / B; HEIC originals)
+  - {id: dev_C_photo_main_spread, tier: photo, path: captures/C_photo_main_spread, question: C, variant: main_spread, rooms: [A]}
+  - {id: dev_C_photo_uw_overlap, tier: photo, path: captures/C_photo_uw_overlap, question: C, variant: ultrawide_overlap, rooms: [A]}
+  - {id: dev_C_photo_doorway_chain, tier: photo, path: captures/C_photo_doorway_chain, question: C, variant: doorway_chain, rooms: [A, B]}

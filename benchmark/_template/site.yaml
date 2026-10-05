@@ -1,5 +1,6 @@
-site_id: flat_a
-gt_kind: laser                     # laser | tape | pseudo_lidar
+site_id: bm_flat_a
+gt_kind: laser                     # laser | tape | pseudo_lidar | synthetic
+purpose: bm                        # dev | bm | rep | inc | walk | fail (capture ids carry the prefix) | pseudo | synthetic
 instrument: "Bosch GLM 40, ±1.5 mm"
 opening_width_definition: clear opening between finished jambs at mid-height
 rooms:
@@ -25,10 +26,10 @@ rooms:
     openings:
       - {id: D1, kind: door, wall: W2, width_m: [0.812], connects: kitchen}
 captures:
-  - {id: lidar_1, tier: lidar, path: captures/lidar_1, device: "iPhone 15 Pro", app: "Stray Scanner 1.4", rooms: [kitchen, hall], repeat_group: flat_lidar}
-  - {id: lidar_2, tier: lidar, path: captures/lidar_2, device: "iPhone 15 Pro", app: "Stray Scanner 1.4", rooms: [kitchen, hall], repeat_group: flat_lidar}
-  - {id: video_1, tier: video, path: captures/video_1, device: "iPhone 15", app: "Camera", rooms: [kitchen, hall]}
-  - {id: photo_1, tier: photo, path: captures/photo_1, device: "iPhone 15", app: "Camera", rooms: [kitchen, hall]}
+  - {id: bm_lidar_1, tier: lidar, path: captures/lidar_1, device: "iPhone 15 Pro", app: "Stray Scanner 1.4", rooms: [kitchen, hall], repeat_group: flat_lidar}
+  - {id: bm_lidar_2, tier: lidar, path: captures/lidar_2, device: "iPhone 15 Pro", app: "Stray Scanner 1.4", rooms: [kitchen, hall], repeat_group: flat_lidar}
+  - {id: bm_video_1, tier: video, path: captures/video_1, device: "iPhone 15", app: "Camera", rooms: [kitchen, hall]}
+  - {id: bm_photo_1, tier: photo, path: captures/photo_1, device: "iPhone 15", app: "Camera", rooms: [kitchen, hall]}
 incumbent:
   - app: magicplan
     version: "2026.38.0"

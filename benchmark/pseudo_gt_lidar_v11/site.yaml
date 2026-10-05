@@ -6,6 +6,7 @@
 # video_with_ceiling: RGB only; same walk as the reference, so not independent of its trajectory
 site_id: pseudo_gt_lidar_v11
 gt_kind: pseudo_lidar
+purpose: pseudo
 instrument: 'NONE - references are our LiDAR v1.1 plan (runs/e24/lidar_v11/plan.json)
   of single_scan_with_ceiling; excluded rooms with inferred walls: [''r6'']'
 rooms:

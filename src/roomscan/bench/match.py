@@ -24,35 +24,51 @@ def match_rooms(plan: Plan, gt_rooms: list[GtRoom], room_map: dict[str, str]) ->
         C = np.zeros((len(pr), len(gr)))
         for i, r in enumerate(pr):
             for j, g in enumerate(gr):
-                gp = sum(w.length for w in g.walls)
-                C[i, j] = abs(r.perimeter.value - gp) / gp + 0.1 * abs(len(r.wall_ids) - len(g.walls))
+                known = [w.length for w in g.walls if w.length is not None]
+                if len(known) == len(g.walls):
+                    gp = sum(known)
+                    C[i, j] = abs(r.perimeter.value - gp) / gp + 0.1 * abs(len(r.wall_ids) - len(g.walls))
+                elif known and len(r.wall_ids) == len(g.walls):
+                    d = {}
+                    match_walls(plan, r, g, d)                  # partial tape GT: fit of the measured walls only
+                    C[i, j] = d["best_cost_m"] / sum(known)
+                else:
+                    C[i, j] = 1e3
         for i, j in zip(*linear_sum_assignment(C)):
             if C[i, j] < 0.35:
                 out[pr[i].id] = gr[j].id
     return out
 
 
-def match_walls(plan: Plan, room: Room, gt: GtRoom) -> dict[str, str]:
+def match_walls(plan: Plan, room: Room, gt: GtRoom, detail: dict | None = None) -> dict[str, str]:
     """GT wall id -> predicted wall surface id via the cyclic shift / reflection of the predicted
-    wall sequence that minimises total length error. A different wall count is a topology
-    mismatch: no walls are matched (pairing walls of different polygons by order would produce
-    meaningless errors); the caller reports the room as a topology failure."""
+    wall sequence that minimises the length error over the MEASURED GT walls (partial tape GT
+    leaves some lengths None). A different wall count is a topology mismatch: no walls are
+    matched; the caller reports the room as a topology failure. If `detail` is given it receives
+    the best and second-best costs: an alternative within 20 % of the best means the wall
+    correspondence (and therefore the per-wall errors) is ambiguous."""
     surf = {s.id: s for s in plan.surfaces}
     pl = [surf[w].length.value for w in room.wall_ids]
     gl = [w.length for w in gt.walls]
     n, m = len(pl), len(gl)
     if n != m:
         return {}
-    best = None
+    cands = []
     for direction in (1, -1):
         seq = room.wall_ids[::direction]
         lens = pl[::direction]
         for shift in range(n):
-            pairs = [(gt.walls[k].id, seq[(k + shift) % n]) for k in range(min(m, n))]
-            cost = sum(abs(gl[k] - lens[(k + shift) % n]) for k in range(min(m, n)))
-            if best is None or cost < best[0]:
-                best = (cost, pairs)
-    return dict(best[1]) if best else {}
+            pairs = [(gt.walls[k].id, seq[(k + shift) % n]) for k in range(n)]
+            cost = sum(abs(gl[k] - lens[(k + shift) % n]) for k in range(n) if gl[k] is not None)
+            cands.append((cost, pairs))
+    cands.sort(key=lambda c: c[0])
+    best = cands[0]
+    if detail is not None:
+        alt = [c[0] for c in cands[1:] if {p for p in c[1] if gl[[w.id for w in gt.walls].index(p[0])] is not None}
+               != {p for p in best[1] if gl[[w.id for w in gt.walls].index(p[0])] is not None}]
+        detail.update({"best_cost_m": round(best[0], 4), "second_cost_m": round(alt[0], 4) if alt else None,
+                       "ambiguous": bool(alt and alt[0] <= 1.2 * best[0] + 0.01)})
+    return dict(best[1])
 
 
 def match_openings(plan: Plan, room: Room, gt: GtRoom, wall_map: dict[str, str], max_width_err: float = 0.15):
