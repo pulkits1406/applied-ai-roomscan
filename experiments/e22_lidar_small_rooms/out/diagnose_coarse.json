@@ -1,0 +1,223 @@
+{
+ "3": {
+  "n_points": 162667,
+  "region_m2": 6.39,
+  "yaw_deg": 28.2,
+  "frac_points_above_2m": 0.354,
+  "frac_vertical_above_1.9": 0.231,
+  "region_u_range": [
+   -0.7,
+   2.21
+  ],
+  "region_v_range": [
+   -0.63,
+   2.09
+  ],
+  "peaks_u+": [
+   {
+    "coord": -0.724,
+    "n": 18438,
+    "extent": 1.75,
+    "top": 1.99,
+    "accepted": false
+   },
+   {
+    "coord": -0.464,
+    "n": 1663,
+    "extent": 1.12,
+    "top": 2.46,
+    "accepted": false
+   }
+  ],
+  "peaks_u-": [
+   {
+    "coord": 1.442,
+    "n": 893,
+    "extent": 0.31,
+    "top": 1.16,
+    "accepted": false
+   },
+   {
+    "coord": 2.252,
+    "n": 29595,
+    "extent": 2.65,
+    "top": 3.0,
+    "accepted": true
+   }
+  ],
+  "peaks_v+": [
+   {
+    "coord": -1.151,
+    "n": 2332,
+    "extent": 1.45,
+    "top": 2.97,
+    "accepted": true
+   },
+   {
+    "coord": -1.071,
+    "n": 393,
+    "extent": 2.23,
+    "top": 2.77,
+    "accepted": true
+   },
+   {
+    "coord": -0.981,
+    "n": 58,
+    "extent": 0.33,
+    "top": 0.61,
+    "accepted": false
+   },
+   {
+    "coord": -0.861,
+    "n": 1314,
+    "extent": 2.66,
+    "top": 3.03,
+    "accepted": true
+   },
+   {
+    "coord": -0.551,
+    "n": 127,
+    "extent": 0.24,
+    "top": 0.83,
+    "accepted": false
+   },
+   {
+    "coord": -0.261,
+    "n": 105,
+    "extent": 0.31,
+    "top": 1.13,
+    "accepted": false
+   },
+   {
+    "coord": 0.369,
+    "n": 79,
+    "extent": 0.05,
+    "top": 0.11,
+    "accepted": false
+   },
+   {
+    "coord": 0.939,
+    "n": 126,
+    "extent": 0.13,
+    "top": 0.91,
+    "accepted": false
+   },
+   {
+    "coord": 1.269,
+    "n": 82,
+    "extent": 0.59,
+    "top": 0.83,
+    "accepted": false
+   },
+   {
+    "coord": 1.339,
+    "n": 176,
+    "extent": 0.68,
+    "top": 0.75,
+    "accepted": false
+   },
+   {
+    "coord": 1.649,
+    "n": 259,
+    "extent": 1.52,
+    "top": 1.69,
+    "accepted": false
+   }
+  ],
+  "peaks_v-": [
+   {
+    "coord": 1.959,
+    "n": 10016,
+    "extent": 2.62,
+    "top": 2.96,
+    "accepted": true
+   },
+   {
+    "coord": 2.069,
+    "n": 4316,
+    "extent": 2.87,
+    "top": 3.04,
+    "accepted": true
+   }
+  ]
+ },
+ "6": {
+  "n_points": 39493,
+  "region_m2": 1.3,
+  "yaw_deg": 27.2,
+  "frac_points_above_2m": 0.306,
+  "frac_vertical_above_1.9": 0.174,
+  "region_u_range": [
+   5.4,
+   6.36
+  ],
+  "region_v_range": [
+   3.25,
+   4.72
+  ],
+  "peaks_u+": [
+   {
+    "coord": 5.27,
+    "n": 1566,
+    "extent": 0.82,
+    "top": 1.02,
+    "accepted": false
+   },
+   {
+    "coord": 5.37,
+    "n": 1641,
+    "extent": 0.52,
+    "top": 2.56,
+    "accepted": false
+   },
+   {
+    "coord": 6.27,
+    "n": 320,
+    "extent": 1.73,
+    "top": 2.08,
+    "accepted": true
+   }
+  ],
+  "peaks_u-": [
+   {
+    "coord": 6.327,
+    "n": 7033,
+    "extent": 2.24,
+    "top": 2.43,
+    "accepted": true
+   },
+   {
+    "coord": 6.397,
+    "n": 3957,
+    "extent": 1.12,
+    "top": 2.46,
+    "accepted": false
+   }
+  ],
+  "peaks_v+": [
+   {
+    "coord": 4.1,
+    "n": 498,
+    "extent": 1.16,
+    "top": 1.31,
+    "accepted": false
+   }
+  ],
+  "peaks_v-": [
+   {
+    "coord": 4.769,
+    "n": 6503,
+    "extent": 1.9,
+    "top": 2.1,
+    "accepted": true
+   },
+   {
+    "coord": 4.929,
+    "n": 565,
+    "extent": 1.34,
+    "top": 2.45,
+    "accepted": true
+   }
+  ]
+ }
+}

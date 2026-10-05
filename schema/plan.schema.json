@@ -477,6 +477,12 @@
      "default": null,
      "description": "1-sigma uncertainty of this room's placement in the stitched plan",
      "title": "Placement Sigma M"
+    },
+    "placed": {
+     "default": true,
+     "description": "False when the room could not be placed in a common frame (e.g. photo folders not stitched): its polygon is in the room's own frame, laid out for display only, and its position carries no information",
+     "title": "Placed",
+     "type": "boolean"
     }
    },
    "required": [

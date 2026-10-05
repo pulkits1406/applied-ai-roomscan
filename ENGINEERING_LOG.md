@@ -585,3 +585,52 @@ capture, stitched LiDAR plan, openings are PARTIAL/EXPLORING; GT lives in `site.
 ignored intermediates (e02 PLY → e10 labels → e12), the prioritised next-work queue, and a
 do-not-repeat list. Reproduction gaps recorded there: `cache/e20/.venv` has no setup recipe;
 MapAnything/LightGlue live in isolated venvs outside `uv.lock`; weights download on first use.
+
+---
+
+## Phase 4 (2026-10-05): from experiments to a three-tier product path
+
+User priorities for this phase: (1) LiDAR robustness incl. the two dropped rooms, (2) a real photo
+frontend, (3) a real video frontend, (4) one shared representation/evaluator/render, (5)
+reproducibility fixed as part of the implementation. Still no iPhone / developer account.
+
+### Reproducibility recipes (subagent, commit 244f7e5) [FACT]
+`envs/{mapanything,video}/requirements.txt` (pinned freezes of the e13/e20 venvs) and
+`scripts/setup_envs.sh` rebuild both isolated envs under `.envs/`; verified from scratch (39 s /
+1.5 GB, 33 s / 845 MB with a warm uv cache; smoke imports pass, MPS available). `envs/weights.yaml`
++ `scripts/fetch_weights.py --check` find all 8 pretrained weights offline with sha256 checks.
+`experiments/DEPENDENCIES.md` maps every experiment's inputs and producers;
+`scripts/prepare_intermediates.sh` regenerates ignored intermediates in order (dry-run verified,
+real steps not re-executed). [FACT] `import pycolmap, torch` in one process aborts (OMP Error #15)
+in either order → subprocess isolation stays; `roomscan.envs.python_for()` resolves interpreters.
+Unpinnable: DINOv2 hub code (pinned to commit `7764ea0f` by content match), ALIKED URL (sha256 only).
+
+### e22 — LiDAR regions 2 and 6 [MEASURED, GT-free] (`experiments/e22_lidar_small_rooms/README.md`)
+**Hypotheses considered:** insufficient upper-wall evidence, thresholds, segmentation, filtering,
+partial observations, scene effects. **Finding:** two general causes plus one fragility.
+1. *Inter-visit misregistration beyond ICP range* (region 2): two visits 22 cm apart along one
+   axis (u-faces agree to 1 cm, both v-faces offset +22/+23 cm), one seeing only < 1.52 m and the
+   other only 1.3–2.29 m. ICP's 5 cm radius cannot bridge it; merged unaligned, every wall becomes
+   two half-height faces that each fail the extent test. Face agreement over all rooms: raw visit
+   disagreement 30–160 mm — larger than e03's 28 mm revisit median suggested.
+2. *Missing evidence* (region 6): one wall never observed above 1.31 m in any visit.
+3. *Knife-edge topology test*: with better registration, room 3's main wall failed by 1 cm of
+   p98 height (1.99 vs 2.00 m).
+**Fix tested on all rooms** (production code, e18 halves protocol): verified re-registration
+everywhere recovers room 2 but loses room 3 and drops within-gate walls 65 → 50 %; inferring
+missing sides everywhere recovers 2 and 6 but grows correct rooms (room 7 +1.9 m²). **Trade-off
+recorded.** [DECISION-PROV] LiDAR **v1.1**: per-room escalation ladder applied only when topology
+fails (v1.0 → re-registered visits → inferred sides), each step flagged; inferred faces σ 10 cm
+with `status: inferred`, topology-only faces σ 3 cm (v1.0 gave them 7 mm — overconfident).
+[MEASURED] 7/7 non-empty regions → rooms (was 5/7), doorways 2 → 4; rooms that already worked are
+unchanged; `--no-ladder` reproduces v1.0 geometry exactly. Production-code repeatability (e18
+protocol): v1.0 65 % walls / 50 % ceilings within gate vs e18 experiment-code V6 73 % / 75 % —
+the production numbers are the ones to quote (difference: half construction; room 3's bimodal
+ceiling flips 104 mm between halves).
+
+### Shared plan assembly (`src/roomscan/assemble.py`)
+Every tier now reduces to the same inputs (room polygon, per-face σ and observed/inferred status,
+relative scale σ, ceiling ± σ, openings); intervals of lengths, areas and perimeter come from a
+finite-difference Jacobian w.r.t. face offsets plus the scale term (reported as `shared:scale`).
+Schema change (additive, justified by the photo tier): `Room.placed` (False = polygon in the room's
+own frame, position carries no information).

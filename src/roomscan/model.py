@@ -90,6 +90,9 @@ class Room(BaseModel):
     wall_ids: list[str]
     opening_ids: list[str] = Field(default_factory=list)
     placement_sigma_m: Optional[float] = Field(None, description="1-sigma uncertainty of this room's placement in the stitched plan")
+    placed: bool = Field(True, description=(
+        "False when the room could not be placed in a common frame (e.g. photo folders not stitched): its polygon is in the "
+        "room's own frame, laid out for display only, and its position carries no information"))
 
 
 class Adjacency(BaseModel):

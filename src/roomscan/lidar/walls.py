@@ -11,12 +11,26 @@ from dataclasses import dataclass
 
 import numpy as np
 from scipy import ndimage as ndi
+from scipy.signal import find_peaks
 
 from roomscan import geometry as G
 
 BAND_LOW = 0.9          # m above floor; below this, furniture dominates wall faces
 CLOSE_MIN_SUPPORT = 60  # points for a close-range wall position to be used
 WIN = 0.05              # m, half-width of the band around a wall line used for its position
+INFER_REACH = 0.5       # m; a side whose free space ends without an accepted face within this is closed by inference
+
+
+@dataclass(frozen=True)
+class Rules:
+    """Wall-existence (topology) rules. Defaults reproduce e18 V6 / v1.0 exactly."""
+    face_window: float = 0.02   # m, half-width around a density peak for its vertical extent/top tests
+    min_extent: float = 1.2     # m, vertical span of a face (p95 - p5 of heights)
+    min_top: float = 2.0        # m above floor (p98 of heights)
+    infer_missing: bool = False # close sides with no accepted face at the free-space boundary
+
+
+V1_0 = Rules()
 
 
 @dataclass
@@ -24,16 +38,51 @@ class Walls:
     yaw: float                 # room Manhattan yaw (world x,z -> room u,v via G._rot)
     poly_uv: np.ndarray        # rectilinear polygon in room frame, CCW
     support: list[int]         # points used per edge
-    source: list[str]          # "close" | "all" | "unmeasured" per edge
+    source: list[str]          # "close" | "all" | "unmeasured" | "inferred" per edge
 
 
-def signed_lines(UV, NUV, H, axis):
+def face_lines(UV, NUV, H, axis, rules: Rules):
+    """geometry.wall_lines with a configurable test window and thresholds (G.wall_lines is the v0
+    rule and stays unchanged): density peaks of axis-facing points whose supporting points span
+    rules.min_extent vertically and reach rules.min_top."""
+    m = np.abs(NUV[:, axis]) > 0.85
+    x = UV[m, axis]
+    if len(x) < 50:
+        return []
+    bins = np.arange(x.min() - 0.05, x.max() + 0.06, 0.01)
+    hist, edges = np.histogram(x, bins=bins)
+    sm = ndi.gaussian_filter1d(hist.astype(float), 1.0)
+    peaks, _ = find_peaks(sm, height=max(8.0, 0.02 * sm.max()), distance=6)
+    out = []
+    for p in peaks:
+        c = edges[p] + 0.005
+        sel = np.abs(x - c) < rules.face_window
+        h = H[m][sel]
+        if h.size and np.percentile(h, 95) - np.percentile(h, 5) >= rules.min_extent and np.percentile(h, 98) >= rules.min_top:
+            out.append(float(np.mean(x[np.abs(x - c) < 0.02])))
+    return out
+
+
+def signed_lines(UV, NUV, H, axis, rules: Rules = V1_0):
     """Wall-face candidates perpendicular to axis, split by the side they face."""
     out = []
     for sign in (+1, -1):
         m = sign * NUV[:, axis] > 0.85
         if m.sum() >= 50:
-            out += [(c, sign) for c in G.wall_lines(UV[m], NUV[m], H[m], axis)[0]]
+            lines = G.wall_lines(UV[m], NUV[m], H[m], axis)[0] if rules == V1_0 else face_lines(UV[m], NUV[m], H[m], axis, rules)
+            out += [(c, sign) for c in lines]
+    return out
+
+
+def inferred_lines(lines, region_uv, axis):
+    """Free-space boundary lines for sides of the room where no face was accepted: the face that
+    bounds the room on its low side faces +axis, on its high side -axis."""
+    lo, hi = region_uv[:, axis].min() - G.GRID / 2, region_uv[:, axis].max() + G.GRID / 2
+    out = []
+    if not any(s > 0 and lo - INFER_REACH <= c <= lo + INFER_REACH for c, s in lines):
+        out.append((float(lo), +1))
+    if not any(s < 0 and hi - INFER_REACH <= c <= hi + INFER_REACH for c, s in lines):
+        out.append((float(hi), -1))
     return out
 
 
@@ -107,13 +156,19 @@ def edge_position(poly, k, UV, NUV, H, top):
     return (float(np.median(UV[m, ax])) if m.sum() >= 30 else None), int(m.sum())
 
 
-def extract(all_P, all_N, close_P, close_N, floor_y, ceil_h, region_uv, other_uv) -> Walls | None:
+def extract(all_P, all_N, close_P, close_N, floor_y, ceil_h, region_uv, other_uv, rules: Rules = V1_0) -> Walls | None:
     yaw = G.manhattan_yaw(all_N)
     Rm = G._rot(yaw)
     UV, NUV, H = all_P[:, [0, 2]] @ Rm.T, all_N[:, [0, 2]] @ Rm.T, all_P[:, 1] - floor_y
-    lu, lv = signed_lines(UV, NUV, H, 0), signed_lines(UV, NUV, H, 1)
+    lu, lv = signed_lines(UV, NUV, H, 0, rules), signed_lines(UV, NUV, H, 1, rules)
+    ruv = region_uv @ Rm.T
+    inferred = set()
+    if rules.infer_missing and len(ruv):
+        iu, iv = inferred_lines(lu, ruv, 0), inferred_lines(lv, ruv, 1)
+        inferred = {(0, round(c, 4)) for c, _ in iu} | {(1, round(c, 4)) for c, _ in iv}
+        lu, lv = lu + iu, lv + iv
     struct = (np.abs(all_N[:, 1]) < 0.3) & (H > G.H_STRUCT)
-    poly = polygon(region_uv @ Rm.T, np.array([c for c, _ in lu]), np.array([c for c, _ in lv]),
+    poly = polygon(ruv, np.array([c for c, _ in lu]), np.array([c for c, _ in lv]),
                    UV[struct], NUV[struct], other_uv @ Rm.T)
     if poly is None or len(poly) < 4:
         return None
@@ -127,8 +182,9 @@ def extract(all_P, all_N, close_P, close_N, floor_y, ceil_h, region_uv, other_uv
             source = "close"
         else:
             c, s = edge_position(poly, k, UV, NUV, H, top)
-            source = "all" if c is not None else "unmeasured"
-            c = poly[k][edge_axis(poly[k], poly[(k + 1) % n])] if c is None else c
+            ax = edge_axis(poly[k], poly[(k + 1) % n])
+            source = "all" if c is not None else ("inferred" if (ax, round(float(poly[k][ax]), 4)) in inferred else "unmeasured")
+            c = poly[k][ax] if c is None else c
         ax = edge_axis(poly[k], poly[(k + 1) % n])
         Q[k][ax] = c
         Q[(k + 1) % n][ax] = c

@@ -1,0 +1,1191 @@
+{
+ "label": "GT-free, production code: topology from all data; wall lengths from 2 s chunk halves",
+ "capture": "single_scan_with_ceiling",
+ "sec": 231.7,
+ "summary": {
+  "v1_0": {
+   "rooms_with_polygon": [
+    1,
+    3,
+    4,
+    7,
+    8
+   ],
+   "rooms_failed": {
+    "2": "no_polygon",
+    "6": "no_polygon"
+   },
+   "n_walls": 26,
+   "wall_diff_mm_median": 10.1,
+   "wall_diff_mm_p90": 41.9,
+   "wall_pass_frac": 0.654,
+   "ceiling_pass_frac_1cm": 0.5,
+   "ceiling_diff_mm_median": 14.4
+  },
+  "reg": {
+   "rooms_with_polygon": [
+    1,
+    2,
+    4,
+    7,
+    8
+   ],
+   "rooms_failed": {
+    "3": "no_polygon",
+    "6": "no_polygon"
+   },
+   "n_walls": 30,
+   "wall_diff_mm_median": 10.9,
+   "wall_diff_mm_p90": 36.9,
+   "wall_pass_frac": 0.5,
+   "ceiling_pass_frac_1cm": 1.0,
+   "ceiling_diff_mm_median": 7.6
+  },
+  "rules": {
+   "rooms_with_polygon": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8
+   ],
+   "rooms_failed": {},
+   "n_walls": 38,
+   "wall_diff_mm_median": 9.2,
+   "wall_diff_mm_p90": 43.9,
+   "wall_pass_frac": 0.658,
+   "ceiling_pass_frac_1cm": 0.6,
+   "ceiling_diff_mm_median": 7.4
+  },
+  "reg_rules": {
+   "rooms_with_polygon": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    8
+   ],
+   "rooms_failed": {},
+   "n_walls": 42,
+   "wall_diff_mm_median": 10.0,
+   "wall_diff_mm_p90": 40.3,
+   "wall_pass_frac": 0.524,
+   "ceiling_pass_frac_1cm": 0.8,
+   "ceiling_diff_mm_median": 7.4
+  }
+ },
+ "rooms": {
+  "v1_0": {
+   "1": {
+    "status": "ok",
+    "n_walls": 6,
+    "sources": [
+     "close",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 32.482,
+    "ceiling_m": 2.5751,
+    "lengths_m": [
+     1.3991,
+     3.2451,
+     2.8672,
+     8.6779,
+     4.2664,
+     5.4327
+    ],
+    "wall_diffs_mm": [
+     32.5,
+     3.9,
+     10.2,
+     13.8,
+     42.7,
+     9.8
+    ],
+    "wall_pass": [
+     false,
+     true,
+     true,
+     true,
+     false,
+     true
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 5.6
+   },
+   "2": {
+    "status": "no_polygon"
+   },
+   "3": {
+    "status": "ok",
+    "n_walls": 4,
+    "sources": [
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 8.928,
+    "ceiling_m": 2.9605,
+    "lengths_m": [
+     3.0011,
+     2.9749,
+     3.0011,
+     2.9749
+    ],
+    "wall_diffs_mm": [
+     11.2,
+     3.3,
+     11.2,
+     3.3
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 103.8
+   },
+   "4": {
+    "status": "ok",
+    "n_walls": 4,
+    "sources": [
+     "unmeasured",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 0.91,
+    "ceiling_m": null,
+    "lengths_m": [
+     0.9659,
+     0.9424,
+     0.9659,
+     0.9424
+    ],
+    "wall_diffs_mm": [
+     10.3,
+     41.0,
+     10.3,
+     41.0
+    ],
+    "wall_pass": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "measured_wall": [
+     false,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": null
+   },
+   "6": {
+    "status": "no_polygon"
+   },
+   "7": {
+    "status": "ok",
+    "n_walls": 8,
+    "sources": [
+     "close",
+     "close",
+     "all",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 5.877,
+    "ceiling_m": 2.2301,
+    "lengths_m": [
+     2.5581,
+     0.7925,
+     0.129,
+     0.5501,
+     0.1567,
+     0.9373,
+     2.5305,
+     2.2799
+    ],
+    "wall_diffs_mm": [
+     15.4,
+     8.4,
+     2.3,
+     0.1,
+     46.1,
+     5.9,
+     59.2,
+     2.6
+    ],
+    "wall_pass": [
+     false,
+     true,
+     true,
+     true,
+     false,
+     true,
+     false,
+     true
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 21.4
+   },
+   "8": {
+    "status": "ok",
+    "n_walls": 4,
+    "sources": [
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 10.841,
+    "ceiling_m": 3.0795,
+    "lengths_m": [
+     3.4561,
+     3.1368,
+     3.4561,
+     3.1368
+    ],
+    "wall_diffs_mm": [
+     10.0,
+     8.5,
+     10.0,
+     8.5
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 7.4
+   }
+  },
+  "reg": {
+   "1": {
+    "status": "ok",
+    "n_walls": 8,
+    "sources": [
+     "close",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 23.0,
+    "ceiling_m": 2.4264,
+    "lengths_m": [
+     1.3936,
+     3.2567,
+     2.8692,
+     4.3417,
+     2.18,
+     4.3358,
+     2.0828,
+     5.4208
+    ],
+    "wall_diffs_mm": [
+     13.9,
+     2.9,
+     9.6,
+     42.3,
+     11.8,
+     32.9,
+     16.0,
+     6.5
+    ],
+    "wall_pass": [
+     false,
+     true,
+     true,
+     false,
+     false,
+     false,
+     false,
+     true
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 7.8
+   },
+   "2": {
+    "status": "ok",
+    "n_walls": 6,
+    "sources": [
+     "close",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 3.728,
+    "ceiling_m": 2.283,
+    "lengths_m": [
+     1.7177,
+     2.3383,
+     1.2982,
+     0.6883,
+     0.4195,
+     1.65
+    ],
+    "wall_diffs_mm": [
+     23.0,
+     12.6,
+     26.6,
+     3.6,
+     3.7,
+     16.2
+    ],
+    "wall_pass": [
+     false,
+     false,
+     false,
+     true,
+     true,
+     false
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 7.4
+   },
+   "3": {
+    "status": "no_polygon"
+   },
+   "4": {
+    "status": "ok",
+    "n_walls": 4,
+    "sources": [
+     "unmeasured",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 0.917,
+    "ceiling_m": null,
+    "lengths_m": [
+     0.9658,
+     0.95,
+     0.9658,
+     0.95
+    ],
+    "wall_diffs_mm": [
+     1.0,
+     36.9,
+     1.0,
+     36.9
+    ],
+    "wall_pass": [
+     true,
+     false,
+     true,
+     false
+    ],
+    "measured_wall": [
+     false,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": null
+   },
+   "6": {
+    "status": "no_polygon"
+   },
+   "7": {
+    "status": "ok",
+    "n_walls": 8,
+    "sources": [
+     "close",
+     "close",
+     "all",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 5.875,
+    "ceiling_m": 2.3405,
+    "lengths_m": [
+     2.5541,
+     0.7863,
+     0.1312,
+     0.5518,
+     0.1526,
+     0.9416,
+     2.5327,
+     2.2796
+    ],
+    "wall_diffs_mm": [
+     7.3,
+     1.0,
+     0.2,
+     14.4,
+     36.9,
+     18.7,
+     44.1,
+     3.2
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     false,
+     false,
+     false,
+     false,
+     true
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 9.9
+   },
+   "8": {
+    "status": "ok",
+    "n_walls": 4,
+    "sources": [
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 10.841,
+    "ceiling_m": 3.0795,
+    "lengths_m": [
+     3.4561,
+     3.1368,
+     3.4561,
+     3.1368
+    ],
+    "wall_diffs_mm": [
+     10.0,
+     8.5,
+     10.0,
+     8.5
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 7.4
+   }
+  },
+  "rules": {
+   "1": {
+    "status": "ok",
+    "n_walls": 8,
+    "sources": [
+     "unmeasured",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 36.085,
+    "ceiling_m": 2.5738,
+    "lengths_m": [
+     0.8345,
+     1.0912,
+     1.3953,
+     3.2451,
+     2.8672,
+     8.6779,
+     5.0971,
+     4.3415
+    ],
+    "wall_diffs_mm": [
+     6.7,
+     4.1,
+     0.1,
+     3.8,
+     10.2,
+     13.8,
+     3.6,
+     5.9
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "measured_wall": [
+     false,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 5.5
+   },
+   "2": {
+    "status": "ok",
+    "n_walls": 4,
+    "sources": [
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 4.024,
+    "ceiling_m": 2.2857,
+    "lengths_m": [
+     1.7204,
+     2.3391,
+     1.7204,
+     2.3391
+    ],
+    "wall_diffs_mm": [
+     22.0,
+     48.4,
+     22.0,
+     48.4
+    ],
+    "wall_pass": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 5.0
+   },
+   "3": {
+    "status": "ok",
+    "n_walls": 4,
+    "sources": [
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 8.928,
+    "ceiling_m": 2.9605,
+    "lengths_m": [
+     3.0011,
+     2.9749,
+     3.0011,
+     2.9749
+    ],
+    "wall_diffs_mm": [
+     11.2,
+     3.3,
+     11.2,
+     3.3
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 103.8
+   },
+   "4": {
+    "status": "ok",
+    "n_walls": 6,
+    "sources": [
+     "inferred",
+     "close",
+     "all",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 1.594,
+    "ceiling_m": 2.3539,
+    "lengths_m": [
+     1.1088,
+     0.657,
+     0.1602,
+     0.9122,
+     0.9486,
+     1.5692
+    ],
+    "wall_diffs_mm": [
+     8.5,
+     4.0,
+     31.1,
+     38.0,
+     22.6,
+     42.0
+    ],
+    "wall_pass": [
+     true,
+     true,
+     false,
+     false,
+     false,
+     false
+    ],
+    "measured_wall": [
+     false,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": null
+   },
+   "6": {
+    "status": "ok",
+    "n_walls": 4,
+    "sources": [
+     "inferred",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 1.47,
+    "ceiling_m": 2.4483,
+    "lengths_m": [
+     0.9564,
+     1.5368,
+     0.9564,
+     1.5368
+    ],
+    "wall_diffs_mm": [
+     40.4,
+     0.0,
+     40.4,
+     0.0
+    ],
+    "wall_pass": [
+     false,
+     true,
+     false,
+     true
+    ],
+    "measured_wall": [
+     false,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": null
+   },
+   "7": {
+    "status": "ok",
+    "n_walls": 8,
+    "sources": [
+     "unmeasured",
+     "unmeasured",
+     "inferred",
+     "all",
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 7.756,
+    "ceiling_m": 2.2315,
+    "lengths_m": [
+     0.264,
+     0.6141,
+     2.5731,
+     1.954,
+     0.3067,
+     0.9383,
+     2.5305,
+     2.2782
+    ],
+    "wall_diffs_mm": [
+     10.4,
+     0.0,
+     0.0,
+     2.1,
+     48.7,
+     5.5,
+     59.1,
+     3.4
+    ],
+    "wall_pass": [
+     false,
+     true,
+     true,
+     true,
+     false,
+     true,
+     false,
+     true
+    ],
+    "measured_wall": [
+     false,
+     false,
+     false,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 22.2
+   },
+   "8": {
+    "status": "ok",
+    "n_walls": 4,
+    "sources": [
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 10.841,
+    "ceiling_m": 3.0795,
+    "lengths_m": [
+     3.4561,
+     3.1368,
+     3.4561,
+     3.1368
+    ],
+    "wall_diffs_mm": [
+     10.0,
+     8.5,
+     10.0,
+     8.5
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 7.4
+   }
+  },
+  "reg_rules": {
+   "1": {
+    "status": "ok",
+    "n_walls": 8,
+    "sources": [
+     "unmeasured",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 36.521,
+    "ceiling_m": 2.4263,
+    "lengths_m": [
+     0.831,
+     0.9597,
+     1.3916,
+     3.2567,
+     2.8689,
+     8.7512,
+     5.0915,
+     4.5348
+    ],
+    "wall_diffs_mm": [
+     24.0,
+     2.0,
+     26.3,
+     2.9,
+     9.5,
+     5.0,
+     7.2,
+     10.0
+    ],
+    "wall_pass": [
+     false,
+     true,
+     false,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "measured_wall": [
+     false,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 5.6
+   },
+   "2": {
+    "status": "ok",
+    "n_walls": 6,
+    "sources": [
+     "close",
+     "close",
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 3.728,
+    "ceiling_m": 2.283,
+    "lengths_m": [
+     1.7177,
+     2.3383,
+     1.2982,
+     0.6883,
+     0.4195,
+     1.65
+    ],
+    "wall_diffs_mm": [
+     23.0,
+     12.6,
+     26.6,
+     3.6,
+     3.7,
+     16.2
+    ],
+    "wall_pass": [
+     false,
+     false,
+     false,
+     true,
+     true,
+     false
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 7.4
+   },
+   "3": {
+    "status": "ok",
+    "n_walls": 4,
+    "sources": [
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 8.789,
+    "ceiling_m": 3.0652,
+    "lengths_m": [
+     2.9994,
+     2.9303,
+     2.9994,
+     2.9303
+    ],
+    "wall_diffs_mm": [
+     33.7,
+     54.1,
+     33.7,
+     54.1
+    ],
+    "wall_pass": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 111.4
+   },
+   "4": {
+    "status": "ok",
+    "n_walls": 6,
+    "sources": [
+     "inferred",
+     "close",
+     "all",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 1.612,
+    "ceiling_m": 2.3539,
+    "lengths_m": [
+     1.1022,
+     0.6497,
+     0.1278,
+     0.9194,
+     0.9745,
+     1.5691
+    ],
+    "wall_diffs_mm": [
+     10.4,
+     40.7,
+     5.6,
+     3.5,
+     4.7,
+     37.2
+    ],
+    "wall_pass": [
+     false,
+     false,
+     true,
+     true,
+     true,
+     false
+    ],
+    "measured_wall": [
+     false,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": null
+   },
+   "6": {
+    "status": "ok",
+    "n_walls": 6,
+    "sources": [
+     "inferred",
+     "close",
+     "unmeasured",
+     "all",
+     "close",
+     "close"
+    ],
+    "area_m2": 1.478,
+    "ceiling_m": 2.4479,
+    "lengths_m": [
+     0.9549,
+     1.7015,
+     0.0588,
+     0.1639,
+     0.8962,
+     1.5376
+    ],
+    "wall_diffs_mm": [
+     26.8,
+     0.0,
+     26.6,
+     0.2,
+     0.2,
+     0.2
+    ],
+    "wall_pass": [
+     false,
+     true,
+     false,
+     true,
+     true,
+     true
+    ],
+    "measured_wall": [
+     false,
+     true,
+     false,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": null
+   },
+   "7": {
+    "status": "ok",
+    "n_walls": 8,
+    "sources": [
+     "unmeasured",
+     "unmeasured",
+     "inferred",
+     "all",
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 7.761,
+    "ceiling_m": 2.3413,
+    "lengths_m": [
+     0.2609,
+     0.6151,
+     2.5752,
+     1.9512,
+     0.3034,
+     0.9428,
+     2.5327,
+     2.279
+    ],
+    "wall_diffs_mm": [
+     8.9,
+     0.0,
+     21.8,
+     17.3,
+     56.9,
+     15.3,
+     44.0,
+     2.0
+    ],
+    "wall_pass": [
+     true,
+     true,
+     false,
+     false,
+     false,
+     false,
+     false,
+     true
+    ],
+    "measured_wall": [
+     false,
+     false,
+     false,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 5.4
+   },
+   "8": {
+    "status": "ok",
+    "n_walls": 4,
+    "sources": [
+     "close",
+     "close",
+     "close",
+     "close"
+    ],
+    "area_m2": 10.841,
+    "ceiling_m": 3.0795,
+    "lengths_m": [
+     3.4561,
+     3.1368,
+     3.4561,
+     3.1368
+    ],
+    "wall_diffs_mm": [
+     10.0,
+     8.5,
+     10.0,
+     8.5
+    ],
+    "wall_pass": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "measured_wall": [
+     true,
+     true,
+     true,
+     true
+    ],
+    "ceiling_diff_mm": 7.4
+   }
+  }
+ }
+}

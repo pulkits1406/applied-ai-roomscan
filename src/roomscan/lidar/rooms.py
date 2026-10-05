@@ -14,7 +14,7 @@ import open3d as o3d
 from scipy import ndimage as ndi
 
 from roomscan import geometry as G
-from roomscan.lidar import fusion
+from roomscan.lidar import fusion, register
 from roomscan.stray import StrayCapture
 
 reg = o3d.pipelines.registration
@@ -70,29 +70,46 @@ def _crop(pc, mask, seg):
     return pc.select_by_index(np.nonzero(mask[ij[:, 0], ij[:, 1]])[0])
 
 
-def room_cloud(c: Capture, label: int, spans=None, margin_m=0.5) -> RoomCloud | None:
+def _icp(pa, ref):
+    r = reg.registration_icp(pa, ref, 0.05, np.eye(4), reg.TransformationEstimationPointToPlane())
+    r = reg.registration_icp(pa, ref, 0.02, r.transformation, reg.TransformationEstimationPointToPlane())
+    ok = r.fitness > ALIGN_MIN_FITNESS and r.inlier_rmse < 0.025 and np.linalg.norm(r.transformation[:3, 3]) < 0.3
+    return (r.transformation if ok else np.eye(4)), {"aligned": bool(ok), "fitness": round(r.fitness, 3),
+                                                     "shift_mm": round(1000 * float(np.linalg.norm(r.transformation[:3, 3])), 1)}
+
+
+def room_cloud(c: Capture, label: int, spans=None, margin_m=0.5, registration: str = "icp") -> RoomCloud | None:
+    """registration: "icp" (v1.0: point-to-plane ICP from the raw poses) or "coarse" (register.align:
+    face-profile hypotheses verified by surface overlap, then ICP)."""
     spans = visits(c, label) if spans is None else spans
     if not spans:
         return None
     t = c.cap.timestamps
-    near = ndi.binary_dilation(c.seg.labels == label, iterations=int(margin_m / G.GRID))
     order = sorted(spans, key=lambda ab: t[ab[1]] - t[ab[0]], reverse=True)
-    per_visit = []
-    for a, b in order:
-        rows = range(a, b + 1, ROOM_STEP)
-        per_visit.append((_crop(fusion.fuse(c.cap, c.T, rows, fusion.ALL), near, c.seg),
-                          _crop(fusion.fuse(c.cap, c.T, rows, fusion.CLOSE), near, c.seg)))
+    rc = room_cloud_rows(c, label, [list(range(a, b + 1, ROOM_STEP)) for a, b in order], margin_m, registration)
+    rc.visits = spans
+    return rc
+
+
+def room_cloud_rows(c: Capture, label: int, visit_rows: list[list[int]], margin_m=0.5, registration: str = "icp") -> RoomCloud:
+    """Room cloud from explicit per-visit frame rows; the first visit is the registration reference."""
+    near = ndi.binary_dilation(c.seg.labels == label, iterations=int(margin_m / G.GRID))
+    per_visit = [(_crop(fusion.fuse(c.cap, c.T, rows, fusion.ALL), near, c.seg),
+                  _crop(fusion.fuse(c.cap, c.T, rows, fusion.CLOSE), near, c.seg)) for rows in visit_rows]
     ref = per_visit[0][0]
+    room_yaw = G.manhattan_yaw(np.asarray(ref.normals)) if len(ref.points) else 0.0
     all_pc, close_pc, info = o3d.geometry.PointCloud(ref), o3d.geometry.PointCloud(per_visit[0][1]), []
     for pa, pcl in per_visit[1:]:
-        if len(pa.points) < 500:
+        if registration == "coarse":
+            a = register.align(pa, ref, room_yaw)
+            Tm = a.T
+            info.append({"aligned": a.aligned, "method": a.method, "fitness": round(a.fitness, 3), **a.info})
+        elif len(pa.points) < 500:
             info.append({"aligned": False, "reason": "too_few_points"})
             continue
-        r = reg.registration_icp(pa, ref, 0.05, np.eye(4), reg.TransformationEstimationPointToPlane())
-        r = reg.registration_icp(pa, ref, 0.02, r.transformation, reg.TransformationEstimationPointToPlane())
-        ok = r.fitness > ALIGN_MIN_FITNESS and r.inlier_rmse < 0.025 and np.linalg.norm(r.transformation[:3, 3]) < 0.3
-        Tm = r.transformation if ok else np.eye(4)
-        info.append({"aligned": bool(ok), "fitness": round(r.fitness, 3), "shift_mm": round(1000 * float(np.linalg.norm(r.transformation[:3, 3])), 1)})
+        else:
+            Tm, rec = _icp(pa, ref)
+            info.append(rec)
         all_pc += o3d.geometry.PointCloud(pa).transform(Tm)
         close_pc += o3d.geometry.PointCloud(pcl).transform(Tm)
-    return RoomCloud(label, spans, all_pc.voxel_down_sample(0.02), close_pc.voxel_down_sample(0.02), info)
+    return RoomCloud(label, [], all_pc.voxel_down_sample(0.02), close_pc.voxel_down_sample(0.02), info)

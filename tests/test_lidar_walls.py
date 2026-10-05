@@ -46,3 +46,43 @@ def test_outward_facing_clutter_does_not_move_the_wall():
     w = WL.extract(P, N, P, N, 0.0, H, region, np.zeros((0, 2)))
     assert w is not None and len(w.poly_uv) == 4
     assert np.allclose(dims(w), [W, D], atol=0.002)
+
+
+def _band(P, N, lo, hi):
+    m = (P[:, 1] >= lo) & (P[:, 1] <= hi)
+    return P[m], N[m]
+
+
+def test_missing_wall_is_inferred_not_dropped():
+    """A room whose x = 0 wall was never observed: v1.0 rules give no polygon, inference closes it
+    at the free-space boundary and labels that face 'inferred'."""
+    rng = np.random.default_rng(2)
+    P, N, region = room(rng, clutter=False)
+    keep = ~((P[:, 0] < 0.05) & (N[:, 0] > 0.5))
+    P, N = P[keep], N[keep]
+    assert WL.extract(P, N, P, N, 0.0, H, region, np.zeros((0, 2))) is None
+    w = WL.extract(P, N, P, N, 0.0, H, region, np.zeros((0, 2)), WL.Rules(infer_missing=True))
+    assert w is not None and len(w.poly_uv) == 4 and w.source.count("inferred") == 1
+
+
+def test_visits_with_disjoint_height_bands_are_reregistered():
+    """Two visits of one room, one seeing only 0.2-1.5 m and the other only 1.3-2.4 m, 22 cm apart
+    along z (e22 room 2): ICP cannot fix it; register.align recovers the offset."""
+    import open3d as o3d
+    from roomscan.lidar import register
+
+    rng = np.random.default_rng(3)
+    P, N, _ = room(rng, clutter=False)
+    floor = np.stack([rng.random(20000) * W, np.zeros(20000), rng.random(20000) * D], 1)
+    P, N = np.vstack([P, floor]), np.vstack([N, np.tile([0, 1.0, 0], (20000, 1))])
+
+    def pc(P, N):
+        c = o3d.geometry.PointCloud(o3d.utility.Vector3dVector(P)); c.normals = o3d.utility.Vector3dVector(N)
+        return c
+
+    ref = pc(*_band(P, N, 0.0, 1.5))
+    Pm, Nm = _band(P, N, 1.3, 2.4)
+    moving = pc(Pm + np.array([0.0, 0.0, 0.22]), Nm)
+    a = register.align(moving, ref, 0.0)
+    assert a.aligned
+    assert np.allclose(a.T[[0, 2], 3], [0.0, -0.22], atol=0.015)
