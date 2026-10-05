@@ -1,0 +1,134 @@
+{
+ "r1": {
+  "rel_rot_err_deg_median": 66.5,
+  "rel_rot_err_deg_max": 114.7,
+  "centre_sim3_rmse_m": 1.073,
+  "true_centre_spread_m": 1.904,
+  "true_cam_y": [
+   -0.07,
+   0.04,
+   0.15,
+   0.16,
+   0.02,
+   0.01
+  ],
+  "moge_cam_height": [
+   1.35,
+   0.42,
+   0.77,
+   0.64,
+   0.49,
+   1.42
+  ]
+ },
+ "r3": {
+  "rel_rot_err_deg_median": 43.6,
+  "rel_rot_err_deg_max": 171.8,
+  "centre_sim3_rmse_m": 0.842,
+  "true_centre_spread_m": 0.899,
+  "true_cam_y": [
+   -0.04,
+   -0.08,
+   0.15,
+   0.12,
+   0.07,
+   0.09
+  ],
+  "moge_cam_height": [
+   1.54,
+   1.49,
+   0.83,
+   0.12,
+   0.74,
+   0.88
+  ]
+ },
+ "r4": {
+  "rel_rot_err_deg_median": 63.5,
+  "rel_rot_err_deg_max": 110.5,
+  "centre_sim3_rmse_m": 0.468,
+  "true_centre_spread_m": 0.526,
+  "true_cam_y": [
+   -0.05,
+   -0.06,
+   0.01,
+   0.05,
+   0.06,
+   0.05
+  ],
+  "moge_cam_height": [
+   1.36,
+   1.39,
+   1.45,
+   1.3,
+   0.9,
+   0.36
+  ]
+ },
+ "r6": {
+  "rel_rot_err_deg_median": 4.6,
+  "rel_rot_err_deg_max": 179.8,
+  "centre_sim3_rmse_m": 0.424,
+  "true_centre_spread_m": 0.493,
+  "true_cam_y": [
+   -0.02,
+   -0.05,
+   0.15,
+   0.15,
+   0.17,
+   0.15
+  ],
+  "moge_cam_height": [
+   1.46,
+   1.45,
+   1.77,
+   0.51,
+   2.11,
+   0.84
+  ]
+ },
+ "r7": {
+  "rel_rot_err_deg_median": 2.4,
+  "rel_rot_err_deg_max": 175.2,
+  "centre_sim3_rmse_m": 0.19,
+  "true_centre_spread_m": 0.219,
+  "true_cam_y": [
+   0.16,
+   0.18,
+   0.17,
+   0.17,
+   0.17,
+   0.16
+  ],
+  "moge_cam_height": [
+   1.87,
+   0.94,
+   0.97,
+   0.92,
+   1.47,
+   0.36
+  ]
+ },
+ "r8": {
+  "rel_rot_err_deg_median": 2.6,
+  "rel_rot_err_deg_max": 6.1,
+  "centre_sim3_rmse_m": 0.185,
+  "true_centre_spread_m": 0.797,
+  "true_cam_y": [
+   0.14,
+   0.16,
+   0.18,
+   0.23,
+   0.24,
+   0.22
+  ],
+  "moge_cam_height": [
+   0.44,
+   1.16,
+   0.78,
+   1.2,
+   1.33,
+   0.12
+  ]
+ }
+}

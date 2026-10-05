@@ -18,21 +18,23 @@ def render(plan: Plan, out: str | Path, title: str | None = None):
     for r in plan.rooms:
         P = np.array(r.polygon)
         ax.fill(P[:, 0], P[:, 1], alpha=0.12)
-        Q = np.vstack([P, P[:1]])
-        ax.plot(Q[:, 0], Q[:, 1], "k-", lw=1.4)
         for wid in r.wall_ids:
             s = surf[wid]
             a, b = np.array(s.polygon[0][:2]), np.array(s.polygon[1][:2])
             m, L = 0.5 * (a + b), s.length
+            inferred = L.status == "inferred"
+            ax.plot([a[0], b[0]], [a[1], b[1]], "k--" if inferred else "k-", lw=0.9 if inferred else 1.4)
             if L.value is not None and L.value > 0.3:
                 d = (b - a) / max(np.linalg.norm(b - a), 1e-9)
                 nrm = np.array([-d[1], d[0]])
-                ax.text(*(m + 0.12 * nrm), f"{100 * L.value:.0f}±{100 * (L.interval.hi - L.value):.0f}", fontsize=6, ha="center", va="center",
+                ax.text(*(m + 0.12 * nrm), f"{'~' if inferred else ''}{100 * L.value:.0f}±{100 * (L.interval.hi - L.value):.0f}", fontsize=6, ha="center", va="center",
                         rotation=np.degrees(np.arctan2(d[1], d[0])) % 180 - (180 if np.degrees(np.arctan2(d[1], d[0])) % 180 > 90 else 0))
         c = P.mean(0)
         ch = r.ceiling_height
         ax.text(*c, f"{r.label or r.id}\n{r.floor_area.value:.2f} m²\nh {'—' if ch.value is None else f'{ch.value:.2f}'} m", ha="center", fontsize=8, weight="bold")
     for o in plan.openings:
+        if o.width.value is None:
+            continue
         rooms = [r for r in plan.rooms if r.id in o.room_ids]
         if len(rooms) == 2:
             a, b = (np.array(r.polygon).mean(0) for r in rooms)
@@ -40,5 +42,10 @@ def render(plan: Plan, out: str | Path, title: str | None = None):
             ax.text(*(0.5 * (a + b)), f"{o.kind} {100 * o.width.value:.0f} cm", fontsize=6, color="tab:green", ha="center")
     ax.set_aspect("equal"); ax.axis("off")
     cal = any(m.interval and m.interval.calibrated for r in plan.rooms for m in (r.floor_area,))
-    ax.set_title((title or f"{plan.capture.tier} plan") + ("" if cal else "\n(dimensions in cm; intervals UNCALIBRATED)"), fontsize=10)
+    notes = ["dimensions in cm, 90 % intervals" + ("" if cal else " UNCALIBRATED"), "dashed/~ = inferred wall"]
+    if any(not r.placed for r in plan.rooms):
+        notes.append("rooms NOT placed: side-by-side layout for display only")
+    if not plan.rooms:
+        notes.append("no rooms: " + "; ".join(f.split(":")[0] for f in plan.quality_flags[:3]))
+    ax.set_title((title or f"{plan.capture.tier} plan") + "\n(" + "; ".join(notes) + ")", fontsize=9)
     fig.tight_layout(); fig.savefig(out, dpi=130); plt.close(fig)

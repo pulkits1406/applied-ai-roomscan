@@ -7,7 +7,7 @@ import time
 from pathlib import Path
 
 from roomscan.lidar.build import build
-from roomscan.lidar.render import render
+from roomscan.render import render
 
 
 def main():

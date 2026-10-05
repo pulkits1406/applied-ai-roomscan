@@ -21,6 +21,8 @@ dependencies = [
 [project.scripts]
 roomscan-bench = "roomscan.bench.evaluate:main"
 roomscan-lidar = "roomscan.lidar.cli:main"
+roomscan-photo = "roomscan.photo.cli:main"
+roomscan-video = "roomscan.video.cli:main"
 
 [dependency-groups]
 dev = [

@@ -1,8 +1,10 @@
 """Score predicted plans against a benchmark site; one command for the whole site.
 
-    uv run roomscan-bench benchmark/<site> --run runs/<run_id>
+    uv run roomscan-bench benchmark/<site> --run runs/<run_id> [--execute [--force]]
 
-expects runs/<run_id>/<capture_id>/plan.json for each capture in site.yaml and writes
+With --execute, every capture in site.yaml is first run through its tier's production pipeline
+(roomscan.<tier>.cli, one subprocess per capture: raw input -> runs/<run_id>/<capture_id>/plan.json);
+existing plans are reused unless --force. Without it, the plans must already exist. Writes
 runs/<run_id>/eval/<site_id>.json and .md. Gate thresholds are those of the assessment.
 Results from a site with gt_kind == "pseudo_lidar" are labelled PSEUDO-GT everywhere.
 """
@@ -10,6 +12,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
+import sys
+import time
 from itertools import combinations
 from pathlib import Path
 
@@ -78,7 +83,8 @@ def evaluate_capture(site: Site, cap, plan: Plan) -> dict:
     gt_adj = {frozenset((g.id, o.connects)) for g in site.rooms for o in g.openings if o.connects in {r.id for r in site.rooms}}
     covered_rooms = set(rmap.values())
     gt_adj = {e for e in gt_adj if e <= covered_rooms}
-    polys = [Polygon(r.polygon) for r in plan.rooms]
+    placed = [r for r in plan.rooms if r.placed]
+    polys = [Polygon(r.polygon) for r in placed]
     overlap = max([a.intersection(b).area for a, b in combinations(polys, 2)], default=0.0)
     out = {"capture": cap.id, "tier": cap.tier, "rooms_matched": len(rmap), "rooms_expected": len(cap.rooms or site.rooms),
            "walls": walls, "ceilings": ceilings, "areas": areas, "openings": opening_rows,
@@ -86,7 +92,7 @@ def evaluate_capture(site: Site, cap, plan: Plan) -> dict:
            "topology_mismatch": topology_mismatch,
            "opening_counts": {"gt": gt_open, "hits": hits, "missed": misses, "phantom": phantoms},
            "adjacency": {"correct": pred_adj == gt_adj, "missing": [sorted(e) for e in gt_adj - pred_adj], "extra": [sorted(map(str, e)) for e in pred_adj - gt_adj]},
-           "max_room_overlap_m2": overlap}
+           "max_room_overlap_m2": overlap, "rooms_unplaced": len(plan.rooms) - len(placed), "quality_flags": plan.quality_flags}
     if areas:
         gt_fp = sum(a["gt"] for a in areas); pr_fp = sum(a["pred"] for a in areas)
         out["footprint_rel_err"] = pr_fp / gt_fp - 1
@@ -99,7 +105,16 @@ def gates(site: Site, results: list[dict]) -> dict:
         t = r["tier"]; key = r["capture"]
         werr = [abs(w["rel_err"]) for w in r["walls"] if w.get("pred") is not None]
         n_unmatched = sum(1 for w in r["walls"] if w.get("pred") is None)
-        row = {"tier": t, "walls_matched": len(werr), "walls_unmatched": n_unmatched, "rooms_topology_mismatch": len(r.get("topology_mismatch", []))}
+        row = {"tier": t, "rooms_matched": f"{r.get('rooms_matched', 0)}/{r.get('rooms_expected', '?')}", "walls_matched": len(werr),
+               "walls_unmatched": n_unmatched, "rooms_topology_mismatch": len(r.get("topology_mismatch", []))}
+        if werr:
+            row["wall_rel_err_median"] = float(np.median(werr))
+        aerr = [abs(a["rel_err"]) for a in r.get("areas", []) if a.get("pred") is not None]
+        if aerr:
+            row["area_rel_err_median"] = float(np.median(aerr))
+        cerr = [abs(c["abs_err"]) for c in r.get("ceilings", []) if c.get("abs_err") is not None]
+        if cerr:
+            row["ceiling_abs_err_median_m"] = float(np.median(cerr))
         if GATES["wall_rel"][t] is not None and (werr or n_unmatched):
             # unmatched GT walls count as failures
             row["walls_within_gate_frac"] = float(np.sum([e <= GATES["wall_rel"][t] for e in werr]) / (len(werr) + n_unmatched))
@@ -109,7 +124,12 @@ def gates(site: Site, results: list[dict]) -> dict:
             if ce: row["ceiling_pass"] = bool(max(ce) <= GATES["ceiling_abs_m"]); row["ceiling_max_abs_err_m"] = float(max(ce))
             row["opening_pass"] = "not_evaluated (no GT openings)" if r["opening_hit_rate"] is None else r["opening_hit_rate"] >= GATES["opening_hit_rate"]
         if t == "photo":
-            row["stitch_pass"] = bool(r["adjacency"]["correct"] and r["max_room_overlap_m2"] < 0.05 and abs(r.get("footprint_rel_err", 1)) <= GATES["footprint_rel_photo"])
+            row["stitch_pass"] = bool(r["adjacency"]["correct"] and r["max_room_overlap_m2"] < 0.05 and not r.get("rooms_unplaced")
+                                      and abs(r.get("footprint_rel_err", 1)) <= GATES["footprint_rel_photo"])
+            if r.get("rooms_unplaced"):
+                row["stitch_fail_reason"] = f"{r['rooms_unplaced']} room(s) not placed"
+        if r.get("missing_prediction"):
+            row["missing_prediction"] = True
         cov = [x["covered"] for k in ("walls", "ceilings", "areas", "openings") for x in r[k] if x.get("covered") is not None]
         if cov: row["interval_coverage"] = float(np.mean(cov)); row["n_intervals"] = len(cov)
         g[key] = row
@@ -176,6 +196,8 @@ def render_md(site: Site, results: list[dict], gate: dict) -> str:
     if site.gt_kind == "pseudo_lidar":
         lines += ["> **PSEUDO-GT.** Reference values come from our own LiDAR reconstruction, not a laser/tape.",
                   "> These numbers measure consistency between tiers, not accuracy. They are not the benchmark.", ""]
+    if site.gt_kind == "synthetic":
+        lines += ["> **SYNTHETIC.** Exact geometry of a rendered capture: a pipeline smoke test, not a benchmark.", ""]
     lines += [f"# Evaluation: {site.site_id} (gt_kind={site.gt_kind})", "", "| capture | tier | gate results |", "|---|---|---|"]
     for k, v in gate.items():
         if k in ("repeatability", "head_to_head"): continue
@@ -187,21 +209,53 @@ def render_md(site: Site, results: list[dict], gate: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
-def run(site_dir: str, run_dir: str) -> dict:
+REPO = Path(__file__).resolve().parents[3]
+
+
+def capture_input(site: Site, cap) -> Path:
+    """Capture path relative to the site directory, else to the repository root."""
+    for base in (site.root, REPO):
+        if base is not None and (Path(base) / cap.path).exists():
+            return Path(base) / cap.path
+    return REPO / cap.path
+
+
+def execute(site: Site, run: Path, force: bool = False) -> dict:
+    """Run each capture through its tier's production CLI in its own process."""
+    log = {}
+    for cap in site.captures:
+        out = run / cap.id
+        src = capture_input(site, cap)
+        if (out / "plan.json").exists() and not force:
+            log[cap.id] = {"status": "reused"}; continue
+        if not src.exists():
+            log[cap.id] = {"status": "input_missing", "path": str(src)}; continue
+        cmd = [sys.executable, "-m", f"roomscan.{cap.tier}.cli", str(src), str(out)]
+        t0 = time.time()
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        log[cap.id] = {"status": "ok" if r.returncode == 0 else "failed", "returncode": r.returncode, "seconds": round(time.time() - t0, 1),
+                       "command": " ".join(cmd[1:]), **({"stderr_tail": r.stderr[-1500:]} if r.returncode else {})}
+        print(f"[execute] {cap.id}: {log[cap.id]['status']} ({log[cap.id]['seconds']} s)", flush=True)
+    return log
+
+
+def run(site_dir: str, run_dir: str, do_execute: bool = False, force: bool = False) -> dict:
     site = load_site(site_dir); run = Path(run_dir)
+    execution = execute(site, run, force) if do_execute else None
     results = []
     for cap in site.captures:
         p = run / cap.id / "plan.json"
         if not p.exists():
             results.append({"capture": cap.id, "tier": cap.tier, "missing_prediction": True, "walls": [], "ceilings": [], "areas": [], "openings": [],
-                            "opening_hit_rate": None, "adjacency": {"correct": False}, "max_room_overlap_m2": 0.0})
+                            "opening_hit_rate": None, "adjacency": {"correct": False}, "max_room_overlap_m2": 0.0, "rooms_matched": 0,
+                            "rooms_expected": len(cap.rooms or site.rooms)})
             continue
         results.append(evaluate_capture(site, cap, Plan.model_validate_json(p.read_text())))
     gate = gates(site, results)
     residuals = calibration_residuals(site, results)
     out = run / "eval"; out.mkdir(parents=True, exist_ok=True)
     report = {"site": site.site_id, "gt_kind": site.gt_kind, "pseudo_gt": site.gt_kind == "pseudo_lidar", "gates": gate, "captures": results,
-              "calibration_residuals": residuals}
+              "calibration_residuals": residuals, "execution": execution}
     (out / f"{site.site_id}.json").write_text(json.dumps(report, indent=1, default=str))
     (out / f"{site.site_id}.md").write_text(render_md(site, results, gate))
     return report
@@ -210,8 +264,10 @@ def run(site_dir: str, run_dir: str) -> dict:
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("site"); ap.add_argument("--run", required=True)
+    ap.add_argument("--execute", action="store_true", help="run each capture through its tier's production pipeline first")
+    ap.add_argument("--force", action="store_true", help="with --execute: re-run captures whose plan.json exists")
     a = ap.parse_args()
-    rep = run(a.site, a.run)
+    rep = run(a.site, a.run, a.execute, a.force)
     print(render_md(load_site(a.site), rep["captures"], rep["gates"]))
 
 

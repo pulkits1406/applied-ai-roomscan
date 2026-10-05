@@ -1,0 +1,397 @@
+{
+ "r1": {
+  "lidar": {
+   "n_walls": 6,
+   "area": 32.48,
+   "lengths": [
+    1.399,
+    2.867,
+    3.245,
+    4.266,
+    5.433,
+    8.678
+   ],
+   "ceiling": 2.575097867586358
+  },
+  "scale_moge_to_m": 1.0432,
+  "photos": [
+   {
+    "photo": 0,
+    "result": "ok",
+    "step": "inferred",
+    "n_walls": 4,
+    "sources": [
+     "close",
+     "inferred",
+     "inferred",
+     "inferred"
+    ],
+    "measured_faces": 1,
+    "extent_m": [
+     1.962,
+     4.255
+    ],
+    "lengths": [
+     1.962,
+     4.255,
+     1.962,
+     4.255
+    ],
+    "ceiling_h": null,
+    "area": 8.35
+   },
+   {
+    "photo": 1,
+    "result": "no_region"
+   },
+   {
+    "photo": 2,
+    "result": "no_region"
+   },
+   {
+    "photo": 3,
+    "result": "no_region"
+   },
+   {
+    "photo": 4,
+    "result": "ok",
+    "step": "inferred",
+    "n_walls": 4,
+    "sources": [
+     "inferred",
+     "unmeasured",
+     "close",
+     "unmeasured"
+    ],
+    "measured_faces": 1,
+    "extent_m": [
+     2.901,
+     2.307
+    ],
+    "lengths": [
+     2.901,
+     2.307,
+     2.901,
+     2.307
+    ],
+    "ceiling_h": null,
+    "area": 6.69
+   },
+   {
+    "photo": 5,
+    "result": "no_region"
+   }
+  ]
+ },
+ "r3": {
+  "lidar": {
+   "n_walls": 4,
+   "area": 8.93,
+   "lengths": [
+    2.975,
+    2.975,
+    3.001,
+    3.001
+   ],
+   "ceiling": 2.9604517093897154
+  },
+  "scale_moge_to_m": 0.9883,
+  "photos": [
+   {
+    "photo": 0,
+    "result": "no_region"
+   },
+   {
+    "photo": 1,
+    "result": "no_region"
+   },
+   {
+    "photo": 2,
+    "result": "no_region"
+   },
+   {
+    "photo": 3,
+    "result": "ok",
+    "step": "inferred",
+    "n_walls": 4,
+    "sources": [
+     "inferred",
+     "inferred",
+     "close",
+     "inferred"
+    ],
+    "measured_faces": 1,
+    "extent_m": [
+     3.739,
+     1.39
+    ],
+    "lengths": [
+     3.739,
+     1.39,
+     3.739,
+     1.39
+    ],
+    "ceiling_h": null,
+    "area": 5.2
+   },
+   {
+    "photo": 4,
+    "result": "no_region"
+   },
+   {
+    "photo": 5,
+    "result": "no_region"
+   }
+  ]
+ },
+ "r4": {
+  "lidar": {
+   "n_walls": 4,
+   "area": 0.91,
+   "lengths": [
+    0.942,
+    0.942,
+    0.966,
+    0.966
+   ],
+   "ceiling": null
+  },
+  "scale_moge_to_m": 1.0317,
+  "photos": [
+   {
+    "photo": 0,
+    "result": "no_polygon"
+   },
+   {
+    "photo": 1,
+    "result": "ok",
+    "step": "inferred",
+    "n_walls": 4,
+    "sources": [
+     "inferred",
+     "inferred",
+     "inferred",
+     "inferred"
+    ],
+    "measured_faces": 0,
+    "extent_m": [
+     3.534,
+     1.392
+    ],
+    "lengths": [
+     3.534,
+     1.392,
+     3.534,
+     1.392
+    ],
+    "ceiling_h": null,
+    "area": 4.92
+   },
+   {
+    "photo": 2,
+    "result": "ok",
+    "step": "inferred",
+    "n_walls": 4,
+    "sources": [
+     "close",
+     "inferred",
+     "inferred",
+     "close"
+    ],
+    "measured_faces": 2,
+    "extent_m": [
+     2.048,
+     4.228
+    ],
+    "lengths": [
+     2.048,
+     4.228,
+     2.048,
+     4.228
+    ],
+    "ceiling_h": 2.409,
+    "area": 8.66
+   },
+   {
+    "photo": 3,
+    "result": "no_region"
+   },
+   {
+    "photo": 4,
+    "result": "no_region"
+   },
+   {
+    "photo": 5,
+    "result": "no_region"
+   }
+  ]
+ },
+ "r6": {
+  "lidar": {
+   "n_walls": 6,
+   "area": 1.48,
+   "lengths": [
+    0.059,
+    0.164,
+    0.896,
+    0.955,
+    1.538,
+    1.701
+   ],
+   "ceiling": 2.447866668789922
+  },
+  "scale_moge_to_m": 1.044,
+  "photos": [
+   {
+    "photo": 0,
+    "result": "ok",
+    "step": "inferred",
+    "n_walls": 4,
+    "sources": [
+     "all",
+     "inferred",
+     "inferred",
+     "close"
+    ],
+    "measured_faces": 2,
+    "extent_m": [
+     2.247,
+     1.757
+    ],
+    "lengths": [
+     2.247,
+     1.757,
+     2.247,
+     1.757
+    ],
+    "ceiling_h": null,
+    "area": 3.95
+   },
+   {
+    "photo": 1,
+    "result": "ok",
+    "step": "inferred",
+    "n_walls": 4,
+    "sources": [
+     "inferred",
+     "inferred",
+     "inferred",
+     "close"
+    ],
+    "measured_faces": 1,
+    "extent_m": [
+     2.239,
+     1.549
+    ],
+    "lengths": [
+     2.239,
+     1.549,
+     2.239,
+     1.549
+    ],
+    "ceiling_h": null,
+    "area": 3.47
+   },
+   {
+    "photo": 2,
+    "result": "no_region"
+   },
+   {
+    "photo": 3,
+    "result": "no_region"
+   },
+   {
+    "photo": 4,
+    "result": "no_region"
+   },
+   {
+    "photo": 5,
+    "result": "no_region"
+   }
+  ]
+ },
+ "r7": {
+  "lidar": {
+   "n_walls": 8,
+   "area": 5.88,
+   "lengths": [
+    0.129,
+    0.157,
+    0.55,
+    0.792,
+    0.937,
+    2.28,
+    2.53,
+    2.558
+   ],
+   "ceiling": 2.230116276804978
+  },
+  "scale_moge_to_m": 1.1037,
+  "photos": [
+   {
+    "photo": 0,
+    "result": "no_region"
+   },
+   {
+    "photo": 1,
+    "result": "no_region"
+   },
+   {
+    "photo": 2,
+    "result": "no_region"
+   },
+   {
+    "photo": 3,
+    "result": "no_region"
+   },
+   {
+    "photo": 4,
+    "result": "no_region"
+   },
+   {
+    "photo": 5,
+    "result": "no_region"
+   }
+  ]
+ },
+ "r8": {
+  "lidar": {
+   "n_walls": 4,
+   "area": 10.84,
+   "lengths": [
+    3.137,
+    3.137,
+    3.456,
+    3.456
+   ],
+   "ceiling": 3.0795138920231295
+  },
+  "scale_moge_to_m": 1.0917,
+  "photos": [
+   {
+    "photo": 0,
+    "result": "no_region"
+   },
+   {
+    "photo": 1,
+    "result": "no_region"
+   },
+   {
+    "photo": 2,
+    "result": "no_region"
+   },
+   {
+    "photo": 3,
+    "result": "no_region"
+   },
+   {
+    "photo": 4,
+    "result": "no_region"
+   },
+   {
+    "photo": 5,
+    "result": "no_region"
+   }
+  ]
+ }
+}

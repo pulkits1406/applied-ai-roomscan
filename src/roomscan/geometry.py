@@ -68,12 +68,15 @@ class Segmentation:
     high_observed: bool
 
 
-def segment_rooms(P: np.ndarray, N: np.ndarray, min_room_m2=1.0) -> Segmentation:
+def segment_rooms(P: np.ndarray, N: np.ndarray, min_room_m2=1.0, pad_m: float = 0.3, pad_high_m: float = 0.0) -> Segmentation:
+    """pad_m / pad_high_m: empty margin below / above the data extent. The morphological closing
+    (0.6 m) treats outside the grid as empty, so with less padding than that the region is eroded
+    near the grid border (e.g. 0.27 m / 0.53 m inset with the v0 defaults, which are kept for v0)."""
     f0 = float(np.percentile(P[:, 1], 2))
     h = P[:, 1] - f0
-    origin = P[:, [0, 2]].min(0) - 0.3
+    origin = P[:, [0, 2]].min(0) - pad_m
     ij = np.floor((P[:, [0, 2]] - origin) / GRID).astype(int)
-    shape = tuple(ij.max(0) + 1)
+    shape = tuple(ij.max(0) + 1 + int(round(pad_high_m / GRID)))
 
     def occ(m, c=2):
         g = np.zeros(shape, np.int32)

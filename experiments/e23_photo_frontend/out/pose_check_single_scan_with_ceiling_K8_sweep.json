@@ -1,0 +1,144 @@
+{
+ "r1": {
+  "rel_rot_err_deg_median": 5.1,
+  "rel_rot_err_deg_max": 92.6,
+  "centre_sim3_rmse_m": 0.918,
+  "true_centre_spread_m": 2.008,
+  "true_cam_y": [
+   0.15,
+   0.15,
+   0.17,
+   0.16,
+   0.13,
+   0.06,
+   0.05,
+   0.02
+  ],
+  "moge_cam_height": [
+   0.6,
+   0.48,
+   0.55,
+   0.84,
+   0.56,
+   1.24,
+   0.78,
+   1.09
+  ]
+ },
+ "r2": {
+  "rel_rot_err_deg_median": 92.3,
+  "rel_rot_err_deg_max": 93.5,
+  "centre_sim3_rmse_m": 0.087,
+  "true_centre_spread_m": 0.176,
+  "true_cam_y": [
+   -0.1,
+   -0.08,
+   -0.09
+  ],
+  "moge_cam_height": [
+   0.94,
+   0.58,
+   0.63
+  ]
+ },
+ "r3": {
+  "rel_rot_err_deg_median": 3.8,
+  "rel_rot_err_deg_max": 10.8,
+  "centre_sim3_rmse_m": 0.177,
+  "true_centre_spread_m": 0.871,
+  "true_cam_y": [
+   -0.01,
+   -0.02,
+   -0.03,
+   -0.02,
+   -0.03,
+   -0.07,
+   -0.08,
+   -0.05
+  ],
+  "moge_cam_height": [
+   0.41,
+   0.82,
+   0.78,
+   0.78,
+   0.81,
+   1.49,
+   1.32,
+   0.82
+  ]
+ },
+ "r4": {
+  "rel_rot_err_deg_median": 2.1,
+  "rel_rot_err_deg_max": 3.3,
+  "centre_sim3_rmse_m": 0.12,
+  "true_centre_spread_m": 0.627,
+  "true_cam_y": [
+   -0.09,
+   -0.06,
+   -0.06
+  ],
+  "moge_cam_height": [
+   1.27,
+   1.42,
+   1.35
+  ]
+ },
+ "r6": {
+  "rel_rot_err_deg_median": 7.1,
+  "rel_rot_err_deg_max": 8.0,
+  "centre_sim3_rmse_m": 0.062,
+  "true_centre_spread_m": 0.345,
+  "true_cam_y": [
+   0.05,
+   -0.02,
+   -0.04
+  ],
+  "moge_cam_height": [
+   0.62,
+   1.45,
+   1.47
+  ]
+ },
+ "r7": {
+  "rel_rot_err_deg_median": 89.3,
+  "rel_rot_err_deg_max": 168.9,
+  "centre_sim3_rmse_m": 0.374,
+  "true_centre_spread_m": 0.523,
+  "true_cam_y": [
+   0.16,
+   0.17,
+   0.18,
+   0.2,
+   0.18
+  ],
+  "moge_cam_height": [
+   1.52,
+   0.55,
+   0.18,
+   0.91,
+   0.53
+  ]
+ },
+ "r8": {
+  "rel_rot_err_deg_median": 2.3,
+  "rel_rot_err_deg_max": 8.3,
+  "centre_sim3_rmse_m": 0.366,
+  "true_centre_spread_m": 0.779,
+  "true_cam_y": [
+   0.14,
+   0.17,
+   0.23,
+   0.22,
+   0.2,
+   0.21
+  ],
+  "moge_cam_height": [
+   0.44,
+   0.84,
+   1.29,
+   0.45,
+   0.89,
+   1.49
+  ]
+ }
+}

@@ -13,7 +13,7 @@ from typing import Literal, Optional
 import yaml
 from pydantic import BaseModel, Field, field_validator
 
-GtKind = Literal["laser", "tape", "pseudo_lidar"]
+GtKind = Literal["laser", "tape", "pseudo_lidar", "synthetic"]
 
 
 def _med(v: float | list[float]) -> float:

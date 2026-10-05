@@ -1,0 +1,418 @@
+[
+ {
+  "piece": 4,
+  "piece_s": 11.5,
+  "region": 1,
+  "truth_room": "r1",
+  "lidar": {
+   "n_walls": 6,
+   "area": 32.48,
+   "ceiling": 2.575097867586358,
+   "lengths": [
+    1.399,
+    2.867,
+    3.245,
+    4.266,
+    5.433,
+    8.678
+   ]
+  },
+  "result": "ok",
+  "step": "inferred",
+  "n_walls": 4,
+  "sources": [
+   "inferred",
+   "close",
+   "inferred",
+   "inferred"
+  ],
+  "area": 6.74,
+  "ceiling": null,
+  "lengths": [
+   1.974,
+   1.974,
+   3.414,
+   3.414
+  ]
+ },
+ {
+  "piece": 8,
+  "piece_s": 16.5,
+  "region": 1,
+  "truth_room": "r8",
+  "lidar": {
+   "n_walls": 4,
+   "area": 10.84,
+   "ceiling": 3.0795138920231295,
+   "lengths": [
+    3.137,
+    3.137,
+    3.456,
+    3.456
+   ]
+  },
+  "result": "ok",
+  "step": "inferred",
+  "n_walls": 4,
+  "sources": [
+   "close",
+   "inferred",
+   "close",
+   "close"
+  ],
+  "area": 25.21,
+  "ceiling": null,
+  "lengths": [
+   4.818,
+   4.818,
+   5.231,
+   5.231
+  ]
+ },
+ {
+  "piece": 11,
+  "piece_s": 19.5,
+  "region": 1,
+  "truth_room": "r7",
+  "lidar": {
+   "n_walls": 8,
+   "area": 5.88,
+   "ceiling": 2.230116276804978,
+   "lengths": [
+    0.129,
+    0.157,
+    0.55,
+    0.792,
+    0.937,
+    2.28,
+    2.53,
+    2.558
+   ]
+  },
+  "result": "ok",
+  "step": "inferred",
+  "n_walls": 4,
+  "sources": [
+   "close",
+   "inferred",
+   "close",
+   "close"
+  ],
+  "area": 4.26,
+  "ceiling": 2.366,
+  "lengths": [
+   1.978,
+   1.978,
+   2.154,
+   2.154
+  ]
+ },
+ {
+  "piece": 12,
+  "piece_s": 17.7,
+  "region": 1,
+  "truth_room": "r1",
+  "lidar": {
+   "n_walls": 6,
+   "area": 32.48,
+   "ceiling": 2.575097867586358,
+   "lengths": [
+    1.399,
+    2.867,
+    3.245,
+    4.266,
+    5.433,
+    8.678
+   ]
+  },
+  "result": "ok",
+  "step": "inferred",
+  "n_walls": 4,
+  "sources": [
+   "unmeasured",
+   "close",
+   "close",
+   "inferred"
+  ],
+  "area": 23.93,
+  "ceiling": null,
+  "lengths": [
+   3.863,
+   3.863,
+   6.196,
+   6.196
+  ]
+ },
+ {
+  "piece": 13,
+  "piece_s": 10.8,
+  "region": 1,
+  "truth_room": "r1",
+  "lidar": {
+   "n_walls": 6,
+   "area": 32.48,
+   "ceiling": 2.575097867586358,
+   "lengths": [
+    1.399,
+    2.867,
+    3.245,
+    4.266,
+    5.433,
+    8.678
+   ]
+  },
+  "result": "ok",
+  "step": "inferred",
+  "n_walls": 4,
+  "sources": [
+   "inferred",
+   "inferred",
+   "inferred",
+   "inferred"
+  ],
+  "area": 28.29,
+  "ceiling": null,
+  "lengths": [
+   4.002,
+   4.002,
+   7.07,
+   7.07
+  ]
+ },
+ {
+  "piece": 16,
+  "piece_s": 56.8,
+  "region": 1,
+  "truth_room": "r3",
+  "lidar": {
+   "n_walls": 4,
+   "area": 8.93,
+   "ceiling": 2.9604517093897154,
+   "lengths": [
+    2.975,
+    2.975,
+    3.001,
+    3.001
+   ]
+  },
+  "result": "ok",
+  "step": "observed",
+  "n_walls": 4,
+  "sources": [
+   "close",
+   "close",
+   "close",
+   "close"
+  ],
+  "area": 0.8,
+  "ceiling": 3.172,
+  "lengths": [
+   0.39,
+   0.39,
+   2.057,
+   2.057
+  ]
+ },
+ {
+  "piece": 16,
+  "piece_s": 56.8,
+  "region": 2,
+  "truth_room": "r2",
+  "lidar": {
+   "n_walls": 6,
+   "area": 3.73,
+   "ceiling": 2.282972123797471,
+   "lengths": [
+    0.42,
+    0.688,
+    1.298,
+    1.65,
+    1.718,
+    2.338
+   ]
+  },
+  "result": "ok",
+  "step": "inferred",
+  "n_walls": 70,
+  "sources": [
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "all",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "all",
+   "unmeasured",
+   "unmeasured",
+   "close",
+   "unmeasured",
+   "close",
+   "all",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "all",
+   "close",
+   "close",
+   "unmeasured",
+   "close",
+   "unmeasured",
+   "close",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "close",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "all",
+   "unmeasured",
+   "close",
+   "close",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured",
+   "unmeasured"
+  ],
+  "area": 30.13,
+  "ceiling": 3.079,
+  "lengths": [
+   0.024,
+   0.035,
+   0.053,
+   0.059,
+   0.059,
+   0.08,
+   0.08,
+   0.081,
+   0.081,
+   0.089,
+   0.09,
+   0.09,
+   0.09,
+   0.09,
+   0.093,
+   0.095,
+   0.095,
+   0.097,
+   0.101,
+   0.102,
+   0.107,
+   0.107,
+   0.11,
+   0.117,
+   0.117,
+   0.119,
+   0.119,
+   0.119,
+   0.124,
+   0.13,
+   0.13,
+   0.13,
+   0.13,
+   0.145,
+   0.149,
+   0.149,
+   0.152,
+   0.156,
+   0.159,
+   0.159,
+   0.17,
+   0.17,
+   0.175,
+   0.177,
+   0.179,
+   0.179,
+   0.18,
+   0.21,
+   0.211,
+   0.229,
+   0.24,
+   0.29,
+   0.29,
+   0.41,
+   0.421,
+   0.452,
+   0.452,
+   0.528,
+   0.763,
+   0.977,
+   1.022,
+   1.16,
+   1.232,
+   1.414,
+   1.814,
+   1.86,
+   1.895,
+   3.194,
+   3.689,
+   3.974
+  ]
+ },
+ {
+  "piece": 17,
+  "piece_s": 61.8,
+  "region": 1,
+  "truth_room": "r3",
+  "lidar": {
+   "n_walls": 4,
+   "area": 8.93,
+   "ceiling": 2.9604517093897154,
+   "lengths": [
+    2.975,
+    2.975,
+    3.001,
+    3.001
+   ]
+  },
+  "result": "ok",
+  "step": "observed",
+  "n_walls": 4,
+  "sources": [
+   "close",
+   "close",
+   "close",
+   "close"
+  ],
+  "area": 81.57,
+  "ceiling": 2.082,
+  "lengths": [
+   9.014,
+   9.014,
+   9.049,
+   9.049
+  ]
+ }
+]
