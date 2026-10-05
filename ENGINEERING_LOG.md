@@ -412,3 +412,163 @@ LiDAR median depth, sharpness, angular speed (`cache/frames/`, regenerable, giti
   framing). With continuous tracking, both MoGe-over-many-frames (±2–4 %) and IMU (±1–2 %)
   become viable scale sources.
 - Operational: pycolmap and torch conflict on OpenMP in one process → separate processes.
+
+---
+
+## Phase 3 (2026-10-05): attack the three highest-value risks
+
+User constraints for this phase: no iPhone / developer account; video contract = plain clip (IMU
+stays a diagnostic); no mandatory reference object. GPU work runs one model at a time.
+
+### e18 — LiDAR repeatability: room-local aggregation + robust planes
+**Hypothesis.** The 16 mm within-capture method noise (e14) comes from (a) using one visit's
+points, (b) furniture faces and the far side of walls being accepted as wall faces, (c) unstable
+topology; aggregation of aligned visits + interior-facing robust planes + topology regularisation
+pushes it toward the 1 cm gate.
+**Variants** (`experiments/e18_lidar_repeat/roomgeo.py`): V0 baseline (e14 logic); V1 all visits,
+per-room ICP to the longest visit; V2 V1 + camera-oriented normals (a face only supports the room
+it faces) + robust offsets from points 0.9 m–ceiling within the edge's own extent; V3 V2 + merge
+same-facing lines < 12 cm + absorb notches < 15 cm.
+**Design iterations (kept as evidence):**
+1. Visit split (A = even visits, B = odd): [MEASURED] 28/28 half-geometries failed — most halves
+   have **no observations above 2 m**, so no wall passes the structural-support test
+   (`out/split_visit_*`). A split by whole visits is harsher than two real captures, each of which
+   would include the sweep.
+2. Chunk split (2 s chunks alternating inside every visit): V1–V3 still failed in most rooms.
+   Cause: aligned aggregation **dropped visits whose ICP check failed**, and those included the
+   ones carrying the ceiling sweep. [DECISION-PROV] keep unaligned visits (flagged) instead of
+   dropping them — observation selection must not remove coverage.
+3. With that fix, independent halves still mostly fail to find all walls (rooms 2, 4, 6, 8: too few
+   wall lines). [MEASURED] **Topology (wall existence) is coverage-hungry**: on this capture,
+   half of the frames is not enough upper-wall evidence for most rooms. → protocol consequence:
+   every wall's top must be in view at least once per capture (not just "sweep the ceiling").
+4. Therefore the study is split into **topology stability** (above: fails with half coverage) and
+   **position repeatability given topology** (`run_fixed_topology.py`: topology from all data,
+   each half ICP-aligned onto the full room cloud, every wall re-measured per variant).
+**Results** (`experiments/e18_lidar_repeat/README.md`, `out/fixed_topology_*.json`) [MEASURED, GT-free]:
+position repeatability given topology, 2 s chunk halves (each ~50 % of the data):
+
+| Variant | wall Δ median / p90 | walls within max(1 cm, 0.5 %) | ceilings ≤ 1 cm |
+|---|---|---|---|
+| V0 baseline | 10.2 / 36.7 mm | 57 % | 50 % (one 110 mm wrong-level pick) |
+| V1 aggregate (unoriented) | 11.2 / 49.8 mm | 44 % | 25 % |
+| V2 + oriented normals, band, extent | 11.0 / 27.6 mm | 65 % | 75 % |
+| V3 + merge/notch regularisation | 11.5 / 44.2 mm | 62 % | 75 % |
+| V4 outermost peak | 19.5 / 71.0 mm | 31 % | 75 % |
+| V5 close-range only (≤ 2.5 m, ≤ 60°) | 7.5 / 25.7 mm (3 rooms; 4 topology failures) | 61 % | 0 % (ceilings beyond range) |
+| **V6** V2 topology + close-range positions | **9.8 / 33.5 mm** | **73 %** | 75 % |
+
+**Interpretation.** Aggregating visits only helps once normals are camera-oriented (V1 < V0 < V2):
+without orientation, furniture backs and the far faces of shared walls compete with the true
+face. Close-range, near-normal observations measure walls better (V5) but cannot carry topology
+or ceilings, hence the hybrid V6. Regularisation (V3) and outermost-peak (V4) are negative
+results. Per room, rectangular rooms (3, 4, 8) are already 0–10 mm per wall with half the data;
+complex rooms (1: corridor merged with a room; 7: wardrobes) hold the 33–45 mm residuals; small
+rooms 2 and 6 fail topology even with all data.
+**Confidence/limitations.** One capture, ~5 rooms, halves share drift (removed by ICP), no GT.
+**Decision** [DECISION-PROV]: production LiDAR geometry = V6 (oriented fusion, per-room ICP
+aggregation that keeps unaligned visits, V2 topology, close-range wall positions with fallback,
+horizontal-normal floor/ceiling). Topology stability is the open LiDAR risk; it needs full
+upper-wall coverage → protocol rule strengthened from "sweep the ceiling" to "every wall's top
+edge in view at least once".
+
+### e19 — drift: raw placement vs plane-anchored stitch [MEASURED, GT-free]
+**Hypothesis.** Common Manhattan yaw + shared-wall + doorway constraints remove inter-room drift
+from the stitched footprint. **Method.** Shared room shapes; two placements of every multi-visit
+room from disjoint visit halves; disagreement after one rigid fit (`experiments/e19_drift_stitch/`).
+**Result.** Raw ARKit: corners 54.8 / 96.8 / 115.8 mm (median/p90/max). Yaw snap: 66.0 / 84.4 /
+93.8. Doorway constraints: 0 of 4 doorways measurable from both sides. Shared-wall translation
+stitches: worse (69–90 mm median); one common wall thickness moved a room ~19 cm. A circular metric
+(shared-wall gap spread, which the stitch optimises) was caught and dropped.
+**Interpretation.** On this data the plane-anchored translation stitch is a **negative result**;
+yaw regularisation is inconclusive (better tails, worse median). Drift does not reach room
+measurements because they are room-local (e18), so the drift story is: *room-local measurement
+(drift-immune dimensions) + yaw regularisation for plan regularity + an honest per-room placement
+uncertainty (σ ≈ 33 mm from these halves)*. **Confidence.** Low–moderate: 5 rooms, one session.
+**Decision** [DECISION-PROV]: production layout = `arkit_yaw` (chosen for regular, parallel walls
+and smaller worst case, not for a measured median gain); `arkit` kept selectable for the gate's
+on/off ablation. Revisit with two real captures per protocol ([BLOCKED]).
+
+### LiDAR production core v1 (`src/roomscan/lidar/`)
+Stages: `fusion` (camera-oriented normals, observation selection) → `rooms` (segmentation,
+visits, per-room ICP keeping unaligned visits) → `walls` (V6) → `levels` (horizontal-normal floor/
+ceiling) → `openings` (lintel doorways; jamb-gap width per room) → `layout` → `build` (Plan with
+floor/ceiling surfaces, uncalibrated intervals with explicit budgets) → `render`. CLI:
+`uv run roomscan-lidar <stray_dir> <out_dir>` (36 s on `with_ceiling`).
+[MEASURED] `with_ceiling`: 5 of 8 labels produce rooms (2 and 6 fail topology, 5 is outside); 2
+doorways, one jamb-measured (0.75 m vs coarse 0.79 m); r4 ceiling reported `not_observed` (135
+points). v0 (`lidar_pipeline.py`) is kept unchanged as the regenerable baseline.
+Schema: `Interval.calibrated` / `calibration_ref` added; `error_budget` keys prefixed `shared:`
+denote room-correlated terms (photo-tier scale); evaluator emits `calibration_residuals` tagged by
+gt_kind so pseudo-GT rows can never feed a calibration. Tests: 13 pass (incl. synthetic wall
+extraction with an outward-facing full-height clutter face).
+
+### e16 — does MapAnything + true intrinsics generalise? [PSEUDO-GT] (subagent, `experiments/e16_photo_scale_generalization/`)
+**Hypothesis.** e13's room-1 result (focal-corrected MapAnything 1.5–5.7 % median) holds across rooms.
+**Method.** Rooms 1,3,4,6,7,8 × K 2–8 × 10 subsets (300 runs), MoGe-2 on identical subsets.
+**Result.** [MEASURED] Focal-corrected MA per room (median |err|): 1.3–6.6 (1), 2.1–5.0 (3),
+2.5–6.5 (4), 2.8–6.6 (6), **31–44 (7)**, 10–12 (8) %; catastrophic runs 48/300 (45 in room 7).
+MoGe-2: 1.2–2.7 (7) but 13–18 (6), 11–12.5 (8) %; catastrophic 1/300.
+**Cause (Part B).** f_pred/f_true = 0.654 ± 0.037 over 1380 views, independent of the true FOV
+(crop probe: true 48.5/37.3/25.4° → predicted 70.5/67.9/67.6°); per-run correlation of log depth
+ratio and log focal ratio 0.04. MA effectively assumes ~70° FOV and a scene-size prior; "focal
+correction" ≈ a ×1.5 constant. MA pose scale is room-dependent (baseline ratio 0.72…3.15).
+Held-out constant (learned on 1/3/4, applied to 6/7/8) beats per-view EXIF correction
+(8.0 vs 11.4 % median). **Interpretation.** No evidence that EXIF intrinsics give MA metric
+scale; the improvement is a fixed prior that fails where the scene departs from it (mirrors).
+**Decision.** Do not use MA's EXIF-corrected depth as a metric source on its own.
+
+### e21 — two-family ensemble [PSEUDO-GT, LORO]
+[MEASURED] √(MoGe × MA·c): median 5.3 %, p90 14.0 %, 64 % within ±8 %, **0 catastrophic**
+(MoGe 7, MA 27–49). Fails in rooms 6 (both low) and 7 (mirror; MA high). Fixed ±14 % intervals
+give 85 % coverage; disagreement-adaptive intervals do not improve calibration; per-room
+coverage in the failing rooms 32–66 %. **Interpretation.** The strongest defensible photo-scale
+strategy found without a reference object is the two-family ensemble with honest ≈ ±15 % (90 %)
+intervals; it meets ±8 % in typical rooms but not in small/mirror-dominated rooms, and nothing
+observable so far predicts those failures. [DECISION-PROV] photo tier = ensemble + wide
+calibrated-later intervals; flag that the ±8 % gate is at risk without an additional metric cue.
+
+### e17 — photo-folder stitching without hidden information [PSEUDO-GT eval only] (subagent)
+**Hypothesis.** A doorway photo (standing in A's doorway looking into B) lets independent room
+folders be linked. **Method.** Joint MapAnything on 4 A + 0/1/2 doorway + 4 B photos; success =
+median B camera error < 0.5 m and yaw < 15° after a Sim(3) fit on A's cameras only (fit on all
+cameras reported as a diagnostic). SIFT inlier counts as a cheap link signal.
+**Result.** [MEASURED] 0/36 runs succeed; doorway photos change B's error by ≤ 0.45 m and do not
+fix orientation; even the all-camera diagnostic leaves B 0.4–1.2 m off (35–100° for 2 pairs).
+SIFT: doorway→B links clearly above the control floor for 1/4 pairs, and that pair was linked
+anyway via near-duplicate frames. **Interpretation.** Single doorway photos are insufficient; the
+joint feed-forward reconstruction itself is wrong across rooms. [HYPOTHESIS, untested] a short
+overlapping chain through each doorway (≈ 3 photos with ≥ 50 % overlap of the same door frame:
+inside A, in the doorway, inside B looking back) — fits within 2–8 photos/room but must be
+tested on real photos. Caveat: walkthrough frames are not real stills; doorway frames for pair
+3-4 were physically inside room 4.
+- Schema: `Plan.quality_flags` added (concrete limitation: `single_room`, captured without an
+  upper-wall sweep, produced an empty plan with no explanation). v1 now reports e.g.
+  `upper_walls_not_observed`, regions without geometry, unobserved ceilings, walls placed from
+  topology only — the walk-in operator gets a re-capture instruction instead of a silent gap.
+  [MEASURED] `single_room` → 0 rooms + 2 flags; `floor_only` → 1 merged region (ceiling not
+  observed); `with_ceiling` → 5 rooms + 5 flags.
+
+### e20 — video tier: can any RGB-only tracker give a continuous walkthrough? [PSEUDO-GT = ARKit]
+**Hypothesis.** The video tier's binding constraint is tracking continuity (e08); a learned
+matcher, feed-forward windows or depth-based odometry yields one accurate walkthrough.
+**Method** (subagent; `experiments/e20_video_tracking/README.md`): COLMAP with ALIKED+LightGlue;
+MapAnything 16-frame windows chained by Sim(3); pseudo-RGB-D odometry on MoGe-2 depth (Open3D,
+PnP with fallback ladder, PnP + pose graph); failure-anatomy analysis. Plain RGB only, no IMU.
+**Result** [MEASURED], `with_ceiling` (215 s): COLMAP-SIFT 14 pieces (largest 40 %) but 20 s-window
+ATE 4.4 cm; COLMAP-LightGlue 1 piece covering 65 % but ATE 2.97 m; depth odometry 1 piece / 100 %
+but ATE 2.6–3.0 m, end drift 9–15 m, long-range distance error 44–59 % median; PnP cut at failed
+links: 10 pieces, longest 62 s, long-range error 7.2 % median. MapAnything windows (`single_room`):
+41 % long-range error. **Failure anatomy:** only 1.8 % of links fail, in ≤ 1.2 s bursts, during
+fast turns (53 vs 25 °/s) close to surfaces (0.86 vs 1.59 m); bridging them with fallback motion
+models adds 4–13° each, and small per-link rotation errors (0.3°) accumulate over ~900 links.
+**Interpretation.** No candidate is both continuous and accurate. Continuity is cheap (depth
+odometry) but accuracy needs real correspondences; the walkthrough breaks at a few identifiable
+moments caused by capture behaviour, not by the scene. **Confidence.** Moderate on the diagnosis
+(consistent across methods), low on numbers (one recording not made per our protocol).
+**Decision** [DECISION-PROV]: video tier = accurate local pieces (COLMAP/LightGlue or PnP) with
+room-level measurement inside pieces + protocol rule *turn slowly and keep ≥ 1 m from walls while
+turning*; drop MapAnything windows (least accurate, and its load starved the 16 GB machine — not
+retried). [BLOCKED] whether a protocol-following clip tracks continuously needs a real capture.
+Operational: the subagent stalled (stream watchdog) during a MapAnything load under memory
+pressure; its saved outputs were complete for every run except MapAnything on `with_ceiling`.

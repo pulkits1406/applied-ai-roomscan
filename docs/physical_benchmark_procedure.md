@@ -53,23 +53,28 @@ Follow `benchmark/README.md` conventions. Record into `benchmark/<site>/site.yam
 5. **Damage**: surface, class, width × height (tape).
 6. Photograph each measurement sheet → `benchmark/<site>/measurements/`.
 
-## 5. Captures (~2–2.5 h)
+## 5. Captures (~2–2.5 h), grouped by purpose
 
-Each capture gets an id; note start time, operator, lighting. Order matters only for battery.
+Every capture id starts with its purpose prefix so evidence never mixes. LiDAR walks follow the
+current hypotheses: every wall's **top edge** in view at least once, pass within ~2 m of each wall
+facing it, sweep the ceiling, doors fully open (e18, e19).
 
-| # | Tier | What | Repeats |
-|---|---|---|---|
-| C1 | LiDAR | whole property in one Stray recording, per the protocol | **×2** (repeatability) |
-| C2 | LiDAR | the furnished/damage room alone | ×2 |
-| C3 | Video | whole property, stock Camera, per protocol | ×2 |
-| C4 | Video+IMU | whole property, Sensor Logger video | ×1 (scale experiment) |
-| C5 | Photo | per room 2–8 stills (stock Camera), one folder per room, per protocol | ×2 (two different photo sets) |
-| C6 | Photo | same, but with the *minimum* allowed (2 photos/room) | ×1 (stress test) |
-| C7 | magicplan | 2 rooms (incl. the damage room), export | ×1 |
-| C8 | LiDAR | a deliberately bad capture (fast walk, no ceiling sweep) | ×1 (failure-mode evidence) |
+| Purpose | id prefix | Tier | What | Count | Feeds |
+|---|---|---|---|---|---|
+| **Development** (may be inspected and tuned on) | `dev_` | LiDAR, video, photo | 1 room + 1 doorway, each tier; one Sensor Logger clip (diagnostic only) | 1 each | loaders, stitching chain test, IMU diagnostic |
+| **Benchmark** (scored, never tuned on) | `bm_` | LiDAR | whole property, one recording | 1 | all LiDAR gates, drift ablation |
+| | `bm_` | video | whole property, stock Camera, plain clip | 1 | video gates |
+| | `bm_` | photo | per-room folders, 2–8 stills each, stock Camera | 1 set | photo gates, stitch |
+| | `bm_` | photo | same rooms, **overlapping doorway chain** variant (≈ 3 overlapping shots of each door frame: inside A, in the doorway, inside B) | 1 set | tests the e17 stitching hypothesis |
+| | `bm_` | LiDAR | furnished damage room alone | 1 | damage output |
+| **Repeatability** | `rep_` | LiDAR | whole property again + damage room again (same protocol, different start point) | 2 | repeatability + ceiling-spread gates |
+| | `rep_` | photo/video | one room again at each tier | 1 each | interval calibration at thin tiers |
+| **Incumbent comparison** | `inc_` | magicplan | 2 rooms incl. the damage room; keep native export | 1 | head-to-head table |
+| **Walk-in proxy** | `walk_` | all three | a second person follows only the one-page protocol, cold | 1 each | protocol clarity, cold-run timing |
+| **Failure mode** (expected to fail; documents behaviour) | `fail_` | LiDAR | fast walk, no upper-wall sweep | 1 | quality_flags behaviour |
+| | `fail_` | photo | mirror-dominated bathroom, 2 photos | 1 | known photo-scale failure (e16: room 7) |
 
-Also capture once by a **second person** who has only read the one-page protocol (closest proxy
-for the walk-in test). Note anything they found ambiguous.
+Ground truth (section 4) covers every room in `bm_`, `rep_`, `inc_` and `walk_` captures.
 
 ## 6. Files to hand back
 
