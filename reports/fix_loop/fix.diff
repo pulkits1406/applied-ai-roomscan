@@ -1,0 +1,48 @@
+diff --git a/src/roomscan/geometry.py b/src/roomscan/geometry.py
+index 1e41e5d..40443bd 100644
+--- a/src/roomscan/geometry.py
++++ b/src/roomscan/geometry.py
+@@ -68,12 +68,15 @@ class Segmentation:
+     high_observed: bool
+ 
+ 
+-def segment_rooms(P: np.ndarray, N: np.ndarray, min_room_m2=1.0) -> Segmentation:
++def segment_rooms(P: np.ndarray, N: np.ndarray, min_room_m2=1.0, pad_m: float = 0.3, pad_high_m: float = 0.0) -> Segmentation:
++    """pad_m / pad_high_m: empty margin below / above the data extent. The morphological closing
++    (0.6 m) treats outside the grid as empty, so with less padding than that the region is eroded
++    near the grid border (e.g. 0.27 m / 0.53 m inset with the v0 defaults, which are kept for v0)."""
+     f0 = float(np.percentile(P[:, 1], 2))
+     h = P[:, 1] - f0
+-    origin = P[:, [0, 2]].min(0) - 0.3
++    origin = P[:, [0, 2]].min(0) - pad_m
+     ij = np.floor((P[:, [0, 2]] - origin) / GRID).astype(int)
+-    shape = tuple(ij.max(0) + 1)
++    shape = tuple(ij.max(0) + 1 + int(round(pad_high_m / GRID)))
+ 
+     def occ(m, c=2):
+         g = np.zeros(shape, np.int32)
+diff --git a/src/roomscan/lidar/rooms.py b/src/roomscan/lidar/rooms.py
+index 2240715..f22f0dc 100644
+--- a/src/roomscan/lidar/rooms.py
++++ b/src/roomscan/lidar/rooms.py
+@@ -21,6 +21,7 @@ reg = o3d.pipelines.registration
+ ALIGN_MIN_FITNESS = 0.15
+ SEG_STEP = 5
+ ROOM_STEP = 3
++SEG_PAD_M = 1.0          # > the 0.6 m closing radius: no border erosion of rooms at the scan's edge (v0: 0.3 / 0.0)
+ 
+ 
+ @dataclass
+@@ -40,10 +41,10 @@ class RoomCloud:
+     alignment: list[dict] = field(default_factory=list)
+ 
+ 
+-def prepare(cap: StrayCapture, T: np.ndarray | None = None) -> Capture:
++def prepare(cap: StrayCapture, T: np.ndarray | None = None, seg_pad_m: float = SEG_PAD_M) -> Capture:
+     T = cap.T_wc() if T is None else T
+     pc = G.fuse(cap, T, range(0, len(cap), SEG_STEP))
+-    seg = G.segment_rooms(np.asarray(pc.points), np.asarray(pc.normals))
++    seg = G.segment_rooms(np.asarray(pc.points), np.asarray(pc.normals), pad_m=seg_pad_m, pad_high_m=seg_pad_m)
+     lab_d = ndi.grey_dilation(seg.labels, size=(7, 7))
+     cij = np.clip(seg.grid.cell(T[:, [0, 2], 3]), 0, np.array(seg.grid.shape) - 1)
+     inside = seg.labels[cij[:, 0], cij[:, 1]]

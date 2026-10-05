@@ -1,0 +1,45 @@
+[
+ {
+  "room": "v0",
+  "span_s": [
+   12.1,
+   23.7
+  ],
+  "area": 0.07,
+  "truth_room": "r1",
+  "truth_frac": 0.8,
+  "truth_area": 32.48,
+  "area_rel_err_by_identity": -0.998,
+  "evaluator_matched_to": []
+ },
+ {
+  "room": "v1",
+  "span_s": [
+   48.4,
+   59.9
+  ],
+  "area": 4.32,
+  "truth_room": "r8",
+  "truth_frac": 0.41,
+  "truth_area": 10.84,
+  "area_rel_err_by_identity": -0.601,
+  "evaluator_matched_to": [
+   "r2"
+  ]
+ },
+ {
+  "room": "v2",
+  "span_s": [
+   72.5,
+   83.6
+  ],
+  "area": 11.92,
+  "truth_room": "r1",
+  "truth_frac": 1.0,
+  "truth_area": 32.48,
+  "area_rel_err_by_identity": -0.633,
+  "evaluator_matched_to": [
+   "r8"
+  ]
+ }
+]

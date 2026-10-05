@@ -25,8 +25,9 @@ MoGe-2 + MapAnything (one batched worker) → GT-free coherence check → shared
 view; 3 no region/polygon) → 3 unplaced rooms; 543 s first run, 38 s from cache.
 [PSEUDO-GT, by identity] the three rooms come from r1, r8, r1 and are −99.8 %, −60 %, −63 % in
 area; the evaluator's size-only matching had reported 13 % (fixed: such matches are now marked
-identity-unverified). Two uncached runs differed (window 1: 10.4 vs 0.07 m²): marginal clouds
-flip discrete topology decisions.
+identity-unverified). Two uncached runs differed (window 1: 10.4 vs 0.07 m²) — **corrected in
+e26**: the runs used different code (a segmentation fix landed mid-run); model outputs were bitwise
+identical. What it does show is geometric sensitivity of marginal clouds to an irrelevant parameter.
 
 ## Conclusion
 The video frontend is a working product path (plain clip → plan JSON with explicit

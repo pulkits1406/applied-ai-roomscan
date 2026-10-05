@@ -1,0 +1,8 @@
+{
+ "source": "manual (example annotation for the synthetic fix-loop plan; not a detector output)",
+ "observations": [
+  {"surface_id": "r1_ceiling", "class": "water_stain", "region_uv": [[1.0, 1.0], [1.6, 1.0], [1.6, 1.5], [1.0, 1.5]], "confidence": 1.0},
+  {"surface_id": "r1_w0", "class": "mould", "region_uv": [[0.4, 0.0], [1.2, 0.0], [1.2, 0.25], [0.4, 0.25]], "confidence": 1.0},
+  {"surface_id": "r2_w2", "class": "crack", "region_uv": [[0.3, 0.8], [1.6, 1.9], [1.6, 1.92]], "confidence": 1.0}
+ ]
+}

@@ -753,3 +753,35 @@ question/variant tables; debug diagnostics (video window continuity, photo regis
 LiDAR ladder steps); predicted-vs-reference figure. e27 `chain_eval.py` (placement of room B from
 photos vs the LiDAR reference; exact on a self-check; `B_not_separated` on simulated frames).
 Ultra-wide stays an A/B test, not a protocol requirement.
+
+---
+
+## Submission preparation (2026-10-06)
+
+User direction: no new research; make the work submission-ready, reproducible, auditable and honest;
+keep physically blocked items explicitly blocked.
+
+- **Baseline frozen:** tag `engineering-baseline-v1` on `4435f2a` after verification (38 tests incl.
+  the opt-in GPU test; all three tiers and `roomscan-bench --execute` uncached from raw sample inputs,
+  metrics identical to e24/e26; every plan validates against `schema/plan.schema.json`).
+- **Hygiene:** no secrets, keys or weights tracked; machine-specific absolute paths removed from
+  tracked experiment outputs; the evaluator and report builder now record repo-relative paths only;
+  `jsonschema` declared (was transitive); `scripts/clean_clone_audit.sh` made executable.
+- **Damage interfaces:** `src/roomscan/damage.py` (`roomscan-damage`): observations → regions with
+  area intervals, concealed-damage rules CD1–CD4 (flag names the rule and surfaces), scope items keyed
+  to surfaces; tested. There is no detector and no damage benchmark; status stays mechanism-only.
+- **Reports from machine output only:** `reports/build_reports.py --regenerate` recomputes every
+  result from raw inputs and renders `reports/benchmark_report.md` from `reports/data/*.json`.
+  [GT-FREE] **Drift ON/OFF finding:** the production placement (`arkit_yaw`) changes the stitched
+  footprint negligibly (room overlap 0.098 vs 0.093 m², per-room yaw ≤ 0.9°); room translations
+  are ARKit's. Drift handling measurably acts on room dimensions (per-room visit registration), not
+  on placement → the drift gate's "poses as-is" rule is at risk; compliance updated to say so.
+- **Fix loop audited:** Part 4 on a real benchmark gate is BLOCKED. Shipped and regenerable cycle:
+  segmentation border erosion on the exact synthetic capture (walls −499/−1004 mm → −1.9…−2.2 mm,
+  areas −16.7/−33.6 % → −0.12/−0.16 %, real capture unchanged ≤ 0.36 mm), before/after from one code
+  version via `roomscan-lidar --seg-pad`; declaration marked retrospective (`reports/fix_loop/`).
+- **Documents:** `docs/capture_protocol.md` (one page + evidence status), `docs/device_matrix.md`,
+  rewritten `docs/compliance_matrix.md`, evaluator-oriented `README.md`,
+  `reports/technical_report.md` (~1.8 k words), `SUBMISSION_MANIFEST.md`, `reports/repro_audit.md`.
+- **Correction carried into docs:** e25's "two uncached runs differed" is annotated with the e26
+  finding (different code, not nondeterminism).

@@ -7,7 +7,7 @@
 site_id: pseudo_gt_lidar_v11
 gt_kind: pseudo_lidar
 purpose: pseudo
-instrument: 'NONE - references are our LiDAR v1.1 plan (runs/e24/lidar_v11/plan.json)
+instrument: 'NONE - references are our LiDAR v1.1 plan (runs/report/lidar_with_ceiling/plan.json)
   of single_scan_with_ceiling; excluded rooms with inferred walls: [''r6'']'
 rooms:
 - id: r1

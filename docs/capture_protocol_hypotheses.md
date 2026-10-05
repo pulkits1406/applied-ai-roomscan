@@ -1,5 +1,7 @@
 # Capture protocol — hypotheses under test (NOT the final one-page protocol)
 
+> Superseded for operators by **`docs/capture_protocol.md`** (the one-page Route-2 protocol, with an evidence-status table). This file keeps the evidence history of each rule.
+
 Each rule states the evidence for it, or says it is untested. The final one-page protocol will
 be written only after the physical pre-check (docs/physical_benchmark_procedure.md §7).
 

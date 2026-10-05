@@ -1,0 +1,881 @@
+{
+ "site": "fix_loop_synthetic",
+ "gt_kind": "synthetic",
+ "purpose": "synthetic",
+ "pseudo_gt": false,
+ "code_versions": [
+  "da88a975f4e342ac3fcc621d6e0a8c0859163415"
+ ],
+ "mixed_code_versions": false,
+ "dirty_code": false,
+ "gates": {
+  "before_fix": {
+   "tier": "lidar",
+   "rooms_matched": "2/2",
+   "walls_matched": 8,
+   "walls_unmatched": 0,
+   "rooms_topology_mismatch": 0,
+   "rooms_matched_by_size_only": "2 (identity unverified: errors may be optimistic)",
+   "wall_rel_err_median": 0.0841040552382856,
+   "area_rel_err_median": 0.2511991929032376,
+   "ceiling_abs_err_median_m": 0.00146441273443787,
+   "ceiling_pass": true,
+   "ceiling_max_abs_err_m": 0.0016941525302889282,
+   "opening_pass": false,
+   "interval_coverage": 0.5384615384615384,
+   "n_intervals": 13
+  },
+  "after_fix": {
+   "tier": "lidar",
+   "rooms_matched": "2/2",
+   "walls_matched": 8,
+   "walls_unmatched": 0,
+   "rooms_topology_mismatch": 0,
+   "rooms_matched_by_size_only": "2 (identity unverified: errors may be optimistic)",
+   "wall_rel_err_median": 0.0006606587308565597,
+   "area_rel_err_median": 0.0013711893429309008,
+   "ceiling_abs_err_median_m": 0.0014196754971638192,
+   "ceiling_pass": true,
+   "ceiling_max_abs_err_m": 0.0016405253652993501,
+   "opening_pass": false,
+   "interval_coverage": 1.0,
+   "n_intervals": 13
+  },
+  "repeatability": {}
+ },
+ "captures": [
+  {
+   "capture": "before_fix",
+   "tier": "lidar",
+   "rooms_matched": 2,
+   "rooms_expected": 2,
+   "room_match": [
+    {
+     "pred": "r1",
+     "gt": "A",
+     "method": "perimeter"
+    },
+    {
+     "pred": "r2",
+     "gt": "B",
+     "method": "perimeter"
+    }
+   ],
+   "rooms_detail": [
+    {
+     "room": "A",
+     "pred": "r1",
+     "match": "perimeter",
+     "pred_walls": 4,
+     "gt_walls": 4,
+     "wall_match": {
+      "best_cost_m": 1.0,
+      "second_cost_m": 1.0,
+      "ambiguous": true
+     },
+     "placed": true,
+     "scale_ratio": 0.9167125018888811,
+     "shape_err_median": 0.09056172976877047
+    },
+    {
+     "room": "B",
+     "pred": "r2",
+     "match": "perimeter",
+     "pred_walls": 4,
+     "gt_walls": 4,
+     "wall_match": {
+      "best_cost_m": 2.0171,
+      "second_cost_m": 2.0171,
+      "ambiguous": true
+     },
+     "placed": true,
+     "scale_ratio": 0.8317478538446096,
+     "shape_err_median": 0.20000124183395945
+    }
+   ],
+   "phantom_rooms": [],
+   "walls": [
+    {
+     "room": "A",
+     "wall": "W1",
+     "gt": 4.0,
+     "pred": 3.998926287042382,
+     "abs_err": -0.0010737129576181559,
+     "rel_err": -0.00026842823940453897,
+     "covered": true,
+     "status": "inferred",
+     "half_width": 0.030944482491536363
+    },
+    {
+     "room": "A",
+     "wall": "W2",
+     "gt": 3.0,
+     "pred": 2.5010802960515,
+     "abs_err": -0.4989197039484998,
+     "rel_err": -0.16630656798283328,
+     "covered": false,
+     "status": "inferred",
+     "half_width": 0.16572169936533587
+    },
+    {
+     "room": "A",
+     "wall": "W3",
+     "gt": 4.0,
+     "pred": 3.9989262870423814,
+     "abs_err": -0.0010737129576186,
+     "rel_err": -0.00026842823940465,
+     "covered": true,
+     "status": "measured",
+     "half_width": 0.030944482491517267
+    },
+    {
+     "room": "A",
+     "wall": "W4",
+     "gt": 3.0,
+     "pred": 2.5010802960515,
+     "abs_err": -0.4989197039484998,
+     "rel_err": -0.16630656798283328,
+     "covered": false,
+     "status": "inferred",
+     "half_width": 0.16572169936533587
+    },
+    {
+     "room": "B",
+     "wall": "W1",
+     "gt": 2.5,
+     "pred": 2.4952461437656552,
+     "abs_err": -0.0047538562343447666,
+     "rel_err": -0.0019015424937379067,
+     "covered": true,
+     "status": "inferred",
+     "half_width": 0.16571789154702188
+    },
+    {
+     "room": "B",
+     "wall": "W2",
+     "gt": 3.0,
+     "pred": 1.9961917505488702,
+     "abs_err": -1.0038082494511298,
+     "rel_err": -0.33460274981704324,
+     "covered": false,
+     "status": "inferred",
+     "half_width": 0.1654248225601771
+    },
+    {
+     "room": "B",
+     "wall": "W3",
+     "gt": 2.5,
+     "pred": 2.4952461437656552,
+     "abs_err": -0.0047538562343447666,
+     "rel_err": -0.0019015424937379067,
+     "covered": true,
+     "status": "inferred",
+     "half_width": 0.16571789154702188
+    },
+    {
+     "room": "B",
+     "wall": "W4",
+     "gt": 3.0,
+     "pred": 1.996191750548871,
+     "abs_err": -1.003808249451129,
+     "rel_err": -0.33460274981704297,
+     "covered": false,
+     "status": "inferred",
+     "half_width": 0.1654248225601771
+    }
+   ],
+   "ceilings": [
+    {
+     "room": "A",
+     "gt": 2.5,
+     "pred": 2.498765327061413,
+     "status": "measured",
+     "abs_err": -0.0012346729385868116,
+     "covered": true
+    },
+    {
+     "room": "B",
+     "gt": 2.5,
+     "pred": 2.498305847469711,
+     "status": "measured",
+     "abs_err": -0.0016941525302889282,
+     "covered": true
+    }
+   ],
+   "areas": [
+    {
+     "room": "A",
+     "gt": 12.0,
+     "pred": 10.001635741884087,
+     "rel_err": -0.16653035484299272,
+     "covered": false
+    },
+    {
+     "room": "B",
+     "gt": 7.5,
+     "pred": 4.980989767773881,
+     "rel_err": -0.3358680309634825,
+     "covered": false
+    }
+   ],
+   "openings": [
+    {
+     "room": "A",
+     "opening": "D1",
+     "gt": 0.8,
+     "pred": 0.81,
+     "abs_err": 0.010000000000000009,
+     "hit": true,
+     "covered": true
+    },
+    {
+     "room": "B",
+     "pred_opening": "o0",
+     "phantom": true
+    }
+   ],
+   "opening_hit_rate": 0.5,
+   "topology_mismatch": [],
+   "opening_counts": {
+    "gt": 1,
+    "hits": 1,
+    "missed": 0,
+    "phantom": 1
+   },
+   "adjacency": {
+    "correct": true,
+    "missing": [],
+    "extra": []
+   },
+   "max_room_overlap_m2": 0.0,
+   "rooms_unplaced": 0,
+   "quality_flags": [
+    "r1_walls_inferred: 1 wall(s) never observed at structural height; placed at the observed-floor boundary, status inferred (face sigma 0.1 m); capture each wall's top edge",
+    "r2_walls_inferred: 2 wall(s) never observed at structural height; placed at the observed-floor boundary, status inferred (face sigma 0.1 m); capture each wall's top edge"
+   ],
+   "footprint_rel_err": -0.23166023027395033,
+   "question": "fix_loop",
+   "variant": "before",
+   "diagnostics": {
+    "upper_walls_observed": true,
+    "regions": 2,
+    "rooms": {
+     "1": {
+      "step": "inferred",
+      "n_walls": 4,
+      "unaligned_visits": 0,
+      "stability_runs_without_outline": 0
+     },
+     "2": {
+      "step": "inferred",
+      "n_walls": 4,
+      "unaligned_visits": 0,
+      "stability_runs_without_outline": 0
+     }
+    }
+   },
+   "provenance": {
+    "code_commit": "da88a975f4e342ac3fcc621d6e0a8c0859163415",
+    "code_dirty": false,
+    "python": "3.13.14",
+    "libs": {
+     "numpy": "2.5.3",
+     "scipy": "1.18.1",
+     "open3d": "0.20.0",
+     "opencv-python": "5.0.0.93",
+     "torch": "2.14.1",
+     "moge": "2.0.0",
+     "pydantic": "2.13.5"
+    },
+    "method": "lidar_v1_uncal",
+    "params": {
+     "placement": "arkit_yaw",
+     "ladder": true,
+     "seg_pad": [
+      0.3,
+      0.0
+     ]
+    }
+   }
+  },
+  {
+   "capture": "after_fix",
+   "tier": "lidar",
+   "rooms_matched": 2,
+   "rooms_expected": 2,
+   "room_match": [
+    {
+     "pred": "r1",
+     "gt": "A",
+     "method": "perimeter"
+    },
+    {
+     "pred": "r2",
+     "gt": "B",
+     "method": "perimeter"
+    }
+   ],
+   "rooms_detail": [
+    {
+     "room": "A",
+     "pred": "r1",
+     "match": "perimeter",
+     "pred_walls": 4,
+     "gt_walls": 4,
+     "wall_match": {
+      "best_cost_m": 0.0082,
+      "second_cost_m": 0.0082,
+      "ambiguous": true
+     },
+     "placed": true,
+     "scale_ratio": 0.9994121405139802,
+     "shape_err_median": 3.918182281881233e-05
+    },
+    {
+     "room": "B",
+     "pred": "r2",
+     "match": "perimeter",
+     "pred_walls": 4,
+     "gt_walls": 4,
+     "wall_match": {
+      "best_cost_m": 0.0085,
+      "second_cost_m": 0.0085,
+      "ambiguous": true
+     },
+     "placed": true,
+     "scale_ratio": 0.9992161949508788,
+     "shape_err_median": 8.957607301868231e-05
+    }
+   ],
+   "phantom_rooms": [],
+   "walls": [
+    {
+     "room": "A",
+     "wall": "W1",
+     "gt": 4.0,
+     "pred": 3.9978051972135713,
+     "abs_err": -0.0021948027864286956,
+     "rel_err": -0.0005487006966071739,
+     "covered": true,
+     "status": "measured",
+     "half_width": 0.03093821006606312
+    },
+    {
+     "room": "A",
+     "wall": "W2",
+     "gt": 3.0,
+     "pred": 2.998118945173703,
+     "abs_err": -0.0018810548262968574,
+     "rel_err": -0.0006270182754322858,
+     "covered": true,
+     "status": "measured",
+     "half_width": 0.025580647876553897
+    },
+    {
+     "room": "A",
+     "wall": "W3",
+     "gt": 4.0,
+     "pred": 3.9978051972135717,
+     "abs_err": -0.0021948027864282516,
+     "rel_err": -0.0005487006966070629,
+     "covered": true,
+     "status": "measured",
+     "half_width": 0.030938210066025373
+    },
+    {
+     "room": "A",
+     "wall": "W4",
+     "gt": 3.0,
+     "pred": 2.998118945173703,
+     "abs_err": -0.0018810548262968574,
+     "rel_err": -0.0006270182754322858,
+     "covered": true,
+     "status": "measured",
+     "half_width": 0.025580647876553897
+    },
+    {
+     "room": "B",
+     "wall": "W1",
+     "gt": 2.5,
+     "pred": 2.497816722720096,
+     "abs_err": -0.0021832772799039724,
+     "rel_err": -0.0008733109119615889,
+     "covered": true,
+     "status": "measured",
+     "half_width": 0.023136994535755573
+    },
+    {
+     "room": "B",
+     "wall": "W2",
+     "gt": 3.0,
+     "pred": 2.9979171024411575,
+     "abs_err": -0.0020828975588425003,
+     "rel_err": -0.0006942991862808334,
+     "covered": true,
+     "status": "measured",
+     "half_width": 0.02557962364946098
+    },
+    {
+     "room": "B",
+     "wall": "W3",
+     "gt": 2.5,
+     "pred": 2.497816722720096,
+     "abs_err": -0.0021832772799039724,
+     "rel_err": -0.0008733109119615889,
+     "covered": true,
+     "status": "measured",
+     "half_width": 0.023136994535755573
+    },
+    {
+     "room": "B",
+     "wall": "W4",
+     "gt": 3.0,
+     "pred": 2.9979171024411575,
+     "abs_err": -0.0020828975588425003,
+     "rel_err": -0.0006942991862808334,
+     "covered": true,
+     "status": "measured",
+     "half_width": 0.025579623649369054
+    }
+   ],
+   "ceilings": [
+    {
+     "room": "A",
+     "gt": 2.5,
+     "pred": 2.4988011743709717,
+     "status": "measured",
+     "abs_err": -0.0011988256290282884,
+     "covered": true
+    },
+    {
+     "room": "B",
+     "gt": 2.5,
+     "pred": 2.4983594746347006,
+     "status": "measured",
+     "abs_err": -0.0016405253652993501,
+     "covered": true
+    }
+   ],
+   "areas": [
+    {
+     "room": "A",
+     "gt": 12.0,
+     "pred": 11.985895500879902,
+     "rel_err": -0.0011753749266748548,
+     "covered": true
+    },
+    {
+     "room": "B",
+     "gt": 7.5,
+     "pred": 7.488247471806098,
+     "rel_err": -0.0015670037591869468,
+     "covered": true
+    }
+   ],
+   "openings": [
+    {
+     "room": "A",
+     "opening": "D1",
+     "gt": 0.8,
+     "pred": 0.81,
+     "abs_err": 0.010000000000000009,
+     "hit": true,
+     "covered": true
+    },
+    {
+     "room": "B",
+     "pred_opening": "o0",
+     "phantom": true
+    }
+   ],
+   "opening_hit_rate": 0.5,
+   "topology_mismatch": [],
+   "opening_counts": {
+    "gt": 1,
+    "hits": 1,
+    "missed": 0,
+    "phantom": 1
+   },
+   "adjacency": {
+    "correct": true,
+    "missing": [],
+    "extra": []
+   },
+   "max_room_overlap_m2": 0.0,
+   "rooms_unplaced": 0,
+   "quality_flags": [],
+   "footprint_rel_err": -0.0013260014007179244,
+   "question": "fix_loop",
+   "variant": "after",
+   "diagnostics": {
+    "upper_walls_observed": true,
+    "regions": 2,
+    "rooms": {
+     "1": {
+      "step": "v1_0",
+      "n_walls": 4,
+      "unaligned_visits": 0,
+      "stability_runs_without_outline": 0
+     },
+     "2": {
+      "step": "v1_0",
+      "n_walls": 4,
+      "unaligned_visits": 0,
+      "stability_runs_without_outline": 0
+     }
+    }
+   },
+   "provenance": {
+    "code_commit": "da88a975f4e342ac3fcc621d6e0a8c0859163415",
+    "code_dirty": false,
+    "python": "3.13.14",
+    "libs": {
+     "numpy": "2.5.3",
+     "scipy": "1.18.1",
+     "open3d": "0.20.0",
+     "opencv-python": "5.0.0.93",
+     "torch": "2.14.1",
+     "moge": "2.0.0",
+     "pydantic": "2.13.5"
+    },
+    "method": "lidar_v1_uncal",
+    "params": {
+     "placement": "arkit_yaw",
+     "ladder": true,
+     "seg_pad": [
+      1.0,
+      1.0
+     ]
+    }
+   }
+  }
+ ],
+ "calibration_residuals": [
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "before_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "A",
+   "gt": 4.0,
+   "pred": 3.998926287042382,
+   "residual": -0.0010737129576181559,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "before_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "A",
+   "gt": 3.0,
+   "pred": 2.5010802960515,
+   "residual": -0.4989197039484998,
+   "covered": false
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "before_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "A",
+   "gt": 4.0,
+   "pred": 3.9989262870423814,
+   "residual": -0.0010737129576186,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "before_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "A",
+   "gt": 3.0,
+   "pred": 2.5010802960515,
+   "residual": -0.4989197039484998,
+   "covered": false
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "before_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "B",
+   "gt": 2.5,
+   "pred": 2.4952461437656552,
+   "residual": -0.0047538562343447666,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "before_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "B",
+   "gt": 3.0,
+   "pred": 1.9961917505488702,
+   "residual": -1.0038082494511298,
+   "covered": false
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "before_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "B",
+   "gt": 2.5,
+   "pred": 2.4952461437656552,
+   "residual": -0.0047538562343447666,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "before_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "B",
+   "gt": 3.0,
+   "pred": 1.996191750548871,
+   "residual": -1.003808249451129,
+   "covered": false
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "before_fix",
+   "tier": "lidar",
+   "quantity": "ceiling_height",
+   "room": "A",
+   "gt": 2.5,
+   "pred": 2.498765327061413,
+   "residual": -0.0012346729385868116,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "before_fix",
+   "tier": "lidar",
+   "quantity": "ceiling_height",
+   "room": "B",
+   "gt": 2.5,
+   "pred": 2.498305847469711,
+   "residual": -0.0016941525302889282,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "before_fix",
+   "tier": "lidar",
+   "quantity": "floor_area",
+   "room": "A",
+   "gt": 12.0,
+   "pred": 10.001635741884087,
+   "residual": -1.9983642581159131,
+   "covered": false
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "before_fix",
+   "tier": "lidar",
+   "quantity": "floor_area",
+   "room": "B",
+   "gt": 7.5,
+   "pred": 4.980989767773881,
+   "residual": -2.519010232226119,
+   "covered": false
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "before_fix",
+   "tier": "lidar",
+   "quantity": "opening_width",
+   "room": "A",
+   "gt": 0.8,
+   "pred": 0.81,
+   "residual": 0.010000000000000009,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "after_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "A",
+   "gt": 4.0,
+   "pred": 3.9978051972135713,
+   "residual": -0.0021948027864286956,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "after_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "A",
+   "gt": 3.0,
+   "pred": 2.998118945173703,
+   "residual": -0.0018810548262968574,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "after_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "A",
+   "gt": 4.0,
+   "pred": 3.9978051972135717,
+   "residual": -0.0021948027864282516,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "after_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "A",
+   "gt": 3.0,
+   "pred": 2.998118945173703,
+   "residual": -0.0018810548262968574,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "after_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "B",
+   "gt": 2.5,
+   "pred": 2.497816722720096,
+   "residual": -0.0021832772799039724,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "after_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "B",
+   "gt": 3.0,
+   "pred": 2.9979171024411575,
+   "residual": -0.0020828975588425003,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "after_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "B",
+   "gt": 2.5,
+   "pred": 2.497816722720096,
+   "residual": -0.0021832772799039724,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "after_fix",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "B",
+   "gt": 3.0,
+   "pred": 2.9979171024411575,
+   "residual": -0.0020828975588425003,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "after_fix",
+   "tier": "lidar",
+   "quantity": "ceiling_height",
+   "room": "A",
+   "gt": 2.5,
+   "pred": 2.4988011743709717,
+   "residual": -0.0011988256290282884,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "after_fix",
+   "tier": "lidar",
+   "quantity": "ceiling_height",
+   "room": "B",
+   "gt": 2.5,
+   "pred": 2.4983594746347006,
+   "residual": -0.0016405253652993501,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "after_fix",
+   "tier": "lidar",
+   "quantity": "floor_area",
+   "room": "A",
+   "gt": 12.0,
+   "pred": 11.985895500879902,
+   "residual": -0.014104499120097813,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "after_fix",
+   "tier": "lidar",
+   "quantity": "floor_area",
+   "room": "B",
+   "gt": 7.5,
+   "pred": 7.488247471806098,
+   "residual": -0.011752528193902378,
+   "covered": true
+  },
+  {
+   "gt_kind": "synthetic",
+   "purpose": "synthetic",
+   "capture": "after_fix",
+   "tier": "lidar",
+   "quantity": "opening_width",
+   "room": "A",
+   "gt": 0.8,
+   "pred": 0.81,
+   "residual": 0.010000000000000009,
+   "covered": true
+  }
+ ],
+ "execution": {
+  "before_fix": {
+   "status": "ok",
+   "returncode": 0,
+   "seconds": 5.7,
+   "command": "python -m roomscan.lidar.cli runs/fix_loop/synthetic_capture runs/fix_loop/before_fix --seg-pad 0.3 0.0"
+  },
+  "after_fix": {
+   "status": "ok",
+   "returncode": 0,
+   "seconds": 3.8,
+   "command": "python -m roomscan.lidar.cli runs/fix_loop/synthetic_capture runs/fix_loop/after_fix"
+  }
+ }
+}

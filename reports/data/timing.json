@@ -1,0 +1,9 @@
+{
+ "lidar_floor_only": 15.3,
+ "lidar_single_room": 6.6,
+ "photo_diverse_k6": 136.2,
+ "photo_sweep_k8": 137.3,
+ "video_with_ceiling": 479.5,
+ "lidar_with_ceiling": 32.7,
+ "lidar_with_ceiling_arkit": 33.5
+}

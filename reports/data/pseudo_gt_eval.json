@@ -1,0 +1,1699 @@
+{
+ "site": "pseudo_gt_lidar_v11",
+ "gt_kind": "pseudo_lidar",
+ "purpose": "pseudo",
+ "pseudo_gt": true,
+ "code_versions": [
+  "da88a975f4e342ac3fcc621d6e0a8c0859163415"
+ ],
+ "mixed_code_versions": false,
+ "dirty_code": false,
+ "gates": {
+  "lidar_floor_only": {
+   "tier": "lidar",
+   "rooms_matched": "1/6",
+   "walls_matched": 4,
+   "walls_unmatched": 0,
+   "rooms_topology_mismatch": 0,
+   "rooms_matched_by_size_only": "1 (identity unverified: errors may be optimistic)",
+   "wall_rel_err_median": 0.17864819708184612,
+   "area_rel_err_median": 0.3530395232561472,
+   "opening_pass": false,
+   "interval_coverage": 0.4,
+   "n_intervals": 5
+  },
+  "lidar_single_room": {
+   "tier": "lidar",
+   "rooms_matched": "1/6",
+   "walls_matched": 0,
+   "walls_unmatched": 6,
+   "rooms_topology_mismatch": 1,
+   "rooms_matched_by_size_only": "1 (identity unverified: errors may be optimistic)",
+   "area_rel_err_median": 0.22889910146068582,
+   "opening_pass": false,
+   "interval_coverage": 0.0,
+   "n_intervals": 1
+  },
+  "photo_diverse_k6": {
+   "tier": "photo",
+   "rooms_matched": "2/6",
+   "walls_matched": 4,
+   "walls_unmatched": 6,
+   "rooms_topology_mismatch": 1,
+   "wall_rel_err_median": 6.799938381847378,
+   "area_rel_err_median": 29.218936864505196,
+   "ceiling_abs_err_median_m": 0.42666123701772474,
+   "walls_within_gate_frac": 0.0,
+   "walls_max_rel_err": 7.999169020089127,
+   "stitch_pass": false,
+   "stitch_fail_reason": "3 room(s) not placed",
+   "interval_coverage": 0.2857142857142857,
+   "n_intervals": 7
+  },
+  "photo_sweep_k8": {
+   "tier": "photo",
+   "rooms_matched": "3/6",
+   "walls_matched": 8,
+   "walls_unmatched": 6,
+   "rooms_topology_mismatch": 1,
+   "wall_rel_err_median": 2.7148577425968146,
+   "area_rel_err_median": 0.4430272130126661,
+   "ceiling_abs_err_median_m": 0.1572589561234996,
+   "walls_within_gate_frac": 0.0,
+   "walls_max_rel_err": 8.071021844911483,
+   "stitch_pass": false,
+   "stitch_fail_reason": "4 room(s) not placed",
+   "interval_coverage": 0.16666666666666666,
+   "n_intervals": 12
+  },
+  "video_with_ceiling": {
+   "tier": "video",
+   "rooms_matched": "2/6",
+   "walls_matched": 4,
+   "walls_unmatched": 6,
+   "rooms_topology_mismatch": 1,
+   "rooms_matched_by_size_only": "2 (identity unverified: errors may be optimistic)",
+   "wall_rel_err_median": 0.17571015766178022,
+   "area_rel_err_median": 0.129108415408404,
+   "walls_within_gate_frac": 0.0,
+   "walls_max_rel_err": 0.23876914037588723,
+   "interval_coverage": 0.6666666666666666,
+   "n_intervals": 6
+  },
+  "repeatability": {}
+ },
+ "captures": [
+  {
+   "capture": "lidar_floor_only",
+   "tier": "lidar",
+   "rooms_matched": 1,
+   "rooms_expected": 6,
+   "room_match": [
+    {
+     "pred": "r1",
+     "gt": "r3",
+     "method": "perimeter"
+    }
+   ],
+   "rooms_detail": [
+    {
+     "room": "r3",
+     "pred": "r1",
+     "match": "perimeter",
+     "pred_walls": 4,
+     "gt_walls": 4,
+     "wall_match": {
+      "best_cost_m": 2.1439,
+      "second_cost_m": 2.1439,
+      "ambiguous": true
+     },
+     "placed": true,
+     "scale_ratio": 0.8213518029181539,
+     "shape_err_median": 0.20252639833481256
+    }
+   ],
+   "phantom_rooms": [],
+   "walls": [
+    {
+     "room": "r3",
+     "wall": "W1",
+     "gt": 3.0011,
+     "pred": 1.9657396485405643,
+     "abs_err": -1.0353603514594358,
+     "rel_err": -0.3449936194926646,
+     "covered": false,
+     "status": "measured",
+     "half_width": 0.052300293933923436
+    },
+    {
+     "room": "r3",
+     "wall": "W2",
+     "gt": 2.9749,
+     "pred": 2.9383004756311597,
+     "abs_err": -0.036599524368840175,
+     "rel_err": -0.012302774671027658,
+     "covered": true,
+     "status": "measured",
+     "half_width": 0.03946601353756174
+    },
+    {
+     "room": "r3",
+     "wall": "W3",
+     "gt": 3.0011,
+     "pred": 1.9657396485405643,
+     "abs_err": -1.0353603514594358,
+     "rel_err": -0.3449936194926646,
+     "covered": false,
+     "status": "measured",
+     "half_width": 0.052300293933819963
+    },
+    {
+     "room": "r3",
+     "wall": "W4",
+     "gt": 2.9749,
+     "pred": 2.93830047563116,
+     "abs_err": -0.03659952436883973,
+     "rel_err": -0.012302774671027507,
+     "covered": true,
+     "status": "measured",
+     "half_width": 0.03946601353756174
+    }
+   ],
+   "ceilings": [
+    {
+     "room": "r3",
+     "gt": 2.9605,
+     "pred": null,
+     "status": "not_observed",
+     "abs_err": null,
+     "covered": null
+    }
+   ],
+   "areas": [
+    {
+     "room": "r3",
+     "gt": 8.9278,
+     "pred": 5.775933744273769,
+     "rel_err": -0.3530395232561472,
+     "covered": false
+    }
+   ],
+   "openings": [
+    {
+     "room": "r3",
+     "opening": "o1",
+     "missed": true
+    }
+   ],
+   "opening_hit_rate": 0.0,
+   "topology_mismatch": [],
+   "opening_counts": {
+    "gt": 1,
+    "hits": 0,
+    "missed": 1,
+    "phantom": 0
+   },
+   "adjacency": {
+    "correct": true,
+    "missing": [],
+    "extra": []
+   },
+   "max_room_overlap_m2": 0.0,
+   "rooms_unplaced": 0,
+   "quality_flags": [
+    "r1_ceiling_not_observed: too few ceiling points (112); sweep the ceiling",
+    "r1_walls_unmeasured: 1 wall(s) placed from topology only (face sigma 0.03 m)"
+   ],
+   "footprint_rel_err": -0.3530395232561472,
+   "question": null,
+   "variant": null,
+   "diagnostics": {
+    "upper_walls_observed": true,
+    "regions": 1,
+    "rooms": {
+     "1": {
+      "step": "v1_0",
+      "n_walls": 4,
+      "unaligned_visits": 0,
+      "stability_runs_without_outline": 0
+     }
+    }
+   },
+   "provenance": {
+    "code_commit": "da88a975f4e342ac3fcc621d6e0a8c0859163415",
+    "code_dirty": false,
+    "python": "3.13.14",
+    "libs": {
+     "numpy": "2.5.3",
+     "scipy": "1.18.1",
+     "open3d": "0.20.0",
+     "opencv-python": "5.0.0.93",
+     "torch": "2.14.1",
+     "moge": "2.0.0",
+     "pydantic": "2.13.5"
+    },
+    "method": "lidar_v1_uncal",
+    "params": {
+     "placement": "arkit_yaw",
+     "ladder": true,
+     "seg_pad": [
+      1.0,
+      1.0
+     ]
+    }
+   }
+  },
+  {
+   "capture": "lidar_single_room",
+   "tier": "lidar",
+   "rooms_matched": 1,
+   "rooms_expected": 6,
+   "room_match": [
+    {
+     "pred": "r1",
+     "gt": "r1",
+     "method": "perimeter"
+    }
+   ],
+   "rooms_detail": [
+    {
+     "room": "r1",
+     "pred": "r1",
+     "match": "perimeter",
+     "pred_walls": 4,
+     "gt_walls": 6,
+     "wall_match": {},
+     "placed": true
+    }
+   ],
+   "phantom_rooms": [],
+   "walls": [
+    {
+     "room": "r1",
+     "wall": "W1",
+     "gt": 4.2663,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W2",
+     "gt": 8.6779,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W3",
+     "gt": 2.8672,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W4",
+     "gt": 3.245,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W5",
+     "gt": 1.3991,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W6",
+     "gt": 5.4329,
+     "pred": null,
+     "unmatched": true
+    }
+   ],
+   "ceilings": [
+    {
+     "room": "r1",
+     "gt": 2.5751,
+     "pred": null,
+     "status": "not_observed",
+     "abs_err": null,
+     "covered": null
+    }
+   ],
+   "areas": [
+    {
+     "room": "r1",
+     "gt": 32.4826,
+     "pred": 39.91783795310687,
+     "rel_err": 0.22889910146068582,
+     "covered": false
+    }
+   ],
+   "openings": [
+    {
+     "room": "r1",
+     "opening": "o0",
+     "missed": true
+    }
+   ],
+   "opening_hit_rate": 0.0,
+   "topology_mismatch": [
+    {
+     "room": "r1",
+     "gt_walls": 6,
+     "pred_walls": 4
+    }
+   ],
+   "opening_counts": {
+    "gt": 1,
+    "hits": 0,
+    "missed": 1,
+    "phantom": 0
+   },
+   "adjacency": {
+    "correct": true,
+    "missing": [],
+    "extra": []
+   },
+   "max_room_overlap_m2": 0.0,
+   "rooms_unplaced": 0,
+   "quality_flags": [
+    "upper_walls_not_observed: almost no wall surface above 1.9 m was seen; room separation and wall existence need the upper walls and ceiling in view (re-capture sweeping each wall's top edge)",
+    "r1_ceiling_not_observed: too few ceiling points (0); sweep the ceiling",
+    "r1_walls_inferred: 3 wall(s) never observed at structural height; placed at the observed-floor boundary, status inferred (face sigma 0.1 m); capture each wall's top edge"
+   ],
+   "footprint_rel_err": 0.22889910146068582,
+   "question": null,
+   "variant": null,
+   "diagnostics": {
+    "upper_walls_observed": false,
+    "regions": 1,
+    "rooms": {
+     "1": {
+      "step": "inferred",
+      "n_walls": 4,
+      "unaligned_visits": 1,
+      "stability_runs_without_outline": 0
+     }
+    }
+   },
+   "provenance": {
+    "code_commit": "da88a975f4e342ac3fcc621d6e0a8c0859163415",
+    "code_dirty": false,
+    "python": "3.13.14",
+    "libs": {
+     "numpy": "2.5.3",
+     "scipy": "1.18.1",
+     "open3d": "0.20.0",
+     "opencv-python": "5.0.0.93",
+     "torch": "2.14.1",
+     "moge": "2.0.0",
+     "pydantic": "2.13.5"
+    },
+    "method": "lidar_v1_uncal",
+    "params": {
+     "placement": "arkit_yaw",
+     "ladder": true,
+     "seg_pad": [
+      1.0,
+      1.0
+     ]
+    }
+   }
+  },
+  {
+   "capture": "photo_diverse_k6",
+   "tier": "photo",
+   "rooms_matched": 2,
+   "rooms_expected": 6,
+   "room_match": [
+    {
+     "pred": "r1",
+     "gt": "r1",
+     "method": "label"
+    },
+    {
+     "pred": "r4",
+     "gt": "r4",
+     "method": "label"
+    }
+   ],
+   "rooms_detail": [
+    {
+     "room": "r1",
+     "pred": "r1",
+     "match": "label",
+     "pred_walls": 10,
+     "gt_walls": 6,
+     "wall_match": {},
+     "placed": false
+    },
+    {
+     "room": "r4",
+     "pred": "r4",
+     "match": "label",
+     "pred_walls": 4,
+     "gt_walls": 4,
+     "wall_match": {
+      "best_cost_m": 25.8963,
+      "second_cost_m": 25.8963,
+      "ambiguous": true
+     },
+     "placed": false,
+     "scale_ratio": 7.799938381847378,
+     "shape_err_median": 0.15374873230187208
+    }
+   ],
+   "phantom_rooms": [
+    "r6"
+   ],
+   "walls": [
+    {
+     "room": "r1",
+     "wall": "W1",
+     "gt": 4.2663,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W2",
+     "gt": 8.6779,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W3",
+     "gt": 2.8672,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W4",
+     "gt": 3.245,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W5",
+     "gt": 1.3991,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W6",
+     "gt": 5.4329,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r4",
+     "wall": "W1",
+     "gt": 0.9659,
+     "pred": 6.375623609548676,
+     "abs_err": 5.409723609548676,
+     "rel_err": 5.600707743605628,
+     "covered": false,
+     "status": "measured",
+     "half_width": 1.3743852178443872
+    },
+    {
+     "room": "r4",
+     "wall": "W2",
+     "gt": 0.9424,
+     "pred": 8.480816884531993,
+     "abs_err": 7.538416884531993,
+     "rel_err": 7.999169020089127,
+     "covered": false,
+     "status": "measured",
+     "half_width": 1.5368001207978637
+    },
+    {
+     "room": "r4",
+     "wall": "W3",
+     "gt": 0.9659,
+     "pred": 6.375623609548676,
+     "abs_err": 5.409723609548676,
+     "rel_err": 5.600707743605628,
+     "covered": false,
+     "status": "measured",
+     "half_width": 1.3743852178443872
+    },
+    {
+     "room": "r4",
+     "wall": "W4",
+     "gt": 0.9424,
+     "pred": 8.480816884531993,
+     "abs_err": 7.538416884531993,
+     "rel_err": 7.999169020089127,
+     "covered": false,
+     "status": "measured",
+     "half_width": 1.5368001207978637
+    }
+   ],
+   "ceilings": [
+    {
+     "room": "r1",
+     "gt": 2.5751,
+     "pred": 3.0017612370177247,
+     "status": "measured",
+     "abs_err": 0.42666123701772474,
+     "covered": true
+    }
+   ],
+   "areas": [
+    {
+     "room": "r1",
+     "gt": 32.4826,
+     "pred": 31.205130736030583,
+     "rel_err": -0.03932780208386688,
+     "covered": true
+    },
+    {
+     "room": "r4",
+     "gt": 0.9103,
+     "pred": 54.070496357281215,
+     "rel_err": 58.39854592692652,
+     "covered": false
+    }
+   ],
+   "openings": [
+    {
+     "room": "r1",
+     "opening": "o0",
+     "missed": true
+    }
+   ],
+   "opening_hit_rate": 0.0,
+   "topology_mismatch": [
+    {
+     "room": "r1",
+     "gt_walls": 6,
+     "pred_walls": 10
+    }
+   ],
+   "opening_counts": {
+    "gt": 1,
+    "hits": 0,
+    "missed": 1,
+    "phantom": 0
+   },
+   "adjacency": {
+    "correct": false,
+    "missing": [
+     [
+      "r1",
+      "r4"
+     ]
+    ],
+    "extra": []
+   },
+   "max_room_overlap_m2": 0.0,
+   "rooms_unplaced": 3,
+   "quality_flags": [
+    "r1_walls_inferred: 6 wall(s) not seen at structural height in the photos; placed at the reconstructed floor boundary (face sigma 0.15 m)",
+    "r1_registration_inconsistent: camera heights spread 0.42 m; photos probably do not overlap enough",
+    "r3_no_region: photos reconstructed but no room outline could be built",
+    "r4_registration_inconsistent: camera heights spread 0.40 m; photos probably do not overlap enough",
+    "r6_walls_inferred: 2 wall(s) not seen at structural height in the photos; placed at the reconstructed floor boundary (face sigma 0.15 m)",
+    "r6_registration_inconsistent: camera heights spread 0.40 m; photos probably do not overlap enough",
+    "r7_no_floor: photos reconstructed but no room outline could be built",
+    "r8_no_floor: photos reconstructed but no room outline could be built",
+    "rooms_unplaced: photo folders are not stitched into one plan (no validated method: e17 doorway photos 0/36); room positions in this plan carry no information"
+   ],
+   "footprint_rel_err": 1.553705341354354,
+   "question": null,
+   "variant": null,
+   "diagnostics": {
+    "rooms": {
+     "r1": {
+      "photos": 6,
+      "result": "ok",
+      "camera_height_spread_m": 0.424,
+      "stability_runs_without_outline": 0,
+      "log_scale_disagreement": -0.085,
+      "scale_ma_to_m": 1.3947
+     },
+     "r3": {
+      "photos": 6,
+      "result": "no_region",
+      "camera_height_spread_m": null,
+      "stability_runs_without_outline": null,
+      "log_scale_disagreement": 0.024,
+      "scale_ma_to_m": 1.4723
+     },
+     "r4": {
+      "photos": 6,
+      "result": "ok",
+      "camera_height_spread_m": 0.405,
+      "stability_runs_without_outline": 0,
+      "log_scale_disagreement": -0.063,
+      "scale_ma_to_m": 1.4102
+     },
+     "r6": {
+      "photos": 6,
+      "result": "ok",
+      "camera_height_spread_m": 0.4,
+      "stability_runs_without_outline": 0,
+      "log_scale_disagreement": -0.086,
+      "scale_ma_to_m": 1.3937
+     },
+     "r7": {
+      "photos": 6,
+      "result": "no_floor",
+      "camera_height_spread_m": null,
+      "stability_runs_without_outline": null,
+      "log_scale_disagreement": -0.197,
+      "scale_ma_to_m": 1.3183
+     },
+     "r8": {
+      "photos": 6,
+      "result": "no_floor",
+      "camera_height_spread_m": null,
+      "stability_runs_without_outline": null,
+      "log_scale_disagreement": -0.175,
+      "scale_ma_to_m": 1.3328
+     }
+    }
+   },
+   "provenance": {
+    "code_commit": "da88a975f4e342ac3fcc621d6e0a8c0859163415",
+    "code_dirty": false,
+    "python": "3.13.14",
+    "libs": {
+     "numpy": "2.5.3",
+     "scipy": "1.18.1",
+     "open3d": "0.20.0",
+     "opencv-python": "5.0.0.93",
+     "torch": "2.14.1",
+     "moge": "2.0.0",
+     "pydantic": "2.13.5"
+    },
+    "method": "photo_moge_mapanything_ensemble_uncal_moge",
+    "params": {}
+   }
+  },
+  {
+   "capture": "photo_sweep_k8",
+   "tier": "photo",
+   "rooms_matched": 3,
+   "rooms_expected": 6,
+   "room_match": [
+    {
+     "pred": "r1",
+     "gt": "r1",
+     "method": "label"
+    },
+    {
+     "pred": "r3",
+     "gt": "r3",
+     "method": "label"
+    },
+    {
+     "pred": "r4",
+     "gt": "r4",
+     "method": "label"
+    }
+   ],
+   "rooms_detail": [
+    {
+     "room": "r1",
+     "pred": "r1",
+     "match": "label",
+     "pred_walls": 4,
+     "gt_walls": 6,
+     "wall_match": {},
+     "placed": false
+    },
+    {
+     "room": "r3",
+     "pred": "r3",
+     "match": "label",
+     "pred_walls": 4,
+     "gt_walls": 4,
+     "wall_match": {
+      "best_cost_m": 8.259,
+      "second_cost_m": 8.259,
+      "ambiguous": true
+     },
+     "placed": false,
+     "scale_ratio": 1.2197143317881325,
+     "shape_err_median": 0.5657489374417211
+    },
+    {
+     "room": "r4",
+     "pred": "r4",
+     "match": "label",
+     "pred_walls": 4,
+     "gt_walls": 4,
+     "wall_match": {
+      "best_cost_m": 24.1108,
+      "second_cost_m": 24.1108,
+      "ambiguous": true
+     },
+     "placed": false,
+     "scale_ratio": 7.2954854555627024,
+     "shape_err_median": 0.24337467330497647
+    }
+   ],
+   "phantom_rooms": [
+    "r6"
+   ],
+   "walls": [
+    {
+     "room": "r1",
+     "wall": "W1",
+     "gt": 4.2663,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W2",
+     "gt": 8.6779,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W3",
+     "gt": 2.8672,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W4",
+     "gt": 3.245,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W5",
+     "gt": 1.3991,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r1",
+     "wall": "W6",
+     "gt": 5.4329,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r3",
+     "wall": "W1",
+     "gt": 3.0011,
+     "pred": 5.7314,
+     "abs_err": 2.7302999999999997,
+     "rel_err": 0.9097664189797073,
+     "covered": false,
+     "status": "inferred",
+     "half_width": 0.9816397943370738
+    },
+    {
+     "room": "r3",
+     "wall": "W2",
+     "gt": 2.9749,
+     "pred": 1.5756922114502996,
+     "abs_err": -1.3992077885497003,
+     "rel_err": -0.47033775540344225,
+     "covered": false,
+     "status": "inferred",
+     "half_width": 0.4194822567698866
+    },
+    {
+     "room": "r3",
+     "wall": "W3",
+     "gt": 3.0011,
+     "pred": 5.7314,
+     "abs_err": 2.7302999999999997,
+     "rel_err": 0.9097664189797073,
+     "covered": false,
+     "status": "inferred",
+     "half_width": 0.9816397943370738
+    },
+    {
+     "room": "r3",
+     "wall": "W4",
+     "gt": 2.9749,
+     "pred": 1.5756922114502996,
+     "abs_err": -1.3992077885497003,
+     "rel_err": -0.47033775540344225,
+     "covered": false,
+     "status": "inferred",
+     "half_width": 0.4194822567698866
+    },
+    {
+     "room": "r4",
+     "wall": "W1",
+     "gt": 0.9659,
+     "pred": 8.761700000000001,
+     "abs_err": 7.795800000000002,
+     "rel_err": 8.071021844911483,
+     "covered": false,
+     "status": "inferred",
+     "half_width": 1.3064703955333723
+    },
+    {
+     "room": "r4",
+     "wall": "W2",
+     "gt": 0.9424,
+     "pred": 5.202,
+     "abs_err": 4.2596,
+     "rel_err": 4.519949066213922,
+     "covered": false,
+     "status": "inferred",
+     "half_width": 0.8309121378867417
+    },
+    {
+     "room": "r4",
+     "wall": "W3",
+     "gt": 0.9659,
+     "pred": 8.761700000000001,
+     "abs_err": 7.795800000000002,
+     "rel_err": 8.071021844911483,
+     "covered": false,
+     "status": "inferred",
+     "half_width": 1.3064703955333723
+    },
+    {
+     "room": "r4",
+     "wall": "W4",
+     "gt": 0.9424,
+     "pred": 5.202,
+     "abs_err": 4.2596,
+     "rel_err": 4.519949066213922,
+     "covered": false,
+     "status": "inferred",
+     "half_width": 0.8309121378867417
+    }
+   ],
+   "ceilings": [
+    {
+     "room": "r1",
+     "gt": 2.5751,
+     "pred": 2.4178410438765003,
+     "status": "measured",
+     "abs_err": -0.1572589561234996,
+     "covered": true
+    },
+    {
+     "room": "r3",
+     "gt": 2.9605,
+     "pred": null,
+     "status": "not_observed",
+     "abs_err": null,
+     "covered": null
+    }
+   ],
+   "areas": [
+    {
+     "room": "r1",
+     "gt": 32.4826,
+     "pred": 18.09192425059477,
+     "rel_err": -0.4430272130126661,
+     "covered": false
+    },
+    {
+     "room": "r3",
+     "gt": 8.9278,
+     "pred": 9.030922340706244,
+     "rel_err": 0.011550700139591363,
+     "covered": true
+    },
+    {
+     "room": "r4",
+     "gt": 0.9103,
+     "pred": 45.5783634,
+     "rel_err": 49.06960716247391,
+     "covered": false
+    }
+   ],
+   "openings": [
+    {
+     "room": "r1",
+     "opening": "o0",
+     "missed": true
+    },
+    {
+     "room": "r3",
+     "opening": "o1",
+     "missed": true
+    }
+   ],
+   "opening_hit_rate": 0.0,
+   "topology_mismatch": [
+    {
+     "room": "r1",
+     "gt_walls": 6,
+     "pred_walls": 4
+    }
+   ],
+   "opening_counts": {
+    "gt": 2,
+    "hits": 0,
+    "missed": 2,
+    "phantom": 0
+   },
+   "adjacency": {
+    "correct": false,
+    "missing": [
+     [
+      "r1",
+      "r4"
+     ],
+     [
+      "r3",
+      "r4"
+     ]
+    ],
+    "extra": []
+   },
+   "max_room_overlap_m2": 0.0,
+   "rooms_unplaced": 4,
+   "quality_flags": [
+    "r1_walls_inferred: 1 wall(s) not seen at structural height in the photos; placed at the reconstructed floor boundary (face sigma 0.15 m)",
+    "r1_registration_inconsistent: camera heights spread 0.34 m; photos probably do not overlap enough",
+    "r2_no_region: photos reconstructed but no room outline could be built",
+    "r3_walls_inferred: 3 wall(s) not seen at structural height in the photos; placed at the reconstructed floor boundary (face sigma 0.15 m)",
+    "r3_ceiling_not_observed: the photos show too little ceiling",
+    "r4_walls_inferred: 4 wall(s) not seen at structural height in the photos; placed at the reconstructed floor boundary (face sigma 0.15 m)",
+    "r4_ceiling_not_observed: the photos show too little ceiling",
+    "r6_walls_inferred: 1 wall(s) not seen at structural height in the photos; placed at the reconstructed floor boundary (face sigma 0.15 m)",
+    "r7_no_floor: photos reconstructed but no room outline could be built",
+    "r8_no_floor: photos reconstructed but no room outline could be built",
+    "rooms_unplaced: photo folders are not stitched into one plan (no validated method: e17 doorway photos 0/36); room positions in this plan carry no information"
+   ],
+   "footprint_rel_err": 0.7178640710409097,
+   "question": null,
+   "variant": null,
+   "diagnostics": {
+    "rooms": {
+     "r1": {
+      "photos": 8,
+      "result": "ok",
+      "camera_height_spread_m": 0.339,
+      "stability_runs_without_outline": 0,
+      "log_scale_disagreement": -0.133,
+      "scale_ma_to_m": 1.3613
+     },
+     "r2": {
+      "photos": 3,
+      "result": "no_region",
+      "camera_height_spread_m": null,
+      "stability_runs_without_outline": null,
+      "log_scale_disagreement": -0.13,
+      "scale_ma_to_m": 1.3634
+     },
+     "r3": {
+      "photos": 8,
+      "result": "ok",
+      "camera_height_spread_m": 0.107,
+      "stability_runs_without_outline": 0,
+      "log_scale_disagreement": -0.04,
+      "scale_ma_to_m": 1.4263
+     },
+     "r4": {
+      "photos": 3,
+      "result": "ok",
+      "camera_height_spread_m": 0.053,
+      "stability_runs_without_outline": 0,
+      "log_scale_disagreement": -0.149,
+      "scale_ma_to_m": 1.3507
+     },
+     "r6": {
+      "photos": 3,
+      "result": "ok",
+      "camera_height_spread_m": 0.067,
+      "stability_runs_without_outline": 0,
+      "log_scale_disagreement": -0.111,
+      "scale_ma_to_m": 1.3765
+     },
+     "r7": {
+      "photos": 5,
+      "result": "no_floor",
+      "camera_height_spread_m": null,
+      "stability_runs_without_outline": null,
+      "log_scale_disagreement": -0.282,
+      "scale_ma_to_m": 1.2637
+     },
+     "r8": {
+      "photos": 6,
+      "result": "no_floor",
+      "camera_height_spread_m": null,
+      "stability_runs_without_outline": null,
+      "log_scale_disagreement": -0.268,
+      "scale_ma_to_m": 1.2723
+     }
+    }
+   },
+   "provenance": {
+    "code_commit": "da88a975f4e342ac3fcc621d6e0a8c0859163415",
+    "code_dirty": false,
+    "python": "3.13.14",
+    "libs": {
+     "numpy": "2.5.3",
+     "scipy": "1.18.1",
+     "open3d": "0.20.0",
+     "opencv-python": "5.0.0.93",
+     "torch": "2.14.1",
+     "moge": "2.0.0",
+     "pydantic": "2.13.5"
+    },
+    "method": "photo_moge_mapanything_ensemble_uncal_moge",
+    "params": {}
+   }
+  },
+  {
+   "capture": "video_with_ceiling",
+   "tier": "video",
+   "rooms_matched": 2,
+   "rooms_expected": 6,
+   "room_match": [
+    {
+     "pred": "v1",
+     "gt": "r2",
+     "method": "perimeter"
+    },
+    {
+     "pred": "v2",
+     "gt": "r8",
+     "method": "perimeter"
+    }
+   ],
+   "rooms_detail": [
+    {
+     "room": "r2",
+     "pred": "v1",
+     "match": "perimeter",
+     "pred_walls": 4,
+     "gt_walls": 6,
+     "wall_match": {},
+     "placed": false
+    },
+    {
+     "room": "r8",
+     "pred": "v2",
+     "match": "perimeter",
+     "pred_walls": 4,
+     "gt_walls": 4,
+     "wall_match": {
+      "best_cost_m": 2.3571,
+      "second_cost_m": 2.3571,
+      "ambiguous": true
+     },
+     "placed": false,
+     "scale_ratio": 1.063058982714107,
+     "shape_err_median": 0.16528730815403364
+    }
+   ],
+   "phantom_rooms": [
+    "v0"
+   ],
+   "walls": [
+    {
+     "room": "r2",
+     "wall": "W1",
+     "gt": 0.4195,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r2",
+     "wall": "W2",
+     "gt": 0.6883,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r2",
+     "wall": "W3",
+     "gt": 1.2982,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r2",
+     "wall": "W4",
+     "gt": 2.3383,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r2",
+     "wall": "W5",
+     "gt": 1.7177,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r2",
+     "wall": "W6",
+     "gt": 1.65,
+     "pred": null,
+     "unmatched": true
+    },
+    {
+     "room": "r8",
+     "wall": "W1",
+     "gt": 3.4561,
+     "pred": 4.281310026053104,
+     "abs_err": 0.8252100260531039,
+     "rel_err": 0.23876914037588723,
+     "covered": false,
+     "status": "measured",
+     "half_width": 0.7035052596979234
+    },
+    {
+     "room": "r8",
+     "wall": "W2",
+     "gt": 3.1368,
+     "pred": 2.783435794424139,
+     "abs_err": -0.35336420557586123,
+     "rel_err": -0.11265117494767318,
+     "covered": true,
+     "status": "measured",
+     "half_width": 0.5027468415274128
+    },
+    {
+     "room": "r8",
+     "wall": "W3",
+     "gt": 3.4561,
+     "pred": 4.281310026053104,
+     "abs_err": 0.8252100260531039,
+     "rel_err": 0.23876914037588723,
+     "covered": false,
+     "status": "measured",
+     "half_width": 0.7035052596979234
+    },
+    {
+     "room": "r8",
+     "wall": "W4",
+     "gt": 3.1368,
+     "pred": 2.783435794424139,
+     "abs_err": -0.35336420557586123,
+     "rel_err": -0.11265117494767318,
+     "covered": true,
+     "status": "measured",
+     "half_width": 0.5027468415274128
+    }
+   ],
+   "ceilings": [
+    {
+     "room": "r2",
+     "gt": 2.283,
+     "pred": null,
+     "status": "not_observed",
+     "abs_err": null,
+     "covered": null
+    },
+    {
+     "room": "r8",
+     "gt": 3.0795,
+     "pred": null,
+     "status": "not_observed",
+     "abs_err": null,
+     "covered": null
+    }
+   ],
+   "areas": [
+    {
+     "room": "r2",
+     "gt": 3.7277,
+     "pred": 4.320393300627031,
+     "rel_err": 0.15899704928696812,
+     "covered": true
+    },
+    {
+     "room": "r8",
+     "gt": 10.8411,
+     "pred": 11.916751573543149,
+     "rel_err": 0.0992197815298399,
+     "covered": true
+    }
+   ],
+   "openings": [],
+   "opening_hit_rate": null,
+   "topology_mismatch": [
+    {
+     "room": "r2",
+     "gt_walls": 6,
+     "pred_walls": 4
+    }
+   ],
+   "opening_counts": {
+    "gt": 0,
+    "hits": 0,
+    "missed": 0,
+    "phantom": 0
+   },
+   "adjacency": {
+    "correct": true,
+    "missing": [],
+    "extra": []
+   },
+   "max_room_overlap_m2": 0.0,
+   "rooms_unplaced": 3,
+   "quality_flags": [
+    "v0_time_span: measured from 12.1-23.7 s of the clip (windows [1])",
+    "v0_topology_unstable: the room outline changes under small irrelevant perturbations; intervals widened",
+    "v0_walls_inferred: 3 wall(s) not seen at structural height in that window",
+    "v1_time_span: measured from 48.4-59.9 s of the clip (windows [4])",
+    "v1_walls_inferred: 2 wall(s) not seen at structural height in that window",
+    "v2_time_span: measured from 72.5-83.6 s of the clip (windows [6])",
+    "video_fragmented: 18 windows of 12 s, 3 coherent, 3 room(s) after merging consecutive windows; rooms are not linked or placed (no continuous accurate tracking on RGB alone, e20/e25); a revisited room can appear more than once and rooms without a coherent window are missing",
+    "intrinsics_estimated: no focal length in the video file; field of view 49.7 deg estimated from the frames",
+    "v0_geometry_unreliable: floor-area 90 % interval +-939 %; treat this room's outline as indicative only"
+   ],
+   "footprint_rel_err": 0.114514913662771,
+   "question": null,
+   "variant": null,
+   "diagnostics": {
+    "duration_s": 214.6,
+    "fov_x_deg_estimated": 49.7,
+    "windows": 18,
+    "windows_coherent": 3,
+    "coherent_frac": 0.167,
+    "window_results": {
+     "incoherent": 8,
+     "no_floor": 3,
+     "no_polygon": 1,
+     "no_region": 3,
+     "ok": 3
+    },
+    "camera_height_spread_median_m": 0.151,
+    "longest_coherent_run_windows": 1
+   },
+   "provenance": {
+    "code_commit": "da88a975f4e342ac3fcc621d6e0a8c0859163415",
+    "code_dirty": false,
+    "python": "3.13.14",
+    "libs": {
+     "numpy": "2.5.3",
+     "scipy": "1.18.1",
+     "open3d": "0.20.0",
+     "opencv-python": "5.0.0.93",
+     "torch": "2.14.1",
+     "moge": "2.0.0",
+     "pydantic": "2.13.5"
+    },
+    "method": "video_windows_moge_mapanything_uncal",
+    "params": {}
+   }
+  }
+ ],
+ "calibration_residuals": [
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "lidar_floor_only",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "r3",
+   "gt": 3.0011,
+   "pred": 1.9657396485405643,
+   "residual": -1.0353603514594358,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "lidar_floor_only",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "r3",
+   "gt": 2.9749,
+   "pred": 2.9383004756311597,
+   "residual": -0.036599524368840175,
+   "covered": true
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "lidar_floor_only",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "r3",
+   "gt": 3.0011,
+   "pred": 1.9657396485405643,
+   "residual": -1.0353603514594358,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "lidar_floor_only",
+   "tier": "lidar",
+   "quantity": "wall_length",
+   "room": "r3",
+   "gt": 2.9749,
+   "pred": 2.93830047563116,
+   "residual": -0.03659952436883973,
+   "covered": true
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "lidar_floor_only",
+   "tier": "lidar",
+   "quantity": "floor_area",
+   "room": "r3",
+   "gt": 8.9278,
+   "pred": 5.775933744273769,
+   "residual": -3.1518662557262305,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "lidar_single_room",
+   "tier": "lidar",
+   "quantity": "floor_area",
+   "room": "r1",
+   "gt": 32.4826,
+   "pred": 39.91783795310687,
+   "residual": 7.435237953106871,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_diverse_k6",
+   "tier": "photo",
+   "quantity": "wall_length",
+   "room": "r4",
+   "gt": 0.9659,
+   "pred": 6.375623609548676,
+   "residual": 5.409723609548676,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_diverse_k6",
+   "tier": "photo",
+   "quantity": "wall_length",
+   "room": "r4",
+   "gt": 0.9424,
+   "pred": 8.480816884531993,
+   "residual": 7.538416884531993,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_diverse_k6",
+   "tier": "photo",
+   "quantity": "wall_length",
+   "room": "r4",
+   "gt": 0.9659,
+   "pred": 6.375623609548676,
+   "residual": 5.409723609548676,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_diverse_k6",
+   "tier": "photo",
+   "quantity": "wall_length",
+   "room": "r4",
+   "gt": 0.9424,
+   "pred": 8.480816884531993,
+   "residual": 7.538416884531993,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_diverse_k6",
+   "tier": "photo",
+   "quantity": "ceiling_height",
+   "room": "r1",
+   "gt": 2.5751,
+   "pred": 3.0017612370177247,
+   "residual": 0.42666123701772474,
+   "covered": true
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_diverse_k6",
+   "tier": "photo",
+   "quantity": "floor_area",
+   "room": "r1",
+   "gt": 32.4826,
+   "pred": 31.205130736030583,
+   "residual": -1.2774692639694152,
+   "covered": true
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_diverse_k6",
+   "tier": "photo",
+   "quantity": "floor_area",
+   "room": "r4",
+   "gt": 0.9103,
+   "pred": 54.070496357281215,
+   "residual": 53.160196357281215,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_sweep_k8",
+   "tier": "photo",
+   "quantity": "wall_length",
+   "room": "r3",
+   "gt": 3.0011,
+   "pred": 5.7314,
+   "residual": 2.7302999999999997,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_sweep_k8",
+   "tier": "photo",
+   "quantity": "wall_length",
+   "room": "r3",
+   "gt": 2.9749,
+   "pred": 1.5756922114502996,
+   "residual": -1.3992077885497003,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_sweep_k8",
+   "tier": "photo",
+   "quantity": "wall_length",
+   "room": "r3",
+   "gt": 3.0011,
+   "pred": 5.7314,
+   "residual": 2.7302999999999997,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_sweep_k8",
+   "tier": "photo",
+   "quantity": "wall_length",
+   "room": "r3",
+   "gt": 2.9749,
+   "pred": 1.5756922114502996,
+   "residual": -1.3992077885497003,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_sweep_k8",
+   "tier": "photo",
+   "quantity": "wall_length",
+   "room": "r4",
+   "gt": 0.9659,
+   "pred": 8.761700000000001,
+   "residual": 7.795800000000002,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_sweep_k8",
+   "tier": "photo",
+   "quantity": "wall_length",
+   "room": "r4",
+   "gt": 0.9424,
+   "pred": 5.202,
+   "residual": 4.2596,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_sweep_k8",
+   "tier": "photo",
+   "quantity": "wall_length",
+   "room": "r4",
+   "gt": 0.9659,
+   "pred": 8.761700000000001,
+   "residual": 7.795800000000002,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_sweep_k8",
+   "tier": "photo",
+   "quantity": "wall_length",
+   "room": "r4",
+   "gt": 0.9424,
+   "pred": 5.202,
+   "residual": 4.2596,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_sweep_k8",
+   "tier": "photo",
+   "quantity": "ceiling_height",
+   "room": "r1",
+   "gt": 2.5751,
+   "pred": 2.4178410438765003,
+   "residual": -0.1572589561234996,
+   "covered": true
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_sweep_k8",
+   "tier": "photo",
+   "quantity": "floor_area",
+   "room": "r1",
+   "gt": 32.4826,
+   "pred": 18.09192425059477,
+   "residual": -14.39067574940523,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_sweep_k8",
+   "tier": "photo",
+   "quantity": "floor_area",
+   "room": "r3",
+   "gt": 8.9278,
+   "pred": 9.030922340706244,
+   "residual": 0.10312234070624449,
+   "covered": true
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "photo_sweep_k8",
+   "tier": "photo",
+   "quantity": "floor_area",
+   "room": "r4",
+   "gt": 0.9103,
+   "pred": 45.5783634,
+   "residual": 44.6680634,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "video_with_ceiling",
+   "tier": "video",
+   "quantity": "wall_length",
+   "room": "r8",
+   "gt": 3.4561,
+   "pred": 4.281310026053104,
+   "residual": 0.8252100260531039,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "video_with_ceiling",
+   "tier": "video",
+   "quantity": "wall_length",
+   "room": "r8",
+   "gt": 3.1368,
+   "pred": 2.783435794424139,
+   "residual": -0.35336420557586123,
+   "covered": true
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "video_with_ceiling",
+   "tier": "video",
+   "quantity": "wall_length",
+   "room": "r8",
+   "gt": 3.4561,
+   "pred": 4.281310026053104,
+   "residual": 0.8252100260531039,
+   "covered": false
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "video_with_ceiling",
+   "tier": "video",
+   "quantity": "wall_length",
+   "room": "r8",
+   "gt": 3.1368,
+   "pred": 2.783435794424139,
+   "residual": -0.35336420557586123,
+   "covered": true
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "video_with_ceiling",
+   "tier": "video",
+   "quantity": "floor_area",
+   "room": "r2",
+   "gt": 3.7277,
+   "pred": 4.320393300627031,
+   "residual": 0.592693300627031,
+   "covered": true
+  },
+  {
+   "gt_kind": "pseudo_lidar",
+   "purpose": "pseudo",
+   "capture": "video_with_ceiling",
+   "tier": "video",
+   "quantity": "floor_area",
+   "room": "r8",
+   "gt": 10.8411,
+   "pred": 11.916751573543149,
+   "residual": 1.0756515735431478,
+   "covered": true
+  }
+ ],
+ "execution": {
+  "lidar_floor_only": {
+   "status": "ok",
+   "returncode": 0,
+   "seconds": 15.3,
+   "command": "python -m roomscan.lidar.cli single_scan_floor_only runs/report/three_tier/lidar_floor_only"
+  },
+  "lidar_single_room": {
+   "status": "ok",
+   "returncode": 0,
+   "seconds": 6.6,
+   "command": "python -m roomscan.lidar.cli single_room runs/report/three_tier/lidar_single_room"
+  },
+  "photo_diverse_k6": {
+   "status": "ok",
+   "returncode": 0,
+   "seconds": 136.2,
+   "command": "python -m roomscan.photo.cli cache/photo_sim/single_scan_with_ceiling_K6 runs/report/three_tier/photo_diverse_k6"
+  },
+  "photo_sweep_k8": {
+   "status": "ok",
+   "returncode": 0,
+   "seconds": 137.3,
+   "command": "python -m roomscan.photo.cli cache/photo_sim/single_scan_with_ceiling_K8_sweep runs/report/three_tier/photo_sweep_k8"
+  },
+  "video_with_ceiling": {
+   "status": "ok",
+   "returncode": 0,
+   "seconds": 479.5,
+   "command": "python -m roomscan.video.cli single_scan_with_ceiling/rgb.mp4 runs/report/three_tier/video_with_ceiling"
+  }
+ }
+}

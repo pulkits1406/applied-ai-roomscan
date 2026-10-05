@@ -1,0 +1,97 @@
+{
+ "label": "GT-free drift ablation v2 (visit-split halves, shared room shapes)",
+ "capture": "single_scan_with_ceiling",
+ "variant": "V2",
+ "diagnostics": {
+  "A": {
+   "doorways_detected": 4,
+   "door_constraints": [],
+   "n_shared_walls": 4
+  },
+  "B": {
+   "doorways_detected": 4,
+   "door_constraints": [],
+   "n_shared_walls": 4
+  }
+ },
+ "A": {
+  "per_room_mm": {
+   "1": 46.8,
+   "3": 19.6,
+   "4": 24.9,
+   "7": 88.9,
+   "8": 62.3
+  },
+  "median_mm": 46.8,
+  "max_mm": 88.9,
+  "corners": {
+   "median_mm": 54.8,
+   "p90_mm": 96.8,
+   "max_mm": 115.8
+  }
+ },
+ "B1": {
+  "per_room_mm": {
+   "1": 46.8,
+   "3": 19.6,
+   "4": 24.9,
+   "7": 88.9,
+   "8": 62.3
+  },
+  "median_mm": 46.8,
+  "max_mm": 88.9,
+  "corners": {
+   "median_mm": 66.0,
+   "p90_mm": 84.4,
+   "max_mm": 93.8
+  }
+ },
+ "B2": {
+  "per_room_mm": {
+   "1": 46.8,
+   "3": 19.6,
+   "4": 24.9,
+   "7": 88.9,
+   "8": 62.3
+  },
+  "median_mm": 46.8,
+  "max_mm": 88.9,
+  "corners": {
+   "median_mm": 66.0,
+   "p90_mm": 84.4,
+   "max_mm": 93.8
+  }
+ },
+ "B3": {
+  "per_room_mm": {
+   "1": 38.9,
+   "3": 7.2,
+   "4": 27.7,
+   "7": 103.1,
+   "8": 92.1
+  },
+  "median_mm": 38.9,
+  "max_mm": 103.1,
+  "corners": {
+   "median_mm": 69.2,
+   "p90_mm": 104.6,
+   "max_mm": 120.0
+  }
+ },
+ "B4": {
+  "per_room_mm": {
+   "1": 29.5,
+   "3": 52.5,
+   "4": 75.7,
+   "7": 131.7,
+   "8": 74.8
+  },
+  "median_mm": 74.8,
+  "max_mm": 131.7,
+  "corners": {
+   "median_mm": 90.5,
+   "p90_mm": 111.7,
+   "max_mm": 127.0
+  }
+ }
+}
