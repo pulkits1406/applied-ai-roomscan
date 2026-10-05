@@ -22,3 +22,7 @@ __pycache__/
 /runs/
 .DS_Store
 *.npy
+
+# Isolated envs and fetched weights (scripts/setup_envs.sh, scripts/fetch_weights.py)
+/.envs/
+/.weights/

@@ -1,0 +1,143 @@
+# Pretrained models used by the repo. Consumed by scripts/fetch_weights.py.
+#
+# kind: hf          -> Hugging Face repo pinned to a commit sha; lands in <hf_home>/hub/models--<org>--<name>/
+# kind: url         -> single checkpoint file fetched by torch.hub.load_state_dict_from_url;
+#                      lands in <torch_home>/hub/checkpoints/<filename>; pinned by sha256.
+#                      A url entry with `path:` lands at that exact file instead.
+# kind: torch_hub_repo -> code-only torch.hub repo (no weights); lands in <torch_home>/hub/<dir>/.
+#
+# hf_home / torch_home: the location the consuming code reads by default. "${VAR:-default}" is
+# expanded from the environment; relative paths are relative to the repo root. fetch_weights.py
+# also searches --hf-home / --torch-home, $HF_HOME / $TORCH_HOME and the user defaults, and
+# downloads into the first --hf-home/--torch-home given, else into this location.
+#
+# Revisions are the ones cached on the development machine on 2026-10-05 (refs/main of each
+# cache); each equalled upstream main on that date. license = what the source declares.
+# default: false entries are fetched only with --only NAME.
+
+models:
+  - name: moge2
+    kind: hf
+    repo_id: Ruicheng/moge-2-vitl-normal
+    revision: cb0e8bbd6b1e243589717c78e750b1ba4c093acf
+    files: [model.pt]
+    license: MIT (HF card)
+    size: 1.32 GB
+    env: project
+    used_by: production photo + production video; experiments e06, e08, e12, e20 (e16 reads the cache/e12 MoGe output)
+    hf_home: ${HF_HOME:-~/.cache/huggingface}
+    default: true
+
+  - name: mapanything
+    kind: hf
+    repo_id: facebook/map-anything-apache
+    revision: 00f9c245bbcb60522d1ed7f9e9d88462c6e3f38a
+    files: [config.json, model.safetensors]
+    license: Apache-2.0 (HF card)
+    size: 4.91 GB
+    env: mapanything
+    used_by: production photo (MoGe x MapAnything scale ensemble, e21); experiments e13, e16, e17, e20 mapanything_windows
+    # experiments/e13_multiview_photo/common.py and e20 mapanything_windows.py setdefault HF_HOME to this
+    hf_home: ${ROOMSCAN_HF_HOME_MAPANYTHING:-cache/e13/hf}
+    default: true
+
+  - name: dinov2-hub-code
+    kind: torch_hub_repo
+    repo: facebookresearch/dinov2
+    # uniception calls torch.hub.load("facebookresearch/dinov2", ...) on the default branch, so the
+    # cache dir is named after "main". Code only: MapAnything loads its own encoder weights.
+    # Pin = upstream main HEAD on the download date (2026-06-03 commit); torch.hub stores no sha.
+    ref: 7764ea0f912e53c92e82eb78a2a1631e92725fc8
+    dir: facebookresearch_dinov2_main
+    license: Apache-2.0 (GitHub)
+    size: 4.5 MB
+    env: mapanything
+    used_by: production photo + experiments (MapAnything encoder construction)
+    torch_home: ${TORCH_HOME:-~/.cache/torch}
+    default: true
+
+  - name: aliked-n16
+    kind: url
+    url: https://github.com/Shiaoming/ALIKED/raw/main/models/aliked-n16.pth
+    filename: aliked-n16.pth
+    sha256: 5be8704840ed662d9d8c561bf7279c222092674e7eb05fd0feab94899e9d82f2
+    license: BSD-3-Clause (GitHub repo)
+    size: 2.7 MB
+    env: video
+    used_by: production video; experiment e20 features.py, fullrate.py match
+    # e20 scripts are run with TORCH_HOME=cache/e20/torch (see their docstrings)
+    torch_home: ${ROOMSCAN_TORCH_HOME_VIDEO:-cache/e20/torch}
+    default: true
+
+  - name: lightglue-aliked
+    kind: url
+    url: https://github.com/cvg/LightGlue/releases/download/v0.1_arxiv/aliked_lightglue.pth
+    filename: aliked_lightglue_v0-1_arxiv.pth
+    sha256: d975e965b105311a6143194852297dff4f02aea5cc2e10cecfed966ca0e22503
+    license: Apache-2.0 (GitHub repo)
+    size: 47.6 MB
+    env: video
+    used_by: production video; experiment e20 features.py, fullrate.py match
+    torch_home: ${ROOMSCAN_TORCH_HOME_VIDEO:-cache/e20/torch}
+    default: true
+
+  - name: grounding-dino-tiny
+    kind: hf
+    repo_id: IDEA-Research/grounding-dino-tiny
+    revision: a2bb814dd30d776dcf7e30523b00659f4f141c71
+    files: [added_tokens.json, config.json, model.safetensors, preprocessor_config.json,
+            special_tokens_map.json, tokenizer.json, tokenizer_config.json, vocab.txt]
+    license: Apache-2.0 (HF card)
+    size: 0.69 GB
+    env: project
+    used_by: experiment only (e12 door_cue.py)
+    hf_home: ${HF_HOME:-~/.cache/huggingface}
+    default: true
+
+  - name: depth-anything-v2-metric-indoor-small
+    kind: hf
+    repo_id: depth-anything/Depth-Anything-V2-Metric-Indoor-Small-hf
+    revision: 8078d68a9c75a972131914f6afd0c1723be0da7f
+    files: [config.json, model.safetensors, preprocessor_config.json]
+    license: not declared on the HF card; upstream Depth-Anything-V2 lists Small as Apache-2.0 (unverified for the metric fine-tune)
+    size: 99 MB
+    env: project
+    used_by: experiment only (e12 ensemble_dav2.py)
+    hf_home: ${HF_HOME:-~/.cache/huggingface}
+    default: true
+
+  - name: colmap-vocab-tree
+    kind: url
+    url: https://github.com/colmap/colmap/releases/download/3.11.1/vocab_tree_faiss_flickr100K_words32K.bin
+    path: cache/e08/vocab_tree_faiss_flickr100K_words32K.bin
+    sha256: 921e894b7d81f5cf223df824a02b9932660cddf00a815c93fc7c0bd690fc639e
+    license: BSD-3-Clause (COLMAP; GitHub API reports NOASSERTION)
+    size: 9.5 MB
+    env: project
+    used_by: experiment only (e08 sfm.py --matching seqloop, which also downloads it itself if missing)
+    default: true
+
+  # Present in cache/e20/torch but referenced by no script (LightGlue DISK variant probe).
+  - name: disk-depth
+    kind: url
+    url: https://raw.githubusercontent.com/cvlab-epfl/disk/master/depth-save.pth
+    filename: depth-save.pth
+    sha256: 9c2ee4ded238892dfa51569941372601e35e4a74aa6f84ea80053d2ab1c07abe
+    license: Apache-2.0 (GitHub repo)
+    size: 4.4 MB
+    env: video
+    used_by: none (optional)
+    torch_home: ${ROOMSCAN_TORCH_HOME_VIDEO:-cache/e20/torch}
+    default: false
+
+  - name: lightglue-disk
+    kind: url
+    url: https://github.com/cvg/LightGlue/releases/download/v0.1_arxiv/disk_lightglue.pth
+    filename: disk_lightglue_v0-1_arxiv.pth
+    sha256: b5b21d47ea24f2c5e501aec9c91b9716e4c8c3429a4dc1e615c133c4c9378335
+    license: Apache-2.0 (GitHub repo)
+    size: 47.6 MB
+    env: video
+    used_by: none (optional)
+    torch_home: ${ROOMSCAN_TORCH_HOME_VIDEO:-cache/e20/torch}
+    default: false

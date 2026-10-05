@@ -1,0 +1,31 @@
+# Video isolated env: ALIKED + LightGlue + kornia (experiment e20 features.py, fullrate.py match).
+# Frozen from cache/e20/.venv on 2026-10-05 (Python 3.12.13, macOS arm64, uv 0.12.23).
+# Installed by scripts/setup_envs.sh with `uv pip sync`, then the project is added with
+# `uv pip install --no-deps -e <repo>` (not listed here; not present in the legacy env).
+contourpy==1.4.0
+cycler==0.12.1
+filelock==4.0.11
+fonttools==4.66.1
+fsspec==2026.9.0
+jinja2==3.1.6
+kiwisolver==1.5.1
+kornia==0.8.3
+kornia-rs==0.2.0
+lightglue @ git+https://github.com/cvg/LightGlue@eb42fee2d71449efb0aa5c10549752b5d75384d8
+markupsafe==3.0.4
+matplotlib==3.11.2
+mpmath==1.3.0
+networkx==3.7
+numpy==2.5.3
+opencv-python==5.0.0.93
+opencv-python-headless==5.0.0.93
+packaging==26.3
+pillow==12.3.0
+pyparsing==3.3.3
+python-dateutil==2.9.0.post0
+setuptools==84.0.0
+six==1.17.0
+sympy==1.14.0
+torch==2.14.1
+torchvision==0.29.1
+typing-extensions==4.16.0
