@@ -1,0 +1,54 @@
+{
+ "offset1": {
+  "n_links": 341,
+  "n_blind": 6,
+  "blind_pct": 1.7595307917888563,
+  "blind_intervals_s": [
+   [
+    4.7,
+    0.2
+   ],
+   [
+    34.3,
+    0.2
+   ]
+  ],
+  "n_intervals": 2,
+  "blind_ang_speed_median_dps": 104.32999999999998,
+  "blind_depth_median_m": 0.5145000000000001,
+  "all_ang_speed_median_dps": 24.05,
+  "all_depth_median_m": 1.398,
+  "frac_blind_if_fast80_and_depth_lt0p7": 0.14285714285714285,
+  "matches_median": 1149.0
+ },
+ "offset2": {
+  "n_links": 340,
+  "n_blind": 20,
+  "blind_pct": 5.882352941176471,
+  "blind_intervals_s": [
+   [
+    4.5,
+    0.8
+   ],
+   [
+    24.2,
+    0.5
+   ],
+   [
+    30.1,
+    0.0
+   ],
+   [
+    34.3,
+    1.3
+   ]
+  ],
+  "n_intervals": 4,
+  "blind_ang_speed_median_dps": 95.815,
+  "blind_depth_median_m": 0.401,
+  "all_ang_speed_median_dps": 24.055,
+  "all_depth_median_m": 1.3955,
+  "frac_blind_if_fast80_and_depth_lt0p7": 0.6190476190476191,
+  "matches_median": 1009.0
+ }
+}
