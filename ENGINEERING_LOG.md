@@ -572,3 +572,16 @@ turning*; drop MapAnything windows (least accurate, and its load starved the 16 
 retried). [BLOCKED] whether a protocol-following clip tracks continuously needs a real capture.
 Operational: the subagent stalled (stream watchdog) during a MapAnything load under memory
 pressure; its saved outputs were complete for every run except MapAnything on `with_ceiling`.
+
+---
+
+### 2026-10-05 — Handover at session compaction
+`HANDOVER.md` created at the repository root as the authoritative state snapshot (commit
+`1b1e53e`, clean tree): implemented vs experiment-only subsystems, the full experiment table with
+negative results, measured numbers with evidence labels, current decisions, a reconciled
+assessment status (it corrects the compliance matrix where code had moved ahead: one command per
+capture, stitched LiDAR plan, openings are PARTIAL/EXPLORING; GT lives in `site.yaml`, not
+`benchmark/ground_truth/`), files that must not be lost, environment and regeneration order for
+ignored intermediates (e02 PLY → e10 labels → e12), the prioritised next-work queue, and a
+do-not-repeat list. Reproduction gaps recorded there: `cache/e20/.venv` has no setup recipe;
+MapAnything/LightGlue live in isolated venvs outside `uv.lock`; weights download on first use.
