@@ -46,3 +46,25 @@ consistency, never accuracy.
 - head-to-head: 2 rooms scanned with the incumbent app; fill `incumbent:` with its numbers and keep the export
 
 See `_template/site.yaml`.
+
+
+## Site purposes and tuning leakage (enforced by `src/roomscan/bench/gt.py` and `bench/leakage.py`)
+
+Every `site.yaml` declares `purpose`, and capture ids carry the matching prefix:
+
+| purpose / prefix | Data | May be used to tune or calibrate? | Counts as benchmark evidence? |
+|---|---|---|---|
+| `dev_` | development captures (`docs/development_capture_protocol.md`): answer protocol/model questions | tune: yes; calibrate: only when named explicitly | **no** |
+| `bm_` | the benchmark (laser GT) | **no** | yes |
+| `rep_` | repeat captures for repeatability | **no** | yes |
+| `inc_` | incumbent-app comparison | **no** | yes |
+| `walk_` | walk-in proxy (second person, one-page protocol only) | **no** | yes |
+| `fail_` | deliberate failure-mode captures | tune: yes | no (checks that failures are flagged) |
+| `pseudo`, `synthetic` | our own reconstructions / rendered geometry | consistency and code tests only | no |
+
+Rules: a benchmark-purpose site cannot contain a `dev_` capture (validation error); `dev`/`bm`
+sites need laser/tape GT; calibration takes an explicit list of sources and refuses benchmark
+sites; any change made after looking at `bm_` results is logged as a fix-loop step with its
+before/after. Templates: `_template/site.yaml` (benchmark), `_template_dev/site.yaml` (first
+development session). Partial tape GT is allowed: list every wall in order and leave out
+`length_m` for walls that were not measured.

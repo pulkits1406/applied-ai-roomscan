@@ -4,7 +4,7 @@ Requirement → file path → artifact → status. Status values: `not started`,
 `in progress`, `done (evidence: …)`. "Evidence needed" is what an evaluator must be able to
 regenerate to accept the row.
 
-Last updated: 2026-10-05 (phase 4; all numbers on supplied data are pseudo-GT, GT-free or synthetic).
+Last updated: 2026-10-06 (phase 5 preparation; all numbers on supplied data are pseudo-GT, GT-free or synthetic; no development or benchmark capture exists yet).
 
 ## Capture route and tiers
 
@@ -12,10 +12,10 @@ Last updated: 2026-10-05 (phase 4; all numbers on supplied data are pseudo-GT, G
 |---|---|---|---|---|---|
 | C1 | Capture route: Route 1 app build **or** Route 2 one-page protocol | Protocol a non-engineer follows literally; install < 10 min | `docs/capture_protocol_hypotheses.md` | hypotheses with evidence | exploring (Route 2 provisional; final page blocked on device pre-check) |
 | C2 | Device matrix: tier × hardware × honest accuracy | Measured per-tier error on benchmark | `docs/device_matrix.md` | table | not started |
-| C3 | Photo tier: 2–8 stills/room, any iPhone 15+, no depth/poses → full contract | Runs on per-room folders | `src/roomscan/photo/` (`roomscan-photo`), e21, e23, e24 | production frontend → Plan JSON (rooms unplaced) | in progress, at risk: runs end to end; scale ensemble 5.3 % median (e21) but room geometry wrong on simulated photos (0 % walls within ±8 %, e24) — joint poses need overlapping photos (e23); protocol untested on a device |
-| C4 | Video tier: handheld walkthrough, any iPhone 15+ | Runs on a single clip | `src/roomscan/video/` (`roomscan-video`), e20, e25, e24 | production frontend → Plan JSON (fragmented, unplaced) | in progress, at risk: runs on a plain clip (FOV self-estimated); 3/18 windows coherent; rooms −60…−100 % area by identity (e24); rooms in tracked pieces fail (e25) |
+| C3 | Photo tier: 2–8 stills/room, any iPhone 15+, no depth/poses → full contract | Runs on per-room folders | `src/roomscan/photo/` (`roomscan-photo`), e21, e23, e24 | production frontend → Plan JSON (rooms unplaced); HEIC + EXIF loader tested | in progress, at risk: 0 % walls within ±8 % on simulated photos (e24); overlap hypothesis (0.5× A/B) to be tested in the dev capture |
+| C4 | Video tier: handheld walkthrough, any iPhone 15+ | Runs on a single clip | `src/roomscan/video/` (`roomscan-video`), e20, e25, e24 | production frontend → Plan JSON (fragmented, unplaced); MOV rotation (tkhd) tested | in progress, at risk: 3/18 windows coherent on the sample clip; rooms −60…−100 % area by identity (e24); slow-turn protocol to be tested in the dev capture |
 | C5 | LiDAR tier: depth + poses + intrinsics | Runs on a Stray export | `src/roomscan/lidar/` (`roomscan-lidar`) | v1.1 pipeline → Plan JSON + PNG | in progress: 7/7 non-empty regions on `with_ceiling` (e22 ladder); synthetic two-room capture within 2 mm; captures without upper-wall sweep fail (flagged) |
-| C6 | Intervals widen honestly as data thins | Interval width ordered photo > video > LiDAR, with coverage measured | `src/roomscan/assemble.py`, e24 | per-tier sigmas, inferred faces widen | exploring: widths ordered photo ≈ video > LiDAR; coverage 0–67 % (pseudo-GT, e24) — topology failures are not in the sigmas |
+| C6 | Intervals widen honestly as data thins | Interval width ordered photo > video > LiDAR, with coverage measured | `src/roomscan/quality.py`, `assemble.py`, e24, e26 | per-face named terms: measurement, inferred, stability (fixed perturbations), registration (camera-height spread); `geometry_unreliable` flag | in progress: unstable photo/video rooms widen to ±0.4–1.3 m, stable LiDAR rooms unchanged; consistently wrong rooms are flagged, not covered (coverage 0–67 %, pseudo-GT) |
 
 ## Output contract (per capture, every tier)
 
@@ -42,12 +42,13 @@ Last updated: 2026-10-05 (phase 4; all numbers on supplied data are pseudo-GT, G
 | G5 | Photo-tier whole-property stitch | One plan, correct adjacency, no overlaps, footprint ±8 %, calibrated | Stitched photo-tier plan vs GT | `experiments/e17_photo_stitch` | at risk: doorway photos 0/36 successful links; overlapping-chain protocol untested |
 | G6 | Photo-tier wall lengths | ±8 % with calibrated intervals | Per-wall table + coverage | e21, e23, e24 | at risk: scale 64 % of runs within ±8 % (e21) but walls 0 % within gate on simulated folders (e24): registration within a room is the binding problem |
 | G7 | Video-tier wall lengths | ±3 % | Per-wall table + coverage | e20, e25, e24 | at risk: 0 % within gate on the sample clip (pseudo-GT, e24); needs a protocol-following clip |
-| G8 | Calibration at every tier | Empirical coverage of stated intervals | Coverage table per tier | `src/roomscan/bench/evaluate.py` | harness computes coverage per tier; pseudo-GT coverage 0–67 % vs 90 % (e24); calibration needs laser GT |
+| G8 | Calibration at every tier | Empirical coverage of stated intervals | Coverage table per tier | `src/roomscan/bench/evaluate.py`, `bench/leakage.py` | harness computes coverage per tier; pseudo-GT coverage 0–67 % vs 90 % (e24); calibration needs laser GT and may only use explicitly named dev/fail sites (leakage guard) |
 
 ## Benchmark set (we build it)
 
 | # | Requirement | Evidence needed | File path | Status |
 |---|---|---|---|---|
+| B0 | Development capture (not benchmark): questions A LiDAR / B video / C photo | Tape on 2–3 walls + doorway; dev_ site | `docs/development_capture_protocol.md`, `benchmark/_template_dev/`, `roomscan-inspect`, e27 | ready to run; blocked on a borrowed iPhone |
 | B1 | Multi-room capture, ≥ 3 rooms + connector | Raw data + GT | `benchmark/` | not started (needs physical capture) |
 | B2 | Furnished room with staged damage, ≥ 2 classes | Raw data + GT damage extents | `benchmark/` | not started (needs physical capture) |
 | B3 | Same rooms at all three tiers (multi-room incl.; photo as per-room folders) | Three tier captures per room | `benchmark/` | not started (needs physical capture) |
@@ -63,7 +64,7 @@ Last updated: 2026-10-05 (phase 4; all numbers on supplied data are pseudo-GT, G
 | F2 | Shipped fix, before/after regenerable, readable diff | Two runs + diff | — | not started |
 | P1 | Incremental commit history | git log | — | in progress |
 | D1 | README: fresh machine → running < 15 min, one command per capture | Timed clean install | `README.md`, `docs/reproduction.md` | in progress: env recipes rebuilt from scratch (39 s / 33 s warm cache); full clean-machine run not timed |
-| D2 | Reproduction bundle regenerates every number from raw inputs; cache deterministic + live path runs | Script + cache | `src/roomscan/bench/`, `scripts/prepare_intermediates.sh`, `experiments/DEPENDENCIES.md` | `roomscan-bench --execute` raw → pipeline → score | in progress: execute path done for all tiers; uncached video runs not bit-stable (e24) |
+| D2 | Reproduction bundle regenerates every number from raw inputs; cache deterministic + live path runs | Script + cache | `src/roomscan/bench/`, `scripts/prepare_intermediates.sh`, `experiments/DEPENDENCIES.md`, e26 | `roomscan-bench --execute` raw → pipeline → score; `Plan.provenance` | in progress: execute path done for all tiers; model outputs bitwise identical across processes, LiDAR ≤ 2.3e-11 m (e26; the e24 'video nondeterminism' was a code change mid-run); repeatability test in CI |
 | D3 | Benchmark report: all tiers, repeatability, head-to-head, timing | Report | — | not started |
 | D4 | Technical report ≤ 6 pages | PDF | — | not started |
 | D5 | Raw benchmark data: sensor logs, GT, app exports | Data bundle | — | not started |

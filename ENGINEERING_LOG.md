@@ -697,3 +697,59 @@ recipes. Accuracy of the photo/video frontends on the supplied data is far from 
 (pseudo-GT) and the open questions behind that are capture-behaviour questions → the short
 `dev_` capture is now the highest-value next step (HANDOVER §12–13). Protocol hypotheses doc
 updated with the e23/e25 photo and video rules. `HANDOVER.md` rewritten for the new state.
+
+---
+
+## Phase 5 (2026-10-06): prepare the development capture
+
+User direction: no new architecture; fix determinism first, make uncertainty respond to weak
+geometry, make loaders ready for real iPhone files, prepare a 30-minute development experiment
+and its evaluation, protect the benchmark from tuning leakage, then stop. Phase-4 record carried
+forward: photo/video 0 % of walls within gate (pseudo-GT, e24); size-only room matching had
+paired video rooms with the wrong rooms; the supplied captures are not evidence for the proposed
+future protocol.
+
+### e26 — determinism [FACT/MEASURED] (`experiments/e26_determinism/README.md`)
+**Correction of phase 4:** the "two uncached video runs differ" result was not nondeterminism.
+MoGe-2 and MapAnything outputs are **bitwise identical** across the two processes in all 19 view
+sets; re-running the room step on run 1's outputs reproduces run 1 with the old segmentation
+padding and run 2 with the new one — the padding fix landed while run 1's process was running.
+LiDAR repeat runs: structure identical, max numeric difference 2.3e-11 m (Open3D summation order).
+[DECISION] every plan records `provenance` (commit, dirty flag, libraries, parameters); the
+evaluator warns on mixed/dirty code; `bench/compare.py` judges repeatability materially
+(tolerance), `tests/test_repeatability.py` (+ opt-in GPU test) guards it.
+The real issue is **geometric sensitivity**: the same model outputs give 10.4 or 0.07 m² for one
+window depending on an irrelevant parameter.
+
+### Uncertainty from geometry quality (`src/roomscan/quality.py`) [DECISION-PROV, uncalibrated]
+Per room, the wall step is re-run under fixed irrelevant perturbations (yaw ±1°, two seeded point
+halves); per face the RMS offset → `faces:stability` (excess over the measurement σ); a face
+missing from a perturbed outline counts 0.5 m; a run with no outline at all is *topology fragility*
+(flag), not a positional error; photo/video add `faces:registration` = camera-height spread;
+rooms with a floor-area half-width > 50 % are flagged `geometry_unreliable`. Terms propagate
+separately (named error-budget entries). [MEASURED] LiDAR rooms 1–4, 6, 7 unchanged (< 2 mm),
+r8 `topology_fragile` (the half-density run lost it; first version of the rule gave it ±58 cm,
+corrected); photo intervals ±10 cm → ±0.4–1.3 m; video v0 0.07 ± 0.65 m² (flagged). Coverage
+on pseudo-GT barely moves (LiDAR floor_only 0 → 40 %; photo unchanged): consistently wrong rooms
+are reported by flags, not hidden by width. No coverage was manufactured.
+
+### Real-file input contracts [FACT where tested; BLOCKED where device-only]
+`pillow-heif` added: HEIC with EXIF orientation 6 + 35 mm focal loads upright with the right focal.
+MOV rotation as iPhones signal it (tkhd matrix; FFmpeg 7 no longer writes the old tag) → our reader
+matches the player view at 0/90/180/270. Stray: depth and RGB sizes now read from the export
+(supplied data unchanged; a 192×144-depth synthetic export reconstructs to 1 cm).
+`roomscan-inspect` re-runs the e01 pose-convention and e05 video-offset checks on any Stray export
+(supplied data: OpenCV axes 3.9 mm vs ARKit axes 81 mm) and reports lens/focal/orientation for
+photos and codec/bit depth/rotation/focal tags for videos. [BLOCKED] Apple HEIC `irot` + EXIF
+handling, 0.5× focal/distortion, MOV focal tags, 10-bit HDR decode, current Stray export format.
+
+### Development capture + evaluation (`docs/development_capture_protocol.md`)
+Literal ~30-minute checklist for questions A (LiDAR protocol ×2 vs natural), B (slow-turn vs
+natural video), C (1× spread vs 0.5× overlapping photos, + doorway chain), with the reading of
+each result **pre-registered**. Evaluator: site `purpose` with prefixed capture ids; benchmark
+sites reject `dev_` captures; `bench/leakage.py` (tune / calibrate / benchmark_report);
+partial tape GT; wall-match ambiguity; per-room scale ratio vs shape error; phantom rooms;
+question/variant tables; debug diagnostics (video window continuity, photo registration spread,
+LiDAR ladder steps); predicted-vs-reference figure. e27 `chain_eval.py` (placement of room B from
+photos vs the LiDAR reference; exact on a self-check; `B_not_separated` on simulated frames).
+Ultra-wide stays an A/B test, not a protocol requirement.
