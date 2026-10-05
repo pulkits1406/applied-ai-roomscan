@@ -25,9 +25,11 @@ roomscan-lidar = "roomscan.lidar.cli:main"
 roomscan-photo = "roomscan.photo.cli:main"
 roomscan-video = "roomscan.video.cli:main"
 roomscan-inspect = "roomscan.inspect:main"
+roomscan-damage = "roomscan.damage:main"
 
 [dependency-groups]
 dev = [
+    "jsonschema>=4.26.0",
     "ruff>=0.16.10",
 ]
 ml = [

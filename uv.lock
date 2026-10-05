@@ -3285,6 +3285,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "jsonschema" },
     { name = "ruff" },
 ]
 ml = [
@@ -3314,7 +3315,10 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [{ name = "ruff", specifier = ">=0.16.10" }]
+dev = [
+    { name = "jsonschema", specifier = ">=4.26.0" },
+    { name = "ruff", specifier = ">=0.16.10" },
+]
 ml = [
     { name = "moge", git = "https://github.com/microsoft/MoGe.git?rev=b942f00bdc2a" },
     { name = "pycolmap", specifier = ">=4.2.1" },

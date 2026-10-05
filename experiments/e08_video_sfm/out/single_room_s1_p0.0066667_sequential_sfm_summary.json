@@ -411,7 +411,7 @@
   "registered_frac_largest": 0.21929824561403508,
   "registered_any": 311,
   "sec_mapping": 28.2878520488739,
-  "model_dir": "/Users/pulkitsharma/Personal/zinglyai/cache/e08/single_room_s1_p0.0066667_sequential/incremental_fixed"
+  "model_dir": "cache/e08/single_room_s1_p0.0066667_sequential/incremental_fixed"
  },
  "global_fixed": {
   "n_models": 8,
@@ -747,7 +747,7 @@
   "registered_frac_largest": 0.22514619883040934,
   "registered_any": 303,
   "sec_mapping": 15.904545068740845,
-  "model_dir": "/Users/pulkitsharma/Personal/zinglyai/cache/e08/single_room_s1_p0.0066667_sequential/global_fixed"
+  "model_dir": "cache/e08/single_room_s1_p0.0066667_sequential/global_fixed"
  },
  "best_variant": "global_fixed"
 }

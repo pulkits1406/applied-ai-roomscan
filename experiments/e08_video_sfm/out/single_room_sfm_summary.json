@@ -326,7 +326,7 @@
   "registered_frac_largest": 0.16374269005847952,
   "registered_any": 249,
   "sec_mapping": 6.9291253089904785,
-  "model_dir": "/Users/pulkitsharma/Personal/zinglyai/cache/e08/single_room_s1/incremental_fixed"
+  "model_dir": "cache/e08/single_room_s1/incremental_fixed"
  },
  "best_variant": "incremental_fixed"
 }

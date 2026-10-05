@@ -363,7 +363,7 @@
   "registered_frac_largest": 0.22807017543859648,
   "registered_any": 301,
   "sec_mapping": 13.481367111206055,
-  "model_dir": "/Users/pulkitsharma/Personal/zinglyai/cache/e08/single_room_s1_p0.001_seq/incremental_fixed"
+  "model_dir": "cache/e08/single_room_s1_p0.001_seq/incremental_fixed"
  },
  "incremental_refined": {
   "n_models": 6,
@@ -664,7 +664,7 @@
   "registered_frac_largest": 0.22807017543859648,
   "registered_any": 296,
   "sec_mapping": 16.945399045944214,
-  "model_dir": "/Users/pulkitsharma/Personal/zinglyai/cache/e08/single_room_s1_p0.001_seq/incremental_refined"
+  "model_dir": "cache/e08/single_room_s1_p0.001_seq/incremental_refined"
  },
  "global_fixed": {
   "n_models": 7,
@@ -952,7 +952,7 @@
   "registered_frac_largest": 0.4239766081871345,
   "registered_any": 325,
   "sec_mapping": 14.660521984100342,
-  "model_dir": "/Users/pulkitsharma/Personal/zinglyai/cache/e08/single_room_s1_p0.001_seq/global_fixed"
+  "model_dir": "cache/e08/single_room_s1_p0.001_seq/global_fixed"
  },
  "global_refined": {
   "n_models": 7,
@@ -1240,7 +1240,7 @@
   "registered_frac_largest": 0.4239766081871345,
   "registered_any": 325,
   "sec_mapping": 29.43309998512268,
-  "model_dir": "/Users/pulkitsharma/Personal/zinglyai/cache/e08/single_room_s1_p0.001_seq/global_refined"
+  "model_dir": "cache/e08/single_room_s1_p0.001_seq/global_refined"
  },
  "best_variant": "global_refined"
 }

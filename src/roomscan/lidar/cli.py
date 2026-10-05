@@ -15,9 +15,12 @@ def main():
     ap.add_argument("capture"); ap.add_argument("out")
     ap.add_argument("--placement", default="arkit_yaw", choices=["arkit", "arkit_yaw"])
     ap.add_argument("--no-ladder", action="store_true", help="reproduce v1.0: drop rooms whose topology fails instead of escalating (e22)")
+    ap.add_argument("--seg-pad", nargs=2, type=float, metavar=("LOW", "HIGH"), default=None,
+                    help="segmentation grid margin in m (default 1.0 1.0); 0.3 0.0 reproduces the pre-fix behaviour (reports/fix_loop)")
     a = ap.parse_args()
     t0 = time.time()
-    plan, dbg = build(a.capture, a.placement, ladder=not a.no_ladder)
+    kw = {"seg_pad": tuple(a.seg_pad)} if a.seg_pad else {}
+    plan, dbg = build(a.capture, a.placement, ladder=not a.no_ladder, **kw)
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     (out / "plan.json").write_text(plan.model_dump_json(indent=1))
     render(plan, out / "plan.png", title=f"LiDAR plan: {Path(a.capture).name}")

@@ -1,5 +1,5 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Using cache found in /Users/pulkitsharma/.cache/torch/hub/facebookresearch_dinov2_main
+Using cache found in ~/.cache/torch/hub/facebookresearch_dinov2_main
 Loading pretrained dinov2_vitg14 from torch hub
 3 2 4 err -34.4% focal -35.6% fcorr +1.8% moge -0.9% base 1.843 2.3s [swap 862MB free_pages 334981]
 3 2 5 err -33.8% focal -36.0% fcorr +3.9% moge +1.8% base 2.184 2.1s [swap 862MB free_pages 91198]

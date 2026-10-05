@@ -860,7 +860,7 @@
   "registered_frac_largest": 0.40965092402464065,
   "registered_any": 1762,
   "sec_mapping": 258.5200560092926,
-  "model_dir": "/Users/pulkitsharma/Personal/zinglyai/cache/e08/single_scan_with_ceiling_s1_p0.001_seqloop/incremental_fixed"
+  "model_dir": "cache/e08/single_scan_with_ceiling_s1_p0.001_seqloop/incremental_fixed"
  },
  "global_fixed": {
   "n_models": 7,
@@ -1248,7 +1248,7 @@
   "registered_frac_largest": 0.9132443531827515,
   "registered_any": 1875,
   "sec_mapping": 85.36760377883911,
-  "model_dir": "/Users/pulkitsharma/Personal/zinglyai/cache/e08/single_scan_with_ceiling_s1_p0.001_seqloop/global_fixed"
+  "model_dir": "cache/e08/single_scan_with_ceiling_s1_p0.001_seqloop/global_fixed"
  },
  "best_variant": "global_fixed"
 }

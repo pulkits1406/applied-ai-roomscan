@@ -31,3 +31,7 @@ def test_lidar_capture_to_scored_plan(tmp_path):
     assert res["adjacency"]["correct"]
     plan = json.loads((tmp_path / "run" / "lidar" / "plan.json").read_text())
     assert plan["quality_flags"] == []
+    import jsonschema
+    from pathlib import Path
+    schema = json.loads((Path(__file__).resolve().parents[1] / "schema/plan.schema.json").read_text())
+    jsonschema.validate(plan, schema)                    # the published schema file, not only the pydantic model

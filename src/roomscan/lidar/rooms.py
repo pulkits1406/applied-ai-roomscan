@@ -41,10 +41,12 @@ class RoomCloud:
     alignment: list[dict] = field(default_factory=list)
 
 
-def prepare(cap: StrayCapture, T: np.ndarray | None = None, seg_pad_m: float = SEG_PAD_M) -> Capture:
+def prepare(cap: StrayCapture, T: np.ndarray | None = None, seg_pad: tuple[float, float] = (SEG_PAD_M, SEG_PAD_M)) -> Capture:
+    """seg_pad = (low, high) empty margin of the segmentation grid; (0.3, 0.0) reproduces the
+    pre-fix behaviour (fix-loop 'before', reports/fix_loop)."""
     T = cap.T_wc() if T is None else T
     pc = G.fuse(cap, T, range(0, len(cap), SEG_STEP))
-    seg = G.segment_rooms(np.asarray(pc.points), np.asarray(pc.normals), pad_m=seg_pad_m, pad_high_m=seg_pad_m)
+    seg = G.segment_rooms(np.asarray(pc.points), np.asarray(pc.normals), pad_m=seg_pad[0], pad_high_m=seg_pad[1])
     lab_d = ndi.grey_dilation(seg.labels, size=(7, 7))
     cij = np.clip(seg.grid.cell(T[:, [0, 2], 3]), 0, np.array(seg.grid.shape) - 1)
     inside = seg.labels[cij[:, 0], cij[:, 1]]

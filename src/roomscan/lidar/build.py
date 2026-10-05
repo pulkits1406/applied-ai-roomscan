@@ -44,10 +44,12 @@ def _to_plan_xy(P_xz):
     return np.stack([P_xz[:, 0], -P_xz[:, 1]], 1)
 
 
-def build(cap_dir: str | Path, placement: str = "arkit_yaw", ladder: bool = True) -> tuple[Plan, dict]:
-    """ladder=False reproduces v1.0 (rooms whose topology fails are dropped instead of escalated)."""
+def build(cap_dir: str | Path, placement: str = "arkit_yaw", ladder: bool = True,
+          seg_pad: tuple[float, float] = (RM.SEG_PAD_M, RM.SEG_PAD_M)) -> tuple[Plan, dict]:
+    """ladder=False reproduces v1.0 (rooms whose topology fails are dropped instead of escalated);
+    seg_pad=(0.3, 0.0) reproduces the segmentation before the border-erosion fix."""
     cap = StrayCapture.load(cap_dir)
-    c = RM.prepare(cap)
+    c = RM.prepare(cap, seg_pad=seg_pad)
     seg = c.seg
     debug = {"high_observed": seg.high_observed, "n_labels": int(seg.labels.max()), "ladder": ladder, "rooms": {}}
     geo = {}
@@ -122,5 +124,6 @@ def build(cap_dir: str | Path, placement: str = "arkit_yaw", ladder: bool = True
             flags.append(f"r{label}_walls_inferred: {g.walls.source.count('inferred')} wall(s) never observed at structural height; placed at the "
                          f"observed-floor boundary, status inferred (face sigma {FACE_SIGMA['inferred']} m); capture each wall's top edge")
     plan = assemble("lidar", rooms, openings, CaptureInfo(tier="lidar", app="Stray Scanner", inputs=[str(cap_dir)]), METHOD, flags,
-                    f"room-local geometry (per-room registration of visits); placement={placement}")
+                    f"room-local geometry (per-room registration of visits); placement={placement}",
+                    params={"placement": placement, "ladder": ladder, "seg_pad": list(seg_pad)})
     return plan, debug

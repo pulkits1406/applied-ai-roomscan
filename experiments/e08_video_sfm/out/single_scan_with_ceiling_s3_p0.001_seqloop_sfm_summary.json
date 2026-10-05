@@ -789,7 +789,7 @@
   "registered_frac_largest": 0.08,
   "registered_any": 446,
   "sec_mapping": 53.84088706970215,
-  "model_dir": "/Users/pulkitsharma/Personal/zinglyai/cache/e08/single_scan_with_ceiling_s3_p0.001_seqloop/incremental_fixed"
+  "model_dir": "cache/e08/single_scan_with_ceiling_s3_p0.001_seqloop/incremental_fixed"
  },
  "incremental_refined": {
   "n_models": 15,
@@ -1550,7 +1550,7 @@
   "registered_frac_largest": 0.08,
   "registered_any": 436,
   "sec_mapping": 26.032647848129272,
-  "model_dir": "/Users/pulkitsharma/Personal/zinglyai/cache/e08/single_scan_with_ceiling_s3_p0.001_seqloop/incremental_refined"
+  "model_dir": "cache/e08/single_scan_with_ceiling_s3_p0.001_seqloop/incremental_refined"
  },
  "global_fixed": {
   "n_models": 8,
@@ -1791,7 +1791,7 @@
   "registered_frac_largest": 0.7984615384615384,
   "registered_any": 594,
   "sec_mapping": 16.042845964431763,
-  "model_dir": "/Users/pulkitsharma/Personal/zinglyai/cache/e08/single_scan_with_ceiling_s3_p0.001_seqloop/global_fixed"
+  "model_dir": "cache/e08/single_scan_with_ceiling_s3_p0.001_seqloop/global_fixed"
  },
  "global_refined": {
   "n_models": 7,
@@ -2031,7 +2031,7 @@
   "registered_frac_largest": 0.7984615384615384,
   "registered_any": 591,
   "sec_mapping": 18.97385811805725,
-  "model_dir": "/Users/pulkitsharma/Personal/zinglyai/cache/e08/single_scan_with_ceiling_s3_p0.001_seqloop/global_refined"
+  "model_dir": "cache/e08/single_scan_with_ceiling_s3_p0.001_seqloop/global_refined"
  },
  "best_variant": "global_fixed"
 }
