@@ -20,6 +20,7 @@ dependencies = [
 
 [project.scripts]
 roomscan-bench = "roomscan.bench.evaluate:main"
+roomscan-lidar = "roomscan.lidar.cli:main"
 
 [dependency-groups]
 dev = [

@@ -17,7 +17,10 @@ Raw sample captures (Stray Scanner exports) are expected unzipped at the repo ro
 ## Run
 
 ```
-# LiDAR tier, prototype v0 (Stray Scanner export -> Plan JSON)
+# LiDAR tier v1 (Stray Scanner export -> plan.json + plan.png + debug.json)
+uv run roomscan-lidar single_scan_with_ceiling runs/v1/with_ceiling_lidar
+
+# LiDAR prototype v0, kept unchanged as the regenerable baseline
 uv run python -m roomscan.lidar_pipeline single_scan_with_ceiling runs/v0/with_ceiling_lidar
 
 # Score plans against a benchmark site (one command per site)
@@ -32,7 +35,8 @@ Benchmark format: `benchmark/README.md`.
 | Path | Contents |
 |---|---|
 | `src/roomscan/stray.py` | Stray Scanner loader (pose/frame conventions verified, see tests) |
-| `src/roomscan/geometry.py`, `lidar_pipeline.py` | LiDAR geometry prototype |
+| `src/roomscan/lidar/` | LiDAR tier v1: fusion → rooms → walls → levels → openings → layout → build → render |
+| `src/roomscan/geometry.py`, `lidar_pipeline.py` | shared 2-D segmentation helpers; v0 baseline pipeline |
 | `src/roomscan/model.py` | output representation (every measurement carries an interval) |
 | `src/roomscan/bench/` | benchmark format, matching, gates, report |
 | `experiments/eNN_*` | one directory per experiment; scripts regenerate `out/` |
