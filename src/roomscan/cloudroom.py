@@ -13,7 +13,7 @@ from dataclasses import dataclass
 import numpy as np
 import open3d as o3d
 
-from roomscan import geometry as G
+from roomscan import geometry as G, quality
 from roomscan.lidar import levels as LV, walls as WL
 
 INFER = WL.Rules(infer_missing=True)
@@ -136,6 +136,46 @@ def room_from_cloud(P: np.ndarray, N: np.ndarray, cams: np.ndarray, infer: bool 
     labs = labs[labs > 0]
     label = int(np.bincount(labs).argmax()) if len(labs) else int(np.argmax(np.bincount(seg.labels.ravel())[1:]) + 1)
     return _room(seg, label, P, N, infer) or "no_polygon"
+
+
+def camera_height_spread(P: np.ndarray, N: np.ndarray, cams: np.ndarray) -> float | None:
+    """Std of camera heights above the detected floor (m). Cameras of one handheld capture are at
+    nearly one height, so the spread measures how inconsistent the reconstruction's poses are."""
+    fl = floor_level(P, N, cams)
+    return None if fl is None else float(np.std(cams[:, 1] - fl))
+
+
+def stability(P: np.ndarray, N: np.ndarray, cams: np.ndarray, nominal: CloudRoom) -> quality.FaceStability:
+    """Face stability of room_from_cloud under quality.perturbations; the perturbed runs repeat the
+    whole step (floor, segmentation, region choice, walls), where photo/video rooms were seen to flip."""
+    zeros = np.zeros_like(cams)
+
+    def rebuild(pc, region, other):
+        (Pp, Np), (Cp, _) = pc
+        g = room_from_cloud(Pp, Np, Cp)
+        return None if isinstance(g, str) else (g.walls.poly_uv, g.walls.yaw)
+
+    return quality.face_stability(nominal.walls.poly_uv, nominal.walls.yaw, rebuild, [(P, N), (cams, zeros)],
+                                  np.zeros((0, 2)), np.zeros((0, 2)), subsample=[True, False])
+
+
+def face_terms(sources: list[str], st: quality.FaceStability | None, measured_sigma: float, inferred_sigma: float,
+               registration_sigma: float | None) -> list[dict]:
+    """Per-face independent sigma terms for assemble: measurement (or inferred), stability excess
+    over the measurement noise, and the reconstruction's registration inconsistency."""
+    out = []
+    for k, src in enumerate(sources):
+        observed = src in ("close", "all")
+        base = measured_sigma if observed else inferred_sigma
+        t = {"measurement" if observed else "inferred": base}
+        if st is not None:
+            ex = float(np.sqrt(max(0.0, st.sigma_m[k] ** 2 - base ** 2)))
+            if ex > 0:
+                t["stability"] = ex
+        if registration_sigma:
+            t["registration"] = float(registration_sigma)
+        out.append(t)
+    return out
 
 
 def rooms_from_cloud(P: np.ndarray, N: np.ndarray, cams: np.ndarray, min_cams: int = 5, infer: bool = True):

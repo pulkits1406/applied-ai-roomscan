@@ -19,7 +19,7 @@ import numpy as np
 
 from roomscan import geometry as G
 from roomscan.assemble import RoomInput, assemble
-from roomscan.cloudroom import room_from_cloud
+from roomscan.cloudroom import camera_height_spread, face_terms, room_from_cloud, stability
 from roomscan.model import CaptureInfo, Plan
 from roomscan.photo import inference, reconstruct as RC
 from roomscan.photo.images import load_photo, room_folders
@@ -68,6 +68,10 @@ def build(folder: str | Path, cache: str | Path, mode: str = "moge") -> tuple[Pl
             continue
         src = g.walls.source
         observed = [s in ("close", "all") for s in src]
+        st = stability(pc.P, pc.N, pc.cams, g)
+        h_spread = camera_height_spread(pc.P, pc.N, pc.cams)
+        rec.update({"stability_sigma_m": [round(x, 4) for x in st.sigma_m], "stability_runs_without_outline": st.runs_without_outline,
+                    "camera_height_spread_m": None if h_spread is None else round(h_spread, 3)})
         poly = _plan_xy(g.walls.poly_uv)
         poly = poly - poly.min(0) + np.array([x0, 0.0])
         x0 = float(poly[:, 0].max()) + LAYOUT_GAP
@@ -76,6 +80,7 @@ def build(folder: str | Path, cache: str | Path, mode: str = "moge") -> tuple[Pl
             id=name, label=name, polygon=poly,
             face_sigma=[FACE_SIGMA[mode] if o else FACE_SIGMA_INFERRED for o in observed],
             face_status=["measured" if o else "inferred" for o in observed],
+            face_terms=face_terms(src, st, FACE_SIGMA[mode], FACE_SIGMA_INFERRED, h_spread),
             scale_sigma_rel=RC.SCALE_SIGMA_REL, ceiling_h=ch,
             ceiling_sigma=0.0 if ch is None else float(np.hypot(np.sqrt(2) * LEVEL_SIGMA, RC.SCALE_SIGMA_REL * ch)),
             method=f"{METHOD}_{mode}", placed=False))
@@ -86,6 +91,10 @@ def build(folder: str | Path, cache: str | Path, mode: str = "moge") -> tuple[Pl
                          f"placed at the reconstructed floor boundary (face sigma {FACE_SIGMA_INFERRED} m)")
         if ch is None:
             flags.append(f"{name}_ceiling_not_observed: the photos show too little ceiling")
+        if st.unstable_topology:
+            flags.append(f"{name}_topology_unstable: the room outline changes under small irrelevant perturbations; intervals widened")
+        if h_spread is not None and h_spread > 0.15:
+            flags.append(f"{name}_registration_inconsistent: camera heights spread {h_spread:.2f} m; photos probably do not overlap enough")
     if rooms:
         flags.append("rooms_unplaced: photo folders are not stitched into one plan (no validated method: e17 doorway photos 0/36); "
                      "room positions in this plan carry no information")

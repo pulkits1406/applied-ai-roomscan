@@ -691,6 +691,20 @@
    "description": "method applied to poses before stitching",
    "title": "Drift Correction"
   },
+  "provenance": {
+   "anyOf": [
+    {
+     "additionalProperties": true,
+     "type": "object"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null,
+   "description": "code version that produced the plan (git commit, dirty flag, library versions) and pipeline parameters; results are comparable only when produced by the same code",
+   "title": "Provenance"
+  },
   "quality_flags": {
    "description": "capture-quality problems that limit the result, each 'code: explanation' (e.g. upper walls not observed, room without a polygon); an empty or partial plan must say why",
    "items": {

@@ -1,0 +1,284 @@
+{
+ "identical_everywhere": true,
+ "n_sets": 19,
+ "sets": [
+  {
+   "set": "w000",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w001",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w002",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w003",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w004",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w005",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w006",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w007",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w008",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w009",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w010",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w011",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w012",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w013",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w014",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w015",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w016",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "w017",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   },
+   "ma": {
+    "depth": true,
+    "mask": true,
+    "pose": true,
+    "K": true,
+    "in_hw": true
+   }
+  },
+  {
+   "set": "fov",
+   "moge": {
+    "points": true,
+    "mask": true,
+    "K_norm": true
+   }
+  }
+ ]
+}

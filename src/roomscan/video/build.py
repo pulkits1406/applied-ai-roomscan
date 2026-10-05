@@ -22,7 +22,7 @@ import numpy as np
 
 from roomscan import geometry as G
 from roomscan.assemble import RoomInput, assemble
-from roomscan.cloudroom import floor_level, room_from_cloud
+from roomscan.cloudroom import face_terms, floor_level, room_from_cloud, stability
 from roomscan.model import CaptureInfo, Plan
 from roomscan.photo import inference, reconstruct as RC
 from roomscan.photo.images import Photo
@@ -95,6 +95,8 @@ def build(video: str | Path, cache: str | Path, rotate="auto", fps: float = 2.0)
         g = room_from_cloud(pc.P, pc.N, pc.cams)
         if isinstance(g, str):
             debug["windows"].append({**rec, "result": g}); continue
+        st = stability(pc.P, pc.N, pc.cams, g)
+        rec.update({"stability_sigma_m": [round(x, 4) for x in st.sigma_m], "stability_runs_without_outline": st.runs_without_outline})
         ext = np.sort(np.ptp(g.walls.poly_uv, 0))
         measured = sum(s in ("close", "all") for s in g.walls.source)
         rec.update({"result": "ok", "n_walls": len(g.walls.poly_uv), "measured_faces": measured, "extent_m": np.round(ext, 3).tolist(),
@@ -104,11 +106,12 @@ def build(video: str | Path, cache: str | Path, rotate="auto", fps: float = 2.0)
             prev = cands[-1]
             prev["merged"].append(i)
             if measured > prev["measured"]:
-                prev.update({"g": g, "ext": ext, "measured": measured, "t1": w[-1].t, "window": i})
+                prev.update({"g": g, "ext": ext, "measured": measured, "t1": w[-1].t, "window": i, "st": st, "h_spread": float(np.std(hts))})
             else:
                 prev.update({"t1": w[-1].t, "window": i})
             continue
-        cands.append({"g": g, "ext": ext, "measured": measured, "t0": w[0].t, "t1": w[-1].t, "window": i, "merged": [i]})
+        cands.append({"g": g, "ext": ext, "measured": measured, "t0": w[0].t, "t1": w[-1].t, "window": i, "merged": [i],
+                      "st": st, "h_spread": float(np.std(hts))})
     rooms, flags, x0 = [], [], 0.0
     scale_rel = float(np.hypot(RC.SCALE_SIGMA_REL, SIG_INTRINSICS_REL))
     for k, c in enumerate(cands):
@@ -122,9 +125,12 @@ def build(video: str | Path, cache: str | Path, rotate="auto", fps: float = 2.0)
         rooms.append(RoomInput(
             id=rid, label=None, polygon=poly,
             face_sigma=[FACE_SIGMA if o else FACE_SIGMA_INFERRED for o in observed], face_status=["measured" if o else "inferred" for o in observed],
+            face_terms=face_terms(g.walls.source, c["st"], FACE_SIGMA, FACE_SIGMA_INFERRED, c["h_spread"]),
             scale_sigma_rel=scale_rel, ceiling_h=ch,
             ceiling_sigma=0.0 if ch is None else float(np.hypot(np.sqrt(2) * LEVEL_SIGMA, scale_rel * ch)), method=METHOD, placed=False))
         flags.append(f"{rid}_time_span: measured from {c['t0']:.1f}-{c['t1']:.1f} s of the clip (windows {c['merged']})")
+        if c["st"].unstable_topology:
+            flags.append(f"{rid}_topology_unstable: the room outline changes under small irrelevant perturbations; intervals widened")
         if not all(observed):
             flags.append(f"{rid}_walls_inferred: {observed.count(False)} wall(s) not seen at structural height in that window")
     n_ok = sum(1 for w in debug["windows"] if w["result"] == "ok")

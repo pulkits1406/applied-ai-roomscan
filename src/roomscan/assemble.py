@@ -17,8 +17,10 @@ from dataclasses import dataclass, field
 import numpy as np
 
 from roomscan.model import (Adjacency, CaptureInfo, Interval, Measurement, Opening, Plan, Plane, Room, Surface, Tier)
+from roomscan.provenance import provenance
 
 Z90 = 1.645
+UNRELIABLE_REL = 0.5     # floor-area 90 % half-width above which a room is flagged as not a usable measurement
 
 
 @dataclass
@@ -34,7 +36,8 @@ class RoomInput:
     label: str | None = None
     placed: bool = True
     placement_sigma_m: float | None = None
-    face_budget: dict = field(default_factory=dict)   # extra named terms for the record (not propagated)
+    face_terms: list[dict] | None = None   # per edge {term: 1-sigma m}; independent terms, each propagated and
+                                           # reported as 'faces:<term>'; overrides face_sigma when given
 
 
 @dataclass
@@ -79,13 +82,25 @@ def _shift_edge(P, k, d):
     return Q
 
 
+def jacobian(P, eps=1e-4):
+    q0 = _quantities(P)
+    return np.stack([(_quantities(_shift_edge(P, k, eps)) - q0) / eps for k in range(len(P))], 1)   # (Q, K)
+
+
 def propagate(P, face_sigma, scale_rel, eps=1e-4):
     """1-sigma of [wall lengths..., area, perimeter] for a CCW polygon, and the per-term budget."""
     q0 = _quantities(P)
-    J = np.stack([(_quantities(_shift_edge(P, k, eps)) - q0) / eps for k in range(len(P))], 1)   # (Q, K)
+    J = jacobian(P, eps)
     face_var = (J ** 2) @ (np.asarray(face_sigma) ** 2)
     scale = q0 * scale_rel * np.r_[np.ones(len(P)), 2.0, 1.0]       # area scales with s^2
     return np.sqrt(face_var + scale ** 2), np.sqrt(face_var), scale, J
+
+
+def _term_sigmas(P, terms: list[dict]) -> dict:
+    """{term: 1-sigma of every quantity} for independent per-face terms."""
+    J = jacobian(P)
+    names = sorted({k for t in terms for k in t})
+    return {n: np.sqrt((J ** 2) @ np.array([t.get(n, 0.0) ** 2 for t in terms])) for n in names}
 
 
 def _ccw(P, *per_edge):
@@ -98,9 +113,15 @@ def _ccw(P, *per_edge):
 
 
 def room_entities(r: RoomInput) -> tuple[Room, list[Surface]]:
-    P, fs, st = _ccw(np.asarray(r.polygon, float), list(r.face_sigma), list(r.face_status))
+    terms_in = r.face_terms or [{"positions": x} for x in r.face_sigma]
+    P, st, terms = _ccw(np.asarray(r.polygon, float), list(r.face_status), list(terms_in))
+    fs = [float(np.sqrt(sum(v ** 2 for v in t.values()))) for t in terms]
     K = len(P)
     sig, sig_face, sig_scale, J = propagate(P, fs, r.scale_sigma_rel)
+    per_term = _term_sigmas(P, terms)
+
+    def budget(i):
+        return {**{f"faces:{n}": float(v[i]) for n, v in per_term.items() if v[i] > 0}, "shared:scale": float(sig_scale[i])}
     q = _quantities(P)
     h, zt = r.ceiling_h, (r.ceiling_h if r.ceiling_h is not None else 2.4)
     inferred_any = "inferred" in st
@@ -113,18 +134,17 @@ def room_entities(r: RoomInput) -> tuple[Room, list[Surface]]:
         n2 = np.array([p1[1] - p0[1], -(p1[0] - p0[0])]) / max(L, 1e-9)
         sid = f"{r.id}_w{k}"
         wall_ids.append(sid)
-        budget = {"face_positions": sig_face[k], "shared:scale": sig_scale[k]}
         hs = r.ceiling_sigma
         surfaces.append(Surface(
             id=sid, kind="wall", room_id=r.id, plane=Plane(normal=(float(n2[0]), float(n2[1]), 0.0), offset=float(-(n2 @ p0))),
             polygon=[(float(p0[0]), float(p0[1]), 0.0), (float(p1[0]), float(p1[1]), 0.0), (float(p1[0]), float(p1[1]), zt), (float(p0[0]), float(p0[1]), zt)],
             area=meas(L * zt, float(np.hypot(sig[k] * zt, L * hs)), "m2", r.method, status=status),
-            length=meas(L, sig[k], "m", r.method, budget, status),
+            length=meas(L, sig[k], "m", r.method, budget(k), status),
             height=meas(h, hs, "m", r.method)))
     ring = [(float(x), float(y), 0.0) for x, y in P]
     area, perim = float(q[K]), float(q[K + 1])
     a_status = "inferred" if inferred_any else "measured"
-    a_budget = {"face_positions": sig_face[K], "shared:scale": sig_scale[K]}
+    a_budget = budget(K)
     surfaces.append(Surface(id=f"{r.id}_floor", kind="floor", room_id=r.id, plane=Plane(normal=(0, 0, 1.0), offset=0.0), polygon=ring,
                             area=meas(area, sig[K], "m2", r.method, a_budget, a_status)))
     if h is not None:
@@ -132,7 +152,7 @@ def room_entities(r: RoomInput) -> tuple[Room, list[Surface]]:
                                 polygon=[(x, y, float(h)) for x, y, _ in ring], area=meas(area, sig[K], "m2", r.method, a_budget, a_status)))
     room = Room(id=r.id, label=r.label, polygon=[(float(x), float(y)) for x, y in P],
                 floor_area=meas(area, sig[K], "m2", r.method, a_budget, a_status),
-                perimeter=meas(perim, sig[K + 1], "m", r.method, {"face_positions": sig_face[K + 1], "shared:scale": sig_scale[K + 1]}, a_status),
+                perimeter=meas(perim, sig[K + 1], "m", r.method, budget(K + 1), a_status),
                 ceiling_height=meas(h, r.ceiling_sigma, "m", r.method, {"levels": r.ceiling_sigma} if h is not None else None),
                 wall_ids=wall_ids, placement_sigma_m=r.placement_sigma_m, placed=r.placed)
     return room, surfaces
@@ -145,7 +165,7 @@ def wall_id_after_ccw(r: RoomInput, k: int) -> str:
 
 
 def assemble(tier: Tier, rooms: list[RoomInput], openings: list[OpeningInput], capture: CaptureInfo, method: str,
-             quality_flags: list[str], drift_correction: str | None = None) -> Plan:
+             quality_flags: list[str], drift_correction: str | None = None, params: dict | None = None) -> Plan:
     by_id = {r.id: r for r in rooms}
     R, S = [], []
     for r in rooms:
@@ -162,8 +182,14 @@ def assemble(tier: Tier, rooms: list[RoomInput], openings: list[OpeningInput], c
         for room in R:
             if room.id in o.room_ids:
                 room.opening_ids.append(o.id)
+    for x in R:   # the room's own uncertainty says its outline is not usable as a measurement
+        a = x.floor_area
+        if a.value and (a.interval.hi - a.value) > UNRELIABLE_REL * a.value:
+            quality_flags = quality_flags + [f"{x.id}_geometry_unreliable: floor-area 90 % interval +-{100 * (a.interval.hi - a.value) / a.value:.0f} %; "
+                                             "treat this room's outline as indicative only"]
     fp = sum(x.floor_area.value for x in R)
     fp_sig = float(np.sqrt(sum(((x.floor_area.interval.hi - x.floor_area.interval.lo) / (2 * Z90)) ** 2 for x in R)))
     return Plan(capture=capture, rooms=R, surfaces=S, openings=O, adjacency=A,
                 footprint_area=meas(fp, fp_sig, "m2", method, status="inferred" if any(x.floor_area.status == "inferred" for x in R) else "measured"),
-                drift_correction=drift_correction, quality_flags=quality_flags)
+                drift_correction=drift_correction, quality_flags=quality_flags,
+                provenance={**provenance(), "method": method, "params": params or {}})

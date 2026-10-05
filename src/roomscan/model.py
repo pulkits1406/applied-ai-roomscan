@@ -145,6 +145,9 @@ class Plan(BaseModel):
     concealed_damage_flags: list[ConcealedDamageFlag] = Field(default_factory=list)
     scope: list[ScopeItem] = Field(default_factory=list)
     drift_correction: Optional[str] = Field(None, description="method applied to poses before stitching")
+    provenance: Optional[dict] = Field(None, description=(
+        "code version that produced the plan (git commit, dirty flag, library versions) and pipeline parameters; "
+        "results are comparable only when produced by the same code"))
     quality_flags: list[str] = Field(default_factory=list, description=(
         "capture-quality problems that limit the result, each 'code: explanation' (e.g. upper walls not "
         "observed, room without a polygon); an empty or partial plan must say why"))

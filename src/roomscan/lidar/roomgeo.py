@@ -17,7 +17,7 @@ from dataclasses import dataclass
 
 import numpy as np
 
-from roomscan import geometry as G
+from roomscan import geometry as G, quality
 from roomscan.lidar import levels as LV, rooms as RM, walls as WL
 
 MIN_POINTS = 2000
@@ -35,6 +35,9 @@ class RoomGeometry:
     ceil_h: float | None
     n_ceil: int
     cloud: RM.RoomCloud
+    rules: WL.Rules
+    region: np.ndarray            # free-space cell centres (x, z) the outline was built from
+    other: np.ndarray
 
     @property
     def Rm(self):
@@ -49,13 +52,16 @@ class RoomGeometry:
         return np.asarray(self.cloud.all.normals)
 
 
+def _cells(c: RM.Capture, label: int):
+    centers = c.seg.grid.centers()
+    return centers[G.fill_region(c.seg.labels, label)], centers[(c.seg.labels > 0) & (c.seg.labels != label)]
+
+
 def _walls(c: RM.Capture, label: int, rc: RM.RoomCloud, rules: WL.Rules):
     seg = c.seg
-    centers = seg.grid.centers()
     P, N = np.asarray(rc.all.points), np.asarray(rc.all.normals)
     CP, CN = np.asarray(rc.close.points), np.asarray(rc.close.normals)
-    region = centers[G.fill_region(seg.labels, label)]
-    other = centers[(seg.labels > 0) & (seg.labels != label)]
+    region, other = _cells(c, label)
     # first pass with a provisional ceiling, then levels inside the polygon, then the final walls
     w = WL.extract(P, N, CP, CN, seg.grid.floor_y, None, region, other, rules)
     if w is None:
@@ -77,5 +83,18 @@ def measure(c: RM.Capture, label: int, ladder: bool = True) -> RoomGeometry | st
             return "insufficient_points"
         r = _walls(c, label, rc, rules)
         if r is not None:
-            return RoomGeometry(label, step, registration, r[0], r[1], r[2], r[3], rc)
+            return RoomGeometry(label, step, registration, r[0], r[1], r[2], r[3], rc, rules, *_cells(c, label))
     return "no_polygon"
+
+
+def stability(g: RoomGeometry) -> quality.FaceStability:
+    """Face stability of a measured room under the quality.perturbations, same rules and levels."""
+    clouds = [(np.asarray(g.cloud.all.points), np.asarray(g.cloud.all.normals)),
+              (np.asarray(g.cloud.close.points), np.asarray(g.cloud.close.normals))]
+
+    def rebuild(pc, region, other):
+        (P, N), (CP, CN) = pc
+        w = WL.extract(P, N, CP, CN, g.floor_y, g.ceil_h, region, other, g.rules)
+        return None if w is None else (w.poly_uv, w.yaw)
+
+    return quality.face_stability(g.walls.poly_uv, g.walls.yaw, rebuild, clouds, g.region, g.other)
