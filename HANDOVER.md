@@ -1,9 +1,15 @@
-# HANDOVER — state of the project (end of phase 4)
+# HANDOVER — state of the project (end of phase 5: development capture prepared)
 
-Written 2026-10-05 from the repository at commit `8f98342` (+ this handover commit) on `master`,
+Written 2026-10-06 from the repository at commit `48418fe` (+ this handover commit) on `master`,
 the experiment outputs and `ENGINEERING_LOG.md`. This file is authoritative for *state*; the
-reasoning is in the log (phases 1–4) and the per-experiment READMEs. Previous version: commit
-`8328541` (end of phase 3).
+reasoning is in the log (phases 1–5) and the per-experiment READMEs. Previous versions: `2b53124`
+(end of phase 4), `8328541` (end of phase 3).
+
+**Where the project stands:** all three tiers run raw capture → scored plan; LiDAR v1.1 builds all
+7 regions of the sample apartment; photo and video geometry is **not reliable** on the supplied
+recordings (0 % of walls within gate, pseudo-GT), and those recordings are not evidence about the
+proposed future protocol. **The next decision comes from the short development capture**
+(`docs/development_capture_protocol.md`) — development data, not the benchmark.
 
 **Status vocabulary.** IMPLEMENTED = production code under `src/` that runs end to end ·
 PARTIAL = production code covering part of the requirement · EXPERIMENT ONLY = code under
@@ -84,18 +90,23 @@ room captured twice at the same tier; laser/tape GT on everything; raw data subm
 │   ├── assemble.py              SHARED: RoomInput -> Plan with Jacobian-propagated intervals
 │   ├── render.py                SHARED: plan PNG (all tiers; inferred dashed; unplaced noted)
 │   ├── envs.py                  isolated-interpreter resolution for subprocess steps
-│   ├── synthetic.py             exact synthetic two-room Stray capture (smoke tests)
+│   ├── synthetic.py             exact synthetic two-room Stray capture (smoke tests; depth size configurable)
+│   ├── quality.py               face stability under fixed irrelevant perturbations -> sigma terms (phase 5)
+│   ├── provenance.py            code version / dirty flag / libraries recorded in every plan (phase 5)
+│   ├── inspect.py               roomscan-inspect: format report + convention checks for real files (phase 5)
 │   ├── model.py                 output schema 0.1 (+ additive Room.placed)
-│   └── bench/                   site format, matching (method-tagged), gates, evaluator (--execute)
+│   └── bench/                   site format (purpose, partial tape GT), matching (method-tagged, ambiguity),
+│                                gates, evaluator (--execute), compare (material repeatability), leakage
+│                                (tuning guard), diagnostics (debug.json), figures (walls vs reference)
 ├── schema/plan.schema.json      generated from model.py
-├── tests/                       20 tests incl. tests/test_smoke_pipeline.py (synthetic -> --execute)
+├── tests/                       37 tests (+1 opt-in GPU) incl. smoke, repeatability, quality, inputs, dev site
 ├── envs/                        mapanything/, video/ pinned requirements + python-version; weights.yaml
 ├── scripts/                     setup_envs.sh, fetch_weights.py, prepare_intermediates.sh
-├── benchmark/                   README, _template, pseudo_gt_stray_apartment (v0, old),
-│                                pseudo_gt_lidar_v11 (current pseudo-GT site, e24)
-├── docs/                        compliance_matrix, capture_protocol_hypotheses,
-│                                physical_benchmark_procedure, reproduction.md (new)
-└── experiments/e00…e25, DEPENDENCIES.md (input/producer map for every experiment)
+├── benchmark/                   README (purposes + leakage rules), _template (bm), _template_dev (first dev
+│                                session), pseudo_gt_stray_apartment (v0, old), pseudo_gt_lidar_v11 (e24)
+├── docs/                        compliance_matrix, capture_protocol_hypotheses, physical_benchmark_procedure,
+│                                reproduction.md, development_capture_protocol.md (phase 5)
+└── experiments/e00…e27, DEPENDENCIES.md (input/producer map for every experiment)
 ```
 
 **Raw data (FACT):** three Stray exports of one apartment (`single_room`, `single_scan_floor_only`,
@@ -115,8 +126,8 @@ room captured twice at the same tier; laser/tape GT on everything; raw data subm
 | `runs/e22/`, `runs/e23/`, `runs/e24/`, `runs/e25/` | small + model caches | CLIs | e22–e25 (reference plan: `runs/e24/lidar_v11/plan.json`) |
 | e02 PLY, e10 labels, e12 cache | — | see `experiments/DEPENDENCIES.md` | older experiments |
 
-**Entry points (VERIFIED at `8f98342`):** `roomscan-lidar`, `roomscan-photo`, `roomscan-video`,
-`roomscan-bench` (`--execute`), `python -m roomscan.lidar_pipeline` (v0).
+**Entry points (VERIFIED at `48418fe`):** `roomscan-lidar`, `roomscan-photo`, `roomscan-video`,
+`roomscan-bench` (`--execute`), `roomscan-inspect`, `python -m roomscan.lidar_pipeline` (v0).
 
 ---
 
@@ -135,6 +146,17 @@ Video clip   ─ frames → windows → (photo machinery) ┘                   
   scale. Inferred faces make dependent walls and the area `status: inferred`. All intervals
   `calibrated: false`.
 - `model.py` additive change: `Room.placed` (False = room frame only, position meaningless).
+
+### Phase-5 additions (all tiers)
+- **Uncertainty from geometry quality** (`quality.py`): per face, named error-budget terms
+  `faces:measurement` / `faces:inferred` / `faces:stability` (RMS offset under yaw ±1° and two
+  seeded point halves; missing face = 0.5 m) / `faces:registration` (photo/video camera-height
+  spread). A perturbed run without any outline → `topology_fragile` flag (not a positional error).
+  Floor-area half-width > 50 % → `geometry_unreliable`. Deterministic; uncalibrated.
+- **Provenance:** `Plan.provenance` (git commit, dirty flag, library versions, parameters).
+- **Real files:** HEIC via pillow-heif; MOV rotation from the tkhd matrix; Stray depth/RGB sizes
+  read from the export; `roomscan-inspect` re-runs the e01/e05 convention checks.
+- **Determinism (e26):** model outputs bitwise identical across processes; LiDAR repeat ≤ 2.3e-11 m.
 
 ### LiDAR — IMPLEMENTED (v1.1), PARTIAL against the contract
 - `uv run roomscan-lidar <stray_dir> <out> [--placement arkit|arkit_yaw] [--no-ladder]`.
@@ -217,6 +239,8 @@ RGB tracker (e20); V6 wall rules (e18); plane-anchored stitch negative (e19).
 | e23 | Photo frontend on simulated folders | MapAnything relative rotation 44–66° wrong with view-diverse photos, 2–7° with overlapping sweeps; single photos cannot measure rooms; r3 area match was a coincidence (walls 5.73 × 1.58 vs 3 × 3 m) | Overlap is required; geometry inside a partial sweep still wrong | Do not use view-diverse low-overlap sets as the photo contract |
 | e24 | One evaluator path, all tiers, `--execute` | 5/5 captures run raw → scored; photo/video walls 0 % within gate; coverage 0–67 %; size-only matching had paired video rooms wrongly | Integration done; accuracy not; evaluator identity fixes | Score walls, not areas; check identity |
 | e25 | Video: rooms in tracked pieces; windows | PnP pieces smear walls (r3 81 vs 8.9 m²); SIFT pieces scale −12…−30 %, fragmented; windows: 3/18 coherent, rooms −60…−100 % by identity | Video v0 = windows with coherence gate; capture behaviour is the limit | Do not fuse MoGe depth over e20 PnP/SIFT pieces |
+| e26 | Determinism + geometric sensitivity | phase-4 "nondeterminism" was a code change mid-run; MoGe/MapAnything bitwise identical across processes (19/19); LiDAR ≤ 2.3e-11 m; same model outputs give 10.4 vs 0.07 m² under an irrelevant parameter | provenance in every plan; stability term in the error budget | Never compare runs without matching provenance |
+| e27 | Doorway-chain placement evaluation (prepared) | self-check exact; simulated frames `B_not_separated` | ready for the dev capture's C3 set | Not production stitching |
 | synthetic | Exact two-room Stray capture | found the segmentation border-erosion bug; after the fix walls −2 mm, ceiling −1.2 mm, doorway +1 cm | Smoke test + regression for LiDAR geometry | Keep in CI (`tests/test_smoke_pipeline.py`) |
 
 ---
@@ -238,8 +262,10 @@ RGB tracker (e20); V6 wall rules (e18); plane-anchored stitch negative (e19).
 | Photo joint-pose rotation error, view-diverse vs overlapping | 44–66° vs 2–7° (median, failing/working rooms) | PSEUDO-GT | e23 |
 | Photo walls within ±8 % (simulated folders) | 0 % (both selections) | PSEUDO-GT | e24 |
 | Video FOV self-estimate | 777.5 px vs ≈ 795 px (−2.5 %) | PSEUDO-GT | e25 |
-| Video coherent windows / rooms | 3/18 → 3 rooms; −60…−100 % area by identity | PSEUDO-GT | e24, e25 |
-| Interval coverage, all tiers | 0–67 % vs 90 % nominal | PSEUDO-GT | e24 |
+| Video coherent windows / rooms | 3/18 → 3 rooms; −60…−100 % area by identity; v0 now 0.07 ± 0.65 m², flagged unstable/unreliable | PSEUDO-GT | e24, e25, e26 |
+| Interval coverage, all tiers | 0–67 % vs 90 % nominal (LiDAR floor_only 0 → 40 % with the stability term; photo/video unchanged: errors exceed honest widening) | PSEUDO-GT | e24, e26 |
+| Run-to-run repeatability | models bitwise identical; LiDAR ≤ 2.3e-11 m | MEASURED | e26 |
+| Photo interval half-widths with quality terms | ±0.4–1.3 m (was ±0.1 m) | MEASURED | e26 |
 | Runtimes on M4 | LiDAR 6–40 s; photo 127 s / 6 folders; video 479–543 s / 215 s clip | MEASURED | e24 |
 | Isolated env rebuild | 39 s + 33 s (warm cache), 2.3 GB | MEASURED | reproduction agent |
 
@@ -260,6 +286,9 @@ RGB tracker (e20); V6 wall rules (e18); plane-anchored stitch negative (e19).
 | Video frontend = 12 s overlapping windows with a GT-free coherence gate; fragmentation explicit | PROVISIONAL | e20, e25 | rooms in tracked pieces (e25), depth-odometry bridging (e20) | a protocol-following clip tracks continuously |
 | Video FOV from the frames (no metadata, no IMU) | PROVISIONAL (user: plain clip) | e25 −2.5 % | Sensor Logger/IMU | user reinterprets |
 | Isolated envs for MapAnything (+ LightGlue) via subprocess; pycolmap never with torch | FINAL (operational) | OMP #15 verified | KMP_DUPLICATE_LIB_OK hack | upstream fix |
+| Interval widening from measured geometric sensitivity (quality.py), never a blanket factor; uncalibrated | PROVISIONAL | e26 | multiplying intervals; refusing all photo/video rooms | laser calibration |
+| Site purposes + leakage guard: dev data answers questions, never benchmark evidence or silent calibration | FINAL | user instruction | — | — |
+| Ultra-wide (0.5×) photos: A/B test only, not a protocol requirement | PROVISIONAL (user) | e23 hypothesis | mandating 0.5× now | dev capture + device independence |
 | One GPU model resident at a time (one MoGe load per run, MapAnything batched) | FINAL (operational) | memory dips to 4–25k free pages during MapAnything | per-window model loads | more RAM |
 | v0 frozen | FINAL | values verified identical after the geometry.py change | — | — |
 
@@ -282,12 +311,13 @@ RGB tracker (e20); V6 wall rules (e18); plane-anchored stitch negative (e19).
 | Drift ablation / G4 | PARTIAL | e19 |
 | Photo stitch / G5 | AT RISK (no method; overlap-chain untested) | e17, e23 |
 | Photo walls / G6, video walls / G7 | AT RISK (0 % within gate, pseudo-GT) | e24 |
-| Calibration / G8, C6 | EXPLORING (coverage computed per tier: 0–67 %) | e24 |
+| Calibration / G8, C6 | EXPLORING (quality-driven widening; coverage 0–67 %; calibration guard in place) | e24, e26 |
+| Development capture (B0) | READY, blocked on a borrowed iPhone | `docs/development_capture_protocol.md` |
 | Damage O3–O5 | NOT STARTED | — |
 | Benchmark set B1–B5, head-to-head H1 | BLOCKED (physical) | `docs/physical_benchmark_procedure.md` |
 | Fix loop F1/F2 | NOT STARTED (needs a real failing gate; v0 frozen; candidates: doorway bin bias, ceiling bimodality, registration) | — |
 | D1 README < 15 min | PARTIAL (recipes verified; not timed end to end) | `docs/reproduction.md` |
-| D2 reproduction bundle | PARTIAL (`--execute` done; uncached video not bit-stable) | `bench/evaluate.py` |
+| D2 reproduction bundle | PARTIAL (`--execute` done; runs materially identical, e26) | `bench/evaluate.py` |
 | K1 offline / weights by script | PARTIAL (manifest + check; offline end-to-end not run) | `envs/weights.yaml` |
 | Device matrix C2, reports D3/D4, walk-in W1 | NOT STARTED | — |
 
@@ -341,6 +371,9 @@ producers in `experiments/DEPENDENCIES.md`).
 
 ## 10. GIT STATE
 
+- Phase-5 commits: `46871d4` e26 determinism + provenance + quality terms → `49a1a4a` real-file
+  inputs + roomscan-inspect → `4fbed2b` dev-site evaluator + leakage guard → `48418fe` dev capture
+  protocol + e27 + docs → handover commit.
 - Branch `master`. Phase-4 commits: `244f7e5` reproducibility recipes → `5b25c37` LiDAR v1.1 +
   e22 + assemble → `8570bb4` photo/video frontends, `--execute`, synthetic smoke test → `8f98342`
   e24 evaluation + evaluator identity fixes → handover commit. 22 commits before the handover.
@@ -360,8 +393,8 @@ producers in `experiments/DEPENDENCIES.md`).
 ### Local (no device needed)
 | Question | Why | Evidence | Next action |
 |---|---|---|---|
-| Interval honesty when topology/registration is wrong | coverage 0–67 % vs 90 % | e24 | add a topology-risk term or refuse rooms below a coherence threshold; GT-free signals: inferred faces, ladder step, coherence spread |
-| Video/photo numeric instability | uncached runs differ (10.4 vs 0.07 m²) | e24 | seed/fp32 MoGe on the window path; hysteresis in topology choices; measure run-to-run spread |
+| Interval honesty when topology is consistently wrong | stability cannot see it (e26) | flags only | consider refusing rooms on `registration_inconsistent` / `geometry_unreliable` after dev data |
+| Photo/video geometric sensitivity | same model outputs → 10.4 vs 0.07 m² under an irrelevant parameter (e26) | now measured and in the intervals | real dev data first; then decide whether to stabilise the room step |
 | Doorway width +1 cm bias | synthetic shows 1 cm-bin quantisation | synthetic | sub-bin jamb edges; candidate first fix-loop item (synthetic before/after, laser later) |
 | Room 3 bimodal ceiling | ceiling repeat flips 104 mm | e22 | report dominant + secondary level, or the level under most of the floor |
 | e18 vs production repeatability gap (73 vs 65 %) | quoting the right number | e22 | quote production; optionally align half construction |
@@ -411,44 +444,31 @@ prefixes `dev_`, `bm_`, `rep_`, `inc_`, `walk_`, `fail_`). Summary:
 
 ---
 
-**Readiness for the first short development capture (phase-4 conclusion):** the local
-implementation now makes that capture informative. All three tiers run end to end from raw input
-to scored, flagged plans, so a `dev_` capture can be pushed through `roomscan-bench --execute` the
-day it arrives. Each of the three questions has a concrete local failure that only a device can
-resolve:
-1. LiDAR: raw inter-visit misregistration 30–160 mm and knife-edge topology (e22). Does one sweep
-   that shows every wall's top edge remove the need for re-registration?
-2. Video: 3/18 coherent windows on a clip with fast close turns (e25). Does slow turning give
-   coherent windows or continuous tracking?
-3. Photo: joint poses are correct only with overlapping photos, and 2–8 main-camera portrait
-   photos cannot overlap all round (e23). Do 5–6 overlapping 0.5× ultra-wide landscape photos per
-   room give correct rooms, and does the overlapping doorway chain link rooms?
-Keep it to the planned ~30 min `dev_` session, not the 4–5 h benchmark. Additions to the session
-plan in `docs/physical_benchmark_procedure.md` (no redesign): for photos, shoot both the
-overlapping ultra-wide set and a view-diverse main-camera set in the same rooms (A/B on the e23
-finding); for video, one clip following the slow-turn rule and one natural walkthrough; laser-tape
-2–3 walls and one doorway per room so a first non-pseudo error appears.
+**First development capture — READY (phase 5).** The literal operator checklist, the
+pre-registered reading of each result, export steps, file names and day-one commands are in
+`docs/development_capture_protocol.md`; the site template is `benchmark/_template_dev/site.yaml`.
+It answers exactly three questions: **A** LiDAR protocol (×2) vs natural capture; **B** slow-turn
+vs natural video; **C** 1× spread vs 0.5× overlapping photos of the same room, plus the doorway
+chain (e27). Tape: 2–3 walls of room A + the doorway. It is `dev_` data: never benchmark evidence,
+never silent calibration input (`bench/leakage.py`). Ultra-wide stays an A/B test.
 
 ---
 
 ## 13. WHAT SHOULD HAPPEN NEXT (prioritised)
 
-1. **Short development capture** (device; user borrows a LiDAR iPhone). Why: all three tiers now
-   wait on capture-behaviour questions (§12). Output: `dev_` captures in a `benchmark/dev_<date>/`
-   site with a few tape readings; run `roomscan-bench --execute`. Success: each question answered
-   with numbers; LiDAR without re-registration on a protocol sweep; ≥ 1 photo room within ±8 %
-   per wall; video windows coherent at > 50 %.
-2. **Interval honesty for failed topology** (local). Why: coverage 0–67 % vs 90 %; confident
-   garbage is penalised. Output: topology/registration risk in `assemble` inputs (inferred faces,
-   ladder step, coherence spread), or no room emitted below a threshold. Success: pseudo-GT
-   coverage ≥ 80 % without inflating LiDAR rectangle intervals.
-3. **Numeric stability of the photo/video room step** (local). Output: run-to-run spread on the
-   sample clip and folders; deterministic settings. Success: two uncached runs agree.
-4. **First fix-loop candidate on synthetic data** (local; laser later): doorway width +1 cm bin
-   bias → sub-bin jamb estimate; before/after regenerable (`--no-ladder`-style switch or v0).
-5. **Clean-machine timed README run + offline (HF_HUB_OFFLINE=1) end-to-end run** (local, second
-   account or fresh clone) for D1/K1.
-6. Laser benchmark session → calibration → the real fix loop (blocked on hardware).
+1. **Run the development capture** (user, borrowed LiDAR iPhone, ~30 min + ~10 min tape) exactly as
+   in `docs/development_capture_protocol.md`; bring back the files listed there.
+2. **Day one:** `roomscan-inspect` every file; resolve every `CHECK` (Stray format, HEIC
+   orientation/focal, MOV rotation/bit depth) before reading results; fill
+   `benchmark/dev_<date>/site.yaml`; `roomscan-bench ... --execute`; run e27 on C3 with A1 as the
+   reference. Record each answer against its pre-registered reading.
+3. **Decide from the answers** (not from the sample recordings): photo protocol (overlap/0.5×),
+   video protocol (slow turn) and LiDAR protocol wording; only then consider new photo/video
+   algorithms, and only for the failure the dev data shows.
+4. Interval honesty for consistently wrong rooms (refuse or flag harder) — after dev data.
+5. Clean-machine timed README run + offline (`HF_HUB_OFFLINE=1`) end-to-end run (D1/K1).
+6. Laser benchmark session (`bm_`/`rep_`/`inc_`/`walk_`) → calibration from explicitly named
+   sources → the fix loop (candidates: doorway 1 cm-bin bias, ceiling bimodality, registration).
 7. Later: windows (RGB), damage + concealed rules + scope, reports, device matrix.
 
 ---
@@ -486,6 +506,10 @@ finding); for video, one clip following the slow-turn rule and one natural walkt
 | Use view-diverse, non-overlapping photo sets as the photo contract | e23: joint poses 44–66° wrong |
 | Edit `geometry.py` defaults | v0 depends on them; add parameters instead (as `segment_rooms` padding) |
 | Load MoGe per window / MapAnything per room | memory dips to 4k free pages; one load per run |
+| Compare two runs without matching `provenance` | e26: a code change mid-run was misread as nondeterminism |
+| Use dev_ results as benchmark evidence or as unnamed calibration input | leakage; enforced by `bench/leakage.py` |
+| Make 0.5× ultra-wide mandatory before the dev A/B and a second device | user decision; evidence first |
+| Tune photo/video models further on the supplied recordings | they are not evidence for the proposed protocol; the dev capture decides |
 
 ---
 
